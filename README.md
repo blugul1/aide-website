@@ -28,3 +28,10 @@
 - صرف منظور شدہ اعداد (300+ ورکشاپس، 700+ گھنٹے، 15+ سال، 15 ممالک، 5 زبانیں)؛ کوئی فیس، کوئی جعلی testimonial نہیں۔
 - ٹیم/اقدامات کی تصاویر اصل ہیں (پرانی سائٹ کے assets سے)؛ AI برانڈ تصاویر میں کوئی خاتون نہیں (مالک کا حکم)۔
 - ہر تبدیلی کے بعد بلڈ + تمام صفحات کی براؤزر جانچ (ایرر، لنکس، تصاویر، وٹس ایپ prefill) لازمی — اس بلڈ میں 36/36 پاس۔
+
+## FINAL DESIGN BUILD (2026-11-04)
+- The three home pages (index.html, ur/index.html, ar/index.html) are standalone final-design pages.
+  Rebuild them with:  python3 src/home_gen/build_home.py   (content lives in src/home_gen/loc_*.py)
+- All other pages:     python3 src/build.py                (build.py no longer writes index.html)
+- Hero film: hero-film.mp4 (web cut) + hero-poster.webp + dome logo aide-logo-dome.png at site root.
+- Per-page photos: aide-about/coaching/writes/contact/programmes.webp + prog-*.webp at site root.

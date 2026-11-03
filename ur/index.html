@@ -1,634 +1,787 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="ur" dir="rtl" data-theme="night">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>عمران اسلم | لائف کوچ و ٹرینر — AIDE</title>
-<meta name="description" content="کوچنگ، تربیت اور ایماندارانہ گفتگو — آگاہی سے عمدگی تک۔">
+<meta name="description" content="AIDE — آگاہی سے عمدگی تک۔ عمران اسلم کی کوچنگ اور تربیت۔">
 <link rel="icon" type="image/png" href="../aide-logo.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="عمران اسلم | لائف کوچ و ٹرینر — AIDE">
-<meta property="og:description" content="کوچنگ، تربیت اور ایماندارانہ گفتگو — آگاہی سے عمدگی تک۔">
-<meta property="og:image" content="../aide-logo.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="AIDE — آگاہی سے عمدگی تک۔ عمران اسلم کی کوچنگ اور تربیت۔">
+<meta property="og:image" content="../hero-poster.webp">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-:root{
-  --canvas:#040B1C; --navy:#0A1A3B; --navy2:#0C2241; --sea:#3DAB94; --sea-hi:#4FBFA7;
-  --ink:#EDF3FB; --muted:#A9BEDD; --bronze:#C9A227; --gold:#E9C767; --line:#1E3A5F;
-  --glass:rgba(16,36,72,.55); --glass-brd:rgba(120,180,220,.22);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--canvas);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
-img{max-width:100%;display:block}
-::selection{background:var(--sea);color:#04160F}
-:focus-visible{outline:2px solid var(--sea-hi);outline-offset:2px;border-radius:4px}
-#progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--sea);transform:scaleX(0);transform-origin:0 50%;z-index:90;will-change:transform}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
-.ur{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif}
-/* ambient aurora — brand colours, alive */
-.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
-.orb.sea{width:56vw;height:56vw;background:radial-gradient(circle,rgba(61,171,148,.34),transparent 65%);top:-18vw;inset-inline-end:-14vw;animation:drift1 26s ease-in-out infinite alternate}
-.orb.deep{width:48vw;height:48vw;background:radial-gradient(circle,rgba(38,84,168,.5),transparent 65%);bottom:-20vw;inset-inline-start:-12vw;animation:drift2 32s ease-in-out infinite alternate}
-.orb.bronze{width:26vw;height:26vw;background:radial-gradient(circle,rgba(201,162,39,.16),transparent 65%);top:38%;inset-inline-start:56%;animation:drift1 38s ease-in-out infinite alternate-reverse}
-@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(-6vw,5vh) scale(1.14)}}
-@keyframes drift2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(5vw,-4vh) scale(.94)}}
-/* nav */
-nav{position:sticky;top:0;z-index:60;background:rgba(4,11,28,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;gap:18px;min-height:72px;transition:min-height .35s ease}
-nav.scrolled{background:rgba(4,11,28,.93)}
-nav.scrolled .nav-in{min-height:58px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.bezel{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:800 11px/1 "Segoe UI",sans-serif;letter-spacing:.06em;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.28),rgba(255,255,255,.04) 55%),var(--navy2);border:1px solid var(--glass-brd);box-shadow:inset 0 0 0 3px rgba(61,171,148,.35),0 6px 18px rgba(0,0,0,.45)}
-.brand strong{font-size:19px;letter-spacing:.14em}
-.brand small{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted)}
-.nav-links{margin-inline-start:auto;display:flex;gap:22px;align-items:center}
-.nav-links a{text-decoration:none;font-size:14.5px;color:var(--muted);position:relative;padding:4px 0}
-.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--sea);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.nav-links a:not(.btn):hover{color:var(--ink)}
-.nav-links a:not(.btn):hover::after{transform:scaleX(1)}
-.nav-links a.btn{color:#04160F}
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--sea);color:#04160F;font-weight:700;font-size:15px;padding:12px 22px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;transition:box-shadow .3s ease;will-change:transform}
-.btn:hover{box-shadow:0 14px 32px rgba(61,171,148,.4)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-/* hero */
-.hero{position:relative;padding:96px 0 0;overflow:hidden}
-#glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(79,191,167,.14),transparent 62%);pointer-events:none;transform:translate(-50%,-50%);left:70%;top:34%;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--bronze);font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.eyebrow::before{content:"";width:12px;height:2px;background:var(--bronze)}
-.mask{display:block;overflow:hidden}
-.mask>span{display:block;transform:translateY(110%);animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
-.mask.d1>span{animation-delay:.08s}.mask.d2>span{animation-delay:.22s}
-@keyframes rise{to{transform:translateY(0)}}
-.hero h1{font-size:clamp(40px,5.4vw,64px);line-height:1.1;font-weight:800;letter-spacing:-.01em;margin:20px 0 6px}
-.hero h1 .thin{font-weight:300;color:var(--muted);font-size:.5em;letter-spacing:.02em}
-.blur-line{filter:blur(9px);opacity:0;animation:sharpen 1.1s ease .55s forwards}
-@keyframes sharpen{to{filter:blur(0);opacity:1}}
-.ur-line{font-size:22px;line-height:2.2;margin:16px 0 6px;background:linear-gradient(100deg,var(--sea-hi) 20%,#DFF7EE 40%,var(--sea-hi) 60%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 5.5s ease-in-out infinite}
-@keyframes sheen{0%,100%{background-position:90% 0}50%{background-position:10% 0}}
-.hero p.lead{color:var(--muted);font-size:17.5px;max-width:52ch;margin:12px 0 30px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.stats{display:flex;margin-top:46px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(10,26,59,.45)}
-.stat{flex:1;padding:16px 10px;text-align:center}
-.stat+.stat{border-inline-start:1px solid var(--line)}
-.stat b{display:block;font-size:24px}
-.stat span{font-size:12px;color:var(--muted)}
-/* hero stage — revolving 3D picture ring */
-.stage{perspective:1400px;position:relative;height:520px;z-index:2;touch-action:pan-y}
-.orbit{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
-.ring{position:absolute;top:46%;left:50%;width:292px;height:372px;margin:-186px 0 0 -146px;transform-style:preserve-3d;will-change:transform}
-.panel{position:absolute;inset:0;border-radius:18px;overflow:hidden;border:1px solid var(--glass-brd);box-shadow:0 34px 70px rgba(0,0,0,.55);backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--navy2);transition:border-color .5s ease,box-shadow .5s ease}
-.panel.front{border-color:rgba(79,191,167,.9);box-shadow:0 34px 70px rgba(0,0,0,.55),0 0 46px rgba(61,171,148,.38)}
-.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.13) 50%,transparent 58%);transform:translateX(-130%);animation:panelSheen 9s ease-in-out infinite;pointer-events:none;z-index:1}
-.panel:nth-child(2)::after{animation-delay:1.5s}.panel:nth-child(3)::after{animation-delay:3s}.panel:nth-child(4)::after{animation-delay:4.5s}.panel:nth-child(5)::after{animation-delay:6s}.panel:nth-child(6)::after{animation-delay:7.5s}
-@keyframes panelSheen{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
-.panel img{width:100%;height:100%;object-fit:cover;pointer-events:none}
-.panel img.op-l{object-position:24% 50%}
-.panel img.op-r{object-position:68% 50%}
-.panel figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 16px;background:rgba(4,11,28,.84);backdrop-filter:blur(8px);font-size:13px;z-index:2}
-.panel figcaption b{display:block;font-size:15px}
-.floor-glow{position:absolute;left:50%;bottom:34px;width:440px;height:96px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(61,171,148,.3),transparent 70%);filter:blur(8px);pointer-events:none;z-index:1}
-.drag-hint{position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:11.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;z-index:3;background:rgba(4,11,28,.55);padding:6px 14px;border-radius:99px;backdrop-filter:blur(6px);border:1px solid rgba(30,58,95,.6);white-space:nowrap}
-.orbit-nav{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:3}
-.orbit-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(10,26,59,.72);color:var(--ink);font-size:19px;line-height:1;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .25s ease,transform .25s ease}
-.orbit-btn:hover{border-color:var(--sea);transform:translateY(-2px)}
-.menu-btn{display:none;margin-inline-start:auto;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:rgba(10,26,59,.6);color:var(--ink);font-size:20px;cursor:pointer;place-items:center}
-.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(4,11,28,.97);border-bottom:1px solid var(--line);padding:10px 24px 18px;flex-direction:column;gap:4px;z-index:59}
-.mobile-menu a{color:var(--ink);text-decoration:none;padding:11px 4px;font-size:16px;border-bottom:1px solid rgba(30,58,95,.5)}
-.mobile-menu a:last-child{border-bottom:0}
-.mobile-menu.open{display:flex}
-nav{position:sticky}
-@media(max-width:900px){
-  .menu-btn{display:grid}
-  .nav-links{display:none}
-}
+  :root{
+    --navy:#0A1A3B;
+    --navy-2:#0E2249;
+    --sea:#3DAB94;
+    --sea-hi:#4FBFA7;
+    --gray:#E8E9EB;
+    --ink:#10182B;
+    --paper:#FFFFFF;
+    /* night (default) */
+    --bg:#0A1A3B;
+    --bg-soft:#0D2148;
+    --surface:rgba(255,255,255,.055);
+    --surface-line:rgba(255,255,255,.14);
+    --text:#F2F5F7;
+    --text-dim:rgba(232,233,235,.72);
+    --head:#FFFFFF;
+    --nav-bg:rgba(10,26,59,.82);
+    --band:#081230;
+    --card-shadow:0 24px 50px rgba(0,0,0,.35);
+  }
+  html[data-theme="day"]{
+    --bg:#E8E9EB;
+    --bg-soft:#DFE3E7;
+    --surface:rgba(255,255,255,.62);
+    --surface-line:rgba(10,26,59,.12);
+    --text:#1C2739;
+    --text-dim:#46536A;
+    --head:#0A1A3B;
+    --nav-bg:rgba(232,233,235,.85);
+    --band:#0A1A3B;
+    --card-shadow:0 24px 50px rgba(10,26,59,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg); color:var(--text);
+    transition:background .5s ease,color .5s ease;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--sea);color:#fff}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--sea);
+  }
+  h1,h2,h3{color:var(--head);line-height:1.08;font-weight:800;letter-spacing:-.01em}
+  h2{font-size:clamp(30px,4.4vw,52px)}
+  h3{font-size:21px}
+  p{line-height:1.75}
+  .dim{color:var(--text-dim)}
 
-/* marquee */
-.marquee{margin-top:84px;border-block:1px solid var(--line);padding:16px 0;overflow:hidden;background:rgba(10,26,59,.35);position:relative;z-index:2;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.mq-track{display:flex;gap:0;width:max-content;animation:mq 30s linear infinite;will-change:transform}
-.marquee:hover .mq-track{animation-play-state:paused}
-.mq-track span{font-size:21px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:0 26px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(169,190,221,.75)}
-.mq-track span.fill{color:var(--sea-hi);-webkit-text-stroke:0}
-.mq-track span.ur{font-size:23px;letter-spacing:0;text-transform:none;-webkit-text-stroke:0;color:var(--gold)}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* reveal */
-.rv{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease}
-.rv.in{opacity:1;transform:none;filter:blur(0)}
-.rv-l{opacity:0;transform:translateX(-46px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv-r{opacity:0;transform:translateX(46px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv-l.in,.rv-r.in{opacity:1;transform:none}
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--surface-line);
+  }
+  .nav-in{display:flex;align-items:center;gap:18px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none;margin-right:auto}
+  /* logo as a glass bezel — a squared glass frame, never a disc */
+  .bezel{
+    position:relative;width:52px;height:52px;padding:5px;border-radius:50%;flex:none;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.35);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.45), inset 0 -8px 16px rgba(10,26,59,.25), 0 6px 18px rgba(0,0,0,.25);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  html[data-theme="day"] .bezel{background:rgba(255,255,255,.55);border-color:rgba(10,26,59,.18)}
+  .bezel img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+  /* the orbiting arc — the circle in slow motion, the flame always climbing */
+  .bezel::after,.emblem::after{
+    content:"";position:absolute;inset:-6px;border-radius:50%;pointer-events:none;
+    background:conic-gradient(from 210deg, transparent 0deg, transparent 285deg, rgba(201,162,39,.0) 300deg, #C9A227 335deg, transparent 360deg);
+    -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+            mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    animation:orbit 16s linear infinite;
+  }
+  @keyframes orbit{ to{ transform:rotate(360deg) } }
+  /* the emblem — the mark itself, rising into the hero and completing the CTA */
+  .emblem{
+    position:relative;width:96px;height:96px;padding:7px;border-radius:50%;
+    background:rgba(10,26,59,.45);border:1px solid rgba(255,255,255,.4);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5), inset 0 -10px 20px rgba(10,26,59,.3), 0 14px 34px rgba(0,0,0,.35);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    animation:riseIn 1.3s cubic-bezier(.2,.7,.25,1) both .15s;
+  }
+  .emblem img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+  .emblem::after{inset:-8px;animation-duration:22s}
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(30px) } to{ opacity:1; transform:none } }
+  .cta-emblem{width:84px;height:84px;margin-bottom:26px;background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);animation:none}
+  .brand b{display:block;font-size:17px;color:var(--head);letter-spacing:.01em}
+  .brand span{display:block;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;font-size:14.5px;font-weight:600;color:var(--text)}
+  .nav-links a:hover{color:var(--sea)}
+  .toggle{
+    cursor:pointer;border:1px solid var(--surface-line);background:var(--surface);
+    color:var(--text);font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    padding:9px 14px;border-radius:999px;display:flex;align-items:center;gap:8px;
+  }
+  .toggle .dot{width:9px;height:9px;border-radius:50%;background:var(--sea)}
+  html[data-theme="day"] .toggle .dot{background:#E9B44C}
+  @media (max-width:820px){ .nav-links a:not([href="#start"]){display:none} .brand span span{display:none} .brand b{font-size:15px} }
 
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:flex-end;
+    background:var(--navy) url("../hero-poster.webp") center/cover no-repeat;
+    overflow:hidden;isolation:isolate;
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  }
+  /* the one sea-green glow (night hero) — drifts forward and back: a CSS boomerang */
+  .hero .glow{
+    position:absolute;z-index:1;width:62vmax;height:62vmax;border-radius:50%;
+    right:-18vmax;top:-20vmax;pointer-events:none;
+    background:radial-gradient(circle at center, rgba(61,171,148,.5) 0%, rgba(61,171,148,.14) 42%, rgba(61,171,148,0) 68%);
+    animation:drift 13s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(-9vmax,7vmax) scale(1.12)}
+  }
+  .hero .shade{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(10,26,59,.42) 0%, rgba(10,26,59,.08) 34%, rgba(10,26,59,.55) 78%, rgba(10,26,59,.88) 100%);
+  }
+  .hero-in{position:relative;z-index:2;width:min(1180px,92vw);margin:0 auto;padding:150px 0 110px}
+  .hero .eyebrow{color:#BFE9DF;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+  /* EXCLUSION headline — the signature blend from the reference video:
+     white type blended against the moving picture beneath it */
+  .blend{
+    mix-blend-mode:exclusion;color:#fff;
+    font-size:clamp(46px,8.6vw,118px);font-weight:900;line-height:.98;letter-spacing:-.015em;
+    text-transform:uppercase;margin:18px 0 8px;
+  }
+  .blend .row{display:block}
+  .blend .row.alt{color:#9adbc9}
+  .hero-sub{
+    max-width:560px;color:rgba(255,255,255,.88);font-size:clamp(16px,1.6vw,19px);
+    text-shadow:0 1px 12px rgba(0,0,0,.5);margin-top:16px;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:700;font-size:15px;
+    padding:15px 26px;border-radius:4px;transition:transform .25s ease, background .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-solid{background:var(--sea);color:#fff}
+  .btn-solid:hover{background:var(--sea-hi)}
+  .btn-line{border:1px solid rgba(255,255,255,.65);color:#fff;background:rgba(10,26,59,.25)}
+  .hero-note{margin-top:22px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+  /* hard diagonal cut out of the hero */
+  .cut{display:block;height:54px;background:var(--bg);clip-path:polygon(0 100%,100% 100%,100% 0);margin-top:-54px;position:relative;z-index:3;transition:background .5s ease}
+  .cut.flip{clip-path:polygon(0 0,100% 100%,0 100%)}
 
-section{padding:88px 0;position:relative;z-index:2}
-.sec-head{max-width:660px;margin-bottom:38px}
-.sec-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;line-height:1.2;margin:12px 0 10px}
-.sec-head p{color:var(--muted);font-size:16.5px}
-/* scroll scene — pinned room */
-.scene{height:175vh;position:relative;z-index:2}
-.scene-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
-.scene-media{position:absolute;inset:0;overflow:hidden;transform:scaleX(-1)}
-.scene-media img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;will-change:transform,filter;animation:kb 16s ease-in-out infinite alternate;filter:brightness(.62) saturate(.92)}
-.scene-shade{position:absolute;inset:0;background:radial-gradient(90% 90% at 30% 50%,rgba(4,11,28,.38),rgba(4,11,28,.88));opacity:.7;will-change:opacity}
-.scene-in{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 24px;width:100%}
-.scene .k{color:var(--gold);font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.scene h2{font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.16;max-width:15ch;margin:16px 0 14px}
-.scene p{color:#F2F7FF;font-size:18px;font-weight:500;max-width:46ch;text-shadow:0 1px 18px rgba(4,11,28,.78)}
-.scene .line{display:block;will-change:transform,opacity}
-.scene-cta{margin-top:28px}
-/* watermark */
-.watermark{overflow:hidden;padding:26px 0 6px;position:relative;z-index:1}
-.watermark .wm{font-size:clamp(90px,17vw,230px);font-weight:800;letter-spacing:.04em;line-height:1;color:rgba(61,171,148,.07);-webkit-text-stroke:1.5px rgba(79,191,167,.6);white-space:nowrap;will-change:transform;text-transform:uppercase}
-/* programmes */
-.explorer{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:stretch}
-.prog-list{display:flex;flex-direction:column;gap:10px}
-.prog-btn{position:relative;overflow:hidden;text-align:start;background:rgba(10,26,59,.5);border:1px solid var(--line);color:var(--ink);border-radius:13px;padding:15px 17px;cursor:pointer;font:600 15.5px "Segoe UI",sans-serif;transition:transform .25s ease,border-color .25s ease,background .25s ease}
-.prog-btn::after{content:"";position:absolute;top:0;left:-80%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.13),transparent);transform:skewX(-18deg);transition:left .6s ease}
-.prog-btn:hover::after{left:130%}
-.prog-btn small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
-.prog-btn:hover{transform:translateX(5px);border-color:var(--sea)}
-.prog-btn.on{background:rgba(61,171,148,.14);border-color:var(--sea);color:#fff}
-.flip-wrap{perspective:1400px}
-.flip{position:relative;width:100%;height:100%;min-height:340px;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.25,1)}
-.flip.flipping{transform:rotateY(90deg)}
-.flip-face{position:absolute;inset:0;border-radius:20px;border:1px solid var(--glass-brd);background:linear-gradient(160deg,rgba(20,44,92,.92),rgba(8,20,46,.96));box-shadow:0 34px 70px rgba(0,0,0,.5);padding:38px 40px;display:flex;flex-direction:column;overflow:hidden}
-.flip-face .k{color:var(--bronze);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.flip-face h3{font-size:30px;font-weight:800;margin:12px 0 6px;line-height:1.25}
-.flip-face .fmt{color:var(--sea-hi);font-weight:600;font-size:15px}
-.flip-face p{color:var(--muted);margin-top:14px;font-size:16px;max-width:56ch}
-.flip-face ul{margin:16px 0 0 18px;color:var(--muted);font-size:15px}
-.flip-face ul li{margin:5px 0}
-.flip-face .foot{margin-top:auto;padding-top:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.flip-face .who{font-size:13.5px;color:var(--muted)}
-.flip-face::after{content:"";position:absolute;inset:0;background:radial-gradient(430px circle at var(--mx,72%) var(--my,18%),rgba(79,191,167,.13),transparent 62%);pointer-events:none;opacity:0;transition:opacity .45s ease}
-.flip-wrap:hover .flip-face::after{opacity:1}
-/* quiz */
-.quiz{background:rgba(10,26,59,.5);border-block:1px solid var(--line)}
-.quiz-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
-.quiz-photo{border-radius:20px;overflow:hidden;border:1px solid var(--glass-brd);box-shadow:0 30px 60px rgba(0,0,0,.45)}
-.quiz-photo img{width:100%;height:420px;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
-.quiz-photo:not(.in) img{clip-path:inset(100% 0 0 0)}
-.quiz-photo.in img{clip-path:inset(0 0 0 0)}
-.quiz-photo:hover img{transform:scale(1.06)}
-.quiz-card{background:rgba(4,11,28,.6);border:1px solid var(--line);border-radius:20px;padding:32px 34px}
-#qBody{transition:opacity .28s ease,transform .28s ease}
-#qBody.qswap{opacity:0;transform:translateY(10px)}
-.qprog{height:8px;background:#12294f;border-radius:99px;overflow:hidden;margin-bottom:22px}
-.qprog i{display:block;height:100%;width:0;background:var(--sea);border-radius:99px;transition:width .5s ease}
-.quiz-card h3{font-size:21.5px;font-weight:700;line-height:1.45;min-height:62px}
-.qopts{display:grid;gap:10px;margin-top:16px}
-.qopt{background:rgba(16,36,72,.6);border:1px solid var(--line);color:var(--ink);text-align:start;border-radius:12px;padding:13px 16px;font:500 15.5px "Segoe UI",sans-serif;cursor:pointer;transition:transform .2s ease,border-color .2s ease}
-.qopt:hover{transform:translateY(-2px);border-color:var(--sea)}
-.qres{display:none}.qres.show{display:block}
-.qres .big{font-size:24px;font-weight:800;margin-bottom:8px}
-.qres p{color:var(--muted)}
-/* writes */
-.write-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.write-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(10,26,59,.45);text-decoration:none;display:block;color:var(--ink);transition:transform .35s ease,border-color .35s ease}
-.write-card:visited{color:var(--ink)}
-.write-card:hover{transform:translateY(-7px);border-color:var(--sea)}
-.write-card .ph{height:190px;overflow:hidden}
-.write-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),clip-path 1.05s cubic-bezier(.2,.7,.2,1)}
-.write-card .ph img.top{object-position:50% 8%}
-.write-card:not(.in) .ph img{clip-path:inset(0 100% 0 0)}
-.write-card.in .ph img{clip-path:inset(0 0 0 0)}
-.write-card:hover .ph img{transform:scale(1.09)}
-.write-card .bd{padding:24px 26px 26px}
-.write-card .k{color:var(--bronze);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.write-card h3{font-size:21px;line-height:1.45;margin:9px 0 8px;font-weight:700}
-.write-card p{color:var(--muted);font-size:14.5px}
-.write-card .go{color:var(--sea-hi);font-size:14px;font-weight:600;margin-top:13px;display:inline-block;transition:transform .3s ease}
-.write-card:hover .go{transform:translateX(6px)}
-/* faq + closing */
-.faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:rgba(10,26,59,.45);overflow:hidden}
-.faq-q{width:100%;background:none;border:0;color:var(--ink);text-align:start;padding:19px 22px;font:600 16.5px "Segoe UI",sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center}
-.faq-q .arr{color:var(--sea-hi);transition:transform .35s ease;font-size:19px}
-.faq-item.open .arr{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.faq-a div{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
-.closing{background:var(--navy) url('../gen-lc-banner.webp') right center/auto 100% no-repeat;border-radius:22px;padding:52px 46px;min-height:360px;display:flex;align-items:center;border:1px solid var(--line);position:relative;overflow:hidden}
-.closing::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,11,28,.94) 26%,rgba(4,11,28,.62) 55%,rgba(4,11,28,.04) 80%);pointer-events:none}
-.closing-in{position:relative;max-width:56%}
-.closing h2{font-size:30px;font-weight:800;line-height:1.3;position:relative}
-.closing p{color:#C7D6EE;margin-top:10px;position:relative}
-.closing .cta-row{margin-top:24px;position:relative;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.closing .cta-note{font-size:13.5px;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:38px 0 46px;color:var(--muted);font-size:14px;position:relative;z-index:2}
-.foot-grid{display:flex;gap:26px;flex-wrap:wrap;justify-content:space-between}
-footer a{color:var(--muted);text-decoration:none}
-footer a:hover{color:var(--ink)}
-.bookbar{display:none}
-@media(max-width:900px){
-  .hero-grid,.quiz-grid,.write-grid,.closing{grid-template-columns:1fr}
-  .stage{height:480px;max-width:440px}
-  .ring{width:246px;height:314px;margin:-157px 0 0 -123px}
-  .flip{min-height:430px}
-  .bookbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:95;align-items:center;justify-content:space-between;gap:12px;background:rgba(10,26,59,.92);border:1px solid var(--sea);border-radius:14px;padding:10px 12px 10px 16px;backdrop-filter:blur(10px);box-shadow:0 18px 40px rgba(0,0,0,.5);font-size:14px}
-  .bookbar .btn{padding:10px 16px;font-size:14px}
-    body{padding-bottom:76px}
-  .explorer{grid-template-columns:1fr}
-  .prog-list{flex-direction:row;flex-wrap:wrap}
-  .prog-btn{flex:1 1 44%}
-  .closing{background-position:68% 50%;padding:38px 26px}
-  .closing::before{background:linear-gradient(90deg,rgba(4,11,28,.95) 45%,rgba(4,11,28,.72) 75%,rgba(4,11,28,.35))}
-  .closing-in{max-width:100%}
-  .nav-links a:not(.btn){display:none}
-  .quiz-photo img{height:260px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv,.rv-l,.rv-r{opacity:1;transform:none;filter:none}
-  .quiz-photo img,.write-card .ph img{clip-path:none!important}
-  .mask>span{transform:none}
-  .blur-line{filter:none;opacity:1}
-  .scene{height:auto}.scene-pin{position:static;height:auto;padding:70px 0}
-  .scene-media img{transform:none}
-  html{scroll-behavior:auto}
-}
+  /* ---------- PROVEN RESULTS STRIP ---------- */
+  .proven{background:var(--band);color:#E8E9EB;position:relative}
+  .proven .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .proof{padding:38px 30px 34px;border-left:1px solid rgba(255,255,255,.12)}
+  .proof:first-child{border-left:none}
+  .proof b{display:block;font-size:clamp(26px,3vw,40px);color:#fff;font-weight:900;letter-spacing:-.01em}
+  .proof b em{font-style:normal;color:var(--sea-hi)}
+  .proof span{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:rgba(232,233,235,.75)}
+  .proven .honest{
+    border-top:1px solid rgba(255,255,255,.12);padding:16px 0 20px;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,233,235,.55);text-align:center;
+  }
+  @media (max-width:900px){ .proven .wrap{grid-template-columns:1fr 1fr} .proof:nth-child(3){border-left:none} }
+  @media (max-width:520px){ .proven .wrap{grid-template-columns:1fr} .proof{border-left:none;border-top:1px solid rgba(255,255,255,.12)} .proof:first-child{border-top:none} }
 
-@keyframes kb{from{transform:scale(1.08) translateX(-1.2%)}to{transform:scale(1.17) translateX(1.2%)}}
-@media (prefers-reduced-motion: reduce){.scene-media img{animation:none}}
+  /* ---------- SECTIONS ---------- */
+  section{padding:110px 0}
+  .sec-head{max-width:640px;margin-bottom:52px}
+  .sec-head p{margin-top:14px;color:var(--text-dim);font-size:17px}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .rv.on{opacity:1;transform:none}
 
-/* ===== full-site page components (shared by all sub-pages) ===== */
-.nav-links a.act{color:var(--ink)}
-.page-hero{padding:158px 0 26px;position:relative;z-index:1}
-.page-hero h1{font-size:clamp(38px,5.4vw,58px);font-weight:800;line-height:1.12;letter-spacing:-.01em;max-width:18ch}
-.page-hero .lead{color:var(--muted);font-size:18px;max-width:58ch;margin-top:16px;line-height:1.75}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
-.split img{width:100%;border-radius:20px;border:1px solid var(--line);display:block}
-.prose p{color:var(--muted);line-height:1.85;margin-bottom:14px;font-size:16.5px}
-.prose p b,.prose b{color:var(--ink)}
-.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mini-card{background:linear-gradient(180deg,rgba(21,42,82,.55),rgba(10,26,59,.35));border:1px solid var(--line);border-radius:16px;padding:24px}
-.mini-card h3{font-size:18px;margin-bottom:8px}
-.mini-card p{color:var(--muted);font-size:14.5px;line-height:1.7}
-.mini-card .mono{width:64px;height:64px;border-radius:50%;background:var(--navy2);border:1px solid var(--sea);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:var(--sea2);margin-bottom:14px}
-.mini-card img{width:100%;height:220px;object-fit:cover;object-position:top;border-radius:12px;margin-bottom:14px;display:block}
-.prog{border:1px solid var(--line);border-radius:20px;padding:30px;background:linear-gradient(180deg,rgba(21,42,82,.45),rgba(10,26,59,.3));margin-bottom:18px}
-.prog .fmt{color:var(--gold);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.prog h3{font-size:26px;margin:8px 0 2px}
-.prog .uname{font-family:'Noto Nastaliq Urdu',serif;color:var(--sea2);font-size:19px}
-.prog p{color:var(--muted);line-height:1.75;margin-top:10px;max-width:64ch}
-.prog ul{margin:12px 0 4px 18px;color:var(--muted);line-height:1.95;font-size:15px}
-.prog .row{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-start}
-.prog .side{min-width:190px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{border:1px solid var(--line);border-radius:16px;padding:24px;background:rgba(10,26,59,.35)}
-.step .n{font-size:32px;font-weight:800;color:var(--sea);line-height:1}
-.step h3{font-size:17px;margin:10px 0 6px}
-.step p{color:var(--muted);font-size:14.5px;line-height:1.7}
-.note{border:1px solid rgba(201,162,39,.45);background:rgba(201,162,39,.07);border-radius:14px;padding:18px 20px;color:var(--muted);line-height:1.75;font-size:15px}
-.note b{color:var(--gold)}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{border:1px solid var(--line);border-radius:99px;padding:8px 16px;color:var(--muted);font-size:14px}
-.big-cta{border:1px solid var(--line);border-radius:20px;padding:36px;background:linear-gradient(180deg,rgba(21,42,82,.5),rgba(10,26,59,.3));text-align:center}
-.big-cta h2{font-size:28px;margin-bottom:10px}
-.big-cta p{color:var(--muted);line-height:1.75;max-width:52ch;margin:0 auto 20px}
-@media(max-width:900px){.split,.cards3,.steps{grid-template-columns:1fr}.page-hero{padding-top:120px}}
+  /* About — deliberately off-grid: photo left, text pushed down, quote pulled out */
+  .about-grid{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:64px;align-items:start}
+  .about-photo{position:relative}
+  .about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;clip-path:polygon(0 0,100% 0,100% calc(100% - 34px),calc(100% - 34px) 100%,0 100%)}
+  .about-photo::after{
+    content:"";position:absolute;left:-16px;bottom:-16px;width:120px;height:120px;
+    border-left:3px solid var(--sea);border-bottom:3px solid var(--sea);
+  }
+  .about-copy{padding-top:34px}
+  .about-copy p{font-size:17.5px;margin-bottom:18px;max-width:56ch}
+  .about-copy p:first-of-type{font-size:20px}
+  .pull{
+    margin:30px 0 6px;padding:22px 26px;border-left:4px solid var(--sea);
+    background:var(--surface);font-size:19px;font-weight:600;color:var(--head);line-height:1.6;
+  }
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr} .about-copy{padding-top:0} }
 
-/* ===== dropdown nav + language switcher ===== */
-.has-drop{position:relative;display:inline-flex;align-items:center}
-.drop{position:absolute;top:100%;padding-top:14px;background-clip:padding-box;inset-inline-start:0;min-width:240px;background:rgba(10,26,59,.97);border:1px solid var(--line);border-radius:14px;padding:8px;display:none;flex-direction:column;box-shadow:0 24px 50px rgba(0,0,0,.5);z-index:70;backdrop-filter:blur(10px)}
-.has-drop:hover .drop,.has-drop:focus-within .drop,.has-drop.open .drop{display:flex}
-.drop a{color:var(--muted);text-decoration:none;padding:9px 12px;border-radius:9px;font-size:14.5px;white-space:nowrap}
-.drop a:hover{background:rgba(61,171,148,.15);color:var(--ink)}
-.lang-btn{background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:7px 13px;cursor:pointer;font:inherit;font-size:13.5px}
-.lang-btn:hover{color:var(--ink);border-color:var(--sea)}
-.lang-drop{min-width:150px}
-.mm-group{display:block;color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 4px 2px}
-.mm-sub{padding-inline-start:18px !important;font-size:15px !important;color:var(--muted) !important}
-.mm-lang{display:flex;gap:16px;padding:8px 4px}
-.mm-lang a{border-bottom:0 !important;padding:4px 0 !important}
-/* ===== programme detail pages ===== */
-.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 34px;margin:6px 0 0}
-.mod-grid li{color:var(--muted);line-height:1.8;font-size:15.5px;margin-inline-start:18px}
-.out-list{margin:6px 0 0}
-.out-list li{color:var(--muted);line-height:1.9;font-size:15.5px;margin-inline-start:18px}
-.detail-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start}
-.fact-box{border:1px solid var(--line);border-radius:18px;padding:24px;background:linear-gradient(180deg,rgba(21,42,82,.5),rgba(10,26,59,.3))}
-.fact-box h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.fact-box p{color:var(--muted);line-height:1.8;font-size:15px;margin-bottom:14px}
-@media(max-width:900px){.mod-grid,.detail-grid{grid-template-columns:1fr}}
-/* ===== RTL locales ===== */
-[dir="rtl"] .scene-media{transform:none}
-[dir="rtl"] .scene-shade{background:radial-gradient(90% 90% at 70% 50%,transparent 40%,rgba(4,11,28,.55) 100%)}
-[dir="rtl"] .closing{background-position:left center}
-[dir="rtl"] .closing::before{background:linear-gradient(270deg,rgba(4,11,28,.94) 26%,rgba(4,11,28,.62) 55%,rgba(4,11,28,.04) 80%)}
-[dir="rtl"] .prog ul{margin-left:0;margin-right:18px}
-[dir="rtl"] .uname,[dir="rtl"] .ur-lines{letter-spacing:0}
-body.loc-ur{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif}
-body.loc-ur p,body.loc-ur li{line-height:2.05}
-body.loc-ur h1,body.loc-ur h2,body.loc-ur h3{line-height:1.9}
-body.loc-ur .eyebrow,body.loc-ur .fmt,body.loc-ur .k,body.loc-ur .chip,body.loc-ur .mm-group,body.loc-ur .fact-box h4{letter-spacing:0}
-body.loc-ur .btn,body.loc-ur .nav-links a,body.loc-ur .drop a{line-height:1.9}
-body.loc-ar{font-family:'Noto Naskh Arabic','Traditional Arabic',sans-serif}
-/* nav fit with dropdowns + language switcher */
-@media(min-width:901px){.nav-links{gap:15px}.nav-links .btn{white-space:nowrap;flex:none;padding:10px 16px;font-size:14px}.brand small{letter-spacing:.18em}}
+  /* Programmes — featured panel + uneven rows, not a card grid */
+  .prog-feature{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:0;margin-bottom:18px;
+    background:var(--navy);color:#E8E9EB;overflow:hidden;
+    clip-path:polygon(0 0,100% 0,100% 100%,26px 100%,0 calc(100% - 26px));
+  }
+  .prog-feature .txt{padding:44px}
+  .prog-feature h3{color:#fff;font-size:clamp(24px,3vw,34px);margin:10px 0 12px}
+  .prog-feature p{color:rgba(232,233,235,.8)}
+  .prog-feature .fmt{margin-top:18px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--sea-hi)}
+  .uswa{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14)}
+  .uswa div{background:var(--navy-2);padding:24px 22px}
+  .uswa b{display:block;color:#fff;font-size:17px}
+  .uswa span{font-size:13.5px;color:rgba(232,233,235,.65)}
+  .uswa i{font-style:normal;color:var(--sea-hi);font-weight:800;font-size:22px;display:block;margin-bottom:8px}
+  .prog-rows{border-top:1px solid var(--surface-line)}
+  .prog-row{
+    display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:baseline;
+    padding:26px 6px;border-bottom:1px solid var(--surface-line);text-decoration:none;
+    transition:background .25s ease,padding-left .25s ease;
+  }
+  .prog-row:hover{background:var(--surface);padding-left:16px}
+  .prog-row .no{font-weight:900;color:var(--sea);font-size:15px;letter-spacing:.1em}
+  .prog-row h3{margin-bottom:5px}
+  .prog-row p{color:var(--text-dim);font-size:15px;max-width:62ch}
+  .prog-row .arr{font-size:22px;color:var(--sea)}
+  @media (max-width:820px){ .prog-feature{grid-template-columns:1fr} .prog-row{grid-template-columns:1fr} .prog-row .arr{display:none} }
 
-/* ===== visual fixes round (owner review 2026-11-01) ===== */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-@media(max-width:900px){.grid2{grid-template-columns:1fr}}
-.write-card .ph img{object-position:center 22%}
-.write-card .ph img[src$="imran-writing.webp"]{object-position:center 16%}
-.write-card .ph img[src$="gen-lc-portrait.webp"]{object-position:center 12%}
-/* RTL scene: mirror the EN composition — coach clear, text over the seated side */
-[dir="rtl"] .scene-media{transform:scaleX(-1)}
-[dir="rtl"] .scene-shade{background:radial-gradient(90% 90% at 30% 50%,transparent 40%,rgba(4,11,28,.55) 100%)}
-[dir="rtl"] .scene-in{padding-inline-start:32%}
-/* scene headline sizes tuned per script */
-body.loc-ur .scene-in h2{font-size:clamp(30px,3.4vw,44px);line-height:1.85}
-body.loc-ar .scene-in h2{font-size:clamp(32px,3.8vw,50px);line-height:1.5}
-body.loc-ur .scene-in p,body.loc-ar .scene-in p{text-shadow:0 2px 14px rgba(4,11,28,.9)}
-@media(max-width:1560px){.stage{transform:scale(.92);transform-origin:center right}}
-@media(max-width:1280px){.stage{transform:scale(.86);transform-origin:center right}}
+  /* Team — staggered offsets so it does not read as a template grid */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .member{background:var(--surface);border:1px solid var(--surface-line);box-shadow:var(--card-shadow);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .member:nth-child(2){transform:translateY(26px)}
+  .member:nth-child(4){transform:translateY(26px)}
+  .member img{width:100%;aspect-ratio:1/1.08;object-fit:cover;object-position:top}
+  .member .bd{padding:20px 20px 24px}
+  .member h3{font-size:18.5px}
+  .member span{display:block;margin-top:5px;font-size:13.5px;color:var(--text-dim);line-height:1.55}
+  .team-note{margin-top:56px;font-size:14px;color:var(--text-dim);max-width:70ch}
+  @media (max-width:960px){ .team-grid{grid-template-columns:1fr 1fr} .member:nth-child(2),.member:nth-child(4){transform:none} }
+  @media (max-width:520px){ .team-grid{grid-template-columns:1fr} }
 
-/* ===== Chris KE application round (2026-11-01) ===== */
-.scene-in h2{mix-blend-mode:exclusion}
-.prog,.write-card,.fact-box{position:relative;overflow:hidden}
-.prog::after,.write-card::after,.fact-box::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.06) 45%,rgba(61,171,148,.10) 50%,rgba(255,255,255,.06) 55%,transparent 68%);transform:translateX(-130%);pointer-events:none;transition:transform 1s ease}
-.prog:hover::after,.write-card:hover::after,.fact-box:hover::after{transform:translateX(130%)}
+  /* Assessment */
+  .assess-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .assess-photo img{width:100%;aspect-ratio:4/4.6;object-fit:cover;clip-path:polygon(34px 0,100% 0,100% 100%,0 100%,0 34px)}
+  .quiz-card{background:var(--surface);border:1px solid var(--surface-line);box-shadow:var(--card-shadow);padding:36px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .qprog{height:5px;background:var(--surface-line);margin-bottom:26px}
+  .qprog i{display:block;height:100%;width:0;background:var(--sea);transition:width .45s ease}
+  .quiz-card h3{font-size:22px;margin-bottom:20px;line-height:1.4}
+  .qopt{
+    display:block;width:100%;text-align:left;cursor:pointer;font:inherit;font-size:15.5px;
+    padding:14px 18px;margin-bottom:10px;color:var(--text);
+    background:transparent;border:1px solid var(--surface-line);border-radius:4px;
+    transition:border-color .2s ease,background .2s ease;
+  }
+  .qopt:hover{border-color:var(--sea);background:rgba(61,171,148,.08)}
+  .qres{display:none}
+  .qres .big{font-size:26px;font-weight:800;color:var(--head);margin-bottom:10px}
+  @media (max-width:860px){ .assess-grid{grid-template-columns:1fr} }
 
+  /* flat solid sea-green CTA block — no gradient, per the design law */
+  .cta-block{background:var(--sea);color:#fff}
+  .cta-block .wrap{display:flex;align-items:center;gap:34px;padding:64px 0;flex-wrap:wrap}
+  .cta-block h2{color:#fff;flex:1 1 420px}
+  .cta-block p{color:rgba(255,255,255,.85);max-width:52ch;margin-top:8px}
+  .cta-block .btn{background:#fff;color:var(--navy)}
+  .cta-block .btn:hover{background:var(--gray)}
+  .cta-block .btn.dark{background:var(--navy);color:#fff}
+
+  footer{background:#060F27;color:rgba(232,233,235,.75);padding:64px 0 40px}
+  .foot-grid{display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+  footer .line{font-size:19px;color:#fff;font-weight:700}
+  footer a{color:var(--sea-hi);text-decoration:none}
+  .foot-small{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+
+  .prog-row .fmt{display:block;margin-top:6px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea)}
+  .prog-feature .ask{display:inline-block;margin-top:22px;color:#fff;font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea-hi);padding-bottom:3px}
+  .prog-feature .ask:hover{color:var(--sea-hi)}
+  .init-head{margin-top:72px}
+  .init-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .init{display:flex;gap:20px;background:var(--surface);border:1px solid var(--surface-line);box-shadow:var(--card-shadow);padding:24px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .init img{width:96px;height:96px;object-fit:cover;object-position:top;flex:none;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+  .init h3{font-size:18px;margin-bottom:4px}
+  .init .who{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);font-weight:700}
+  .init p{font-size:14.5px;color:var(--text-dim);margin-top:8px;line-height:1.65}
+  @media (max-width:820px){ .init-grid{grid-template-columns:1fr} }
+  .steps{display:grid;gap:14px}
+  .step{background:var(--surface);border:1px solid var(--surface-line);padding:22px 24px;box-shadow:var(--card-shadow)}
+  .step b{display:block;font-size:16.5px;color:var(--head);margin-bottom:5px}
+  .step b i{font-style:normal;color:var(--sea);margin-right:10px;font-weight:900}
+  .step p{font-size:15px;color:var(--text-dim)}
+  .boundary{margin-top:22px;font-size:14px;color:var(--text-dim);border-left:4px solid var(--sea);padding:6px 0 6px 18px;line-height:1.7}
+  [lang="ur"]{font-family:'Noto Nastaliq Urdu','Segoe UI',serif}
+  .write-quote{font-size:clamp(21px,2.6vw,29px);font-weight:700;color:var(--head);line-height:1.55;margin:18px 0 8px}
+  .write-quote[lang="ur"]{line-height:2.15;font-weight:400}
+  .eyebrow [lang="ur"]{letter-spacing:0;font-size:14px}
+  .write-quote .src{display:block;margin-top:10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);font-weight:700}
+
+  /* programme rows as a staircase — each step a shade nearer the light */
+  .prog-row:nth-child(1){background:linear-gradient(90deg, rgba(61,171,148,.03), transparent 65%)}
+  .prog-row:nth-child(2){background:linear-gradient(90deg, rgba(61,171,148,.05), transparent 65%)}
+  .prog-row:nth-child(3){background:linear-gradient(90deg, rgba(61,171,148,.07), transparent 65%)}
+  .prog-row:nth-child(4){background:linear-gradient(90deg, rgba(61,171,148,.09), transparent 65%)}
+  .prog-row:nth-child(5){background:linear-gradient(90deg, rgba(61,171,148,.11), transparent 65%)}
+  /* the ascent meter — a thin line at the edge that climbs as you do */
+  .ascent{
+    position:fixed;top:0;right:0;width:3px;height:100vh;z-index:55;
+    background:rgba(255,255,255,.08);
+  }
+  .ascent i{
+    position:absolute;left:0;bottom:0;width:100%;height:100%;display:block;
+    background:linear-gradient(0deg, #C9A227 0%, var(--sea) 55%, var(--sea-hi) 100%);
+    transform:scaleY(0);transform-origin:bottom;
+  }
+  .ascent i::after{
+    content:"";position:absolute;top:-4px;left:50%;width:9px;height:9px;border-radius:50%;
+    transform:translateX(-50%);background:var(--sea-hi);
+    box-shadow:0 0 12px 3px rgba(79,191,167,.75);
+  }
+  @media (max-width:820px){ .ascent{width:2px} }
+  @media (max-width:640px){ .hero .emblem{display:none} }
+  /* back to the top — a small round rocket moment */
+  .toTop{
+    position:fixed;right:22px;bottom:22px;z-index:56;width:52px;height:52px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.4);cursor:pointer;color:#fff;font-size:20px;line-height:1;
+    background:rgba(10,26,59,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 10px 26px rgba(0,0,0,.35);
+    opacity:0;pointer-events:none;transform:translateY(14px);
+    transition:opacity .4s ease,transform .4s ease;
+  }
+  .toTop.show{opacity:1;pointer-events:auto;transform:none}
+  .toTop:hover{background:var(--sea)}
+  html[data-theme="day"] .toTop{background:rgba(255,255,255,.65);color:var(--navy);border-color:rgba(10,26,59,.25)}
+  html[data-theme="day"] .toTop:hover{background:var(--sea);color:#fff}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero .glow{animation:none}
+    .rv{opacity:1;transform:none;transition:none}
+    .bezel::after,.emblem::after{animation:none}
+    .emblem{animation:none}
+    .toTop{transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ===== FINAL BUILD ADDITIONS ===== */
+  .hero{min-height:0;display:block;background:var(--navy)}
+  .stage{position:relative;aspect-ratio:16/9;max-height:96svh;overflow:hidden;background:var(--navy)}
+  .vwrap{position:absolute;inset:0}
+  .vwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-in{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 0 46px}
+  .hero-in .emblem{width:74px;height:74px;margin-bottom:16px}
+  .hook{font-size:clamp(38px,5.6vw,80px)}
+  .hero-lead{background:var(--bg);padding:46px 0 10px;transition:background .5s ease}
+  .hero-lead p{font-size:clamp(17px,1.7vw,20px);line-height:1.8;max-width:920px;color:var(--text)}
+  @media (max-width:1100px) and (min-width:821px){ .hero-in .emblem{display:none} }
+  .hook .w{display:inline-block;opacity:0;transform:translateY(.35em);animation:wup .7s cubic-bezier(.2,.7,.25,1) forwards;animation-delay:calc(var(--i)*65ms + 150ms)}
+  @keyframes wup{to{opacity:1;transform:none}}
+  .hero-sub2{margin-top:14px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+  @media (max-width:820px){
+    .stage{aspect-ratio:auto;max-height:none;display:block}
+    .vwrap{position:relative;aspect-ratio:16/9;width:100%}
+    .hero-in{position:static;padding:34px 0 44px;background:linear-gradient(180deg,#081230,#0D2148)}
+    .hero-in .emblem{display:none}
+    .hook{font-size:clamp(30px,9vw,44px)}
+    body{padding-bottom:54px}
+  }
+  .proven .wrap{grid-template-columns:repeat(3,1fr)}
+  .proof:nth-child(4){border-left:none}
+  .proof:nth-child(n+4){border-top:1px solid rgba(255,255,255,.12)}
+  @media (max-width:900px){ .proven .wrap{grid-template-columns:1fr 1fr} .proof:nth-child(3){border-left:none} .proof:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)} .proof:nth-child(4){border-left:1px solid rgba(255,255,255,.12)} }
+  @media (max-width:520px){ .proven .wrap{grid-template-columns:1fr} .proof{border-left:none!important} }
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:34px 0 6px}
+  .steps3 .step b i{font-style:normal}
+  @media (max-width:820px){ .steps3{grid-template-columns:1fr} }
+  .prog-feature{position:relative}
+  .prog-feature::before{content:"";position:absolute;top:0;left:-45%;width:45%;height:3px;z-index:3;
+    background:linear-gradient(90deg,transparent,#C9A227,#4FBFA7,transparent);animation:beam 6s ease-in-out infinite}
+  @keyframes beam{0%{left:-45%}52%{left:100%}100%{left:100%}}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .member:nth-child(4){transform:none}
+  .member .intro{font-size:14px;color:var(--text-dim);line-height:1.65;margin-top:9px}
+  @media (max-width:960px){ .team-grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:520px){ .team-grid{grid-template-columns:1fr} }
+  .init p{font-size:15px;line-height:1.72}
+  .coach-list{display:grid;gap:12px}
+  .coach-row{background:var(--surface);border:1px solid var(--surface-line);padding:18px 22px;box-shadow:var(--card-shadow)}
+  .coach-row b{display:block;font-size:16.5px;color:var(--head)}
+  .coach-row span{display:block;font-size:14px;color:var(--text-dim);margin-top:3px;line-height:1.6}
+  .coach-row a{display:inline-block;margin-top:9px;font-weight:700;color:var(--sea);text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px}
+  .coach-row a:hover{color:var(--sea-hi)}
+  .sticky-book{display:none}
+  @media (max-width:820px){
+    .sticky-book{display:block;position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--sea);color:#fff;
+      text-align:center;font-weight:700;font-size:15.5px;padding:15px 10px;text-decoration:none;box-shadow:0 -6px 24px rgba(0,0,0,.3)}
+  }
+  .lang-links a{font-weight:700}
+  .foot-pages a{margin-inline-end:14px}
+  @media (prefers-reduced-motion: reduce){
+    .hook .w{opacity:1;transform:none;animation:none}
+    .prog-feature::before{animation:none;display:none}
+  }
+
+  [dir="rtl"] .pull{border-left:none;border-right:4px solid var(--sea)}
+  [dir="rtl"] .boundary{border-left:none;border-right:4px solid var(--sea);padding:6px 18px 6px 0}
+  [dir="rtl"] .proof{border-left:none;border-right:1px solid rgba(255,255,255,.12)}
+  [dir="rtl"] .proof:first-child{border-right:none}
+  [dir="rtl"] .about-photo::after{left:auto;right:-16px;border-left:none;border-right:3px solid var(--sea)}
+  [dir="rtl"] .prog-row:hover{padding-left:6px;padding-right:16px}
+  [dir="rtl"] .qopt{text-align:right}
+  [dir="rtl"] .ascent{right:auto;left:0}
+  [dir="rtl"] .toTop{right:auto;left:22px}
+  [dir="rtl"] .step b i{margin-right:0;margin-left:10px}
+  [dir="rtl"] .brand{margin-right:0;margin-left:auto}
+
+  body{font-family:'Noto Nastaliq Urdu','Segoe UI',serif}
+  p{line-height:2.05}
+  h1,h2,h3{font-family:'Noto Nastaliq Urdu','Segoe UI',serif}
+  h2{line-height:1.95}
+  h3{line-height:1.9}
+  .hook{text-transform:none;letter-spacing:0;font-weight:700;font-size:clamp(24px,3.9vw,46px);line-height:2.05}
+  .eyebrow{letter-spacing:.02em;text-transform:none;font-size:13.5px}
+  .hero-note,.hero-sub2{letter-spacing:.02em;text-transform:none}
+  .btn{padding:17px 26px 13px}
+  .proof b{font-family:'Segoe UI',system-ui,sans-serif}
+  .proof span{line-height:1.95}
+  .member .intro,.coach-row span,.init p{line-height:2}
+  .qopt{line-height:1.95}
+  .quiz-card h3{line-height:2}
+  @media (max-width:820px){ .hook{font-size:clamp(23px,7.4vw,36px)} }
 </style>
 </head>
-<body class="loc-ur">
-<div id="progress" aria-hidden="true"></div>
-<div class="aurora" aria-hidden="true"><div class="orb sea"></div><div class="orb deep"></div><div class="orb bronze"></div></div>
-<nav><div class="wrap nav-in">
-  <a class="brand" href="index.html"><span class="bezel">AIDE</span><span><strong>AIDE</strong><small>FROM AWARENESS TO EXCELLENCE</small></span></a>
-  <div class="nav-links">
-    <div class="has-drop"><a data-nav="about" href="about.html">تعارف</a><div class="drop"><a href="about.html">عمران کا تعارف</a><a href="about.html#team">ٹیم</a><a href="about.html#circle">آزاد اقدامات</a></div></div>
-    <div class="has-drop"><a data-nav="programmes" href="programmes.html">پروگرامز</a><div class="drop"><a href="programme-pldp.html">نبوی قیادت — PLDP</a><a href="programme-habits.html">عادت سازی کا نظام</a><a href="programme-sales.html">رویے پر مبنی سیلز مہارت</a><a href="programme-teach.html">دل سے تدریس</a><a href="programme-homes.html">گھر کی بنیاد</a><a href="programme-rise.html">اُٹھو اور بنو — RISE</a><a href="programmes.html">تمام پروگرامز</a></div></div>
-    <div class="has-drop"><a data-nav="coaching" href="coaching.html">کوچنگ</a><div class="drop"><a href="coaching.html">انفرادی کوچنگ</a><a href="index.html#check">سیلف چیک</a><a href="contact.html#faq">سوالات</a></div></div>
-    <a data-nav="writes" href="writes.html">مانی رائیٹس</a>
-    <a data-nav="contact" href="contact.html">رابطہ</a>
-    <div class="has-drop"><button class="lang-btn" type="button" aria-label="زبان بدلیں">اردو ▾</button><div class="drop lang-drop"><a href="../index.html">English</a>
-<a href="index.html">اردو</a>
-<a href="../ar/index.html">العربية</a></div></div>
-    <a class="btn magnetic" href="https://wa.me/923309222029?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">مفت ڈسکوری کال</a>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="bezel"><img src="../aide-logo.png" alt="AIDE logo"></span>
+      <span><b>Imran Aslam</b><span>لائف کوچ و ٹرینر</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">تعارف</a><a href="#programmes">پروگرامز</a><a href="#team">ٹیم</a><a href="#coaching">کوچنگ</a><a href="#writing">تحریریں</a><a href="contact.html">رابطہ</a>
+      <span class="lang-links"><a href="../index.html">EN</a> · <a href="index.html">اردو</a> · <a href="../ar/index.html">العربية</a></span>
+      <button class="toggle" id="themeToggle" type="button" aria-label="Theme">
+        <span class="dot"></span><span id="themeLabel">رات — ارورا</span>
+      </button>
+    </div>
   </div>
-  <button class="menu-btn" id="menuBtn" type="button" aria-label="مینیو کھولیں" aria-expanded="false">☰</button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="about.html">تعارف</a>
-  <a href="about.html#team">ٹیم</a>
-  <a href="programmes.html">پروگرامز</a>
-  <span class="mm-group">پروگرامز کی تفصیل</span>
-  <a class="mm-sub" href="programme-pldp.html">نبوی قیادت — PLDP</a>
-  <a class="mm-sub" href="programme-habits.html">عادت سازی کا نظام</a>
-  <a class="mm-sub" href="programme-sales.html">رویے پر مبنی سیلز مہارت</a>
-  <a class="mm-sub" href="programme-teach.html">دل سے تدریس</a>
-  <a class="mm-sub" href="programme-homes.html">گھر کی بنیاد</a>
-  <a class="mm-sub" href="programme-rise.html">اُٹھو اور بنو — RISE</a>
-  <a href="coaching.html">کوچنگ</a>
-  <a href="writes.html">مانی رائیٹس</a>
-  <a href="contact.html">رابطہ</a>
-  <span class="mm-group">زبان</span>
-  <span class="mm-lang"><a href="../index.html">English</a><a href="index.html">اردو</a><a href="../ar/index.html">العربية</a></span>
-  <a href="https://wa.me/923309222029?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">مفت ڈسکوری کال</a>
-</div>
 </nav>
 
 <header class="hero" id="top">
-  <div id="glow" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">عمران اسلم · لائف کوچ و ٹرینر</span>
-      <h1>
-        <span class="mask d1"><span>وضاحت پہلے۔</span></span>
-        <span class="mask d2"><span class="thin">پھر عمدگی خود آتی ہے —</span></span>
-        <span class="blur-line" style="display:block"><span class="thin">قصداً، اتفاقاً نہیں۔</span></span>
-      </h1>
-      <p class="ur-line ur" lang="ur">ذہن صاف ہو تو راستہ خود نظر آتا ہے۔</p>
-      <p class="lead">کوچنگ، تربیت اور ایماندارانہ گفتگو — ان افراد اور ٹیموں کے لیے جو ایسی تبدیلی چاہتے ہیں جو پیر کی صبح بھی قائم رہے۔ مرکز بھمبر، آزاد کشمیر — کام آن لائن، ہر جگہ۔</p>
-      <div class="hero-cta">
-        <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85!%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%8C%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%DB%8C%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">مفت 15 منٹ ڈسکوری کال بک کریں</a>
-        <a class="btn ghost" href="#scene">کمرے میں داخل ہوں ↓</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>300+</b><span>ورکشاپس کی قیادت</span></div>
-        <div class="stat"><b>700+</b><span>کوچنگ گھنٹے</span></div>
-        <div class="stat"><b>15+</b><span>مشق کے سال</span></div>
-        <div class="stat"><b>5</b><span>زبانیں</span></div>
-      </div>
+  <div class="stage" id="heroStage">
+    <div class="vwrap">
+      <video id="heroVideo" loop muted playsinline autoplay preload="auto" poster="../hero-poster.webp" aria-hidden="true">
+        <source src="../hero-film.mp4" type="video/mp4">
+      </video>
     </div>
-    <div class="stage" id="stage">
-      <div class="orbit" id="orbit">
-        <div class="ring" id="ring">
-          <figure class="panel"><img src="../imran-warm.webp" alt="عمران اسلم"><figcaption><b>عمران اسلم</b>بانی، AIDE</figcaption></figure>
-          <figure class="panel"><img src="../irfan-aslam.webp" alt="عرفان اسلم ٹریننگ روم میں"><figcaption><b>عرفان اسلم</b>بزنس کنسلٹنٹ و کوچ</figcaption></figure>
-          <figure class="panel"><img class="op-r" src="../gen-ad-suit.webp" alt="عمران اسلم سوٹ میں، گہرے نیوی پس منظر کے سامنے"><figcaption><b>پیشہ ور</b>کوچنگ و تربیت</figcaption></figure>
-          <figure class="panel"><img src="../gen-men-workshop.webp" alt="عمران اسلم ورکشاپ کی میزوں کے درمیان سمجھاتے ہوئے، شرکاء لکھتے اور گفتگو کرتے ہوئے"><figcaption><b>ورکشاپ میں</b>اصل کمرے، اصل مشق</figcaption></figure>
-          <figure class="panel"><img class="op-l" src="../gen-men-coaching.webp" alt="عمران اسلم انفرادی کوچنگ گفتگو میں ایک کلائنٹ کی بات سنتے ہوئے"><figcaption><b>انفرادی کوچنگ</b>آن لائن، جہاں بھی ہوں</figcaption></figure>
-          <figure class="panel"><img src="../gen-thobe-formal.webp" alt="عمران اسلم کریم ثوب میں مجلس میں بیٹھے"><figcaption><b>مجلس</b>فیصلہ کرنے والی گفتگوئیں</figcaption></figure>
-          <figure class="panel"><img src="../gen-thobe-navy.webp" alt="عمران اسلم نیوی ثوب میں لائبریری میں نوٹ بک تھامے"><figcaption><b>سرحدوں پار</b>15 ممالک میں ورکشاپس</figcaption></figure>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="shade" aria-hidden="true"></div>
+    <div class="hero-in">
+      <div class="wrap">
+        <div class="emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
+        <span class="eyebrow">AIDE · ایکسیلریٹنگ اِن سائٹس اینڈ ڈیولپمنٹ فار ایکسیلینس</span>
+        <h1 class="blend hook" id="hook"><span class="row">لوگ اس لیے نہیں بدلتے</span>
+<span class="row">کہ وہ زیادہ سن لیتے ہیں۔</span>
+<span class="row alt">وہ تب بدلتے ہیں جب وہ مختلف دیکھنا شروع کر دیتے ہیں۔</span></h1>
+        <div class="hero-cta">
+          <a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">مفت ڈسکوری کال بک کریں</a>
+          <a class="btn btn-line" href="#programmes">پروگرامز دیکھیں</a>
         </div>
+        <p class="hero-sub2">بھمبر، آزاد کشمیر سے — اور آن لائن، ہر جگہ۔</p>
       </div>
-      <div class="floor-glow" aria-hidden="true"></div>
-      <div class="drag-hint" aria-hidden="true">گھمانے کے لیے کھینچیں · Drag</div>
-      <div class="orbit-nav"><button class="orbit-btn" id="orbPrev" type="button" aria-label="پچھلی تصویر">‹</button><button class="orbit-btn" id="orbPause" type="button" aria-label="گھومتی تصاویر روکیں" aria-pressed="false">❚❚</button><button class="orbit-btn" id="orbNext" type="button" aria-label="اگلی تصویر">›</button></div>
     </div>
   </div>
-  <div class="marquee" aria-hidden="true"><div class="mq-track" id="mqTrack">
-    <span lang="ur">قیادت</span><span class="fill">·</span><span>Coaching</span><span class="fill">·</span><span lang="ur">عادات</span><span class="fill">·</span><span>Training</span><span class="fill">·</span><span lang="ur">اسوہ</span><span class="fill">·</span><span>Habits</span><span class="fill">·</span><span lang="ur">خاندان</span><span class="fill">·</span><span>Leadership</span><span class="fill">·</span>
-  </div></div>
 </header>
-<main>
+<span class="cut" aria-hidden="true"></span>
+<div class="hero-lead"><div class="wrap"><p>ایک بہتر قائد۔ ایک مضبوط ٹیم۔ ایک پُرسکون گھر۔ ایک نوجوان جسے معلوم ہو کہ وہ کس سمت جا رہا ہے۔ ان سب کی شروعات آگاہی سے ہوتی ہے، اور ہمارا کام وہیں سے شروع ہوتا ہے۔ میں عمران اسلم ہوں، لائف کوچ اور ٹرینر۔ AIDE کے ذریعے میں ان افراد، خاندانوں، پیشہ ور افراد اور اداروں کے ساتھ کام کرتا ہوں جو جہاں ہیں وہاں سے وہاں پہنچنا چاہتے ہیں جہاں وہ ہونا چاہتے ہیں۔</p></div></div>
 
-<div class="scene" id="scene">
-  <div class="scene-pin">
-    <div class="scene-media"><img id="sceneImg" src="../gen-men-table.webp" alt="عمران اسلم ورکشاپ کی میز کے گرد مردوں کے چھوٹے گروپ کو کوچنگ دیتے ہوئے"><div class="scene-shade" id="sceneShade"></div></div>
-    <div class="scene-in">
-      <div class="k">وہ کمرہ جہاں یہ ہوتا ہے</div>
-      <h2><span class="line" data-line="0">ورکشاپس لیکچر نہیں ہوتے۔</span><span class="line" data-line="1">یہ اصل زندگی کی مشق ہوتے ہیں۔</span></h2>
-      <p class="line" data-line="2">15 ممالک میں 300 سے زیادہ ورکشاپس — سیلز فلور، کلاس روم، بورڈ روم اور کمیونٹی ہال۔ طریقہ ہر جگہ ایک ہی ہے: رویہ یہاں مشق کریں، تاکہ وہاں قائم رہے۔</p>
-      <div class="scene-cta line" data-line="3"><a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85!%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%A7%D9%BE%D9%86%DB%8C%20%D9%B9%DB%8C%D9%85%20%DA%A9%DB%92%20%D9%84%DB%8C%DB%92%20%D9%88%D8%B1%DA%A9%D8%B4%D8%A7%D9%BE%20%D9%85%DB%8C%DA%BA%20%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C%20%DB%81%DB%92%DB%94%20%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA%20%D8%A8%D8%AA%D8%A7%D8%A6%DB%8C%DA%BA%DB%94" target="_blank" rel="noopener">یہ اپنی ٹیم تک لے جائیں</a></div>
+<div class="proven" aria-label="The verified record">
+  <div class="wrap"><div class="proof"><b>300+ <em>ورکشاپس</em></b><span>ٹیموں، اسکولوں اور عوامی گروہوں کے لیے</span></div><div class="proof"><b>700+ <em>کوچنگ کے گھنٹے</em></b><span>انفرادی اور گروہی کام — کمرے میں اور آن لائن</span></div><div class="proof"><b>15 <em>ممالک</em></b><span>تین براعظموں میں بین الاقوامی کام</span></div><div class="proof"><b>3 <em>براعظم</em></b><span>خلیج، یورپ اور افریقہ</span></div><div class="proof"><b>5 <em>زبانیں</em></b><span>پانچ زبانوں میں سیشنز اور تربیت</span></div><div class="proof"><b>20 <em>سال قیادت</em></b><span>کارپوریٹ اور سیلز قیادت — اسی زمین پر یہ کام کھڑا ہے</span></div></div>
+</div>
+
+<div class="wrap"><div class="steps3"><div class="step rv"><b><i>1</i>مفت کال بک کریں</b><p>وٹس ایپ پر پندرہ منٹ۔ مختصر بتائیں کہ آپ کس پر کام کرنا چاہتے ہیں۔</p></div><div class="step rv"><b><i>2</i>اپنا پروگرام چنیں</b><p>ہم مل کر آپ کے لیے درست پروگرام یا درست پریکٹیشنر منتخب کریں گے۔</p></div><div class="step rv"><b><i>3</i>آغاز کریں</b><p>پہلے تحریری طور پر واضح معاہدہ — پھر کام شروع ہوگا۔</p></div></div></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo rv"><img src="../imran-warm.webp" alt="Imran Aslam"></div>
+    <div class="about-copy rv">
+      <span class="eyebrow">عمران کا تعارف</span>
+      <h2 style="margin:14px 0 22px">کام لوگوں سے شروع ہوتا ہے۔</h2>
+      <p>برسوں کے دوران میں کاروباری قائدین کے سامنے میز پر بیٹھا ہوں، ٹیموں کے ساتھ فیکٹری اور سیلز فلور پر چلا ہوں، اساتذہ کو ان کی اپنی کلاسوں میں تربیت دی ہے، اور والدین و نوجوانوں کو سنا ہے جو اپنی راہ تلاش کر رہے تھے۔ انہی گفتگوؤں نے AIDE کو شکل دی، اور آج بھی ہر سیشن کی شکل وہی بناتی ہیں۔</p><p>میں بیس سال کی کارپوریٹ اور سیلز قیادت لے کر آتا ہوں، جس میں خلیج، یورپ اور افریقہ میں پندرہ سال کا بین الاقوامی کام شامل ہے، اور ریکارڈ میں 300 سے زیادہ ورکشاپس اور 700 کوچنگ گھنٹے ہیں۔ میں علمی و رویہ جاتی شعبوں میں کام کرنے والا ماہرِ نفسیات، NLP ماسٹر پریکٹیشنر اور ہپنوتھراپی میں تربیت یافتہ کوچ ہوں۔ سیشنز اردو یا انگریزی میں ہوتے ہیں۔</p>
+      <div class="pull">آگاہی بدل دیتی ہے جو آپ دیکھتے ہیں۔ مشق بدل دیتی ہے کہ آپ کیسے جیتے ہیں۔</div>
     </div>
+  </div>
+</section>
+
+<span class="cut flip" aria-hidden="true" style="background:var(--bg-soft)"></span>
+
+<section id="programmes" style="background:var(--bg-soft);padding-top:64px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">پروگرامز</span>
+      <h2>ایسی ترقی جو کلاس روم سے آگے پہنچے۔</h2>
+      <p>ہر شخص اور ہر ادارہ الگ جگہ سے شروع کرتا ہے۔ کسی کو بہتر قیادت چاہیے۔ کسی کو ایسی عادات چاہئیں جو ٹھہریں، ایسا گھر چاہیے جو آسانی سے سانس لے، یا ایسا بچہ چاہیے جسے سمت چاہیے۔ یہ پروگرامز اصل صورتحالوں کے گرد بنے ہیں، اور نئی سمجھ کو عمل میں لانے کی مشق پر۔</p>
+    </div>
+    <div class="prog-feature rv">
+      <div class="txt">
+        <span class="eyebrow" style="color:var(--sea-hi)">Flagship · USWA</span>
+        <h3>Prophetic Leadership Development Program</h3>
+        <p>قیادت کیسی لگتی ہے جب کردار کارکردگی جتنا ہی اہم ہو؟ قرآن (33:21) سے ماخوذ اُسوہ فریم ورک پر بنا یہ فلیگ شپ پروگرام فہم، اخلاص، حکمت اور احتساب کو موضوع بناتا ہے۔ جدید قیادت کی نفسیات یہاں سمجھانے کے لیے ہے، متبادل بننے کے لیے نہیں۔</p>
+        <p class="fmt">آٹھ ہفتے · اردو · براہِ راست سیشنز اور فیلڈ ورک</p>
+        <a class="ask" href="programme-pldp.html">پروگرام کا مکمل صفحہ →</a>
+        <a class="ask" style="margin-inline-start:22px" href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20want%20details%20about%20the%20Prophetic%20Leadership%20Development%20Program%20%28PLDP%29." target="_blank" rel="noopener">فلیگ شپ کے بارے میں پوچھیں →</a>
+      </div>
+      <div class="uswa"><div><i>U</i><b>فہم</b><span>لوگوں کو قیادت سے پہلے جاننا</span></div><div><i>S</i><b>اخلاص</b><span>تکنیک سے پہلے نیت</span></div><div><i>W</i><b>حکمت</b><span>گرے علاقوں میں فیصلہ</span></div><div><i>A</i><b>احتساب</b><span>جوابدہی — لوگوں کو بھی، اللہ کو بھی</span></div></div>
+    </div>
+    <div class="prog-rows rv"><a class="prog-row" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>فروخت صرف یہ جاننا نہیں کہ کیا کہنا ہے۔ یہ لوگوں کو پڑھنا، رویے کو سمجھنا اور اصل گفتگو میں اعتماد جیتنا ہے۔ دو دن آپ کی ٹیم کے ساتھ، پھر تیس دن فیلڈ میں فالو اپ — عرفان اسلم کے ساتھ مشترکہ قیادت میں۔</p><span class="fmt">دو دن آن سائٹ · 30 دن فیلڈ فالو اپ · کارپوریٹ</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>ہر کسی نے پیر کے دن نئی شروعات کی ہے۔ مشکل شروع کرنا نہیں، ایسی عادت بنانا ہے جو ایک عام ہفتے میں بھی ٹھہرے۔ یہ گروہ آپ کو ایسی عادات بنانے میں مدد دیتا ہے جو آپ کی زندگی سے میل کھاتی ہوں اور اسے خاموشی سے سنبھالے رکھیں۔</p><span class="fmt">چار ہفتے · آن لائن گروہ · اردو</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>گھر اس لیے پُرسکون نہیں بنتا کہ ایک شخص ہر بحث جیت لے۔ یہ پروگرام ایک سادہ فلسفے پر کھڑا ہے: نہ کوئی ظالم، نہ کوئی مظلوم — بس دو دل جو دوبارہ سننا سیکھ رہے ہوں۔ میاں بیوی اور والدین ایک دوسرے کو سمجھنا اور مضبوط گھر بنانا سیکھتے ہیں۔</p><span class="fmt">چار ہفتے · آن لائن · میاں بیوی اور والدین</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>تدریس صرف سبق پہنچانا نہیں۔ یہ اس بچے کو سمجھنا بھی ہے جو آپ کے سامنے بیٹھا ہے۔ جو استاد خود مضبوط ہو وہ پوری کلاس کو مضبوط کر سکتا ہے، اور یہی اس پروگرام کی تربیت ہے: استاد کی جذباتی ذہانت، اصل کلاسوں میں چار ہفتوں کی مشق کے ساتھ۔</p><span class="fmt">ایک دن ورکشاپ · چار ہفتے کلاس سائیکل · اسکولوں کے لیے</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>بچپن اور بڑھاپے کے درمیان ایک نوجوان ایسے سوالات سے گزرتا ہے جو زندگی کی سمت طے کر سکتے ہیں۔ RISE انہیں واضح سوچنے میں مدد دیتا ہے کہ وہ کون ہیں اور کیا چاہتے ہیں — اور اپنی زندگی کا نقشہ خود بنانے میں، اس سے پہلے کہ دنیا ان کے لیے بنا دے۔</p><span class="fmt">چھ ہفتے · عمر 16 تا 25 · AIDE سوسائٹی فلیگ شپ</span></span><span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">ٹیم</span>
+      <h2>ایک سے زیادہ آنکھوں کی نظر۔</h2>
+      <p>اچھے ترقیاتی کام کو ایک سے زیادہ جوڑی آنکھیں چاہئیں۔ AIDE کاروبار، کوچنگ، نفسیات، تعلیم اور سماجی خدمت کے پریکٹیشنرز کو اکٹھا کرتا ہے۔ ہر ایک اپنے شعبے میں کام کرتا ہے، اور مل کر وہ وسیع اور مکمل نوعیت کی معاونت پیش کرتے ہیں۔</p>
+    </div>
+    <div class="team-grid"><article class="member rv"><img src="../imran-warm.webp" alt="عمران اسلم"><div class="bd"><h3>عمران اسلم</h3><span>بانی · لائف کوچ و ٹرینر</span><p class="intro">عمران نے AIDE اس لیے قائم کیا کہ عملی تجربہ اور انسانی نفسیات اس طرح اکٹھے ہوں کہ اصل زندگی سے جُڑے رہیں۔ ان کی کوچنگ کے پیچھے تین براعظموں میں بیس سال کی قیادت ہے، مگر ان کا انداز سادہ اور ذاتی رہتا ہے: خود کو واضح سمجھو، پھر جو اہم ہے اسے بدلو۔</p></div></article><article class="member rv"><img src="../irfan-aslam.webp" alt="عرفان اسلم"><div class="bd"><h3>عرفان اسلم</h3><span>بزنس کنسلٹنٹ و کوچ · ٹرینر</span><p class="intro">عرفان سعودی آٹوموٹیو سپلائی چین میں تیرہ سال سے زیادہ کی کارپوریٹ قیادت رکھتے ہیں۔ وہ اہداف، ٹیموں اور مشکل فیصلوں کا وزن جانتے ہیں، اور ان کے سیشنز میں توجہ کبھی صرف ہدف پر نہیں ہوتی — اس شخص پر ہوتی ہے جو اسے اٹھائے ہوئے ہے۔</p></div></article><article class="member rv"><img src="../zill-e-huma-aslam.webp" alt="ظل ہما اسلم"><div class="bd"><h3>ظل ہما اسلم</h3><span>NLP ماسٹر پریکٹیشنر · لائف کوچ · ہپنوتھراپسٹ · ٹرینر</span><p class="intro">ظل ہما NLP، لائف کوچنگ، ہپنوتھراپی اور تربیت کو ایک پُرسکون مشق میں اکٹھا کرتی ہیں۔ ان کا کام ان خاموش تہوں تک پہنچتا ہے جہاں رویے بنتے ہیں، اور لوگوں کو پرانے رویے رکھ دینے اور ہلکے دل کے ساتھ آگے بڑھنے میں مدد دیتا ہے۔</p></div></article><article class="member rv"><img src="../halima-sadia.webp" alt="حلیمہ سعدیہ"><div class="bd"><h3>حلیمہ سعدیہ</h3><span>لائف کوچ · CEO، ADK</span><p class="intro">حلیمہ انجمن دخترانِ کشمیر کی چیف ایگزیکٹو کے طور پر قیادت کرتی ہیں، اور خواتین و خاندانوں کی تیس سال کی خدمت کو آگے بڑھا رہی ہیں۔ بطور کوچ وہی خوبی لاتی ہیں جس کے لیے ان کی سماجی خدمت جانی جاتی ہے: پہلے سنتی ہیں، اور تب بولتی ہیں جب ان کے الفاظ وزن رکھ سکیں۔</p></div></article><article class="member rv"><img src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی"><div class="bd"><h3>سیدہ عمارہ زیدی</h3><span>خواتین کو بااختیار بنانے کی کوچ · بانی و CEO، اصلاح نیٹ ورک</span><p class="intro">عمارہ نے اصلاح نیٹ ورک ایک سادہ یقین پر قائم کیا: جب ایک عورت کو موقع ملتا ہے تو پورا خاندان اس کے ساتھ اٹھتا ہے۔ ان کی کوچنگ ایسی جگہ بناتی ہے جہاں خواتین سیکھ سکیں، کما سکیں اور سنبھل سکیں — اور وہ نرمی اور عزم دونوں کے ساتھ قیادت کرتی ہیں۔</p></div></article></div>
+    <div class="sec-head init-head rv">
+      <span class="eyebrow">آزاد اقدامات</span>
+      <h2>AIDE کے ساتھ کھڑے اقدامات۔</h2>
+      <p>کچھ کام اتنا اہم ہوتا ہے کہ ایک ادارے کے اندر نہ سمائے۔ AIDE کے ساتھ دو آزاد اقدامات کھڑے ہیں، ہر ایک کی اپنی قیادت اور لوگوں کے لیے حاضر ہونے کی اپنی تاریخ۔ عمران دونوں کے مشیر ہیں۔</p>
+    </div>
+    <div class="init-grid"><article class="init rv"><img src="../halima-sadia.webp" alt="حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں"><div><h3>ADK · انجمن دخترانِ کشمیر</h3><span class="who">حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں</span><p>کچھ ادارے ایک خیال کے گرد بنتے ہیں۔ یہ اس کے گرد بنا کہ برسوں تک تب حاضر ہوا جب لوگوں کو سب سے زیادہ مدد چاہیے تھی۔ مرحوم حاجی مرزا خرم حیدر نے 1996 میں قائم کیا؛ ADK تیس سال سے زیادہ عرصے سے کشمیر اور پاکستان میں ضرورت مند خواتین و خاندانوں کی خدمت کر رہا ہے۔ صرف پچھلے دس سال میں اس نے شادیوں، راشن، کپڑوں، گھر کی تعمیر اور چھوٹے کاروبار کی معاونت کے ذریعے 3,000 سے زیادہ خاندانوں کو 200 ملین روپے سے زیادہ کی مدد دی ہے۔ حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں۔ عمران اسلم اس کے مشیر اور کونسلر ہیں۔</p></div></article><article class="init rv"><img src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور CEO کے طور پر قیادت کرتی ہیں"><div><h3>اصلاح نیٹ ورک</h3><span class="who">سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور CEO کے طور پر قیادت کرتی ہیں</span><p>اصلاح کا آغاز 2016 میں ایک سطر سے ہوا جو آج بھی ہر قدم کی رہنمائی کرتی ہے: لوگوں میں سرمایہ کاری کرو، پائیدار کامیابی پیدا کرو۔ آج بہاول گڑھ، کہروڑ پکا اور ٹیکسلا میں اس کے اسکول 350 طالبات کو پڑھاتے ہیں۔ اس کے پروگرامز 1,000 سے زیادہ خواتین تک معاشی معاونت اور 1,000 سے زیادہ خواتین تک کونسلنگ و ذہنی صحت کی معاونت پہنچا چکے ہیں — بہاولپور، بھمبر، ٹیکسلا اور سیالکوٹ کے تھراپی مراکز اور آن لائن، سلائی مرکز، بالغ تعلیم اور ڈاکٹرز ڈیسک کے ساتھ۔ سیدہ عمارہ زیدی نے اصلاح نیٹ ورک کی بنیاد رکھی اور CEO کے طور پر اس کی قیادت کرتی ہیں۔ عمران اسلم اس کے اسٹریٹجک مشیر ہیں۔</p></div></article></div>
+  </div>
+</section>
+
+<section id="coaching">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">کوچنگ اور ذاتی سیشنز</span>
+      <h2>کبھی آپ کو صرف ایک گفتگو چاہیے ہوتی ہے۔</h2>
+    </div>
+    <div class="assess-grid">
+      <div class="rv">
+        <div style="font-size:17.5px"><p>کبھی آپ کو پروگرام نہیں چاہیے ہوتا۔ آپ کو ایک ایسی گفتگو چاہیے ہوتی ہے جو آپ کو اپنی صورتحال واضح دیکھنے میں مدد دے۔</p><p>ایسے لمحات آتے ہیں جب کام، خاندان یا آپ کا اپنا ذہن اکیلے سنبھالنا مشکل ہو جاتا ہے۔ کوچنگ آپ کو جگہ دیتی ہے کہ جو اصل میں ہو رہا ہے وہ کہہ سکیں، اپنے ردِعمل کو سمجھ سکیں، اور عملی اگلے قدم لے کر جائیں۔ AIDE میں آپ ہمارے کسی بھی پریکٹیشنر کے ساتھ کوچنگ، کونسلنگ سے آگاہ معاونت اور تربیت بک کر سکتے ہیں، ہر ایک اپنے شعبے میں:</p></div>
+        <p class="boundary">حد واضح لفظوں میں: کوچنگ طبی یا نفسیاتی علاج کا متبادل نہیں۔ جہاں آپ کو کلینکل دیکھ بھال چاہیے ہو، وہ صاف بتایا جائے گا اور مناسب سمت دکھائی جائے گی — یہ ایمانداری اس خدمت کا حصہ ہے، اس کا حواشیہ نہیں۔</p>
+        <p style="margin-top:20px;font-size:16.5px">شروع کرنے سے پہلے سب کچھ طے کرنا ضروری نہیں۔ وٹس ایپ پر مفت پندرہ منٹ کی ڈسکوری کال سے آغاز کریں۔ بتائیں آپ کیا تلاش کر رہے ہیں، ہم آپ کو درست پریکٹیشنر اور درست اگلے قدم سے ملا دیں گے۔</p>
+        <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">اپنی مفت ڈسکوری کال بک کریں</a></p>
+      </div>
+      <div class="coach-list rv"><div class="coach-row"><b>عمران اسلم</b><span>لائف کوچنگ، قیادت، رویہ اور ذاتی نمو۔ سیشنز اردو یا انگریزی میں۔</span><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B0%D8%A7%D8%AA%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عمران اسلم</a></div><div class="coach-row"><b>عرفان اسلم</b><span>بزنس کوچنگ، سیلز ڈیولپمنٹ اور پیشہ ورانہ نمو۔</span><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%A8%D8%B2%D9%86%D8%B3%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عرفان اسلم</a></div><div class="coach-row"><b>ظل ہما اسلم</b><span>لائف کوچنگ، NLP پر مبنی ذاتی نمو اور ہپنوتھراپی سے آگاہ معاونت۔</span><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B8%D9%84%20%DB%81%D9%85%D8%A7%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B3%DB%8C%D8%B4%D9%86%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: ظل ہما اسلم</a></div><div class="coach-row"><b>حلیمہ سعدیہ</b><span>لائف کوچنگ اور ذاتی نمو۔</span><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%AD%D9%84%DB%8C%D9%85%DB%81%20%D8%B3%D8%B9%D8%AF%DB%8C%DB%81%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%84%D8%A7%D8%A6%D9%81%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: حلیمہ سعدیہ</a></div><div class="coach-row"><b>سیدہ عمارہ زیدی</b><span>خواتین کو بااختیار بنانے کی کوچنگ۔</span><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B3%DB%8C%D8%AF%DB%81%20%D8%B9%D9%85%D8%A7%D8%B1%DB%81%20%D8%B2%DB%8C%D8%AF%DB%8C%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%AE%D9%88%D8%A7%D8%AA%DB%8C%D9%86%20%DA%A9%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: سیدہ عمارہ زیدی</a></div></div>
+    </div>
+  </div>
+</section>
+
+<span class="cut" aria-hidden="true" style="background:var(--bg-soft)"></span>
+
+<section id="start" style="background:var(--bg-soft);padding-top:64px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">اسیسمنٹ کا ایک جھلک</span>
+      <h2>ساٹھ سیکنڈ کی ایمانداری۔</h2>
+      <p>AIDE کی مکمل سیلف اسیسمنٹ کی روح میں تین سوالات۔ جواب ویسا دیں جیسی چیزیں ہیں، نہ کہ جیسی ہونی چاہئیں۔</p>
+    </div>
+    <div class="assess-grid">
+      <div class="assess-photo rv"><img src="../imran-dialogue.webp" alt="Imran Aslam in conversation"></div>
+      <div class="quiz-card rv">
+        <div class="qprog"><i id="qBar"></i></div>
+        <div id="qBody">
+          <h3 id="qText"></h3>
+          <div id="qOpts"></div>
+        </div>
+        <div class="qres" id="qRes">
+          <div class="big" id="qResTitle"></div>
+          <p id="qResText" class="dim"></p>
+          <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D9%88%DB%8C%D8%A8%20%D8%B3%D8%A7%D8%A6%D9%B9%20%D9%BE%D8%B1%20AIDE%20%D8%B3%DB%8C%D9%84%D9%81%20%DA%86%DB%8C%DA%A9%20%DA%A9%DB%8C%D8%A7%DB%94%20%D9%85%D8%AC%DA%BE%DB%92%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%DA%86%D8%A7%DB%81%DB%8C%DB%92%DB%94" target="_blank" rel="noopener">بات کریں — مفت 15 منٹ کال</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">مانی رائیٹس · <span lang="ur">مانی رائٹس</span></span>
+      <h2>ہر سبق کلاس روم سے نہیں آتا۔</h2>
+    </div>
+    <div class="assess-grid">
+      <div class="assess-photo rv"><img src="../imran-writing.webp" alt="Imran Aslam writing"></div>
+      <div class="rv">
+        <p style="font-size:17.5px;line-height:1.85">کچھ سبق سڑک کنارے چائے کے ڈھابے پر ایک بزرگ کی گفتگو سے آتے ہیں، کچھ ایک ماں کے خاموش صبر سے، یا ایک ایسی سمجھ سے جو ایک عام دن کے بیچ میں آتی ہے۔ قلمی نام مانی رائیٹس کے تحت عمران اردو میں لوگوں، رشتوں اور ان چھوٹے لمحات پر لکھتے ہیں جو سب سے زیادہ سکھاتے ہیں۔ اگر ایسی تحریر آپ کی پسند ہے جو آپ کو ٹھہرنے پر مجبور کرے، تو ساتھ پڑھنے میں خوش آمدید۔</p>
+        <p style="margin-top:22px"><a class="btn btn-solid magnetic" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener">مانی رائیٹس پڑھیں</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-block">
+  <div class="wrap">
+    <div>
+      <div class="emblem cta-emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
+      <h2>آپ کا اگلا باب ایک ایماندارانہ گفتگو سے شروع ہو سکتا ہے۔</h2>
+      <p>آپ بہتر قیادت چاہتے ہوں، مضبوط گھر بنانا چاہتے ہوں، اپنی ٹیم کو بڑھانا چاہتے ہوں یا اپنے بچے کو سمت دینا چاہتے ہوں — پہلا قدم ایک ہی ہے۔ آج ہی وٹس ایپ پر اپنی مفت پندرہ منٹ کی ڈسکوری کال بک کریں۔</p>
+    </div>
+    <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">گفتگو شروع کریں</a>
+    <a class="btn dark" href="#programmes">پہلے پروگرامز دیکھیں</a>
   </div>
 </div>
 
-<div class="watermark" aria-hidden="true"><div class="wm" id="wmText">AIDE · AWARENESS TO EXCELLENCE · AIDE · AWARENESS TO EXCELLENCE ·</div></div>
-
-<section id="programmes"><div class="wrap">
-  <div class="sec-head rv">
-    <span class="eyebrow">پروگرامز</span>
-    <h2>چھ راستے۔ ایک چنیں — کارڈ پلٹتا ہے۔</h2>
-    <p>سگنیچر پروگرامز اصل مشق سے بنے ہیں، نظریے سے نہیں۔</p>
-  </div>
-  <div class="explorer rv">
-    <div class="prog-list" id="progList" aria-label="پروگرامز"></div>
-    <div class="flip-wrap"><div class="flip" id="flip">
-      <div class="flip-face">
-        <div class="k" id="fKicker">فلیگ شپ · کوہورٹ</div>
-        <h3 id="fTitle">نبوی قیادت کی تربیت کا پروگرام</h3>
-        <div class="fmt" id="fFmt">8 ہفتے · اردو · لائیو سیشن + فیلڈ ورک</div>
-        <p id="fDesc"></p>
-        <ul id="fList"></ul>
-        <div class="foot"><a class="btn" id="fWa" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%D9%BE%D8%B1%D9%88%DA%AF%D8%B1%D8%A7%D9%85%20%DA%A9%DB%8C%20%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA%20%DA%86%D8%A7%DB%81%D8%A6%DB%8C%DA%BA%3A%20%D9%86%D8%A8%D9%88%DB%8C%20%D9%82%DB%8C%D8%A7%D8%AF%D8%AA%20%DA%A9%DB%8C%20%D8%AA%D8%B1%D8%A8%DB%8C%D8%AA%20%DA%A9%D8%A7%20%D9%BE%D8%B1%D9%88%DA%AF%D8%B1%D8%A7%D9%85%DB%94" target="_blank" rel="noopener">اس پروگرام کے بارے میں پوچھیں</a><span class="who" id="fWho"></span></div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="line">عمران اسلم – ذہنیت کی تبدیلی، عمدگی کی تحریک</p>
+        <p style="margin-top:10px;max-width:46ch">AIDE — ایکسیلریٹنگ اِن سائٹس اینڈ ڈیولپمنٹ فار ایکسیلینس۔ آگاہی سے عمدگی تک۔</p>
       </div>
-    </div></div>
-  </div>
-</div></section>
-
-<section class="quiz" id="check"><div class="wrap">
-  <div class="sec-head rv">
-    <span class="eyebrow">جانچ کا ایک ذائقہ</span>
-    <h2>ساٹھ سیکنڈ کی ایمانداری۔</h2>
-    <p>AIDE کی مکمل خود جانچ کی روح سے تین سوال۔ جواب ویسا دیں جیسا معاملہ ہے، جیسا ہونا چاہیے ویسا نہیں۔</p>
-  </div>
-  <div class="quiz-grid">
-    <div class="quiz-photo rv-l"><img loading="lazy" decoding="async" src="../imran-dialogue.webp" alt="عمران اسلم گفتگو میں"></div>
-    <div class="quiz-card rv-r">
-      <div class="qprog"><i id="qBar"></i></div>
-      <div id="qBody" aria-live="polite"><h3 id="qText"></h3><div class="qopts" id="qOpts"></div></div>
-      <div class="qres" id="qRes" aria-live="polite">
-        <div class="big" id="qResTitle"></div>
-        <p id="qResText"></p>
-        <p style="margin-top:18px"><a class="btn" id="qWa" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D9%88%DB%8C%D8%A8%20%D8%B3%D8%A7%D8%A6%D9%B9%20%D9%BE%D8%B1%20AIDE%20%D8%B3%DB%8C%D9%84%D9%81%20%DA%86%DB%8C%DA%A9%20%DA%A9%DB%8C%D8%A7%DB%94%20%D9%85%D8%AC%DA%BE%DB%92%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%DA%86%D8%A7%DB%81%DB%8C%DB%92%DB%94" target="_blank" rel="noopener">گفتگو کریں — مفت 15 منٹ کال</a></p>
+      <div>
+        <p class="foot-pages"><a href="about.html">تعارف</a> · <a href="programmes.html">پروگرامز</a> · <a href="coaching.html">کوچنگ</a> · <a href="writes.html">تحریریں</a> · <a href="contact.html">رابطہ</a></p>
+        <p style="margin-top:10px">بھمبر، آزاد کشمیر — اور آن لائن، ہر جگہ۔</p>
+        <p style="margin-top:10px">WhatsApp <a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">+92 330 9222029</a> · Calls +92 317 9222029<br>Email <a href="mailto:blugul1@gmail.com">blugul1@gmail.com</a></p>
+        <p style="margin-top:10px"><span class="lang-links"><a href="../index.html">EN</a> · <a href="index.html">اردو</a> · <a href="../ar/index.html">العربية</a></span></p>
       </div>
     </div>
+    <div class="foot-small">
+      <span>© 2026 AIDE — Imran Aslam</span>
+      <span>From Awareness to Excellence</span>
+    </div>
   </div>
-</div></section>
+</footer>
 
-<section id="writes"><div class="wrap">
-  <div class="sec-head rv">
-    <span class="eyebrow">مانی رائیٹس</span>
-    <h2>تحریر وہاں سے شروع ہوتی ہے جہاں نصیحت رک جاتی ہے۔</h2>
-    <p>روزمرہ کے نمونوں پر تاثرات — کوچنگ کے پیچھے کی سوچ، مفت پڑھیں۔</p>
-  </div>
-  <div class="write-grid">
-    <a class="write-card rv" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener"><div class="ph"><img class="top" src="../imran-writing.webp" alt="عمران اسلم لکھتے ہوئے" loading="lazy"></div><div class="bd"><span class="k">ذاتی نشوونما · مانی رائیٹس</span><h3>مزید سوچنے سے پہلے، سوال واضح کریں۔</h3><p>ایک مبہم فکر لامتناہی اندرونی گفتگو بن سکتی ہے۔ اصل فیصلہ ایک جملے میں لکھیں — اور اسے تصوراتی ردِعمل سے الگ رکھیں۔</p><span class="go">تحریر پڑھیں ←</span></div></a>
-    <a class="write-card rv" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener"><div class="ph"><img class="top" src="../gen-lc-portrait.webp" alt="عمران اسلم، پورٹریٹ" loading="lazy"></div><div class="bd"><span class="k">مانی رائیٹس · ریڈر</span><h3 lang="ur">چکی</h3><p class="ur" lang="ur" style="font-size:16.5px;line-height:2.1">وہ بوجھ جس کا کوئی نام نہیں تھا — اور ہر کسی کو اپنی نشست مل گئی، کوئی کٹہرے میں نہیں کھڑا ہوا۔</p><span class="go">مانی رائیٹس پر پڑھیں ←</span></div></a>
-  </div>
-</div></section>
-
-<section id="faq" style="padding-top:16px"><div class="wrap">
-  <div class="sec-head rv"><span class="eyebrow">سوالات، جوابات</span><h2>پوچھنے سے پہلے۔</h2></div>
-  <div class="rv">
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">کیا کوچنگ تھراپی جیسی ہی ہے؟<span class="arr">+</span></button><div class="faq-a"><div>کوچنگ اہداف، عادات اور فیصلوں پر کام کرتی ہے — یہ طبی یا نفسیاتی علاج کا متبادل نہیں۔ جہاں آپ کو کلینکل دیکھ بھال چاہیے ہو، وہ صاف کہا جاتا ہے اور درست سمت دکھائی جاتی ہے۔</div></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">سیشن کہاں ہوتے ہیں؟<span class="arr">+</span></button><div class="faq-a"><div>آن لائن، جہاں بھی آپ ہوں — یا باہمی ترتیب سے بھمبر میں بالمشافہ۔ خدمت، فارمیٹ، زبان اور فیس کسی بھی سیشن کی تصدیق سے پہلے واضح کر دی جاتی ہے۔</div></div></div>
-    <div class="faq-item"><button class="faq-q" aria-expanded="false">مفت ڈسکوری کال کیسے کام کرتی ہے؟<span class="arr">+</span></button><div class="faq-a"><div>وٹس ایپ پر پندرہ منٹ۔ آپ مختصراً بتاتے ہیں کہ کس چیز پر کام کرنا ہے؛ ہم مل کر فیصلہ کرتے ہیں کہ کوچنگ، کوئی پروگرام، یا بالکل کچھ اور — ایماندارانہ انتخاب کیا ہے۔ کسی طرف سے دباؤ نہیں۔</div></div></div>
-  </div>
-  </div></section>
-
-</main>
-
-<section style="padding-top:8px"><div class="wrap"><div class="closing rv" style="margin-top:44px">
-    <div class="closing-in"><h2>گفتگو سے آغاز کریں۔</h2><p>وٹس ایپ پر پندرہ مفت منٹ۔ جو دل میں ہے کہیں — ہم مل کر ایماندارانہ اگلا قدم تلاش کریں گے، چاہے وہ قدم ہم نہ ہوں۔</p><div class="cta-row"><a class="btn magnetic" href="https://wa.me/923309222029?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">وٹس ایپ پر آغاز کریں ↗</a><span class="cta-note">blugul1@gmail.com · بھمبر، آزاد کشمیر</span></div></div>
-  </div>
-</div></section>
-<footer><div class="wrap foot-grid">
-  <div><b style="color:var(--ink)">Imran Aslam</b> — ذہنیت کی تبدیلی، عمدگی کی تحریک</div>
-  <div><a href="programmes.html">پروگرامز</a> · <a href="index.html#check">سیلف چیک</a> · <a href="writes.html">مانی رائیٹس</a> · <a href="https://wa.me/923309222029?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">WhatsApp</a></div>
-  <div>© 2026 AIDE · کوچنگ طبی یا نفسیاتی علاج کا متبادل نہیں۔</div>
-</div></footer>
-<div class="bookbar"><span>مفت 15 منٹ کال سے آغاز کریں</span><a class="btn" href="https://wa.me/923309222029?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">وٹس ایپ پر بک کریں</a></div>
+<a class="sticky-book" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">مفت ڈسکوری کال بک کریں</a>
+<div class="ascent" aria-hidden="true"><i id="ascentFill"></i></div>
+<button class="toTop" id="toTop" type="button" aria-label="Back to the top">↑</button>
 
 <script>
-const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const lerp=(a,b,t)=>a+(b-a)*t;
-/* reveal on scroll */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
-document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>io.observe(el));
-/* hero — revolving picture ring engine */
-const stage=document.getElementById('stage'),ring=document.getElementById('ring'),orbit=document.getElementById('orbit'),glow=document.getElementById('glow');
-const panels=ring?[...ring.children]:[];
-const STEP=panels.length?360/panels.length:90;
-function layoutRing(){if(!ring)return;const w=ring.clientWidth,R=Math.round((w/2)/Math.tan(Math.PI/panels.length))+42;panels.forEach((p,i)=>p.style.transform=`rotateY(${i*STEP}deg) translateZ(${R}px)`)}
-layoutRing();addEventListener('resize',layoutRing);
-let ang=0,vel=0,dragging=false,lastX=0,hoverPause=false,paused=false,snapTarget=null,lastT=performance.now(),lastFront=-1;
-const BASE=RM?0:0.0105;
-(function loop(t){const dt=Math.min(50,t-lastT);lastT=t;
-  if(snapTarget!==null&&!dragging){ang+=(snapTarget-ang)*.11;if(Math.abs(snapTarget-ang)<.15){ang=snapTarget;snapTarget=null}}
-  else{if(!dragging&&!hoverPause&&!paused)ang+=BASE*dt;if(!dragging&&Math.abs(vel)>.001){ang+=vel;vel*=.95}}
-  if(ring){const fy=RM?0:Math.sin(t/1700)*7;ring.style.transform=`translateY(${fy}px) rotateX(-7deg) rotateY(${ang}deg)`;
-    if(panels.length){const fi=((Math.round(-ang/STEP)%panels.length)+panels.length)%panels.length;if(fi!==lastFront){lastFront=fi;panels.forEach((p,j)=>p.classList.toggle('front',j===fi))}}}
-  requestAnimationFrame(loop)})(performance.now());
-if(stage){
-  stage.addEventListener('pointerdown',e=>{if(e.target.closest('.orbit-btn'))return;dragging=true;lastX=e.clientX;vel=0;snapTarget=null;stage.setPointerCapture(e.pointerId)});
-  stage.addEventListener('pointermove',e=>{if(!dragging)return;const d=e.clientX-lastX;lastX=e.clientX;ang+=d*.32;vel=d*.32});
-  const end=()=>{dragging=false};
-  stage.addEventListener('pointerup',end);stage.addEventListener('pointercancel',end);
-  stage.addEventListener('pointerenter',()=>hoverPause=true);
-  stage.addEventListener('pointerleave',()=>hoverPause=false);
-}
-const snap=dir=>{snapTarget=Math.round(ang/STEP)*STEP+dir*STEP};
-document.getElementById('orbPrev')?.addEventListener('click',()=>snap(1));
-document.getElementById('orbNext')?.addEventListener('click',()=>snap(-1));
-const orbPause=document.getElementById('orbPause');
-function setPaused(v){paused=v;if(orbPause){orbPause.setAttribute('aria-pressed',String(v));orbPause.setAttribute('aria-label',v?'Play the rotating photos':'Pause the rotating photos');orbPause.textContent=v?'▶':'❚❚'}}
-orbPause?.addEventListener('click',()=>setPaused(!paused));
-stage?.addEventListener('focusin',()=>{if(!paused)setPaused(true)});
-/* stage parallax + cursor glow */
-if(stage&&matchMedia('(pointer:fine)').matches&&!RM){
-  let tx=0,ty=0,cx=0,cy=0;
-  stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*2;ty=((e.clientY-r.top)/r.height-.5)*2});
-  stage.addEventListener('pointerleave',()=>{tx=0;ty=0});
-  (function ploop(){cx=lerp(cx,tx,.06);cy=lerp(cy,ty,.06);if(orbit)orbit.style.transform=`rotateY(${cx*3.5}deg) rotateX(${-cy*2.5}deg)`;requestAnimationFrame(ploop)})();
-  const hero=document.querySelector('.hero');let gx=0,gy=0,mx=0,my=0;
-  {const hr=hero.getBoundingClientRect();mx=hr.width*.7;my=hr.height*.34;gx=mx;gy=my}
-  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
-  (function gloop(){gx=lerp(gx,mx,.06);gy=lerp(gy,my,.06);glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(gloop)})();
-}
-/* magnetic buttons */
-if(matchMedia('(pointer:fine)').matches&&!RM){document.querySelectorAll('.magnetic').forEach(b=>{
-  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
-  b.addEventListener('pointerleave',()=>{b.style.transform=''});
-})}
-/* scroll scrub engine: scene zoom/shade/lines + watermark drift */
-const scene=document.querySelector('.scene'),sImg=document.getElementById('sceneImg'),sShade=document.getElementById('sceneShade'),lines=document.querySelectorAll('.scene .line'),wm=document.getElementById('wmText'),prog=document.getElementById('progress'),navEl=document.querySelector('nav');
-function scrub(){
-  const doc=document.documentElement,max=doc.scrollHeight-innerHeight;
-  if(prog)prog.style.transform=`scaleX(${max>0?Math.min(1,scrollY/max):0})`;
-  if(navEl)navEl.classList.toggle('scrolled',scrollY>40);
-  if(RM){lines.forEach(el=>{el.style.opacity=1;el.style.transform='none'});if(sImg){sImg.style.transform='none';sImg.style.filter='none'}if(sShade)sShade.style.opacity=.85;return}
-  if(scene&&sImg){
-    const r=scene.getBoundingClientRect(),total=r.height-innerHeight;
-    let p=total>0?Math.min(1,Math.max(0,-r.top/total)):0;
-    sImg.style.filter=`brightness(${.62+p*.14}) saturate(${.92+p*.1})`;
-    if(sShade)sShade.style.opacity=.7+p*.2;
-    lines.forEach((el,i)=>{const start=.08+i*.17;let lp=Math.min(1,Math.max(0,(p-start)/.22));el.style.opacity=lp;el.style.transform=`translateY(${(1-lp)*34}px)`});
+(function(){
+  "use strict";
+  var DAY = 'دن — نرم شیشہ', NIGHT = 'رات — ارورا';
+  var root = document.documentElement, label = document.getElementById('themeLabel');
+  function setTheme(t){
+    root.setAttribute('data-theme', t);
+    label.textContent = (t === 'day') ? DAY : NIGHT;
+    try{ localStorage.setItem('aide-ck-theme', t); }catch(e){}
   }
-  if(wm){const r=wm.parentElement.getBoundingClientRect();let p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));wm.style.transform=`translateX(${6-p*16}%)`}
-}
-let ticking=false;
-addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{scrub();ticking=false})}},{passive:true});
-scrub();
-/* programmes explorer */
-const PROGS=[{"s": "نبوی قیادت کی تربیت کا پروگرام", "k": "فلیگ شپ · کوہورٹ", "t": "نبوی قیادت کی تربیت کا پروگرام", "f": "8 ہفتے", "d": "قیادت کی تعمیرِ نو سیرتِ نبوی کی روشنی میں — قرآن (33:21) سے ماخوذ USWA فریم ورک — جہاں جدید قیادت کی نفسیات صرف توضیح کے لیے ہے، بنیاد کے بدلے نہیں۔ ان پیشہ ور افراد، بانیان اور کمیونٹی رہنماؤں کے لیے جو دوسروں کی ذمہ داری اٹھاتے ہیں۔", "li": ["بنیاد — قیادت کا نبوی نمونہ (قرآن 33:21)", "اخلاص — نیت، دیانت اور اندر کا احتساب", "فہم — دلوں، حالات اور لمحوں کو پڑھنا"], "w": "کس کے لیے: پروفیشنلز، بانیان اور کمیونٹی رہنما"}, {"s": "عادت سازی کا نظام", "k": "عوامی · آن لائن کوہورٹ", "t": "عادت سازی کا نظام", "f": "4 ہفتے", "d": "طلبہ، اساتذہ، پروفیشنلز — اور ہر اس شخص کے لیے جو عادت بنانے یا چھوڑنے میں بار بار ناکام ہو چکا ہے۔ چار ہفتے میں ایک عادت، ایک نظام — فلسفہ نہیں، روزانہ عمل۔", "li": ["عادت کا نقشہ — آپ کے رویے اصل میں چلتے کیسے ہیں (اشارہ–عمل–انعام)", "شناخت پہلے، ہدف بعد میں — شناخت پر مبنی تبدیلی", "ماحول کی معماری — رکاوٹ کم/زیادہ کرنا، اینکرز (نماز بطور پانچ روزانہ اینکرز)"], "w": "کس کے لیے: طلبہ، اساتذہ، پروفیشنلز — جن کی عادتیں بار بار ٹوٹتی ہیں"}, {"s": "رویے پر مبنی سیلز مہارت", "k": "کارپوریٹ · آن سائٹ", "t": "رویے پر مبنی سیلز مہارت", "f": "2 روزہ آن سائٹ (6+6 گھنٹے) + 30 دن فیلڈ فالو اپ", "d": "سیلز تکنیک سب سکھاتے ہیں — یہ پروگرام میز کے دونوں طرف کے رویے پر کام کرتا ہے: خریدار کا ذہن اور بیچنے والے کی عادات۔ عمران کی 20 سالہ سیلز لیڈرشپ پر مبنی، عرفان اسلم کے ساتھ مشترکہ قیادت میں۔", "li": ["خریدار کا ذہن — فیصلے کی نفسیات", "اعتماد کی معماری — پہلی ملاقات سے فالو اپ تک", "سننا بطور اوزار — تشخیصی سوالات"], "w": "کس کے لیے: کارپوریٹ سیلز ٹیمیں، SME مالکان، ڈسٹری بیوشن و ریٹیل آپریشنز"}, {"s": "دل سے تدریس", "k": "اسکولز · آن سائٹ", "t": "دل سے تدریس", "f": "1 روزہ ورکشاپ (5 گھنٹے) + 4 ہفتے کلاس روم اطلاق سائیکل", "d": "اساتذہ کے لیے جذباتی ذہانت۔ بچے نصاب سے پہلے استاد کو پڑھتے ہیں — اس لیے یہ پروگرام استاد کے اندر سے شروع ہوتا ہے: محرکات، تھکن، اور جواب سے پہلے کا وقفہ۔", "li": ["استاد کا اندر — محرکات، ٹرگرز، تھکن (burnout) کی شناخت", "جذبات کا نظم — مشکل لمحے میں وقفہ اور جواب", "کلاس کا ماحول — حفاظت، توجہ اور تعلق کی نفسیات"], "w": "کس کے لیے: اسکول اساتذہ، کوآرڈینیٹرز اور پرنسپلز"}, {"s": "گھر کی بنیاد", "k": "عوامی · آن لائن", "t": "گھر کی بنیاد", "f": "4 ہفتے", "d": "شادی شدہ و منگنی شدہ جوڑوں اور والدین کے لیے۔ Love Clinic کا فلسفہ ہر قدم پر: کوئی ظالم نہیں، کوئی مظلوم نہیں — گھر الزام سے نہیں، ذمہ داری، عزت اور مکالمے سے بنتا ہے۔", "li": ["حسنِ تخاطب — بات جو جوڑے، لڑائی جو توڑے", "کردار و ذمہ داریاں — گھر میں قیادت و مدیریت کا عملی توازن", "غصہ، خاموشی اور واپسی — تنازع کے بعد مرمت"], "w": "کس کے لیے: شادی شدہ و منگنی شدہ جوڑے، اور والدین"}, {"s": "اُٹھو اور بنو", "k": "نوجوان · اسکولز و گروپس", "t": "اُٹھو اور بنو", "f": "6 ہفتے", "d": "16 تا 25 سال کے نوجوانوں کے لیے AIDE Society کا فلیگ شپ۔ نوجوان کو لیکچر نہیں، نقشہ چاہیے — وہ کون ہے، اس کا ذہن اور موبائل کیسے چلتا ہے، اور اگلا سال کس لیے ہے۔", "li": ["میں کون ہوں — شناخت، اقدار اور ماحول کا دباؤ", "ذہن و موبائل — توجہ کی حفاظت، ڈیجیٹل نظم", "پڑھائی کا نظام — عادات، نوٹس، امتحان کی حکمتِ عملی"], "w": "کس کے لیے: طلبہ و نوجوان (16–25 سال) — اسکولز، کالجز اور یوتھ گروپس"}];
-if(document.getElementById('progList')&&document.getElementById('flip')){
-const list=document.getElementById('progList'),flip=document.getElementById('flip');let cur=-1,flipBusy=false;
-PROGS.forEach((p,i)=>{const b=document.createElement('button');b.className='prog-btn';b.setAttribute('aria-pressed','false');b.innerHTML=p.s+'<small>'+p.f+'</small>';b.addEventListener('click',()=>select(i,b));list.appendChild(b)});
-function fill(i){const p=PROGS[i];document.getElementById('fKicker').textContent=p.k;document.getElementById('fTitle').textContent=p.t;document.getElementById('fFmt').textContent=p.f;document.getElementById('fDesc').textContent=p.d;document.getElementById('fList').innerHTML=p.li.map(x=>'<li>'+x+'</li>').join('');document.getElementById('fWho').textContent=p.w;document.getElementById('fWa').href='https://wa.me/923309222029?text='+encodeURIComponent('السلام علیکم! مجھے AIDE پروگرام کی تفصیلات چاہئیں: '+p.t+'.')}
-function select(i,btn){if(i===cur||flipBusy)return;cur=i;document.querySelectorAll('.prog-btn').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});btn.classList.add('on');btn.setAttribute('aria-pressed','true');if(RM){fill(i);return}flipBusy=true;flip.classList.add('flipping');setTimeout(()=>{fill(i);flip.classList.remove('flipping');setTimeout(()=>flipBusy=false,420)},400)}
-fill(0);cur=0;list.children[0].classList.add('on');list.children[0].setAttribute('aria-pressed','true');
-/* flip card — light follows the pointer */
-if(matchMedia('(pointer:fine)').matches&&!RM){flip.addEventListener('pointermove',e=>{const r=flip.getBoundingClientRect();flip.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');flip.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')})}
-}
-/* quiz */
-if(document.getElementById('qText')&&document.getElementById('qOpts')){
-const QS=[
- {q:'جب کوئی منصوبہ ٹوٹ جائے تو عام طور پر آگے کیا ہوتا ہے؟',o:[['میں اسی دن اسے دوبارہ بناتا ہوں — چھوٹا، مگر چلتا ہوا',0],['میں حوصلہ واپس آنے کا انتظار کرتا ہوں',1],['منصوبہ خاموشی سے غائب ہو جاتا ہے',2]]},
- {q:'اس ہفتے سب سے اہم چیز کا فیصلہ کیسے ہوتا ہے؟',o:[['وہ لکھی ہوئی ہے، ترتیب کے ساتھ',0],['وہ زیادہ تر میرے ذہن میں رہتی ہے',1],['جو سب سے زور سے چلائے، وہی فیصلہ کرتا ہے',2]]},
- {q:'کسی مشکل گفتگو کے بگڑ جانے کے بعد آپ…',o:[['واپس جا کر جو ممکن ہو مرمت کرتا ہوں',0],['کئی دن اسے ذہن میں دہراتا رہتا ہوں، عمل کے بغیر',1],['اس شخص سے مکمل پرہیز کر لیتا ہوں',2]]}
-];
-const BANDS=[[2,'ابتدائی نقطہ','ایماندارانہ جواب ہی خام مال ہے۔ آپ کے اخلاص کو نہیں، آپ کے نظام کو پہلے کام چاہیے۔ ایک مختصر کال بتا سکتی ہے کہ آغاز کہاں سے ہو۔'],[4,'بناء جاری ہے — مدد اسے تیز کرتی ہے','نیت موجود ہے اور کچھ ڈھانچہ بھی۔ یہی وہ مرحلہ ہے جہاں ایک مختصر، ایماندارانہ گفتگو سب سے زیادہ کام کرتی ہے — مفت کال پر ایک اصل مسئلہ لائیے اور واضح پہلا قدم لے کر جائیے۔'],[6,'مضبوط نظام','آپ پہلے ہی ڈھانچے پر چلتے ہیں۔ اگلی بڑھوتری نفاست میں ہے: قیادت کی گہرائی، ٹیم کی عادات، مشکل تر کمروں کی مشق۔']];
-let qi=0,score=0;const qText=document.getElementById('qText'),qOpts=document.getElementById('qOpts'),qBar=document.getElementById('qBar');
-function renderQ(){qBar.style.width=(qi/QS.length*100)+'%';qText.textContent=QS[qi].q;qOpts.innerHTML='';QS[qi].o.forEach(([label,pts])=>{const b=document.createElement('button');b.className='qopt';b.textContent=label;b.addEventListener('click',()=>{score+=pts;const body=document.getElementById('qBody');if(RM){advance();return}body.classList.add('qswap');setTimeout(()=>{advance();body.classList.remove('qswap')},280)});qOpts.appendChild(b)})}
-function advance(){qi++;if(qi<QS.length)renderQ();else{qBar.style.width='100%';document.getElementById('qBody').style.display='none';const band=BANDS.find(([max])=>score<=max);document.getElementById('qResTitle').textContent=band[1];document.getElementById('qResText').textContent=band[2];document.getElementById('qWa').href='https://wa.me/923309222029?text='+encodeURIComponent('السلام علیکم! میں نے ویب سائٹ پر AIDE سیلف چیک کیا۔ میرا نتیجہ: "'+band[1]+'"۔ مجھے مفت 15 منٹ کی ڈسکوری کال چاہیے۔');document.getElementById('qRes').classList.add('show')}}
-renderQ();
-}
-/* faq */
-document.querySelectorAll('.faq-item').forEach(item=>{const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',()=>{const open=item.classList.toggle('open');q.setAttribute('aria-expanded',open);a.style.maxHeight=open?a.scrollHeight+'px':'0'})});
-/* marquee: duplicate content for seamless loop */
-const mq=document.getElementById('mqTrack');if(mq){mq.innerHTML+=mq.innerHTML;mq.querySelectorAll('.ur').forEach(s=>s.setAttribute('lang','ur'))}
-/* mobile menu */
-const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
-if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');menuBtn.textContent=open?'✕':'☰'});mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open menu');menuBtn.textContent='☰'}))}
+  try{
+    var saved = localStorage.getItem('aide-ck-theme');
+    if(saved === 'day' || saved === 'night'){ setTheme(saved); }
+  }catch(e){}
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    setTheme(root.getAttribute('data-theme') === 'day' ? 'night' : 'day');
+  });
 
-/* dropdowns: tap/click support for touch (language button + parent taps) */
-document.querySelectorAll('.has-drop').forEach(h=>{const b=h.querySelector('.lang-btn');if(b)b.addEventListener('click',e=>{e.stopPropagation();const o=h.classList.contains('open');document.querySelectorAll('.has-drop.open').forEach(x=>x.classList.remove('open'));if(!o)h.classList.add('open')})});
-document.addEventListener('click',()=>document.querySelectorAll('.has-drop.open').forEach(x=>x.classList.remove('open')));
+  /* ---------- HERO FILM ----------
+     Plays in full and loops. When the hero scrolls out of view the film
+     pauses; the moment it returns, it resumes — it never stays stuck. */
+  var v = document.getElementById('heroVideo');
+  var stage = document.getElementById('heroStage');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heroVisible = true;
+  function tryPlay(){ if(!reduce && heroVisible && !document.hidden){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } } }
+  if(reduce){ v.removeAttribute('autoplay'); v.pause(); }
+  else {
+    v.addEventListener('error', function(){ v.style.display = 'none'; }, true);
+    if('IntersectionObserver' in window){
+      var vio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          heroVisible = en.isIntersecting;
+          if(en.isIntersecting){ tryPlay(); } else { v.pause(); }
+        });
+      }, {threshold: 0.15});
+      vio.observe(stage);
+    }
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ v.pause(); } else { tryPlay(); }
+    });
+    v.addEventListener('canplay', tryPlay);
+    tryPlay();
+  }
+
+  /* ---------- WORD REVEAL on the hook ---------- */
+  var hook = document.getElementById('hook'), wi = 0;
+  function splitWords(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType === 3){
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\\s+)/).forEach(function(part){
+          if(!part){ return; }
+          if(/^\\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); }
+          else { var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++); s.textContent = part; frag.appendChild(s); }
+        });
+        node.replaceChild(frag, n);
+      } else if(n.nodeType === 1){ splitWords(n); }
+    });
+  }
+  if(hook && !reduce){ splitWords(hook); }
+
+  /* ---------- Reveal on scroll ---------- */
+  var rv = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); } });
+    }, {threshold: 0.12});
+    rv.forEach(function(el){ io.observe(el); });
+  } else { rv.forEach(function(el){ el.classList.add('on'); }); }
+
+  /* ---------- MAGNETIC buttons ---------- */
+  if(!reduce && window.matchMedia('(pointer: fine)').matches){
+    document.querySelectorAll('.magnetic').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width/2) / r.width, y = (e.clientY - r.top - r.height/2) / r.height;
+        el.style.transform = 'translate(' + (x*7) + 'px,' + (y*5 - 2) + 'px)';
+      });
+      el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+    });
+  }
+
+  /* ---------- Self-check ---------- */
+  var QS = [{q:'جب ایک ہفتہ بگڑ جاتا ہے تو آپ کا پہلا ایماندارانہ قدم کیا ہوتا ہے؟',o:['خاموشی سے حالات کو کوسنا','پیر اور بہتر موڈ کا انتظار','وہ ایک چیز نام لینا جو اصل میں آپ کے اختیار میں ہے']},{q:'اس وقت آپ کا سب سے بڑا ہدف…',o:['ایک احساس — چیزیں بہتر ہونی چاہئیں','ایک جملہ جو آپ بلند آواز کہہ سکیں','لکھا ہوا، اگلے قدم اور تاریخ کے ساتھ']},{q:'آخری بار جب کسی نے آپ کے کام کے بارے میں کڑوا سچ کہا، آپ نے…',o:['اپنا دفاع کیا، پھر بھول گئے','دنوں اس پر سوچتے رہے','اس کی وجہ سے ایک چیز بدل ڈالی']}];
+  var RES = [['آگاہی سے شروع کریں۔','آپ کے زیادہ تر جواب ردِعمل بیان کرتے ہیں، انتخاب نہیں۔ یہی وہ جگہ ہے جہاں سے AIDE شروع کرتا ہے — ایک ایماندارانہ گفتگو اس پر جو اصل میں آپ کے اختیار میں ہے۔'],['سمت موجود ہے۔','آپ چیزیں واضح نام لیتے ہیں، کچھ اوقات میں۔ اب کام کبھی کبھار کی وضاحت کو برقرار معمول میں بدلنا ہے — یہ کوچنگ کی گفتگو ہے، حوصلے کا مسئلہ نہیں۔'],['آپ پہلے سے انتخاب کر رہے ہیں۔','آپ کے جواب ایسے شخص کو دکھاتے ہیں جو نام لیتا ہے، لکھتا ہے اور بدلتا ہے۔ کوئی پروگرام یا انفرادی کوچنگ اس دھار کو اور تیز کر دے گی جو پہلے سے موجود ہے۔']];
+  var step = 0, score = 0;
+  var qBar = document.getElementById('qBar'), qText = document.getElementById('qText'),
+      qOpts = document.getElementById('qOpts'), qBody = document.getElementById('qBody'),
+      qRes = document.getElementById('qRes'), qResTitle = document.getElementById('qResTitle'),
+      qResText = document.getElementById('qResText');
+  function render(){
+    qBar.style.width = (step / QS.length * 100) + '%';
+    if(step >= QS.length){
+      qBody.style.display = 'none'; qRes.style.display = 'block';
+      var r = score <= 2 ? RES[0] : (score <= 4 ? RES[1] : RES[2]);
+      qResTitle.textContent = r[0]; qResText.textContent = r[1];
+      return;
+    }
+    qText.textContent = QS[step].q;
+    qOpts.innerHTML = '';
+    QS[step].o.forEach(function(opt, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'qopt'; b.textContent = opt;
+      b.addEventListener('click', function(){ score += i; step++; render(); });
+      qOpts.appendChild(b);
+    });
+  }
+  render();
+
+  /* ---------- THE ASCENT ---------- */
+  var fill = document.getElementById('ascentFill'), toTop = document.getElementById('toTop'),
+      rootEl = document.documentElement, ticking = false;
+  function hexLerp(a, b, t){
+    function c(h, i){ return parseInt(h.substr(i, 2), 16); }
+    function h2(n){ var x = Math.round(n).toString(16); return x.length < 2 ? '0' + x : x; }
+    return '#' + h2(c(a,1) + (c(b,1) - c(a,1)) * t) + h2(c(a,3) + (c(b,3) - c(a,3)) * t) + h2(c(a,5) + (c(b,5) - c(a,5)) * t);
+  }
+  function ascent(){
+    ticking = false;
+    var max = rootEl.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    if(fill){ fill.style.transform = 'scaleY(' + p + ')'; }
+    var day = rootEl.getAttribute('data-theme') === 'day';
+    if(day){
+      rootEl.style.setProperty('--bg', hexLerp('#E8E9EB', '#F6F7F8', p));
+      rootEl.style.setProperty('--bg-soft', hexLerp('#DFE3E7', '#EDEFF1', p));
+    } else {
+      rootEl.style.setProperty('--bg', hexLerp('#0A1A3B', '#122E63', p));
+      rootEl.style.setProperty('--bg-soft', hexLerp('#0D2148', '#17386F', p));
+    }
+    if(toTop){ toTop.classList.toggle('show', window.scrollY > 600); }
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(ascent); } }, { passive: true });
+  window.addEventListener('resize', ascent);
+  if(toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }); }
+  ascent();
+})();
 
 </script>
 </body>
