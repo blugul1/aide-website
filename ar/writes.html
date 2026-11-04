@@ -351,6 +351,30 @@ body.loc-ur .scene-in p,body.loc-ar .scene-in p{text-shadow:0 2px 14px rgba(4,11
 
 .ph-img{width:100%;max-height:360px;object-fit:cover;object-position:center 30%;border-radius:8px;margin-top:26px}
 
+/* ===== MOTION PASS 2026-11-04 — حرکت ماسٹری پیک specs (Motion Ui Interface) =====
+   transform/opacity only · feedback <100ms · spring return · stagger via js.js */
+/* reveals: faster, no filter animation (perf + design law) */
+.rv{transform:translateY(18px);filter:none;transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+.rv.in{filter:none}
+.rv-l,.rv-r{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+/* buttons: hover lift, press sink ~95% with spring back */
+.btn{transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.96)}
+/* explorer + small round buttons */
+.prog-btn:active{transform:scale(.98)}
+.orbit-btn:active{transform:scale(.93)}
+/* cards: gentle lift on hover, settle on press */
+.prog,.write-card{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.prog:hover,.write-card:hover{transform:translateY(-3px)}
+.prog:active,.write-card:active{transform:translateY(-1px) scale(.995)}
+/* nav CTA + links keep their underline; add press feedback */
+.nav-links a:active{opacity:.75}
+/* reduced motion: neutralise this pass's state transforms too */
+@media(prefers-reduced-motion:reduce){
+  .btn:hover,.btn:active,.prog:hover,.prog:active,.write-card:hover,.write-card:active,.prog-btn:active,.orbit-btn:active{transform:none}
+}
+
 </style>
 </head>
 <body class="loc-ar">
@@ -524,6 +548,20 @@ if(menuBtn&&mobileMenu){menuBtn.addEventListener('click',()=>{const open=mobileM
 /* dropdowns: tap/click support for touch (language button + parent taps) */
 document.querySelectorAll('.has-drop').forEach(h=>{const b=h.querySelector('.lang-btn');if(b)b.addEventListener('click',e=>{e.stopPropagation();const o=h.classList.contains('open');document.querySelectorAll('.has-drop.open').forEach(x=>x.classList.remove('open'));if(!o)h.classList.add('open')})});
 document.addEventListener('click',()=>document.querySelectorAll('.has-drop.open').forEach(x=>x.classList.remove('open')));
+
+/* ===== MOTION PASS 2026-11-04: reveal stagger (guarded, self-contained) ===== */
+(function(){try{
+  if(!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var SEL='.rv,.rv-l,.rv-r';
+  document.querySelectorAll(SEL).forEach(function(el){
+    if(el.classList.contains('btn'))return;
+    var p=el.parentElement;if(!p)return;
+    var sibs=Array.prototype.filter.call(p.children,function(c){return c.classList&&c.matches(SEL)&&!c.classList.contains('btn')});
+    var i=sibs.indexOf(el);
+    if(i>0)el.style.transitionDelay=Math.min(i*80,400)+'ms';
+  });
+}catch(e){}})();
 
 </script>
 </body>

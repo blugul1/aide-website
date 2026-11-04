@@ -414,6 +414,14 @@
     .hook .w{opacity:1;transform:none;animation:none}
     .prog-feature::before{animation:none;display:none}
   }
+  /* ===== MOTION PASS 2026-11-04 — حرکت ماسٹری پیک specs ===== */
+  .rv{transform:translateY(18px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+  .btn{transition:transform .22s cubic-bezier(.34,1.56,.64,1),background .25s ease}
+  .btn:active{transform:scale(.96)}
+  .sticky-book:active{opacity:.85}
+  @media (prefers-reduced-motion: reduce){
+    .btn:active,.sticky-book:active{transform:none;opacity:1}
+  }
 </style>
 </head>
 <body>
@@ -757,6 +765,19 @@
   if(toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }); }
   ascent();
 })();
+
+/* ===== MOTION PASS 2026-11-04: reveal stagger (guarded, self-contained) ===== */
+(function(){try{
+  if(!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.querySelectorAll('.rv').forEach(function(el){
+    if(el.classList.contains('btn'))return;
+    var p=el.parentElement;if(!p)return;
+    var sibs=Array.prototype.filter.call(p.children,function(c){return c.classList&&c.classList.contains('rv')&&!c.classList.contains('btn')});
+    var i=sibs.indexOf(el);
+    if(i>0)el.style.transitionDelay=Math.min(i*80,400)+'ms';
+  });
+}catch(e){}})();
 
 </script>
 </body>
