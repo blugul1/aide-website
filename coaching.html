@@ -396,6 +396,17 @@ body.ready{opacity:1}
 .toTop2.show{opacity:1;transform:none;pointer-events:auto}
 @media (max-width:820px){ .toTop2{bottom:76px} }
 
+/* ===== BOOKING PANEL 2026-11-05 (inner pages) ===== */
+.book-panel{background:var(--glass);border:1px solid var(--glass-brd);border-radius:16px;padding:24px;max-width:640px}
+.bp-label{display:block;font-weight:700;color:var(--ink);margin-bottom:10px;font-size:16.5px}
+.bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
+.bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
+.bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
+.bp-btn:hover{background:var(--sea-hi)}
+.book-line{margin-top:12px}
+.book-line a{color:var(--sea-hi);font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px}
+
 </style>
 </head>
 <body class="">
@@ -476,6 +487,16 @@ body.ready{opacity:1}
 
 <section style="padding-top:8px"><div class="wrap">
   <div class="note rv"><b>The boundary, stated plainly:</b> coaching is not a substitute for medical or psychological treatment. Where clinical care is what you need, you will be told so and referred appropriately — that honesty is part of the service, not a footnote to it.</div>
+</div></section>
+
+<section style="padding-top:8px"><div class="wrap">
+  <div class="sec-head rv"><span class="eyebrow">Booking</span><h2>Choose your practitioner.</h2></div>
+  <div class="book-panel rv">
+    <label class="bp-label" for="coachPick2">Choose your practitioner</label>
+    <select id="coachPick2" class="bp-select" data-bookwith="Book with"><option value="0" data-field="Life coaching, leadership, behaviour and personal growth. Sessions in Urdu, English or Arabic." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20personal%20coaching%20with%20Imran%20Aslam.">Imran Aslam</option><option value="1" data-field="Business coaching, sales development and professional growth." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20business%20coaching%20with%20Irfan%20Aslam.">Irfan Aslam</option><option value="2" data-field="Life coaching, NLP based personal development and hypnotherapy informed support." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20a%20session%20with%20Zill-e-Huma%20Aslam.">Zill-e-Huma Aslam</option><option value="3" data-field="Life coaching and personal development." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20life%20coaching%20with%20Halima%20Sadia.">Halima Sadia</option><option value="4" data-field="Women's empowerment coaching." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20women%27s%20empowerment%20coaching%20with%20Syeda%20Ammara%20Zaidi.">Syeda Ammara Zaidi</option></select>
+    <p class="bp-field" id="coachField2"></p>
+    <p><a class="bp-btn" id="coachBook2" href="#" target="_blank" rel="noopener"></a></p>
+  </div>
 </div></section>
 </main>
 
@@ -625,6 +646,18 @@ document.body.classList.add('ready');
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   addEventListener('scroll',function(){ b.classList.toggle('show', window.scrollY>600); },{passive:true});
   b.addEventListener('click',function(){ window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); });
+}catch(e){}})();
+
+/* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
+(function(){try{
+  var pick=document.getElementById('coachPick2'); if(!pick) return;
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  function setC(){
+    var o=pick.options[pick.selectedIndex]; if(!o) return;
+    if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
+  }
+  pick.addEventListener('change', setC); setC();
 }catch(e){}})();
 
 </script>
