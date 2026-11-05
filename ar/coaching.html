@@ -402,6 +402,9 @@ body.ready{opacity:1}
 .bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
 .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
 .bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-for{margin-top:2px;font-size:15px;line-height:1.7;color:var(--sea2);font-weight:600}
+.bp-note{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.bp-note2{margin-top:12px;font-size:13px;line-height:1.7;color:var(--muted)}
 .bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
 .bp-btn:hover{background:var(--sea-hi)}
 .book-line{margin-top:12px}
@@ -493,9 +496,11 @@ body.ready{opacity:1}
   <div class="sec-head rv"><span class="eyebrow">الحجز</span><h2>اختر الممارس.</h2></div>
   <div class="book-panel rv">
     <label class="bp-label" for="coachPick2">اختر الممارس</label>
-    <select id="coachPick2" class="bp-select" data-bookwith="احجز مع"><option value="0" data-field="توجيه الحياة والقيادة والسلوك والنمو الشخصي. الجلسات بالأردية أو الإنجليزية أو العربية." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.">عمران أسلم</option><option value="1" data-field="توجيه الأعمال وتطوير المبيعات والنمو المهني." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.">عرفان أسلم</option><option value="2" data-field="توجيه الحياة والتطوير الشخصي القائم على NLP والدعم المستنير بالتنويم." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85.">ظل هما أسلم</option><option value="3" data-field="توجيه الحياة والتطوير الشخصي." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9.">حليمة سعدية</option><option value="4" data-field="توجيه تمكين المرأة." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A.">سيدة عمارة زيدي</option></select>
+    <select id="coachPick2" class="bp-select" data-bookwith="احجز مع"><option value="0" data-field="توجيه الحياة والقيادة والسلوك والنمو الشخصي. الجلسات بالأردية أو الإنجليزية أو العربية." data-for="الأنسب لـ — أسئلة القيادة والعادات والاتجاه الشخصي." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.">عمران أسلم</option><option value="1" data-field="توجيه الأعمال وتطوير المبيعات والنمو المهني." data-for="الأنسب لـ — أصحاب الأعمال وفرق المبيعات والنمو المهني." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.">عرفان أسلم</option><option value="2" data-field="توجيه الحياة والتطوير الشخصي القائم على NLP والدعم المستنير بالتنويم." data-for="الأنسب لـ — التغيير الشخصي والأنماط القديمة وذهن أكثر هدوءًا ووضوحًا." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85.">ظل هما أسلم</option><option value="3" data-field="توجيه الحياة والتطوير الشخصي." data-for="الأنسب لـ — النساء والأسر الباحثة عن الاتجاه والنمو الشخصي." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9.">حليمة سعدية</option><option value="4" data-field="توجيه تمكين المرأة." data-for="الأنسب لـ — النساء الباحثات عن الثقة والدخل والاستقلال." data-wa="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A.">سيدة عمارة زيدي</option></select>
     <p class="bp-field" id="coachField2"></p>
+    <p class="bp-for" id="coachFor2"></p>
     <p><a class="bp-btn" id="coachBook2" href="#" target="_blank" rel="noopener"></a></p>
+    <p class="bp-note">يفتح النقر واتساب برسالة جاهزة. تُرتَّب مكالمة الاستكشاف المجانية (15 دقيقة) هناك — ولا يُحصَّل أي مبلغ على هذا الموقع.</p>
   </div>
 </div></section>
 </main>
@@ -644,10 +649,11 @@ document.body.classList.add('ready');
 /* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
 (function(){try{
   var pick=document.getElementById('coachPick2'); if(!pick) return;
-  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2'), forEl=document.getElementById('coachFor2');
   function setC(){
     var o=pick.options[pick.selectedIndex]; if(!o) return;
     if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(forEl) forEl.textContent=o.getAttribute('data-for')||'';
     if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
   }
   pick.addEventListener('change', setC); setC();

@@ -402,6 +402,9 @@ body.ready{opacity:1}
 .bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
 .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
 .bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-for{margin-top:2px;font-size:15px;line-height:1.7;color:var(--sea2);font-weight:600}
+.bp-note{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.bp-note2{margin-top:12px;font-size:13px;line-height:1.7;color:var(--muted)}
 .bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
 .bp-btn:hover{background:var(--sea-hi)}
 .book-line{margin-top:12px}
@@ -471,6 +474,7 @@ body.ready{opacity:1}
   <aside class="fact-box rv">
     <h4>الصيغة</h4><p>8 أسابيع · جلسة مباشرة أسبوعية (ساعتان) + عمل ميداني · بالأردية · مجموعة</p>
     <h4>لمن هذا البرنامج</h4><p>المهنيون والمؤسسون وقادة المجتمع</p>
+    <h4>الرسوم والتواريخ</h4><p>يُقدَّم على دفعات. تُوضَّح الرسوم وتواريخ الدفعة القادمة كتابةً في مكالمة الاستكشاف المجانية — قبل أي دفع، ودون أي التزام بالتسجيل.</p>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D9%86%D8%A8%D9%88%D9%8A%D8%A9%20%28PLDP%29." target="_blank" rel="noopener">اسأل عن هذا البرنامج</a>
   </aside>
 </div></section>
@@ -620,10 +624,11 @@ document.body.classList.add('ready');
 /* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
 (function(){try{
   var pick=document.getElementById('coachPick2'); if(!pick) return;
-  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2'), forEl=document.getElementById('coachFor2');
   function setC(){
     var o=pick.options[pick.selectedIndex]; if(!o) return;
     if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(forEl) forEl.textContent=o.getAttribute('data-for')||'';
     if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
   }
   pick.addEventListener('change', setC); setC();

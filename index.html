@@ -472,6 +472,11 @@
     background:var(--bg-soft);color:var(--head);cursor:pointer}
   .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
   .bp-field{margin-top:14px;font-size:15px;line-height:1.7;color:var(--text-dim);min-height:3.2em}
+  .bp-for{margin-top:2px;font-size:14.5px;line-height:1.65;color:var(--sea);font-weight:600}
+  .bp-note{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .qnote{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .ext-note{margin-top:10px;font-size:13.5px;color:var(--text-dim)}
+  .ghint{font-size:13px;color:var(--text-dim);margin:2px 2px 10px}
   .book-panel .btn{margin-top:6px}
   .member .book-line{margin-top:12px}
   .member .book-line a{color:var(--sea);font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px;font-size:14.5px}
@@ -627,7 +632,9 @@
         <label class="bp-label" for="coachPick">Choose your practitioner</label>
         <select id="coachPick" class="bp-select"></select>
         <p class="bp-field" id="coachField"></p>
+        <p class="bp-for" id="coachFor"></p>
         <p><a class="btn btn-solid" id="coachBook" href="#" target="_blank" rel="noopener"></a></p>
+        <p class="bp-note">Tapping opens WhatsApp with a ready message. Your free 15-minute discovery call is arranged there — nothing is charged on this site.</p>
       </div>
     </div>
   </div>
@@ -655,6 +662,7 @@
           <div class="big" id="qResTitle"></div>
           <p id="qResText" class="dim"></p>
           <p class="qnext">A natural next step: <a id="qNextLink" href="programme-habits.html"></a></p>
+          <p class="qnote">A starting point, not an assessment. Your real situation is something we look at properly on the free discovery call.</p>
           <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20took%20the%20AIDE%20self-check%20on%20the%20website.%20I%20would%20like%20the%20free%2015-minute%20discovery%20call." target="_blank" rel="noopener">Talk it through — free 15-min call</a></p>
         </div>
       </div>
@@ -673,6 +681,7 @@
       <div class="rv">
         <p style="font-size:17.5px;line-height:1.85">Some come from an old man's conversation at a roadside tea stall, a mother's quiet patience, or a realisation that arrives in the middle of an ordinary day. Under the pen name Mani Writes, Imran writes in Urdu about people, relationships and the small moments that teach the most. If writing that makes you pause is your kind of reading, you are welcome to read along.</p>
         <p style="margin-top:22px"><a class="btn btn-solid magnetic" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener">Read Mani Writes</a></p>
+        <p class="ext-note">The button opens his blog — the writings are in Urdu.</p>
       </div>
     </div>
   </div>
@@ -865,13 +874,14 @@
   ascent();
 
   /* ---------- BOOKING DROPDOWN ---------- */
-  var COACH = [['Imran Aslam','Life coaching, leadership, behaviour and personal growth. Sessions in Urdu, English or Arabic.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20personal%20coaching%20with%20Imran%20Aslam.'],['Irfan Aslam','Business coaching, sales development and professional growth.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20business%20coaching%20with%20Irfan%20Aslam.'],['Zill-e-Huma Aslam','Life coaching, NLP based personal development and hypnotherapy informed support.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20a%20session%20with%20Zill-e-Huma%20Aslam.'],['Halima Sadia','Life coaching and personal development.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20life%20coaching%20with%20Halima%20Sadia.'],['Syeda Ammara Zaidi',"Women's empowerment coaching.",'https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20women%27s%20empowerment%20coaching%20with%20Syeda%20Ammara%20Zaidi.']]; var BOOKWITH = 'Book with';
-  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook');
+  var COACH = [['Imran Aslam','Life coaching, leadership, behaviour and personal growth. Sessions in Urdu, English or Arabic.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20personal%20coaching%20with%20Imran%20Aslam.'],['Irfan Aslam','Business coaching, sales development and professional growth.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20business%20coaching%20with%20Irfan%20Aslam.'],['Zill-e-Huma Aslam','Life coaching, NLP based personal development and hypnotherapy informed support.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20a%20session%20with%20Zill-e-Huma%20Aslam.'],['Halima Sadia','Life coaching and personal development.','https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20life%20coaching%20with%20Halima%20Sadia.'],['Syeda Ammara Zaidi',"Women's empowerment coaching.",'https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20women%27s%20empowerment%20coaching%20with%20Syeda%20Ammara%20Zaidi.']]; var BOOKWITH = 'Book with'; var COACHFOR = ['Best for — leadership questions, habits and personal direction.', 'Best for — business owners, sales teams and professional growth.', 'Best for — personal change, old patterns and a calmer, clearer mind.', 'Best for — women and families seeking direction and personal growth.', 'Best for — women building confidence, income and independence.']; var GUIDEOPEN = 'Tap a card to open the full programme page.';
+  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook'), cFor = document.getElementById('coachFor');
   if(cPick && typeof COACH !== 'undefined'){
     COACH.forEach(function(c, i){ var o = document.createElement('option'); o.value = i; o.textContent = c[0]; cPick.appendChild(o); });
     function setCoach(){
       var c = COACH[+cPick.value || 0];
       if(cField){ cField.textContent = c[1]; }
+      if(cFor && typeof COACHFOR !== 'undefined'){ cFor.textContent = COACHFOR[+cPick.value || 0] || ''; }
       if(cBook){ cBook.textContent = BOOKWITH + ' ' + c[0]; cBook.setAttribute('href', c[2]); }
     }
     cPick.addEventListener('change', setCoach); setCoach();
@@ -883,6 +893,7 @@
   if(gBtns.length && gHost && typeof GUIDE !== 'undefined'){
     GUIDE.forEach(function(grp, gi){
       var panel = document.createElement('div'); panel.className = 'gpanel'; panel.id = 'gpanel-' + gi;
+      if(typeof GUIDEOPEN !== 'undefined' && GUIDEOPEN){ var gh = document.createElement('p'); gh.className = 'ghint'; gh.textContent = GUIDEOPEN; panel.appendChild(gh); }
       grp.forEach(function(pr){
         var a = document.createElement('a'); a.className = 'gcard'; a.href = pr[1];
         a.innerHTML = '<h3></h3><span class="fmt"></span><span class="open"></span>';

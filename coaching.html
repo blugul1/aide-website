@@ -402,6 +402,9 @@ body.ready{opacity:1}
 .bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
 .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
 .bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-for{margin-top:2px;font-size:15px;line-height:1.7;color:var(--sea2);font-weight:600}
+.bp-note{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.bp-note2{margin-top:12px;font-size:13px;line-height:1.7;color:var(--muted)}
 .bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
 .bp-btn:hover{background:var(--sea-hi)}
 .book-line{margin-top:12px}
@@ -493,9 +496,11 @@ body.ready{opacity:1}
   <div class="sec-head rv"><span class="eyebrow">Booking</span><h2>Choose your practitioner.</h2></div>
   <div class="book-panel rv">
     <label class="bp-label" for="coachPick2">Choose your practitioner</label>
-    <select id="coachPick2" class="bp-select" data-bookwith="Book with"><option value="0" data-field="Life coaching, leadership, behaviour and personal growth. Sessions in Urdu, English or Arabic." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20personal%20coaching%20with%20Imran%20Aslam.">Imran Aslam</option><option value="1" data-field="Business coaching, sales development and professional growth." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20business%20coaching%20with%20Irfan%20Aslam.">Irfan Aslam</option><option value="2" data-field="Life coaching, NLP based personal development and hypnotherapy informed support." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20a%20session%20with%20Zill-e-Huma%20Aslam.">Zill-e-Huma Aslam</option><option value="3" data-field="Life coaching and personal development." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20life%20coaching%20with%20Halima%20Sadia.">Halima Sadia</option><option value="4" data-field="Women's empowerment coaching." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20women%27s%20empowerment%20coaching%20with%20Syeda%20Ammara%20Zaidi.">Syeda Ammara Zaidi</option></select>
+    <select id="coachPick2" class="bp-select" data-bookwith="Book with"><option value="0" data-field="Life coaching, leadership, behaviour and personal growth. Sessions in Urdu, English or Arabic." data-for="Best for — leadership questions, habits and personal direction." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20personal%20coaching%20with%20Imran%20Aslam.">Imran Aslam</option><option value="1" data-field="Business coaching, sales development and professional growth." data-for="Best for — business owners, sales teams and professional growth." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20business%20coaching%20with%20Irfan%20Aslam.">Irfan Aslam</option><option value="2" data-field="Life coaching, NLP based personal development and hypnotherapy informed support." data-for="Best for — personal change, old patterns and a calmer, clearer mind." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20a%20session%20with%20Zill-e-Huma%20Aslam.">Zill-e-Huma Aslam</option><option value="3" data-field="Life coaching and personal development." data-for="Best for — women and families seeking direction and personal growth." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20life%20coaching%20with%20Halima%20Sadia.">Halima Sadia</option><option value="4" data-field="Women's empowerment coaching." data-for="Best for — women building confidence, income and independence." data-wa="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20women%27s%20empowerment%20coaching%20with%20Syeda%20Ammara%20Zaidi.">Syeda Ammara Zaidi</option></select>
     <p class="bp-field" id="coachField2"></p>
+    <p class="bp-for" id="coachFor2"></p>
     <p><a class="bp-btn" id="coachBook2" href="#" target="_blank" rel="noopener"></a></p>
+    <p class="bp-note">Tapping opens WhatsApp with a ready message. Your free 15-minute discovery call is arranged there — nothing is charged on this site.</p>
   </div>
 </div></section>
 </main>
@@ -651,10 +656,11 @@ document.body.classList.add('ready');
 /* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
 (function(){try{
   var pick=document.getElementById('coachPick2'); if(!pick) return;
-  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2'), forEl=document.getElementById('coachFor2');
   function setC(){
     var o=pick.options[pick.selectedIndex]; if(!o) return;
     if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(forEl) forEl.textContent=o.getAttribute('data-for')||'';
     if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
   }
   pick.addEventListener('change', setC); setC();

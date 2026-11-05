@@ -402,6 +402,9 @@ body.ready{opacity:1}
 .bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
 .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
 .bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-for{margin-top:2px;font-size:15px;line-height:1.7;color:var(--sea2);font-weight:600}
+.bp-note{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.bp-note2{margin-top:12px;font-size:13px;line-height:1.7;color:var(--muted)}
 .bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
 .bp-btn:hover{background:var(--sea-hi)}
 .book-line{margin-top:12px}
@@ -471,6 +474,7 @@ body.ready{opacity:1}
   <aside class="fact-box rv">
     <h4>فارمیٹ</h4><p>1 روزہ ورکشاپ (5 گھنٹے) + 4 ہفتے کلاس روم اطلاق سائیکل · اسکولز کے لیے آن سائٹ</p>
     <h4>کس کے لیے</h4><p>اسکول اساتذہ، کوآرڈینیٹرز اور پرنسپلز</p>
+    <h4>فیس اور تاریخیں</h4><p>کوہورٹ کی صورت میں چلتا ہے۔ فیس اور اگلے کوہورٹ کی تاریخیں مفت ڈسکوری کال پر تحریری طور پر واضح کی جاتی ہیں — کسی ادائیگی سے پہلے، اور داخلے کی کوئی پابندی نہیں۔</p>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%DB%81%D9%85%D8%A7%D8%B1%DB%92%20%D8%A7%D8%B3%DA%A9%D9%88%D9%84%20%DA%A9%DB%92%20%D9%84%DB%8C%DB%92%20%D8%AF%D9%84%20%D8%B3%DB%92%20%D8%AA%D8%AF%D8%B1%DB%8C%D8%B3%20%28Teach%20With%20Heart%29%20%DA%A9%DB%8C%20%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA%20%DA%86%D8%A7%DB%81%D8%A6%DB%8C%DA%BA%DB%94" target="_blank" rel="noopener">اس پروگرام کے بارے میں پوچھیں</a>
   </aside>
 </div></section>
@@ -620,10 +624,11 @@ document.body.classList.add('ready');
 /* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
 (function(){try{
   var pick=document.getElementById('coachPick2'); if(!pick) return;
-  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2'), forEl=document.getElementById('coachFor2');
   function setC(){
     var o=pick.options[pick.selectedIndex]; if(!o) return;
     if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(forEl) forEl.textContent=o.getAttribute('data-for')||'';
     if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
   }
   pick.addEventListener('change', setC); setC();

@@ -472,6 +472,11 @@
     background:var(--bg-soft);color:var(--head);cursor:pointer}
   .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
   .bp-field{margin-top:14px;font-size:15px;line-height:1.7;color:var(--text-dim);min-height:3.2em}
+  .bp-for{margin-top:2px;font-size:14.5px;line-height:1.65;color:var(--sea);font-weight:600}
+  .bp-note{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .qnote{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .ext-note{margin-top:10px;font-size:13.5px;color:var(--text-dim)}
+  .ghint{font-size:13px;color:var(--text-dim);margin:2px 2px 10px}
   .book-panel .btn{margin-top:6px}
   .member .book-line{margin-top:12px}
   .member .book-line a{color:var(--sea);font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px;font-size:14.5px}
@@ -655,7 +660,9 @@
         <label class="bp-label" for="coachPick">اپنا پریکٹیشنر چنیں</label>
         <select id="coachPick" class="bp-select"></select>
         <p class="bp-field" id="coachField"></p>
+        <p class="bp-for" id="coachFor"></p>
         <p><a class="btn btn-solid" id="coachBook" href="#" target="_blank" rel="noopener"></a></p>
+        <p class="bp-note">ٹیپ کرتے ہی واٹس ایپ ایک تیار پیغام کے ساتھ کھلتا ہے۔ آپ کی مفت 15 منٹ کی ڈسکوری کال وہیں طے ہوتی ہے — اس سائٹ پر کوئی ادائیگی نہیں لی جاتی۔</p>
       </div>
     </div>
   </div>
@@ -683,6 +690,7 @@
           <div class="big" id="qResTitle"></div>
           <p id="qResText" class="dim"></p>
           <p class="qnext">فطری اگلا قدم: <a id="qNextLink" href="programme-habits.html"></a></p>
+          <p class="qnote">یہ ایک نقطۂ آغاز ہے، کوئی جائزہ یا تشخیص نہیں۔ آپ کی اصل صورتحال مفت ڈسکوری کال میں ٹھیک سے دیکھی جاتی ہے۔</p>
           <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D9%88%DB%8C%D8%A8%20%D8%B3%D8%A7%D8%A6%D9%B9%20%D9%BE%D8%B1%20AIDE%20%D8%B3%DB%8C%D9%84%D9%81%20%DA%86%DB%8C%DA%A9%20%DA%A9%DB%8C%D8%A7%DB%94%20%D9%85%D8%AC%DA%BE%DB%92%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%DA%86%D8%A7%DB%81%DB%8C%DB%92%DB%94" target="_blank" rel="noopener">بات کریں — مفت 15 منٹ کال</a></p>
         </div>
       </div>
@@ -701,6 +709,7 @@
       <div class="rv">
         <p style="font-size:17.5px;line-height:1.85">کچھ سبق سڑک کنارے چائے کے ڈھابے پر ایک بزرگ کی گفتگو سے آتے ہیں، کچھ ایک ماں کے خاموش صبر سے، یا ایک ایسی سمجھ سے جو ایک عام دن کے بیچ میں آتی ہے۔ قلمی نام مانی رائیٹس کے تحت عمران اردو میں لوگوں، رشتوں اور ان چھوٹے لمحات پر لکھتے ہیں جو سب سے زیادہ سکھاتے ہیں۔ اگر ایسی تحریر آپ کی پسند ہے جو آپ کو ٹھہرنے پر مجبور کرے، تو ساتھ پڑھنے میں خوش آمدید۔</p>
         <p style="margin-top:22px"><a class="btn btn-solid magnetic" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener">مانی رائیٹس پڑھیں</a></p>
+        <p class="ext-note">بٹن سے ان کا بلاگ کھلے گا — تحریریں اردو میں ہیں۔</p>
       </div>
     </div>
   </div>
@@ -893,13 +902,14 @@
   ascent();
 
   /* ---------- BOOKING DROPDOWN ---------- */
-  var COACH = [['عمران اسلم','لائف کوچنگ، قیادت، رویہ اور ذاتی نمو۔ سیشنز اردو، انگریزی یا عربی میں۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B0%D8%A7%D8%AA%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['عرفان اسلم','بزنس کوچنگ، سیلز ڈیولپمنٹ اور پیشہ ورانہ نمو۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%A8%D8%B2%D9%86%D8%B3%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['ظل ہما اسلم','لائف کوچنگ، NLP پر مبنی ذاتی نمو اور ہپنوتھراپی سے آگاہ معاونت۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B8%D9%84%20%DB%81%D9%85%D8%A7%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B3%DB%8C%D8%B4%D9%86%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['حلیمہ سعدیہ','لائف کوچنگ اور ذاتی نمو۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%AD%D9%84%DB%8C%D9%85%DB%81%20%D8%B3%D8%B9%D8%AF%DB%8C%DB%81%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%84%D8%A7%D8%A6%D9%81%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['سیدہ عمارہ زیدی','خواتین کو بااختیار بنانے کی کوچنگ۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B3%DB%8C%D8%AF%DB%81%20%D8%B9%D9%85%D8%A7%D8%B1%DB%81%20%D8%B2%DB%8C%D8%AF%DB%8C%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%AE%D9%88%D8%A7%D8%AA%DB%8C%D9%86%20%DA%A9%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94']]; var BOOKWITH = 'بک کریں:';
-  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook');
+  var COACH = [['عمران اسلم','لائف کوچنگ، قیادت، رویہ اور ذاتی نمو۔ سیشنز اردو، انگریزی یا عربی میں۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B0%D8%A7%D8%AA%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['عرفان اسلم','بزنس کوچنگ، سیلز ڈیولپمنٹ اور پیشہ ورانہ نمو۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%A8%D8%B2%D9%86%D8%B3%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['ظل ہما اسلم','لائف کوچنگ، NLP پر مبنی ذاتی نمو اور ہپنوتھراپی سے آگاہ معاونت۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B8%D9%84%20%DB%81%D9%85%D8%A7%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B3%DB%8C%D8%B4%D9%86%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['حلیمہ سعدیہ','لائف کوچنگ اور ذاتی نمو۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%AD%D9%84%DB%8C%D9%85%DB%81%20%D8%B3%D8%B9%D8%AF%DB%8C%DB%81%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%84%D8%A7%D8%A6%D9%81%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94'],['سیدہ عمارہ زیدی','خواتین کو بااختیار بنانے کی کوچنگ۔','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B3%DB%8C%D8%AF%DB%81%20%D8%B9%D9%85%D8%A7%D8%B1%DB%81%20%D8%B2%DB%8C%D8%AF%DB%8C%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%AE%D9%88%D8%A7%D8%AA%DB%8C%D9%86%20%DA%A9%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94']]; var BOOKWITH = 'بک کریں:'; var COACHFOR = ['خاص طور پر مفید — قیادت کے سوالات، عادات اور ذاتی سمت کے لیے۔', 'خاص طور پر مفید — کاروباری مالکان، سیلز ٹیموں اور پیشہ ورانہ نمو کے لیے۔', 'خاص طور پر مفید — ذاتی تبدیلی، پرانے سانچوں اور پرسکون، صاف ذہن کے لیے۔', 'خاص طور پر مفید — سمت اور ذاتی نمو چاہنے والی خواتین اور خاندانوں کے لیے۔', 'خاص طور پر مفید — اعتماد، آمدن اور خودمختاری بنانے والی خواتین کے لیے۔']; var GUIDEOPEN = 'مکمل پروگرام صفحہ کھولنے کے لیے کارڈ پر ٹیپ کریں۔';
+  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook'), cFor = document.getElementById('coachFor');
   if(cPick && typeof COACH !== 'undefined'){
     COACH.forEach(function(c, i){ var o = document.createElement('option'); o.value = i; o.textContent = c[0]; cPick.appendChild(o); });
     function setCoach(){
       var c = COACH[+cPick.value || 0];
       if(cField){ cField.textContent = c[1]; }
+      if(cFor && typeof COACHFOR !== 'undefined'){ cFor.textContent = COACHFOR[+cPick.value || 0] || ''; }
       if(cBook){ cBook.textContent = BOOKWITH + ' ' + c[0]; cBook.setAttribute('href', c[2]); }
     }
     cPick.addEventListener('change', setCoach); setCoach();
@@ -911,6 +921,7 @@
   if(gBtns.length && gHost && typeof GUIDE !== 'undefined'){
     GUIDE.forEach(function(grp, gi){
       var panel = document.createElement('div'); panel.className = 'gpanel'; panel.id = 'gpanel-' + gi;
+      if(typeof GUIDEOPEN !== 'undefined' && GUIDEOPEN){ var gh = document.createElement('p'); gh.className = 'ghint'; gh.textContent = GUIDEOPEN; panel.appendChild(gh); }
       grp.forEach(function(pr){
         var a = document.createElement('a'); a.className = 'gcard'; a.href = pr[1];
         a.innerHTML = '<h3></h3><span class="fmt"></span><span class="open"></span>';

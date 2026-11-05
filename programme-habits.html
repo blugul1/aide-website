@@ -402,6 +402,9 @@ body.ready{opacity:1}
 .bp-select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1px solid var(--glass-brd);background:var(--navy2);color:var(--ink);cursor:pointer}
 .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
 .bp-field{margin-top:14px;font-size:15.5px;line-height:1.75;color:var(--muted);min-height:3.2em}
+.bp-for{margin-top:2px;font-size:15px;line-height:1.7;color:var(--sea2);font-weight:600}
+.bp-note{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.bp-note2{margin-top:12px;font-size:13px;line-height:1.7;color:var(--muted)}
 .bp-btn{display:inline-block;margin-top:6px;background:var(--sea);color:#fff;font-weight:700;padding:13px 24px;border-radius:10px;text-decoration:none}
 .bp-btn:hover{background:var(--sea-hi)}
 .book-line{margin-top:12px}
@@ -471,6 +474,7 @@ body.ready{opacity:1}
   <aside class="fact-box rv">
     <h4>The format</h4><p>4 weeks · weekly 90-minute live sessions + daily micro-actions · Urdu · online cohort</p>
     <h4>Who it is for</h4><p>Students, teachers, professionals — anyone whose habits keep breaking</p>
+    <h4>Fees & dates</h4><p>Runs in cohorts. The fee and the next cohort's dates are confirmed in writing on the free discovery call — before any payment, and with no obligation to enrol.</p>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20want%20details%20about%20Habit%20Architecture." target="_blank" rel="noopener">Ask about this programme</a>
   </aside>
 </div></section>
@@ -627,10 +631,11 @@ document.body.classList.add('ready');
 /* ===== BOOKING DROPDOWN 2026-11-05 (inner coaching page) ===== */
 (function(){try{
   var pick=document.getElementById('coachPick2'); if(!pick) return;
-  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2');
+  var field=document.getElementById('coachField2'), btn=document.getElementById('coachBook2'), forEl=document.getElementById('coachFor2');
   function setC(){
     var o=pick.options[pick.selectedIndex]; if(!o) return;
     if(field) field.textContent=o.getAttribute('data-field')||'';
+    if(forEl) forEl.textContent=o.getAttribute('data-for')||'';
     if(btn){ btn.textContent=(pick.getAttribute('data-bookwith')||'Book with')+' '+o.textContent; btn.setAttribute('href', o.getAttribute('data-wa')||'#'); }
   }
   pick.addEventListener('change', setC); setC();

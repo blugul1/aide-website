@@ -472,6 +472,11 @@
     background:var(--bg-soft);color:var(--head);cursor:pointer}
   .bp-select:focus{outline:2px solid var(--sea);outline-offset:1px}
   .bp-field{margin-top:14px;font-size:15px;line-height:1.7;color:var(--text-dim);min-height:3.2em}
+  .bp-for{margin-top:2px;font-size:14.5px;line-height:1.65;color:var(--sea);font-weight:600}
+  .bp-note{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .qnote{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .ext-note{margin-top:10px;font-size:13.5px;color:var(--text-dim)}
+  .ghint{font-size:13px;color:var(--text-dim);margin:2px 2px 10px}
   .book-panel .btn{margin-top:6px}
   .member .book-line{margin-top:12px}
   .member .book-line a{color:var(--sea);font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px;font-size:14.5px}
@@ -651,7 +656,9 @@
         <label class="bp-label" for="coachPick">اختر الممارس</label>
         <select id="coachPick" class="bp-select"></select>
         <p class="bp-field" id="coachField"></p>
+        <p class="bp-for" id="coachFor"></p>
         <p><a class="btn btn-solid" id="coachBook" href="#" target="_blank" rel="noopener"></a></p>
+        <p class="bp-note">يفتح النقر واتساب برسالة جاهزة. تُرتَّب مكالمة الاستكشاف المجانية (15 دقيقة) هناك — ولا يُحصَّل أي مبلغ على هذا الموقع.</p>
       </div>
     </div>
   </div>
@@ -679,6 +686,7 @@
           <div class="big" id="qResTitle"></div>
           <p id="qResText" class="dim"></p>
           <p class="qnext">خطوة تالية طبيعية: <a id="qNextLink" href="programme-habits.html"></a></p>
+          <p class="qnote">هذه نقطة بداية، لا تقييم ولا تشخيص. وضعك الحقيقي ننظر فيه كما ينبغي في مكالمة الاستكشاف المجانية.</p>
           <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%AC%D8%B1%D9%8A%D8%AA%20%D8%A7%D9%84%D9%81%D8%AD%D8%B5%20%D8%A7%D9%84%D8%B0%D8%A7%D8%AA%D9%8A%20%D9%81%D9%8A%20%D9%85%D9%88%D9%82%D8%B9%20AIDE.%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%83%D8%B4%D8%A7%D9%81%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%2015%20%D8%AF%D9%82%D9%8A%D9%82%D8%A9." target="_blank" rel="noopener">ناقشها — مكالمة مجانية 15 دقيقة</a></p>
         </div>
       </div>
@@ -697,6 +705,7 @@
       <div class="rv">
         <p style="font-size:17.5px;line-height:1.85">بعضها يأتي من محادثة رجل مسنّ عند كشك شاي على الطريق، أو صبر أمٍّ هادئ، أو إدراك يصل في وسط يوم عادي. باسم القلم ماني رايتس، يكتب عمران بالأردية عن الناس والعلاقات واللحظات الصغيرة التي تعلّم أكثر من غيرها. إن كانت الكتابة التي تجعلك تتوقف هي ذوقك، فأهلًا بك أن تقرأ معنا.</p>
         <p style="margin-top:22px"><a class="btn btn-solid magnetic" href="https://phirphur.blogspot.com/" target="_blank" rel="noopener">اقرأ ماني رايتس</a></p>
+        <p class="ext-note">يفتح الزر مدونته — الكتابات بالأردية.</p>
       </div>
     </div>
   </div>
@@ -889,13 +898,14 @@
   ascent();
 
   /* ---------- BOOKING DROPDOWN ---------- */
-  var COACH = [['عمران أسلم','توجيه الحياة والقيادة والسلوك والنمو الشخصي. الجلسات بالأردية أو الإنجليزية أو العربية.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.'],['عرفان أسلم','توجيه الأعمال وتطوير المبيعات والنمو المهني.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.'],['ظل هما أسلم','توجيه الحياة والتطوير الشخصي القائم على NLP والدعم المستنير بالتنويم.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85.'],['حليمة سعدية','توجيه الحياة والتطوير الشخصي.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9.'],['سيدة عمارة زيدي','توجيه تمكين المرأة.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A.']]; var BOOKWITH = 'احجز مع';
-  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook');
+  var COACH = [['عمران أسلم','توجيه الحياة والقيادة والسلوك والنمو الشخصي. الجلسات بالأردية أو الإنجليزية أو العربية.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.'],['عرفان أسلم','توجيه الأعمال وتطوير المبيعات والنمو المهني.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85.'],['ظل هما أسلم','توجيه الحياة والتطوير الشخصي القائم على NLP والدعم المستنير بالتنويم.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85.'],['حليمة سعدية','توجيه الحياة والتطوير الشخصي.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9.'],['سيدة عمارة زيدي','توجيه تمكين المرأة.','https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A.']]; var BOOKWITH = 'احجز مع'; var COACHFOR = ['الأنسب لـ — أسئلة القيادة والعادات والاتجاه الشخصي.', 'الأنسب لـ — أصحاب الأعمال وفرق المبيعات والنمو المهني.', 'الأنسب لـ — التغيير الشخصي والأنماط القديمة وذهن أكثر هدوءًا ووضوحًا.', 'الأنسب لـ — النساء والأسر الباحثة عن الاتجاه والنمو الشخصي.', 'الأنسب لـ — النساء الباحثات عن الثقة والدخل والاستقلال.']; var GUIDEOPEN = 'انقر على بطاقة لفتح صفحة البرنامج الكاملة.';
+  var cPick = document.getElementById('coachPick'), cField = document.getElementById('coachField'), cBook = document.getElementById('coachBook'), cFor = document.getElementById('coachFor');
   if(cPick && typeof COACH !== 'undefined'){
     COACH.forEach(function(c, i){ var o = document.createElement('option'); o.value = i; o.textContent = c[0]; cPick.appendChild(o); });
     function setCoach(){
       var c = COACH[+cPick.value || 0];
       if(cField){ cField.textContent = c[1]; }
+      if(cFor && typeof COACHFOR !== 'undefined'){ cFor.textContent = COACHFOR[+cPick.value || 0] || ''; }
       if(cBook){ cBook.textContent = BOOKWITH + ' ' + c[0]; cBook.setAttribute('href', c[2]); }
     }
     cPick.addEventListener('change', setCoach); setCoach();
@@ -907,6 +917,7 @@
   if(gBtns.length && gHost && typeof GUIDE !== 'undefined'){
     GUIDE.forEach(function(grp, gi){
       var panel = document.createElement('div'); panel.className = 'gpanel'; panel.id = 'gpanel-' + gi;
+      if(typeof GUIDEOPEN !== 'undefined' && GUIDEOPEN){ var gh = document.createElement('p'); gh.className = 'ghint'; gh.textContent = GUIDEOPEN; panel.appendChild(gh); }
       grp.forEach(function(pr){
         var a = document.createElement('a'); a.className = 'gcard'; a.href = pr[1];
         a.innerHTML = '<h3></h3><span class="fmt"></span><span class="open"></span>';
