@@ -389,8 +389,8 @@
   @media (max-width:820px){ .steps3{grid-template-columns:1fr} }
   .prog-feature{position:relative}
   .prog-feature::before{content:"";position:absolute;top:0;left:-45%;width:45%;height:3px;z-index:3;
-    background:linear-gradient(90deg,transparent,#C9A227,#4FBFA7,transparent);animation:beam 6s ease-in-out infinite}
-  @keyframes beam{0%{left:-45%}52%{left:100%}100%{left:100%}}
+    background:linear-gradient(90deg,transparent,#C9A227,#4FBFA7,transparent);animation:beam 12s ease-in-out infinite}
+  @keyframes beam{0%{left:-45%}38%{left:100%}100%{left:100%}}
   .team-grid{grid-template-columns:repeat(3,1fr)}
   .member:nth-child(4){transform:none}
   .member .intro{font-size:14px;color:var(--text-dim);line-height:1.65;margin-top:9px}
@@ -422,9 +422,55 @@
   @media (prefers-reduced-motion: reduce){
     .btn:active,.sticky-book:active{transform:none;opacity:1}
   }
+  /* ===== LIVING PASS 2026-11-05 — زندہ روح: guide, uswa explorer, hero veil ===== */
+  .bezel::after,.emblem::after{animation-duration:30s}
+  body{opacity:0;transition:opacity .35s ease}
+  body.ready{opacity:1}
+  @media (prefers-reduced-motion: reduce){ body{opacity:1;transition:none} }
+  .veil{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;
+    background:radial-gradient(60% 50% at 28% 30%,rgba(201,162,39,.20),transparent 70%),radial-gradient(50% 45% at 78% 68%,rgba(61,171,148,.16),transparent 70%);
+    animation:breathe 9s ease-in-out infinite alternate}
+  @keyframes breathe{from{opacity:.45;transform:scale(1)}to{opacity:.95;transform:scale(1.05)}}
+  @media (prefers-reduced-motion: reduce){ .veil{animation:none;opacity:.5} }
+  .vwrap{cursor:pointer}
+  .vstate{position:absolute;bottom:16px;inset-inline-end:18px;z-index:2;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;
+    background:rgba(10,26,59,.38);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);
+    opacity:0;transform:scale(.85);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+  .vstate.show{opacity:1;transform:scale(1)}
+  .guide{padding:56px 0 8px}
+  .guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+  .gopt-btn{background:var(--surface);border:1px solid var(--surface-line);color:var(--head);border-radius:14px;
+    padding:18px 16px;font:inherit;font-weight:700;font-size:15.5px;cursor:pointer;text-align:start;line-height:1.55;
+    transition:border-color .25s ease,transform .25s ease,background .25s ease}
+  .gopt-btn:hover{transform:translateY(-2px);border-color:var(--sea)}
+  .gopt-btn.on{border-color:var(--sea);background:linear-gradient(160deg,rgba(61,171,148,.16),rgba(61,171,148,.04))}
+  .gpanel{display:none;margin-top:16px}
+  .gpanel.on{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;animation:gfade .4s ease}
+  @keyframes gfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .gcard{display:block;background:var(--surface);border:1px solid var(--surface-line);border-radius:14px;padding:18px;text-decoration:none}
+  .gcard h3{font-size:17px;color:var(--head);margin-bottom:6px}
+  .gcard .fmt{font-size:13px;color:var(--sea-hi);letter-spacing:.02em}
+  .gcard .open{display:inline-block;margin-top:10px;font-weight:700;color:var(--sea);font-size:14px}
+  @media (max-width:900px){ .guide-grid{grid-template-columns:1fr 1fr} .gpanel.on{grid-template-columns:1fr} }
+  .uswa button{background:var(--navy-2);padding:24px 22px;border:none;font:inherit;text-align:start;cursor:pointer;color:inherit;
+    transition:background .25s ease,box-shadow .25s ease}
+  .uswa button i{font-style:normal;color:var(--sea-hi);font-weight:800;font-size:22px;display:block;margin-bottom:8px}
+  .uswa button b{display:block;color:#fff;font-size:17px}
+  .uswa button span{font-size:13.5px;color:rgba(232,233,235,.65)}
+  .uswa button.on{box-shadow:inset 0 0 0 2px var(--sea);background:#0E2A57}
+  .uswa-detail{margin-top:1px;background:var(--navy-2);border-top:2px solid var(--sea);padding:18px 22px;color:var(--text)}
+  .uswa-detail b{color:#fff}
+  .uswa-detail .wk{display:block;margin-top:5px;font-size:13.5px;color:var(--sea-hi)}
+  .nav-links a.act{color:var(--sea-hi)}
+  .qback{margin-top:14px;background:none;border:none;color:var(--sea);font:inherit;font-weight:700;cursor:pointer;padding:6px 2px}
+  .qnext{margin-top:16px;font-size:15px}
+  .qnext a{color:var(--sea);font-weight:700;text-decoration:none;border-bottom:2px solid var(--sea);padding-bottom:2px}
+  @media (prefers-reduced-motion: reduce){ .gpanel.on{animation:none} .veil{animation:none} }
 </style>
 </head>
 <body>
+<noscript><style>body{opacity:1}</style></noscript>
 
 <nav>
   <div class="wrap nav-in">
@@ -449,6 +495,8 @@
         <source src="hero-film.mp4" type="video/mp4">
       </video>
     </div>
+    <div class="veil" aria-hidden="true"></div>
+    <span class="vstate" id="vState" aria-hidden="true">❚❚</span>
     <div class="glow" aria-hidden="true"></div>
     <div class="shade" aria-hidden="true"></div>
     <div class="hero-in">
@@ -471,10 +519,23 @@
 <div class="hero-lead"><div class="wrap"><p>A better leader. A steadier team. A calmer home. A young person who knows where they are heading. Every one of these begins with awareness, and that is where our work starts. I am Imran Aslam, Life Coach and Trainer. Through AIDE I work with individuals, families, professionals and organisations who want to move from where they are to where they want to be.</p></div></div>
 
 <div class="proven" aria-label="The verified record">
-  <div class="wrap"><div class="proof"><b>300+ <em>Workshops</em></b><span>Delivered for teams, schools and public cohorts</span></div><div class="proof"><b>700+ <em>Coaching Hours</em></b><span>One-to-one and group work, in the room and online</span></div><div class="proof"><b>15 <em>Countries</em></b><span>International work across three continents</span></div><div class="proof"><b>3 <em>Continents</em></b><span>The Gulf, Europe and Africa</span></div><div class="proof"><b>5 <em>Languages</em></b><span>Sessions and training across five languages</span></div><div class="proof"><b>20 <em>Years of Leadership</em></b><span>Corporate and sales leadership — the ground this work stands on</span></div></div>
+  <div class="wrap"><div class="proof rv"><b>300+ <em>Workshops</em></b><span>Delivered for teams, schools and public cohorts</span></div><div class="proof rv"><b>700+ <em>Coaching Hours</em></b><span>One-to-one and group work, in the room and online</span></div><div class="proof rv"><b>15 <em>Countries</em></b><span>International work across three continents</span></div><div class="proof rv"><b>3 <em>Continents</em></b><span>The Gulf, Europe and Africa</span></div><div class="proof rv"><b>5 <em>Languages</em></b><span>Sessions and training across five languages</span></div><div class="proof rv"><b>20 <em>Years of Leadership</em></b><span>Corporate and sales leadership — the ground this work stands on</span></div></div>
 </div>
 
 <div class="wrap"><div class="steps3"><div class="step rv"><b><i>1</i>Book a Free Call</b><p>Fifteen minutes on WhatsApp. Say briefly what you want to work on.</p></div><div class="step rv"><b><i>2</i>Choose Your Programme</b><p>Together we match you with the right programme or the right practitioner.</p></div><div class="step rv"><b><i>3</i>Begin</b><p>A clear agreement in writing first — then the work starts.</p></div></div></div>
+
+<section class="guide" id="guide">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Find your path</span>
+      <h2>Start where you stand.</h2>
+      <p>Which of these sounds like you?</p>
+    </div>
+    <div class="guide-grid" id="guideGrid"><button type="button" class="gopt-btn" data-g="0">I lead a school or an organisation</button><button type="button" class="gopt-btn" data-g="1">I teach or train others</button><button type="button" class="gopt-btn" data-g="2">I am a parent</button><button type="button" class="gopt-btn" data-g="3">I am a young person finding direction</button></div>
+    <div id="guidePanels"></div>
+    <p class="rv" style="margin-top:18px;color:var(--text-dim)">Not sure? Take the sixty-second self-check further down.</p>
+  </div>
+</section>
 
 <section id="about">
   <div class="wrap about-grid">
@@ -506,8 +567,9 @@
         <a class="ask" href="programme-pldp.html">The full programme page →</a>
         <a class="ask" style="margin-inline-start:22px" href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20want%20details%20about%20the%20Prophetic%20Leadership%20Development%20Program%20%28PLDP%29." target="_blank" rel="noopener">Ask about the flagship →</a>
       </div>
-      <div class="uswa"><div><i>U</i><b>Understanding</b><span>Know people before you lead them</span></div><div><i>S</i><b>Sincerity</b><span>Intention before technique</span></div><div><i>W</i><b>Wisdom</b><span>Judgement in the grey areas</span></div><div><i>A</i><b>Accountability</b><span>Answerable — to people and to God</span></div></div>
+      <div class="uswa"><button type="button" class="up on" data-u="0"><i>U</i><b>Understanding</b><span>Know people before you lead them</span></button><button type="button" class="up" data-u="1"><i>S</i><b>Sincerity</b><span>Intention before technique</span></button><button type="button" class="up" data-u="2"><i>W</i><b>Wisdom</b><span>Judgement in the grey areas</span></button><button type="button" class="up" data-u="3"><i>A</i><b>Accountability</b><span>Answerable — to people and to God</span></button></div>
     </div>
+    <div class="uswa-detail rv" id="uswaDetail" aria-live="polite"></div>
     <div class="prog-rows rv"><a class="prog-row" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>Sales is not only about knowing what to say. It is about reading people, understanding behaviour and earning trust in real conversations. Two days with your team, then thirty days of follow up in the field, co-led with Irfan Aslam.</p><span class="fmt">Two days on site · 30 day field follow up · Corporate</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>Everyone has started over on a Monday. The hard part is not starting, it is building a habit that survives an ordinary week. This cohort helps you build habits that fit your life and quietly hold it together.</p><span class="fmt">Four weeks · Online cohort · Urdu</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>A home does not become peaceful because one person wins every argument. This programme rests on a simple philosophy: no villain, no victim, only two hearts learning to listen again. Couples and parents learn to understand each other and build a steadier home.</p><span class="fmt">Four weeks · Online · Couples and parents</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>Teaching is not only delivering a lesson. It is also understanding the child sitting in front of you. A teacher who feels steady can steady an entire classroom, and that is what this programme trains: teacher emotional intelligence, practised over four weeks in real classrooms.</p><span class="fmt">One day workshop · Four week classroom cycle · For schools</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>Between childhood and adulthood, a young person faces questions that can set the direction of a life. RISE helps them think clearly about who they are and what they want, and design a life before the world designs it for you.</p><span class="fmt">Six weeks · Ages 16 to 25 · AIDE Society flagship</span></span><span class="arr">→</span></a></div>
   </div>
 </section>
@@ -563,10 +625,12 @@
         <div id="qBody">
           <h3 id="qText"></h3>
           <div id="qOpts"></div>
+          <button class="qback" id="qBack" type="button" style="display:none">← Back</button>
         </div>
         <div class="qres" id="qRes">
           <div class="big" id="qResTitle"></div>
           <p id="qResText" class="dim"></p>
+          <p class="qnext">A natural next step: <a id="qNextLink" href="programme-habits.html"></a></p>
           <p style="margin-top:20px"><a class="btn btn-solid magnetic" href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20took%20the%20AIDE%20self-check%20on%20the%20website.%20I%20would%20like%20the%20free%2015-minute%20discovery%20call." target="_blank" rel="noopener">Talk it through — free 15-min call</a></p>
         </div>
       </div>
@@ -630,6 +694,7 @@
 <script>
 (function(){
   "use strict";
+  document.body.classList.add('ready');
   var DAY = 'Day Soft Glass', NIGHT = 'Night Aurora';
   var root = document.documentElement, label = document.getElementById('themeLabel');
   function setTheme(t){
@@ -651,8 +716,12 @@
   var v = document.getElementById('heroVideo');
   var stage = document.getElementById('heroStage');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var heroVisible = true;
-  function tryPlay(){ if(!reduce && heroVisible && !document.hidden){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } } }
+  var heroVisible = true, userPaused = false;
+  function tryPlay(){ if(!reduce && !userPaused && heroVisible && !document.hidden){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } } }
+  var vState = document.getElementById('vState'), vT = null;
+  function flashState(){ if(!vState) return; vState.textContent = v.paused ? '▶' : '❚❚'; vState.classList.add('show'); clearTimeout(vT); vT = setTimeout(function(){ vState.classList.remove('show'); }, 900); }
+  var vwrap = document.querySelector('.vwrap');
+  if(vwrap && !reduce){ vwrap.addEventListener('click', function(){ if(v.paused){ userPaused = false; tryPlay(); } else { userPaused = true; v.pause(); } flashState(); }); }
   if(reduce){ v.removeAttribute('autoplay'); v.pause(); }
   else {
     v.addEventListener('error', function(){ v.style.display = 'none'; }, true);
@@ -713,17 +782,23 @@
   /* ---------- Self-check ---------- */
   var QS = [{q:'When a week goes wrong, your first honest move is…',o:['Blame the circumstances, quietly','Wait for Monday and a better mood','Name the one thing that is actually in your control']},{q:'Your biggest goal right now is…',o:['A feeling — things should be better','A sentence you could say out loud','Written down, with a next step and a date']},{q:'The last time someone told you a hard truth about your work, you…',o:['Defended yourself, then forgot it','Thought about it for days','Changed one thing because of it']}];
   var RES = [['Start with awareness.','Most of your answers describe reacting, not choosing. That is exactly where AIDE starts — one honest conversation about what is actually in your control.'],['The direction is there.','You name things clearly, some of the time. The work now is turning occasional clarity into a kept routine — that is a coaching conversation, not a motivation problem.'],['You are already choosing.','Your answers show someone who names, writes and adjusts. A programme or 1:1 coaching would sharpen an edge that already exists.']];
-  var step = 0, score = 0;
+  var QNEXT = [['Habit Architecture','programme-habits.html'],['Talk to a coach','#coaching'],['The flagship programme','programme-pldp.html']];
+  var step = 0, score = 0, hist = [];
   var qBar = document.getElementById('qBar'), qText = document.getElementById('qText'),
       qOpts = document.getElementById('qOpts'), qBody = document.getElementById('qBody'),
       qRes = document.getElementById('qRes'), qResTitle = document.getElementById('qResTitle'),
       qResText = document.getElementById('qResText');
+  var qBack = document.getElementById('qBack'), qNextLink = document.getElementById('qNextLink');
+  if(qBack){ qBack.addEventListener('click', function(){ if(step > 0 && hist.length){ score -= hist.pop(); step--; qRes.style.display = 'none'; qBody.style.display = 'block'; render(); } }); }
   function render(){
     qBar.style.width = (step / QS.length * 100) + '%';
+    if(qBack){ qBack.style.display = step > 0 ? 'inline-block' : 'none'; }
     if(step >= QS.length){
       qBody.style.display = 'none'; qRes.style.display = 'block';
-      var r = score <= 2 ? RES[0] : (score <= 4 ? RES[1] : RES[2]);
+      var band = score <= 2 ? 0 : (score <= 4 ? 1 : 2);
+      var r = RES[band];
       qResTitle.textContent = r[0]; qResText.textContent = r[1];
+      if(qNextLink && QNEXT[band]){ qNextLink.textContent = QNEXT[band][0]; qNextLink.setAttribute('href', QNEXT[band][1]); }
       return;
     }
     qText.textContent = QS[step].q;
@@ -731,7 +806,7 @@
     QS[step].o.forEach(function(opt, i){
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'qopt'; b.textContent = opt;
-      b.addEventListener('click', function(){ score += i; step++; render(); });
+      b.addEventListener('click', function(){ hist.push(i); score += i; step++; render(); });
       qOpts.appendChild(b);
     });
   }
@@ -764,6 +839,55 @@
   window.addEventListener('resize', ascent);
   if(toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }); }
   ascent();
+
+  /* ---------- PATH GUIDE ---------- */
+  var GUIDE = [[['Prophetic Leadership Development Program','programme-pldp.html','Eight weeks · Urdu · Live sessions and fieldwork'],['Teach With Heart','programme-teach.html','One day workshop · Four week classroom cycle · For schools'],['Behavioural Sales Excellence','programme-sales.html','Two days on site · 30 day field follow up · Corporate']],[['Teach With Heart','programme-teach.html','One day workshop · Four week classroom cycle · For schools'],['Habit Architecture','programme-habits.html','Four weeks · Online cohort · Urdu']],[['Strong Homes, Steady Hearts','programme-homes.html','Four weeks · Online · Couples and parents'],['Habit Architecture','programme-habits.html','Four weeks · Online cohort · Urdu']],[['RISE: Youth Life Design','programme-rise.html','Six weeks · Ages 16 to 25 · AIDE Society flagship'],['Habit Architecture','programme-habits.html','Four weeks · Online cohort · Urdu']]];
+  var gBtns = document.querySelectorAll('.gopt-btn'), gHost = document.getElementById('guidePanels');
+  if(gBtns.length && gHost && typeof GUIDE !== 'undefined'){
+    GUIDE.forEach(function(grp, gi){
+      var panel = document.createElement('div'); panel.className = 'gpanel'; panel.id = 'gpanel-' + gi;
+      grp.forEach(function(pr){
+        var a = document.createElement('a'); a.className = 'gcard'; a.href = pr[1];
+        a.innerHTML = '<h3></h3><span class="fmt"></span><span class="open"></span>';
+        a.querySelector('h3').textContent = pr[0];
+        a.querySelector('.fmt').textContent = pr[2];
+        a.querySelector('.open').textContent = '→';
+        panel.appendChild(a);
+      });
+      gHost.appendChild(panel);
+    });
+    gBtns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var gi = +b.getAttribute('data-g'), was = b.classList.contains('on');
+        gBtns.forEach(function(x){ x.classList.remove('on'); });
+        document.querySelectorAll('.gpanel').forEach(function(x){ x.classList.remove('on'); });
+        if(!was){ b.classList.add('on'); var p = document.getElementById('gpanel-' + gi); if(p){ p.classList.add('on'); } }
+      });
+    });
+  }
+
+  /* ---------- USWA EXPLORER ---------- */
+  var USWA = [['Understanding','Know people before you lead them','In the programme: weeks 1 and 3'],['Sincerity','Intention before technique','In the programme: week 2'],['Wisdom','Judgement in the grey areas','In the programme: weeks 4 to 7'],['Accountability','Answerable — to people and to God','In the programme: week 8']];
+  var uBtns = document.querySelectorAll('.up'), uDet = document.getElementById('uswaDetail');
+  function setUswa(k){
+    if(!uDet || typeof USWA === 'undefined' || !USWA[k]) return;
+    uBtns.forEach(function(x){ x.classList.toggle('on', +x.getAttribute('data-u') === k); });
+    uDet.innerHTML = '<b></b><span class="uswa-line"></span><span class="wk"></span>';
+    uDet.querySelector('b').textContent = USWA[k][0] + ' — ';
+    uDet.querySelector('.uswa-line').textContent = USWA[k][1];
+    uDet.querySelector('.wk').textContent = USWA[k][2];
+  }
+  if(uBtns.length){ uBtns.forEach(function(b){ b.addEventListener('click', function(){ setUswa(+b.getAttribute('data-u')); }); }); setUswa(0); }
+
+  /* ---------- NAV: where you are ---------- */
+  var navMap = {};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){ navMap[a.getAttribute('href').slice(1)] = a; });
+  if('IntersectionObserver' in window){
+    var nio = new IntersectionObserver(function(es){
+      es.forEach(function(en){ var a = navMap[en.target.id]; if(a && en.isIntersecting){ Object.keys(navMap).forEach(function(k){ navMap[k].classList.remove('act'); }); a.classList.add('act'); } });
+    }, {rootMargin: '-38% 0px -55% 0px'});
+    Object.keys(navMap).forEach(function(id){ var el = document.getElementById(id); if(el){ nio.observe(el); } });
+  }
 })();
 
 /* ===== MOTION PASS 2026-11-04: reveal stagger (guarded, self-contained) ===== */
