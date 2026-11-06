@@ -474,6 +474,15 @@
   .bp-field{margin-top:14px;font-size:15px;line-height:1.7;color:var(--text-dim);min-height:3.2em}
   .bp-for{margin-top:2px;font-size:14.5px;line-height:1.65;color:var(--sea);font-weight:600}
   .bp-note{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .books-strip{display:flex;align-items:stretch;gap:14px;background:var(--surface);border:1px solid var(--surface-line);border-radius:16px;padding:16px;box-shadow:var(--card-shadow);text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
+  .books-strip:hover{transform:translateY(-3px);border-color:var(--sea)}
+  .bs-item{flex:1;display:flex;flex-direction:column;gap:9px;min-width:0}
+  .bs-item img{width:100%;aspect-ratio:7/10;object-fit:cover;border-radius:8px}
+  .bs-item>span{font-size:13.5px;line-height:1.6;color:var(--text);font-weight:600}
+  .bs-item>span[lang="ur"]{line-height:1.95}
+  .bs-go{align-self:center;font-weight:700;color:var(--sea);white-space:nowrap;font-size:15px}
+  @media (max-width:820px){ .books-strip{flex-wrap:wrap} .bs-item{flex:1 1 40%} .bs-go{flex:1;text-align:center;padding-top:4px} }
+  @media (prefers-reduced-motion: reduce){ .books-strip:hover{transform:none} }
   .qnote{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
   .ext-note{margin-top:10px;font-size:13.5px;color:var(--text-dim)}
   .ghint{font-size:13px;color:var(--text-dim);margin:2px 2px 10px}
@@ -503,7 +512,7 @@
       <span><b>Imran Aslam</b><span>Life Coach & Trainer</span></span>
     </a>
     <div class="nav-links">
-      <a href="start.html">Start here</a><a href="#about">About</a><a href="#programmes">Programmes</a><a href="#team">Team</a><a href="#coaching">Coaching</a><a href="#writing">Writing</a><a href="contact.html">Contact</a>
+      <a href="start.html">Start here</a><a href="#about">About</a><a href="#programmes">Programmes</a><a href="#team">Team</a><a href="#coaching">Coaching</a><a href="resources.html">Resources</a><a href="#writing">Writing</a><a href="contact.html">Contact</a>
       <span class="lang-links"><a href="index.html">EN</a> · <a href="ur/index.html">اردو</a> · <a href="ar/index.html">العربية</a></span>
       <button class="toggle" id="themeToggle" type="button" aria-label="Theme">
         <span class="dot"></span><span id="themeLabel">Night Aurora</span>
@@ -687,6 +696,17 @@
   </div>
 </section>
 
+<section id="books">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The Books</span>
+      <h2>Imran's books</h2>
+      <p>On marriage, the first year, and a child's anger — practical books in Urdu, with one in English. Read each introduction and first chapter free.</p>
+    </div>
+    <a class="books-strip rv" href="books.html"><span class="bs-item"><img loading="lazy" decoding="async" src="book-shadi-se-pehle.webp" alt=""><span lang="ur">شادی سے پہلے ۷ ضروری باتیں</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="book-pehla-saal.webp" alt=""><span lang="ur">پہلا سال</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="book-7-conversations.webp" alt=""><span lang="en">7 Conversations Before Nikah</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="book-bache-ka-ghussa.webp" alt=""><span lang="ur">بچے کا غصہ، والدین کا راستہ</span></span><span class="bs-go">Browse the books →</span></a>
+  </div>
+</section>
+
 <div class="cta-block">
   <div class="wrap">
     <div>
@@ -707,7 +727,7 @@
         <p style="margin-top:10px;max-width:46ch">AIDE — Accelerating Insights and Development for Excellence. From Awareness to Excellence.</p>
       </div>
       <div>
-        <p class="foot-pages"><a href="start.html">Start here</a> · <a href="about.html">About</a> · <a href="programmes.html">Programmes</a> · <a href="coaching.html">Coaching</a> · <a href="writes.html">Writing</a> · <a href="contact.html">Contact</a></p>
+        <p class="foot-pages"><a href="start.html">Start here</a> · <a href="about.html">About</a> · <a href="programmes.html">Programmes</a> · <a href="coaching.html">Coaching</a> · <a href="resources.html">Resources</a> · <a href="writes.html">Writing</a> · <a href="contact.html">Contact</a></p>
         <p style="margin-top:10px">Bhimber, Azad Kashmir — and online, everywhere.</p>
         <p style="margin-top:10px">WhatsApp <a href="https://wa.me/923309222029?text=Assalam-o-Alaikum%21%20I%20would%20like%20to%20book%20the%20free%2015-minute%20discovery%20call%20with%20AIDE." target="_blank" rel="noopener">+92 330 9222029</a> · Calls +92 317 9222029<br>Email <a href="mailto:blugul1@gmail.com">blugul1@gmail.com</a></p>
         <p style="margin-top:10px"><span class="lang-links"><a href="index.html">EN</a> · <a href="ur/index.html">اردو</a> · <a href="ar/index.html">العربية</a></span></p>

@@ -474,6 +474,15 @@
   .bp-field{margin-top:14px;font-size:15px;line-height:1.7;color:var(--text-dim);min-height:3.2em}
   .bp-for{margin-top:2px;font-size:14.5px;line-height:1.65;color:var(--sea);font-weight:600}
   .bp-note{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
+  .books-strip{display:flex;align-items:stretch;gap:14px;background:var(--surface);border:1px solid var(--surface-line);border-radius:16px;padding:16px;box-shadow:var(--card-shadow);text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s ease}
+  .books-strip:hover{transform:translateY(-3px);border-color:var(--sea)}
+  .bs-item{flex:1;display:flex;flex-direction:column;gap:9px;min-width:0}
+  .bs-item img{width:100%;aspect-ratio:7/10;object-fit:cover;border-radius:8px}
+  .bs-item>span{font-size:13.5px;line-height:1.6;color:var(--text);font-weight:600}
+  .bs-item>span[lang="ur"]{line-height:1.95}
+  .bs-go{align-self:center;font-weight:700;color:var(--sea);white-space:nowrap;font-size:15px}
+  @media (max-width:820px){ .books-strip{flex-wrap:wrap} .bs-item{flex:1 1 40%} .bs-go{flex:1;text-align:center;padding-top:4px} }
+  @media (prefers-reduced-motion: reduce){ .books-strip:hover{transform:none} }
   .qnote{margin-top:14px;font-size:13.5px;line-height:1.65;color:var(--text-dim)}
   .ext-note{margin-top:10px;font-size:13.5px;color:var(--text-dim)}
   .ghint{font-size:13px;color:var(--text-dim);margin:2px 2px 10px}
@@ -531,7 +540,7 @@
       <span><b>Imran Aslam</b><span>لائف کوچ و ٹرینر</span></span>
     </a>
     <div class="nav-links">
-      <a href="start.html">یہاں سے آغاز</a><a href="#about">تعارف</a><a href="#programmes">پروگرامز</a><a href="#team">ٹیم</a><a href="#coaching">کوچنگ</a><a href="#writing">تحریریں</a><a href="contact.html">رابطہ</a>
+      <a href="start.html">یہاں سے آغاز</a><a href="#about">تعارف</a><a href="#programmes">پروگرامز</a><a href="#team">ٹیم</a><a href="#coaching">کوچنگ</a><a href="resources.html">وسائل</a><a href="#writing">تحریریں</a><a href="contact.html">رابطہ</a>
       <span class="lang-links"><a href="../index.html">EN</a> · <a href="index.html">اردو</a> · <a href="../ar/index.html">العربية</a></span>
       <button class="toggle" id="themeToggle" type="button" aria-label="Theme">
         <span class="dot"></span><span id="themeLabel">رات — ارورا</span>
@@ -715,6 +724,17 @@
   </div>
 </section>
 
+<section id="books">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">کتابیں</span>
+      <h2>عمران کی کتابیں</h2>
+      <p>شادی، پہلا سال، اور بچوں کے غصے پر — عملی اردو کتابیں۔ ہر کتاب کی تمہید اور پہلا باب مفت پڑھیں۔</p>
+    </div>
+    <a class="books-strip rv" href="books.html"><span class="bs-item"><img loading="lazy" decoding="async" src="../book-shadi-se-pehle.webp" alt=""><span lang="ur">شادی سے پہلے ۷ ضروری باتیں</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="../book-pehla-saal.webp" alt=""><span lang="ur">پہلا سال</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="../book-7-conversations.webp" alt=""><span lang="en">7 Conversations Before Nikah</span></span><span class="bs-item"><img loading="lazy" decoding="async" src="../book-bache-ka-ghussa.webp" alt=""><span lang="ur">بچے کا غصہ، والدین کا راستہ</span></span><span class="bs-go">کتابیں دیکھیں →</span></a>
+  </div>
+</section>
+
 <div class="cta-block">
   <div class="wrap">
     <div>
@@ -735,7 +755,7 @@
         <p style="margin-top:10px;max-width:46ch">AIDE — ایکسیلریٹنگ اِن سائٹس اینڈ ڈیولپمنٹ فار ایکسیلینس۔ آگاہی سے عمدگی تک۔</p>
       </div>
       <div>
-        <p class="foot-pages"><a href="start.html">یہاں سے آغاز</a> · <a href="about.html">تعارف</a> · <a href="programmes.html">پروگرامز</a> · <a href="coaching.html">کوچنگ</a> · <a href="writes.html">تحریریں</a> · <a href="contact.html">رابطہ</a></p>
+        <p class="foot-pages"><a href="start.html">یہاں سے آغاز</a> · <a href="about.html">تعارف</a> · <a href="programmes.html">پروگرامز</a> · <a href="coaching.html">کوچنگ</a> · <a href="resources.html">وسائل</a> · <a href="writes.html">تحریریں</a> · <a href="contact.html">رابطہ</a></p>
         <p style="margin-top:10px">بھمبر، آزاد کشمیر — اور آن لائن، ہر جگہ۔</p>
         <p style="margin-top:10px">WhatsApp <a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">+92 330 9222029</a> · Calls +92 317 9222029<br>Email <a href="mailto:blugul1@gmail.com">blugul1@gmail.com</a></p>
         <p style="margin-top:10px"><span class="lang-links"><a href="../index.html">EN</a> · <a href="index.html">اردو</a> · <a href="../ar/index.html">العربية</a></span></p>
