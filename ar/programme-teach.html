@@ -565,6 +565,10 @@ body.rd-lock{overflow:hidden}
 .ac-app .panel h2{font-size:24px;line-height:2.1}
 .ac-app .panel .sub{color:var(--ink-dim);font-size:15px}
 .ac-app{scroll-margin-top:86px}
+/* Assessments page only: the fixed booking bar (<=900px) floated over the test's own
+   buttons — it covered the intro Start button on phones, so taps opened WhatsApp
+   instead of starting the test. The test flow owns this page. */
+@media(max-width:900px){ body:has(.ac-app) .bookbar{display:none!important} }
 .ac-app .hidden{display:none!important}
 .ac-app .ascwrap{margin:6px 0 20px}
 .ac-app .ascmeta{display:flex;justify-content:space-between;color:var(--ink-dim);font-size:13.5px}
