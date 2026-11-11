@@ -563,7 +563,7 @@ body.rd-lock{overflow:hidden}
 .ac-app .btn:disabled{opacity:.45;cursor:default}
 .ac-app .card.locked{opacity:.62}
 .ac-app .locknote{font-size:13px;color:var(--amber)}
-.ac-app .panel{background:var(--card);border:1px solid var(--card-brd);border-radius:var(--radius);padding:26px 22px;backdrop-filter:blur(8px);max-width:760px;margin:0 auto}
+.ac-app .panel{position:static;inset:auto;width:auto;height:auto;max-height:none;overflow:visible;backface-visibility:visible;background:var(--card);border:1px solid var(--card-brd);border-radius:var(--radius);padding:26px 22px;backdrop-filter:blur(8px);max-width:760px;margin:0 auto}
 .ac-app .panel h2{font-size:24px;line-height:2.1}
 .ac-app .panel .sub{color:var(--ink-dim);font-size:15px}
 .ac-app .hidden{display:none!important}
@@ -2052,11 +2052,16 @@ function computeResult(test,answers){
     var topD=srt[0], weakD=srt[srt.length-1];
     function fillS(s,lg){ return s.split("[S]").join(lg==="ur"?topD.ur:topD.en).split("[W]").join(lg==="ur"?weakD.ur:weakD.en); }
     var wdDef=null; test.dims.forEach(function(d){ if(d.k===weakD.k) wdDef=d; });
+    var tiedAll = weakD.pct===topD.pct;
+    var wUrS = tiedAll ? "آپ کی تمام جہتیں برابر ہیں ("+topD.pct+"٪) — اس وقت کوئی جہت کمزور نہیں۔ نیچے کے عملی قدم اسی توازن کو برقرار رکھنے اور مزید آگے بڑھانے کے لیے ہیں۔"
+                       : "کمزور ترین جہت «"+weakD.ur+"» ("+weakD.pct+"٪) ہے — اگلا قدم یہیں سے شروع ہوتا ہے۔ نیچے اسی جہت کے تین عملی قدم دیے ہیں۔";
+    var wEnS = tiedAll ? "All your dimensions are equal ("+topD.pct+"%) — no dimension is lagging right now. The practical steps below are for keeping this balance and building on it."
+                       : "Your weakest dimension is "+weakD.en+" ("+weakD.pct+"%) — the next step starts here. Three practical steps for this very dimension are given below.";
     return {score:opct,max:100,pct:opct,bandUr:bdS.tur,bandEn:bdS.ten,meanUr:fillS(bdS.xur,"ur"),meanEn:fillS(bdS.xen,"en"),
       sUr:"آپ کی مضبوط ترین جہت «"+topD.ur+"» ("+topD.pct+"٪) ہے — یہی آپ کی بنیاد ہے، اسے قائم رکھیں۔",
       sEn:"Your strongest dimension is "+topD.en+" ("+topD.pct+"%) — this is your foundation; keep it standing.",
-      wUr:"کمزور ترین جہت «"+weakD.ur+"» ("+weakD.pct+"٪) ہے — اگلا قدم یہیں سے شروع ہوتا ہے۔ نیچے اسی جہت کے تین عملی قدم دیے ہیں۔",
-      wEn:"Your weakest dimension is "+weakD.en+" ("+weakD.pct+"%) — the next step starts here. Three practical steps for this very dimension are given below.",
+      wUr:wUrS,
+      wEn:wEnS,
       traits:dims,code:null,topUr:topD.ur,topEn:topD.en,weakUr:weakD.ur,weakEn:weakD.en,displayScore:opct,displayMax:100,
       gUr:wdDef?wdDef.sugUr.slice():null,gEn:wdDef?wdDef.sugEn.slice():null};
   }
