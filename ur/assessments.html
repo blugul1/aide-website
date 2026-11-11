@@ -2145,13 +2145,16 @@ function computeResult(test,answers){
 /* ============ VIEW HELPERS ============ */
 function $(id){ return document.getElementById(id); }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
-/* Bring the app itself (not the page top) into view, clear of the sticky nav (73px) plus a
-   small gap. Always called AFTER the view swap: scrolling first and then collapsing the tall
-   hub mid-animation made the smooth scroll clamp and bounce instead of settling. */
+/* Bring the current view into view, clear of the sticky nav (73px) plus a small gap.
+   Views with a panel (intro/run/result) anchor on the panel itself so it starts right
+   under the nav even on short screens; hub/dash anchor on the app top. Always called
+   AFTER the view swap: scrolling first and then collapsing the tall hub mid-animation
+   made the smooth scroll clamp and bounce instead of settling. */
 function scrollToApp(){
   var app=$("acApp");
   if(!app){ window.scrollTo({top:0,behavior:"auto"}); return; }
-  var y=app.getBoundingClientRect().top + window.scrollY - 86;
+  var el=app.querySelector("section.view:not(.hidden) .panel") || app;
+  var y=el.getBoundingClientRect().top + window.scrollY - 86;
   window.scrollTo({top:Math.max(0,y), behavior:AC_RM?"auto":"smooth"});
 }
 function showView(v,back){
