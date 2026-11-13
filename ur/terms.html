@@ -794,6 +794,93 @@ body.loc-ur .pd-final h2{line-height:2}
 @media(max-width:960px){.pd-cards4{grid-template-columns:1fr 1fr}.pd-cards3{grid-template-columns:1fr}.pd-band{grid-template-columns:1fr}.pd-band-item{border-inline-start:none;border-top:2px solid rgba(79,191,167,.4);padding-inline-start:0;padding-top:16px}.pd-stats{grid-template-columns:1fr 1fr}.pd-fees{grid-template-columns:1fr}.pd-outcomes{grid-template-columns:1fr}.pd-who-grid{grid-template-columns:1fr}.pd-sec{padding:62px 0}}
 @media(max-width:560px){.pd-cards4{grid-template-columns:1fr}.pd-sched-row{padding:15px 16px;gap:12px}}
 
+/* --- books catalogue grid + bundles + gift + cart (2026-11-13) --- */
+.btn.sm{padding:9px 16px;font-size:14px;border-radius:10px}
+.btn.in-cart{background:rgba(61,171,148,.14);color:var(--sea-hi);border:1px solid var(--sea);box-shadow:none}
+.lnk{background:none;border:0;color:var(--sea-hi);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0}
+.bk-open{background:var(--glass);border:1px solid var(--glass-brd);border-inline-start:3px solid var(--bronze);border-radius:12px;padding:16px 20px;font-size:15.5px;line-height:1.8;color:var(--ink)}
+body.loc-ur .bk-open{line-height:2.05}
+.bk-open b{color:var(--gold)}
+.bk-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.bk-jump a{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--muted);text-decoration:none}
+.bk-jump a:hover{color:var(--ink);border-color:var(--sea)}
+.bk-sec-lead{color:var(--muted);max-width:72ch;line-height:1.8;margin-top:8px}
+body.loc-ur .bk-sec-lead{line-height:2.05}
+.bk-bundle-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bk-bundle{background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:20px 22px}
+.bk-bundle-feat{grid-column:1/-1;border-color:rgba(201,162,39,.5)}
+.bk-bundle h3{font-size:20px;line-height:1.6}
+body.loc-ur .bk-bundle h3{line-height:1.95}
+.bk-bundle-count{color:var(--bronze);font-size:13.5px;font-weight:700;margin-top:2px}
+.bk-bundle-titles{margin-top:10px;font-size:14px;color:var(--muted)}
+.bk-bundle-titles summary{cursor:pointer;color:var(--sea-hi);font-size:13.5px}
+.bk-bundle-titles ul{list-style:none;margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:2px 20px}
+.bk-bundle-titles li{padding:3px 0;font-size:13.5px;line-height:1.9}
+.bk-bundle-all{color:var(--muted);font-size:14px;margin-top:8px;line-height:1.8}
+.bk-bundle-sums{color:var(--muted);font-size:14px;margin-top:12px;line-height:1.9}
+.bk-bundle-sums s{color:var(--muted)}
+.bk-bundle-price{margin-top:6px;font-size:15px}
+.bk-bundle-price b{color:var(--sea-hi);font-size:22px}
+.bk-bundle-price span{color:var(--muted);font-size:13px}
+.bk-bundle .bk-actions{margin-top:16px}
+.bk-gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bk-gift{background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:18px 20px}
+.bk-gift b{font-size:17px;display:block}
+.bk-gift span{color:var(--sea-hi);font-weight:700;font-size:15px;display:block;margin-top:2px}
+.bk-gift p{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.85}
+body.loc-ur .bk-gift p{line-height:2}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bk-card{display:flex;gap:16px;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:16px;align-items:flex-start}
+.bk-card-cover{flex:none;width:104px;border-radius:8px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.4);aspect-ratio:480/681;background:var(--navy2)}
+.bk-card-cover img{width:100%;height:100%;object-fit:cover}
+a.bk-card-cover{transition:transform .3s ease}
+a.bk-card-cover:hover{transform:translateY(-3px)}
+.bk-card-body{min-width:0;flex:1}
+.bk-card-k{color:var(--bronze);font-size:11.5px;font-weight:700;letter-spacing:.14em}
+body.loc-ur .bk-card-k{letter-spacing:0;font-size:13px}
+.bk-card h3{font-size:19px;line-height:1.5;margin:5px 0 2px}
+body.loc-ur .bk-card h3{line-height:1.95}
+.bk-card h3[lang="en"],.bk-card-sub[lang="en"],.bk-card-copy[lang="en"]{direction:ltr;text-align:left}
+.bk-card-sub{color:var(--sea-hi);font-size:14.5px;font-weight:600;line-height:1.7}
+body.loc-ur .bk-card-sub{line-height:2}
+.bk-card-copy{color:var(--muted);font-size:14.5px;line-height:1.8;margin-top:8px}
+body.loc-ur .bk-card-copy{line-height:2.05}
+.bk-card-facts{color:var(--ink);font-size:13px;margin-top:10px}
+.bk-card-author{color:var(--muted);font-size:13px;margin-top:2px}
+.bk-card-price{margin-top:10px;font-size:14.5px}
+.bk-card-price b{color:var(--sea-hi);font-size:18px}
+.bk-card-price s{color:var(--muted);font-size:13.5px;margin-inline-start:6px}
+.bk-card-price span{color:var(--muted);font-size:12.5px;display:block}
+.bk-card-hint{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.8}
+.bk-card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.bk-card-links{font-size:13.5px;color:var(--muted);margin-top:10px}
+.bk-card-links a{color:var(--sea-hi)}
+/* cart */
+.cart-bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:120}
+body:has(#cartBar:not([hidden])) .bookbar{display:none!important}
+.cart-bar[hidden]{display:none}
+.cart-bar-btn{background:var(--sea);color:#04160F;font-weight:700;font-size:15px;padding:12px 26px;border:0;border-radius:999px;cursor:pointer;box-shadow:0 16px 36px rgba(0,0,0,.5);white-space:nowrap}
+.cart-panel{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+.cart-panel[hidden]{display:none}
+.cart-box{position:relative;z-index:1;width:min(560px,94vw);max-height:88vh;overflow:auto;background:var(--navy2);border:1px solid var(--glass-brd);border-radius:16px;padding:20px 22px;box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.cart-lines{margin-top:6px}
+.cart-empty{color:var(--muted);padding:14px 0}
+.cart-line{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(120,180,220,.18);font-size:14.5px;line-height:1.9}
+.cl-t{flex:1;min-width:0}
+.cl-p{white-space:nowrap;color:var(--ink)}
+.cart-line.is-gift .cl-t{color:var(--sea-hi)}
+.cl-x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;padding:2px 6px}
+.cl-x:hover{color:var(--ink)}
+.cart-next{color:var(--sea-hi);font-size:14.5px;margin-top:12px;line-height:1.9}
+.cart-sums{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+.cart-sum{display:flex;justify-content:space-between;font-size:15px;padding:3px 0}
+.cart-sum.save{color:var(--sea-hi)}
+.cart-sum.total{font-size:17px;font-weight:700;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.cart-note{color:var(--muted);font-size:13px;line-height:1.9;margin-top:12px}
+.cart-box .bk-actions{margin-top:16px}
+@media(max-width:960px){.bk-grid{grid-template-columns:1fr}.bk-gift-grid{grid-template-columns:1fr}.bk-bundle-grid{grid-template-columns:1fr}.bk-bundle-feat{grid-column:auto}}
+@media(max-width:560px){.bk-card-cover{width:84px}.bk-card{padding:13px;gap:12px}.cart-bar{left:14px;right:14px;transform:none;bottom:14px}.cart-bar-btn{width:100%;white-space:normal}}
+
 </style>
 </head>
 <body class="loc-ur">
@@ -1078,6 +1165,121 @@ document.body.classList.add('ready');
     if(note){var t=note.getAttribute('data-tmpl')||'';note.innerHTML=t.replace('{name}',btn.getAttribute('data-name')||'').replace('{weeks}',btn.getAttribute('data-weeks')||'');}
   });});
 })();
+
+/* ===== BOOKS CART + GIFT (کارٹ و تحفہ) 2026-11-13 — UR books page only; no-op elsewhere ===== */
+(function(){try{
+  var bar=document.getElementById('cartBar'); if(!bar) return;
+  var catEl=document.getElementById('bookCatalog'); if(!catEl) return;
+  var CAT=JSON.parse(catEl.textContent);
+  var KEY='aideCart.v1';
+  function pktToday(){var d=new Date(Date.now()+(new Date().getTimezoneOffset()+300)*60000);
+    function p(x){return (x<10?'0':'')+x;}
+    return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate());}
+  var OPENING=pktToday()>=CAT.opening.start&&pktToday()<=CAT.opening.end;
+  function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function priceOf(it){return OPENING?it.o:it.p;}
+  function giftCount(n){return n>=20?8:(n>=10?3:(n>=5?1:0));}
+  var state={picks:[],bundles:[]};
+  try{var s=JSON.parse(localStorage.getItem(KEY));
+    if(s&&s.picks&&s.bundles){state.picks=s.picks.filter(function(n){return CAT.books[String(n)];});
+      state.bundles=s.bundles.filter(function(k){return CAT.bundles[k];});}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  function compute(){
+    var picks=state.picks.map(function(n){var b=CAT.books[String(n)];return {n:n,t:b.t,pr:priceOf(b)};});
+    var sorted=picks.slice().sort(function(a,b){return a.pr-b.pr||a.n-b.n;});
+    var g=giftCount(picks.length);
+    var giftNs={}; sorted.slice(0,g).forEach(function(p){giftNs[p.n]=1;});
+    var sub=0,gsave=0;
+    picks.forEach(function(p){sub+=p.pr; if(giftNs[p.n])gsave+=p.pr;});
+    var blines=state.bundles.map(function(k){var b=CAT.bundles[k];return {k:k,t:b.t,pr:priceOf(b)};});
+    blines.forEach(function(b){sub+=b.pr;});
+    return {picks:picks,giftNs:giftNs,g:g,blines:blines,sub:sub,gsave:gsave,total:sub-gsave};
+  }
+  var panel=document.getElementById('cartPanel'),
+      linesEl=document.getElementById('cartLines'),
+      sumsEl=document.getElementById('cartSums'),
+      nextEl=document.getElementById('cartNext'),
+      countEl=document.getElementById('cartCount'),
+      totalEl=document.getElementById('cartTotal'),
+      giftEl=document.getElementById('cartGiftNote'),
+      waEl=document.getElementById('cartWa');
+  function hint(n){
+    if(n===0) return '';
+    if(n<5) return (5-n)+' مزید کتابیں چنیں — 1 تحفہ ملے گا!';
+    if(n<10) return (10-n)+' مزید کتابیں — 3 تحفے!';
+    if(n<20) return (20-n)+' مزید کتابیں — 8 تحفے!';
+    return 'آپ کو 8 تحفے مل رہے ہیں — سب سے بڑا درجہ!';
+  }
+  function render(){
+    var c=compute();
+    var count=c.picks.length+c.blines.length;
+    bar.hidden=count===0;
+    countEl.textContent=count;
+    totalEl.textContent=fmt(c.total);
+    giftEl.textContent=c.g>0?(' · '+c.g+(c.g>1?' تحفے':' تحفہ')):'';
+    nextEl.textContent=hint(c.picks.length);
+    if(count===0){
+      linesEl.innerHTML='<p class="cart-empty">کارٹ خالی ہے۔ کارڈ پر «کارٹ میں ڈالیں» دبائیں۔</p>';
+      sumsEl.innerHTML='';
+      waEl.setAttribute('href','#');
+    } else {
+      var h='';
+      c.picks.forEach(function(p,i){
+        var gift=!!c.giftNs[p.n];
+        h+='<div class="cart-line'+(gift?' is-gift':'')+'"><span class="cl-t">'+(i+1)+'. '+esc(p.t)+'</span><span class="cl-p">'+(gift?'<s>'+fmt(p.pr)+' روپے</s> تحفہ — مفت':fmt(p.pr)+' روپے')+'</span><button class="cl-x" type="button" data-rm-book="'+p.n+'" aria-label="ہٹائیں">✕</button></div>';
+      });
+      c.blines.forEach(function(b){
+        h+='<div class="cart-line is-bundle"><span class="cl-t">مجموعہ: '+esc(b.t)+'</span><span class="cl-p">'+fmt(b.pr)+' روپے</span><button class="cl-x" type="button" data-rm-bundle="'+esc(b.k)+'" aria-label="ہٹائیں">✕</button></div>';
+      });
+      linesEl.innerHTML=h;
+      sumsEl.innerHTML='<div class="cart-sum"><span>مجموعہ</span><b>'+fmt(c.sub)+' روپے</b></div>'
+        +(c.gsave>0?'<div class="cart-sum save"><span>تحفے کی بچت ('+c.g+(c.g>1?' تحفے':' تحفہ')+')</span><b>− '+fmt(c.gsave)+' روپے</b></div>':'')
+        +'<div class="cart-sum total"><span>کل قابلِ ادائیگی</span><b>'+fmt(c.total)+' روپے</b></div>';
+      var msg=['السلام علیکم! مجھے AIDE کی یہ کتابیں حاصل کرنی ہیں:'];
+      c.picks.forEach(function(p,i){msg.push((i+1)+'. '+p.t+' — '+fmt(p.pr)+' روپے'+(c.giftNs[p.n]?' (تحفہ — مفت)':''));});
+      c.blines.forEach(function(b){msg.push('مجموعہ: '+b.t+' — '+fmt(b.pr)+' روپے');});
+      msg.push('کل: '+fmt(c.total)+' روپے');
+      msg.push('براہ کرم ادائیگی کی تفصیل بھیج دیں۔');
+      waEl.setAttribute('href','https://wa.me/923309222029?text='+encodeURIComponent(msg.join('\n')));
+    }
+    linesEl.querySelectorAll('[data-rm-book]').forEach(function(b){b.addEventListener('click',function(){
+      state.picks=state.picks.filter(function(n){return String(n)!==b.getAttribute('data-rm-book');}); save(); syncButtons(); render(); });});
+    linesEl.querySelectorAll('[data-rm-bundle]').forEach(function(b){b.addEventListener('click',function(){
+      state.bundles=state.bundles.filter(function(k){return k!==b.getAttribute('data-rm-bundle');}); save(); syncButtons(); render(); });});
+  }
+  function syncButtons(){
+    document.querySelectorAll('[data-add]').forEach(function(b){
+      var n=b.getAttribute('data-add'), on=state.picks.indexOf(+n)>-1||state.picks.indexOf(n)>-1;
+      b.textContent=on?'کارٹ میں ہے ✓':'کارٹ میں ڈالیں';
+      b.classList.toggle('in-cart',on);
+    });
+    document.querySelectorAll('[data-bundle]').forEach(function(b){
+      var k=b.getAttribute('data-bundle'), on=state.bundles.indexOf(k)>-1;
+      b.textContent=on?'مجموعہ کارٹ میں ہے ✓':'مجموعہ کارٹ میں ڈالیں';
+      b.classList.toggle('in-cart',on);
+    });
+  }
+  document.querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){
+    var n=+b.getAttribute('data-add');
+    var i=state.picks.indexOf(n);
+    if(i>-1) state.picks.splice(i,1); else state.picks.push(n);
+    save(); syncButtons(); render(); });});
+  document.querySelectorAll('[data-bundle]').forEach(function(b){b.addEventListener('click',function(){
+    var k=b.getAttribute('data-bundle');
+    var i=state.bundles.indexOf(k);
+    if(i>-1) state.bundles.splice(i,1); else state.bundles.push(k);
+    save(); syncButtons(); render(); });});
+  function openPanel(){panel.hidden=false;document.body.classList.add('rd-lock');document.getElementById('cartClose').focus();}
+  function closePanel(){panel.hidden=true;document.body.classList.remove('rd-lock');}
+  document.getElementById('cartOpen').addEventListener('click',openPanel);
+  document.getElementById('cartClose').addEventListener('click',closePanel);
+  document.getElementById('cartBackdrop').addEventListener('click',closePanel);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden)closePanel();});
+  document.getElementById('cartClear').addEventListener('click',function(){state={picks:[],bundles:[]};save();syncButtons();render();});
+  syncButtons(); render();
+}catch(e){}})();
+
 
 </script>
 
