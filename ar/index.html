@@ -421,6 +421,9 @@
   .hero-brand .hb-tag{font-size:clamp(15px,1.7vw,22px);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#BFE9DF;line-height:1.4}
   html[lang="ur"] .hero-in .hero-brand,html[lang="ar"] .hero-in .hero-brand{align-items:flex-end;text-align:right}
   @media (max-width:560px){.hero-in .hero-brand{gap:6px;margin-bottom:14px}.hero-brand b{font-size:44px}.hero-brand .hb-dot{width:44px}.hero-brand .hb-tag{font-size:13px;letter-spacing:.22em}}
+  /* Empty hero eyebrow (UR/AR locales carry no expansion line): remove the
+     box entirely so no gap remains between the brand block and headline. */
+  .hero-in .eyebrow:empty{display:none}
   .blend .row{animation:heroRowIn .4s ease-out backwards;transition:transform .3s ease}
   .blend .row:nth-child(1){animation-delay:.15s}
   .blend .row:nth-child(2){animation-delay:.27s}
@@ -666,7 +669,7 @@
       <div class="wrap">
         <div class="emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
         <p class="hero-brand" dir="ltr"><b>AIDE</b><span class="hb-dot" aria-hidden="true"></span><span class="hb-tag">From Awareness to Excellence</span></p>
-        <span class="eyebrow">AIDE · تسريع الرؤى والتطوير نحو التميز</span>
+        <span class="eyebrow"></span>
         <h1 class="blend hook" id="hook"><span class="row">الناس لا يتغيرون</span>
 <span class="row">لأنهم يسمعون أكثر.</span>
 <span class="row alt">يتغيرون حين يبدؤون أن يروا بشكل مختلف.</span></h1>

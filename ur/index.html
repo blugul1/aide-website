@@ -421,6 +421,9 @@
   .hero-brand .hb-tag{font-size:clamp(15px,1.7vw,22px);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#BFE9DF;line-height:1.4}
   html[lang="ur"] .hero-in .hero-brand,html[lang="ar"] .hero-in .hero-brand{align-items:flex-end;text-align:right}
   @media (max-width:560px){.hero-in .hero-brand{gap:6px;margin-bottom:14px}.hero-brand b{font-size:44px}.hero-brand .hb-dot{width:44px}.hero-brand .hb-tag{font-size:13px;letter-spacing:.22em}}
+  /* Empty hero eyebrow (UR/AR locales carry no expansion line): remove the
+     box entirely so no gap remains between the brand block and headline. */
+  .hero-in .eyebrow:empty{display:none}
   .blend .row{animation:heroRowIn .4s ease-out backwards;transition:transform .3s ease}
   .blend .row:nth-child(1){animation-delay:.15s}
   .blend .row:nth-child(2){animation-delay:.27s}
@@ -670,7 +673,7 @@
       <div class="wrap">
         <div class="emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
         <p class="hero-brand" dir="ltr"><b>AIDE</b><span class="hb-dot" aria-hidden="true"></span><span class="hb-tag">From Awareness to Excellence</span></p>
-        <span class="eyebrow">AIDE · ایکسیلریٹنگ اِن سائٹس اینڈ ڈیولپمنٹ فار ایکسیلینس</span>
+        <span class="eyebrow"></span>
         <h1 class="blend hook" id="hook"><span class="row">لوگ اس لیے نہیں بدلتے</span>
 <span class="row">کہ وہ زیادہ سن لیتے ہیں۔</span>
 <span class="row alt">وہ تب بدلتے ہیں جب وہ مختلف دیکھنا شروع کر دیتے ہیں۔</span></h1>
@@ -859,7 +862,7 @@
     <div class="foot-grid">
       <div>
         <p class="line">عمران اسلم – ذہنیت کی تبدیلی، عمدگی کی تحریک</p>
-        <p style="margin-top:10px;max-width:46ch">AIDE — ایکسیلریٹنگ اِن سائٹس اینڈ ڈیولپمنٹ فار ایکسیلینس۔ آگاہی سے عمدگی تک۔</p>
+        <p style="margin-top:10px;max-width:46ch">AIDE — آگاہی سے عمدگی تک۔</p>
       </div>
       <div>
         <p class="foot-pages"><a href="start.html">یہاں سے آغاز</a> · <a href="about.html">تعارف</a> · <a href="programmes.html">پروگرامز</a> · <a href="coaching.html">کوچنگ</a> · <a href="resources.html">وسائل</a> · <a href="writes.html">تحریریں</a> · <a href="contact.html">رابطہ</a></p>
