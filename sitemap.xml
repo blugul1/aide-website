@@ -1,78 +1,603 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://blugul1.github.io/aide-website/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/about.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programmes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/coaching.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/writes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/contact.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-pldp.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-sales.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-habits.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-homes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-teach.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/programme-rise.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/about.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programmes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/coaching.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/writes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/contact.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-pldp.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-sales.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-habits.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-homes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-teach.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/programme-rise.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/about.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programmes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/coaching.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/writes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/contact.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-pldp.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-sales.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-habits.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-homes.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-teach.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/programme-rise.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/start.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/start.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/start.html</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/team-imran-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/team-imran-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/team-imran-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/team-irfan-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/team-irfan-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/team-irfan-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/team-zill-e-huma-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/team-zill-e-huma-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/team-zill-e-huma-aslam.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/team-halima-sadia.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/team-halima-sadia.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/team-halima-sadia.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/team-ammara-zaidi.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/team-ammara-zaidi.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/team-ammara-zaidi.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/resources.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/books.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/assessments.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/resources.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/books.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/assessments.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/resources.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/books.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/assessments.html</loc><lastmod>2026-11-06</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/refund.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/delivery.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/terms.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/privacy.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/refund.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/delivery.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/terms.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ur/privacy.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/refund.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/delivery.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/terms.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://blugul1.github.io/aide-website/ar/privacy.html</loc><lastmod>2026-11-07</lastmod></url>
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://imranaslam.pk/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/about.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/about.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/about.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/about.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programmes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programmes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/coaching.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/coaching.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/writes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/writes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/writes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/contact.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/contact.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-pldp.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-pldp.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-sales.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-sales.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-habits.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-habits.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-homes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-homes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-teach.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-teach.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/programme-rise.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-rise.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/about.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/about.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/about.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/about.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programmes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programmes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/coaching.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/coaching.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/writes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/writes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/writes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/contact.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/contact.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-pldp.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-pldp.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-sales.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-sales.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-habits.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-habits.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-homes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-homes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-teach.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-teach.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/programme-rise.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-rise.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/about.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/about.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/about.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/about.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/about.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programmes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programmes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programmes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/coaching.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/coaching.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/coaching.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/writes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/writes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/writes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/writes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/contact.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/contact.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-pldp.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-pldp.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-pldp.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-sales.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-sales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-sales.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-habits.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-habits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-habits.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-homes.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-homes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-homes.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-teach.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-teach.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-teach.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/programme-rise.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/programme-rise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/programme-rise.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/start.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/start.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/start.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/start.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/start.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/start.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/start.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/start.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/start.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/start.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/start.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/start.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/start.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/start.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/start.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/team-imran-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-imran-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/team-imran-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-imran-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/team-imran-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-imran-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-imran-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/team-irfan-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-irfan-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/team-irfan-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-irfan-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/team-irfan-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-irfan-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-irfan-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/team-zill-e-huma-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/team-zill-e-huma-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/team-zill-e-huma-aslam.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-zill-e-huma-aslam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-zill-e-huma-aslam.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/team-halima-sadia.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-halima-sadia.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/team-halima-sadia.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-halima-sadia.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/team-halima-sadia.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-halima-sadia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-halima-sadia.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/team-ammara-zaidi.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/team-ammara-zaidi.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/team-ammara-zaidi.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/team-ammara-zaidi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/team-ammara-zaidi.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/resources.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/resources.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/resources.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/books.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/books.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/books.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/books.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/books.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/assessments.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/assessments.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/resources.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/resources.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/resources.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/books.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/books.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/books.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/books.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/books.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/assessments.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/assessments.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/resources.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/resources.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/resources.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/resources.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/books.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/books.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/books.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/books.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/books.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/assessments.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/assessments.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/assessments.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/refund.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/refund.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/refund.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/delivery.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/delivery.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/terms.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/terms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/terms.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/privacy.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/privacy.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/refund.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/refund.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/refund.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/delivery.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/delivery.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/terms.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/terms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/terms.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ur/privacy.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/privacy.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/refund.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/refund.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/refund.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/refund.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/delivery.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/delivery.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/delivery.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/terms.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/terms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/terms.html" />
+  </url>
+  <url>
+    <loc>https://imranaslam.pk/ar/privacy.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imranaslam.pk/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imranaslam.pk/ur/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imranaslam.pk/ar/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imranaslam.pk/privacy.html" />
+  </url>
 </urlset>
