@@ -507,6 +507,13 @@
   @media (min-width:821px) and (min-aspect-ratio:16/9){
     .vwrap video{object-position:50% 0}
   }
+  /* NAV DIM (2026-11-14, Imran's idea): while a head rises into the top
+     strip of the hero film, JS adds .nav-dim to the nav and its blue
+     dims so the head shows through the blur. Same hues as the themes,
+     lower alpha; the 14px backdrop blur stays. */
+  nav{transition:background-color .35s ease}
+  html[data-theme="night"] nav.nav-dim{background:rgba(10,26,59,.30)}
+  html[data-theme="day"] nav.nav-dim{background:rgba(232,233,235,.40)}
   /* DIAGONAL CUT (2026-11-13): the .cut divider overlaps the hero's bottom
      edge (negative top margin, opaque, z-index 3 over the hero content).
      At 54px its triangle covered the RTL hero-sub2 line (right-aligned,
@@ -963,6 +970,46 @@
     v.addEventListener('canplay', tryPlay);
     tryPlay();
   }
+
+  /* ---------- NAV DIM (head reveal) ----------
+     Imran's idea (2026-11-14): the fixed nav covers the top strip of the
+     hero stage. During the film moments when a head rises into that
+     strip, the nav background dims so the head shows through the blur
+     instead of hiding behind the solid bar. Intervals measured from
+     hero-film.mp4 (head inside the top 25% of the frame). Desktop only:
+     on mobile the film sits in its own band below the nav. */
+  (function(){
+    var nav = document.querySelector('nav');
+    if(!v || !nav || reduce) return;
+    var DIM = [[0,5.0],[15.4,18.2],[22.2,25.0],[26.6,31.6],[35.4,38.2]];
+    var dimmed = false, seen = true;
+    function apply(on){
+      if(on === dimmed) return;
+      dimmed = on;
+      nav.classList.toggle('nav-dim', on);
+    }
+    function sync(){
+      var t = v.currentTime || 0, on = false, i;
+      if(seen && window.innerWidth >= 821){
+        for(i = 0; i < DIM.length; i++){
+          if(t >= DIM[i][0] && t <= DIM[i][1]){ on = true; break; }
+        }
+      }
+      apply(on);
+    }
+    v.addEventListener('timeupdate', sync);
+    v.addEventListener('seeked', sync);
+    v.addEventListener('play', sync);
+    if('IntersectionObserver' in window && stage){
+      new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          seen = en.isIntersecting;
+          if(!seen) apply(false); else sync();
+        });
+      }, {threshold: 0.15}).observe(stage);
+    }
+    sync();
+  })();
 
   /* ---------- WORD REVEAL on the hook ---------- */
   var hook = document.getElementById('hook'), wi = 0;
