@@ -23,7 +23,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imranaslam.pk/#organization","name":"AIDE — Accelerating Insights and Development for Excellence","url":"https://imranaslam.pk/","logo":"https://imranaslam.pk/aide-logo.png","founder":{"@id":"https://imranaslam.pk/#imran"},"areaServed":[{"@type":"Country","name":"Pakistan"},{"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Saudi Arabia"},{"@type":"Country","name":"United Kingdom"}]},{"@type":"Person","@id":"https://imranaslam.pk/#imran","name":"Imran Aslam","alternateName":"عمران اسلم","jobTitle":"Life Coach & Trainer","worksFor":{"@id":"https://imranaslam.pk/#organization"},"address":{"@type":"PostalAddress","addressLocality":"Bhimber","addressRegion":"Azad Kashmir","addressCountry":"PK"},"knowsAbout":["Life coaching","Corporate training","NLP","Leadership development","Habit formation","Teacher training"],"sameAs":["https://www.facebook.com/261431087696392","https://www.facebook.com/146472196203279"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --canvas:#040B1C; --navy:#0A1A3B; --navy2:#0C2241; --sea:#3DAB94; --sea-hi:#4FBFA7;
@@ -32,7 +32,8 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--canvas);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+body{background:var(--canvas);color:var(--ink);font-family:"Open Sans","Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:18px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Montserrat","Segoe UI",system-ui,-apple-system,Arial,sans-serif}
 img{max-width:100%;display:block}
 ::selection{background:var(--sea);color:#04160F}
 :focus-visible{outline:2px solid var(--sea-hi);outline-offset:2px;border-radius:4px}
@@ -331,12 +332,15 @@ footer a:hover{color:var(--ink)}
 [dir="rtl"] .closing::before{background:linear-gradient(270deg,rgba(4,11,28,.94) 26%,rgba(4,11,28,.62) 55%,rgba(4,11,28,.04) 80%)}
 [dir="rtl"] .prog ul{margin-left:0;margin-right:18px}
 [dir="rtl"] .uname,[dir="rtl"] .ur-lines{letter-spacing:0}
-body.loc-ur{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif}
-body.loc-ur p,body.loc-ur li{line-height:2.05}
-body.loc-ur h1,body.loc-ur h2,body.loc-ur h3{line-height:1.9}
+body.loc-ur{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif;font-size:22px;font-weight:500;line-height:2.2}
+body.loc-ur p,body.loc-ur li{line-height:2.2}
+body.loc-ur h1,body.loc-ur h2,body.loc-ur h3,body.loc-ur h4{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif;line-height:2.0;letter-spacing:0}
 body.loc-ur .eyebrow,body.loc-ur .fmt,body.loc-ur .k,body.loc-ur .chip,body.loc-ur .mm-group,body.loc-ur .fact-box h4{letter-spacing:0}
 body.loc-ur .btn,body.loc-ur .nav-links a,body.loc-ur .drop a{line-height:1.9}
-body.loc-ar{font-family:'Noto Naskh Arabic','Traditional Arabic',sans-serif}
+body.loc-ur .drag-hint{letter-spacing:0}
+body.loc-ar{font-family:'Noto Naskh Arabic','Traditional Arabic',sans-serif;font-size:19px;font-weight:500;line-height:1.8}
+body.loc-ar h1,body.loc-ar h2,body.loc-ar h3,body.loc-ar h4{font-family:'Noto Sans Arabic','Noto Naskh Arabic',sans-serif;font-weight:700;line-height:1.5;letter-spacing:0}
+body.loc-ar .eyebrow,body.loc-ar .fmt,body.loc-ar .k,body.loc-ar .chip,body.loc-ar .mm-group,body.loc-ar .fact-box h4,body.loc-ar .drag-hint{letter-spacing:0;text-transform:none}
 /* nav fit with dropdowns + language switcher */
 @media(min-width:901px){.nav-links{gap:15px}.nav-links .btn{white-space:nowrap;flex:none;padding:10px 16px;font-size:14px}.brand small{letter-spacing:.18em}}
 
@@ -351,7 +355,7 @@ body.loc-ar{font-family:'Noto Naskh Arabic','Traditional Arabic',sans-serif}
 [dir="rtl"] .scene-shade{background:radial-gradient(90% 90% at 30% 50%,transparent 40%,rgba(4,11,28,.55) 100%)}
 [dir="rtl"] .scene-in{padding-inline-start:32%}
 /* scene headline sizes tuned per script */
-body.loc-ur .scene-in h2{font-size:clamp(30px,3.4vw,44px);line-height:1.85}
+body.loc-ur .scene-in h2{font-size:clamp(30px,3.4vw,44px);line-height:2.0}
 body.loc-ar .scene-in h2{font-size:clamp(32px,3.8vw,50px);line-height:1.5}
 body.loc-ur .scene-in p,body.loc-ar .scene-in p{text-shadow:0 2px 14px rgba(4,11,28,.9)}
 @media(max-width:1560px){.stage{transform:scale(.92);transform-origin:center right}}
@@ -462,7 +466,8 @@ body.loc-ur .bk-main h2,body.loc-ar .bk-main h2{line-height:1.9}
 .bk-promise{color:var(--sea-hi);font-size:18px;font-weight:600;line-height:1.7}
 body.loc-ur .bk-promise{line-height:2.05}
 .bk-h{font-size:14.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--bronze);margin:26px 0 8px}
-body.loc-ur .bk-h,body.loc-ar .bk-h{letter-spacing:0;text-transform:none;font-size:16px}
+body.loc-ur .bk-h{letter-spacing:0;text-transform:none;font-size:18px}
+body.loc-ar .bk-h{letter-spacing:0;text-transform:none;font-size:17px}
 .bk-who{color:var(--muted);line-height:1.8;max-width:62ch}
 body.loc-ur .bk-who,body.loc-ar .bk-who{line-height:2.05}
 .bk-toc{list-style:none;counter-reset:bkc;display:grid;grid-template-columns:1fr 1fr;gap:0 36px;max-width:840px}
@@ -849,7 +854,7 @@ a.bk-card-cover{transition:transform .3s ease}
 a.bk-card-cover:hover{transform:translateY(-3px)}
 .bk-card-body{min-width:0;flex:1}
 .bk-card-k{color:var(--bronze);font-size:11.5px;font-weight:700;letter-spacing:.14em}
-body.loc-ur .bk-card-k{letter-spacing:0;font-size:13px}
+body.loc-ur .bk-card-k{letter-spacing:0;font-size:16px}
 .bk-card h3{font-size:19px;line-height:1.5;margin:5px 0 2px}
 body.loc-ur .bk-card h3{line-height:1.95}
 .bk-card h3[lang="en"],.bk-card-sub[lang="en"],.bk-card-copy[lang="en"]{direction:ltr;text-align:left}
@@ -892,6 +897,37 @@ body:has(#cartBar:not([hidden])) .bookbar{display:none!important}
 .cart-box .bk-actions{margin-top:16px}
 @media(max-width:960px){.bk-grid{grid-template-columns:1fr}.bk-gift-grid{grid-template-columns:1fr}.bk-bundle-grid{grid-template-columns:1fr}.bk-bundle-feat{grid-column:auto}}
 @media(max-width:560px){.bk-card-cover{width:84px}.bk-card{padding:13px;gap:12px}.cart-bar{left:14px;right:14px;transform:none;bottom:14px}.cart-bar-btn{width:100%;white-space:normal}}
+
+/* ===== Typography — brand fonts, Nov 2026 (owner decision: UR-D / AR-B / EN-B) ===== */
+.ac-app h2,.ac-app h3,.ac-app h4{font-family:inherit}
+/* Urdu small-text legibility (Nastaliq needs size) */
+body.loc-ur .nav-links a,body.loc-ur .mobile-menu a{font-size:17px}
+body.loc-ur .btn{font-size:17px}
+body.loc-ur .eyebrow,body.loc-ur .scene .k,body.loc-ur .prog .fmt{font-size:15px}
+body.loc-ur .sec-head p,body.loc-ur .flip-face p{font-size:19px}
+body.loc-ur .scene p,body.loc-ur .hero p.lead,body.loc-ur .prose p{font-size:20px}
+body.loc-ur .mini-card p,body.loc-ur .step p,body.loc-ur .write-card p{font-size:17px}
+body.loc-ur .mini-card h3,body.loc-ur .step h3{font-size:20px}
+body.loc-ur .prog ul,body.loc-ur .flip-face ul,body.loc-ur .note{font-size:18px}
+body.loc-ur .chip,body.loc-ur .flip-face .who,body.loc-ur .write-card .go{font-size:16px}
+body.loc-ur .foot-legal,body.loc-ur .panel figcaption{font-size:15px}
+body.loc-ur .panel figcaption b,body.loc-ur .flip-face .fmt{font-size:17px}
+body.loc-ur .stat span,body.loc-ur .flip-face .k,body.loc-ur .write-card .k,body.loc-ur .drag-hint{font-size:14px}
+/* Arabic small-text legibility */
+body.loc-ar .nav-links a,body.loc-ar .mobile-menu a,body.loc-ar .btn{font-size:16px}
+body.loc-ar .eyebrow,body.loc-ar .scene .k,body.loc-ar .prog .fmt{font-size:14px}
+body.loc-ar .sec-head p,body.loc-ar .flip-face p,body.loc-ar .scene p,body.loc-ar .hero p.lead,body.loc-ar .prose p{font-size:19px}
+body.loc-ar .mini-card p,body.loc-ar .step p,body.loc-ar .write-card p,body.loc-ar .chip{font-size:16px}
+body.loc-ar .prog ul,body.loc-ar .flip-face ul,body.loc-ar .note{font-size:17px}
+body.loc-ar .foot-legal,body.loc-ar .panel figcaption,body.loc-ar .flip-face .who,body.loc-ar .write-card .go{font-size:15px}
+body.loc-ar .stat span,body.loc-ar .flip-face .k,body.loc-ar .write-card .k{font-size:14px}
+body.loc-ar .bk-card-k{letter-spacing:0;font-size:15px}
+
+/* Page-hero leads + English-tagged content on Urdu pages (font-fix round 2) */
+body.loc-ur .page-hero .lead{font-size:20px;line-height:2.2}
+body.loc-ar .page-hero .lead{font-size:19px;line-height:1.8}
+body.loc-ur [lang="en"]{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+body.loc-ur [lang="en"] h1,body.loc-ur [lang="en"] h2,body.loc-ur [lang="en"] h3,body.loc-ur [lang="en"] h4,body.loc-ur h1[lang="en"],body.loc-ur h2[lang="en"],body.loc-ur h3[lang="en"],body.loc-ur h4[lang="en"]{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
 
 </style>
 </head>

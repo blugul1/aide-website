@@ -23,6 +23,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Imran Aslam","jobTitle":"Life Coach & Trainer","url":"https://imranaslam.pk/","worksFor":{"@type":"Organization","name":"AIDE — Accelerating Insights and Development for Excellence"},"address":{"@type":"PostalAddress","addressLocality":"Bhimber","addressRegion":"Azad Kashmir","addressCountry":"PK"}}
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&family=Open+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0A1A3B;
@@ -367,6 +370,29 @@
   }
 
   /* ===== FINAL BUILD ADDITIONS ===== */
+  /* ===== Typography — brand fonts, Nov 2026 (UR-D / AR-B / EN-B) ===== */
+  html[lang="en"] body{font-family:"Open Sans","Segoe UI",system-ui,Arial,sans-serif;font-size:18px;line-height:1.7}
+  html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] h3{font-family:"Montserrat","Segoe UI",sans-serif}
+  html[lang="ur"] body{font-family:"Noto Nastaliq Urdu","Traditional Arabic",serif;font-size:22px;font-weight:500;line-height:2.2}
+  html[lang="ur"] h1,html[lang="ur"] h2,html[lang="ur"] h3{line-height:2.0;letter-spacing:0}
+  html[lang="ur"] .hook{line-height:1.9;letter-spacing:0;font-size:clamp(26px,3.6vw,40px)}
+  html[lang="ur"] p{line-height:2.2}
+  html[lang="ur"] .hero-lead p{line-height:2.2}
+  html[lang="ur"] .nav-links a,html[lang="ur"] .lang-links a{font-size:17px}
+  html[lang="ur"] .toggle{font-size:15px}
+  html[lang="ur"] .proof span,html[lang="ur"] .prog-row p,html[lang="ur"] .member span,html[lang="ur"] .member .intro,html[lang="ur"] .team-note,html[lang="ur"] .init p,html[lang="ur"] .step p,html[lang="ur"] .boundary,html[lang="ur"] .foot-small,html[lang="ur"] .hero-note,html[lang="ur"] .hero-sub2,html[lang="ur"] .coach-row span,html[lang="ur"] .gcard .fmt{font-size:17px;line-height:2.0}
+  html[lang="ur"] .sec-head p{font-size:19px}
+  html[lang="ur"] .gcard h3,html[lang="ur"] .coach-row b{font-size:19px}
+  html[lang="ur"] .eyebrow,html[lang="ur"] .gcard .open,html[lang="ur"] .gopt-btn,html[lang="ur"] .prog-feature .fmt,html[lang="ur"] .prog-row .fmt,html[lang="ur"] .init .who,html[lang="ur"] .write-quote .src{font-size:15px;letter-spacing:0}
+  html[lang="ar"] body{font-family:"Noto Naskh Arabic","Traditional Arabic",sans-serif;font-size:19px;font-weight:500;line-height:1.8}
+  html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .hook{font-family:"Noto Sans Arabic",sans-serif;font-weight:700;line-height:1.5;letter-spacing:0}
+  html[lang="ar"] .hook{font-size:clamp(34px,5vw,64px)}
+  html[lang="ar"] .nav-links a,html[lang="ar"] .lang-links a{font-size:16px}
+  html[lang="ar"] .toggle{font-size:15px}
+  html[lang="ar"] .proof span,html[lang="ar"] .prog-row p,html[lang="ar"] .member span,html[lang="ar"] .member .intro,html[lang="ar"] .team-note,html[lang="ar"] .init p,html[lang="ar"] .step p,html[lang="ar"] .boundary,html[lang="ar"] .foot-small,html[lang="ar"] .hero-note,html[lang="ar"] .hero-sub2,html[lang="ar"] .coach-row span,html[lang="ar"] .gcard .fmt{font-size:16px;line-height:1.8}
+  html[lang="ar"] .sec-head p{font-size:18px}
+  html[lang="ar"] .gcard h3,html[lang="ar"] .coach-row b{font-size:18px}
+  html[lang="ar"] .eyebrow,html[lang="ar"] .gcard .open,html[lang="ar"] .gopt-btn,html[lang="ar"] .prog-feature .fmt,html[lang="ar"] .prog-row .fmt,html[lang="ar"] .init .who,html[lang="ar"] .write-quote .src{font-size:14px;letter-spacing:0;text-transform:none}
   .hero{min-height:0;display:block;background:var(--navy)}
   .stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy)}
   .vwrap{position:absolute;inset:0}

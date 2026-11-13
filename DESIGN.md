@@ -16,10 +16,21 @@ colors:
   bronze: "#C9A227"
 typography:
   latin:
-    fontFamily: "Segoe UI, system-ui, -apple-system, Arial, sans-serif"
+    headings: "Montserrat (300/600/700/800)"
+    body: "Open Sans (400/600/700), 18px"
+    fontFamily: "Open Sans, Segoe UI, system-ui, Arial, sans-serif"
+    lineHeight: 1.7
   urdu:
-    fontFamily: "Noto Nastaliq Urdu, Jameel Noori Nastaleeq, serif"
-    lineHeight: 2.1
+    fontFamily: "Noto Nastaliq Urdu, Traditional Arabic, serif"
+    body: "22px, weight 500"
+    lineHeight: 2.2
+    headingsLineHeight: 2.0
+  arabic:
+    headings: "Noto Sans Arabic (500/700)"
+    body: "Noto Naskh Arabic (400/500/700), 19px, weight 500"
+    fontFamily: "Noto Naskh Arabic, Traditional Arabic, sans-serif"
+    lineHeight: 1.8
+    headingsLineHeight: 1.5
 motion:
   feedback: 100ms
   completion: 300ms
