@@ -1283,6 +1283,73 @@ document.body.classList.add('ready');
 }catch(e){}})();
 
 
+/* ===== DATE-AWARE PRICES (تاریخ کے حساب سے قیمتیں) 2026-11-13 — books pages; no-op elsewhere ===== */
+(function(){try{
+  if(!document.querySelector('.js-price,.js-bundle,.js-wa,.js-wa-btn,.js-hint,[data-open-only]')) return;
+  function pktToday(){var d=new Date(Date.now()+(new Date().getTimezoneOffset()+300)*60000);
+    function p(x){return (x<10?'0':'')+x;}
+    return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate());}
+  var T=pktToday();
+  var PHASE=T<'2026-11-14'?'pre':(T<='2026-12-31'?'open':'post');
+  function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+  var SENT={
+    ur:{pre:function(r,o){return 'قیمت: '+fmt(r)+' روپے · افتتاحی قیمت 14 نومبر سے: '+fmt(o)+' روپے';},
+        open:function(r,o){return 'افتتاحی قیمت: '+fmt(o)+' روپے (14 نومبر تا 31 دسمبر 2026) · معمول کی قیمت: '+fmt(r)+' روپے';},
+        post:function(r){return 'قیمت: '+fmt(r)+' روپے';}},
+    en:{pre:function(r,o){return 'Price: Rs '+fmt(r)+' · Opening price from 14 November: Rs '+fmt(o);},
+        open:function(r,o){return 'Opening price: Rs '+fmt(o)+' (14 November – 31 December 2026) · Regular price: Rs '+fmt(r);},
+        post:function(r){return 'Price: Rs '+fmt(r);}},
+    ar:{pre:function(r,o){return 'السعر: '+fmt(r)+' روبية · سعر الافتتاح ابتداءً من 14 نوفمبر: '+fmt(o)+' روبية';},
+        open:function(r,o){return 'سعر الافتتاح: '+fmt(o)+' روبية (14 نوفمبر – 31 ديسمبر 2026) · السعر المعتاد: '+fmt(r)+' روبية';},
+        post:function(r){return 'السعر: '+fmt(r)+' روبية';}}
+  };
+  if(PHASE==='post'){document.querySelectorAll('[data-open-only]').forEach(function(el){el.hidden=true;});}
+  document.querySelectorAll('.js-price').forEach(function(el){
+    var r=+el.getAttribute('data-regular'), o=+el.getAttribute('data-opening');
+    if(el.getAttribute('data-fmt')==='sentence'){
+      var loc=el.getAttribute('data-loc')||'ur';
+      el.textContent=SENT[loc][PHASE](r,o);
+    } else if(PHASE==='pre'){
+      el.innerHTML='<b>'+fmt(r)+' روپے</b> <span>افتتاحی قیمت 14 نومبر سے: '+fmt(o)+' روپے</span>';
+    } else if(PHASE==='open'){
+      el.innerHTML='<b>'+fmt(o)+' روپے</b> <s>'+fmt(r)+' روپے</s> <span>افتتاحی قیمت — 31 دسمبر 2026 تک</span>';
+    } else {
+      el.innerHTML='<b>'+fmt(r)+' روپے</b>';
+    }
+  });
+  document.querySelectorAll('.js-bundle').forEach(function(w){
+    var iv=+w.getAttribute('data-indiv'), r=+w.getAttribute('data-regular'), o=+w.getAttribute('data-opening');
+    var sums=w.querySelector('.bk-bundle-sums'), pr=w.querySelector('.bk-bundle-price');
+    if(sums){
+      if(PHASE==='open') sums.innerHTML='انفرادی مجموعہ: <s>'+fmt(iv)+' روپے</s> · مجموعے کی قیمت: '+fmt(r)+' روپے · افتتاحی بچت: '+fmt(iv-o)+' روپے';
+      else if(PHASE==='pre') sums.innerHTML='انفرادی مجموعہ: <s>'+fmt(iv)+' روپے</s> · مجموعے کی قیمت: '+fmt(r)+' روپے · بچت: '+fmt(iv-r)+' روپے';
+      else sums.innerHTML='انفرادی مجموعہ: <s>'+fmt(iv)+' روپے</s> · بچت: '+fmt(iv-r)+' روپے';
+    }
+    if(pr){
+      if(PHASE==='pre') pr.innerHTML='<b>'+fmt(r)+' روپے</b> <span>افتتاحی قیمت 14 نومبر سے: '+fmt(o)+' روپے</span>';
+      else if(PHASE==='open') pr.innerHTML='<b>'+fmt(o)+' روپے</b> <span>افتتاحی قیمت — 31 دسمبر 2026 تک</span>';
+      else pr.innerHTML='<b>'+fmt(r)+' روپے</b>';
+    }
+  });
+  document.querySelectorAll('.js-hint').forEach(function(el){
+    var r=+el.getAttribute('data-regular'), o=+el.getAttribute('data-opening');
+    el.textContent=el.getAttribute('data-pre')+fmt(PHASE==='open'?o:r)+' روپے';
+  });
+  function waHref(kind,title,r,o){
+    var price=PHASE==='open'?o:r, label=PHASE==='open'?'افتتاحی قیمت':'قیمت';
+    var msg=kind==='bundle'
+      ? 'السلام علیکم! مجھے مجموعہ «'+title+'» حاصل کرنا ہے۔ '+label+' '+fmt(price)+' روپے۔'
+      : 'السلام علیکم! مجھے کتاب «'+title+'» حاصل کرنی ہے۔ '+label+' '+fmt(price)+' روپے۔';
+    return 'https://wa.me/923309222029?text='+encodeURIComponent(msg);
+  }
+  document.querySelectorAll('.js-wa').forEach(function(el){
+    el.href=waHref(el.getAttribute('data-kind'),el.getAttribute('data-wa-title'),+el.getAttribute('data-regular'),+el.getAttribute('data-opening'));
+  });
+  document.querySelectorAll('.js-wa-btn').forEach(function(el){
+    el.setAttribute('data-wa',waHref('book',el.getAttribute('data-title'),+el.getAttribute('data-regular'),+el.getAttribute('data-opening')));
+  });
+}catch(e){}})();
+
 </script>
 
 </body>
