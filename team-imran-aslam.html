@@ -850,6 +850,11 @@ body.loc-ur .bk-bundle h3{line-height:1.95}
 .bk-bundle-price span{color:var(--muted);font-size:13px}
 .bk-bundle-note{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.9}
 .bk-bundle .bk-actions{margin-top:16px}
+.bk-perbook{margin-top:4px;font-size:14px;color:var(--muted)}
+.bk-perbook b{color:var(--sea-hi)}
+.bk-faq{max-width:860px}
+body.loc-ur .bk-faq .faq-q{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif;line-height:2}
+body.loc-ur .bk-faq .faq-a div{line-height:2.05}
 .bk-gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .bk-gift{background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:18px 20px}
 .bk-gift b{font-size:17px;display:block}
@@ -1389,6 +1394,7 @@ document.body.classList.add('ready');
       var msg=['السلام علیکم! مجھے AIDE کی یہ کتابیں حاصل کرنی ہیں:'];
       c.picks.forEach(function(p,i){msg.push((i+1)+'. '+p.t+' — '+fmt(p.pr)+' روپے'+(c.giftNs[p.n]?' (تحفہ — مفت)':''));});
       c.blines.forEach(function(b){msg.push('مجموعہ: '+b.t+' — '+fmt(b.pr)+' روپے');});
+      if(c.gsave>0){msg.push('تحفے کی بچت ('+c.g+(c.g>1?' تحفے':' تحفہ')+'): − '+fmt(c.gsave)+' روپے');}
       msg.push('کل: '+fmt(c.total)+' روپے');
       msg.push('براہ کرم ادائیگی کی تفصیل بھیج دیں۔');
       waEl.setAttribute('href','https://wa.me/923309222029?text='+encodeURIComponent(msg.join('\n')));
@@ -1467,7 +1473,11 @@ document.body.classList.add('ready');
   });
   document.querySelectorAll('.js-bundle').forEach(function(w){
     var iv=+w.getAttribute('data-indiv'), r=+w.getAttribute('data-regular'), o=+w.getAttribute('data-opening');
-    var sums=w.querySelector('.bk-bundle-sums'), pr=w.querySelector('.bk-bundle-price');
+    var sums=w.querySelector('.bk-bundle-sums'), pr=w.querySelector('.bk-bundle-price'), pb=w.querySelector('.bk-perbook'), ct=+w.getAttribute('data-count')||0;
+    if(pb&&ct>0){
+      var active=PHASE==='open'?o:r;
+      pb.innerHTML='تقریباً <b>'+fmt(Math.round(active/ct))+' روپے</b> فی کتاب';
+    }
     if(sums){
       if(PHASE==='open') sums.innerHTML='انفرادی مجموعہ: <s>'+fmt(iv)+' روپے</s> · مجموعے کی قیمت: '+fmt(r)+' روپے · افتتاحی بچت: '+fmt(iv-o)+' روپے';
       else if(PHASE==='pre') sums.innerHTML='انفرادی مجموعہ: <s>'+fmt(iv)+' روپے</s> · مجموعے کی قیمت: '+fmt(r)+' روپے · بچت: '+fmt(iv-r)+' روپے';
