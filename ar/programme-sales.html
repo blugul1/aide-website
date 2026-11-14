@@ -899,16 +899,21 @@ body:has(#cartBar:not([hidden])) .bookbar{display:none!important}
 .cart-empty{color:var(--muted);padding:14px 0}
 .cart-line{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(120,180,220,.18);font-size:14.5px;line-height:1.9}
 .cl-t{flex:1;min-width:0}
-.cl-p{white-space:nowrap;color:var(--ink)}
+.cl-p{white-space:nowrap;color:var(--ink);font-size:16px}
 .cart-line.is-gift .cl-t{color:var(--sea-hi)}
 .cl-x{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;padding:2px 6px}
 .cl-x:hover{color:var(--ink)}
 .cart-next{color:var(--sea-hi);font-size:14.5px;margin-top:12px;line-height:1.9}
 .cart-sums{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
-.cart-sum{display:flex;justify-content:space-between;font-size:15px;padding:3px 0}
+.cart-sum{display:flex;justify-content:space-between;font-size:17px;padding:3px 0}
 .cart-sum.save{color:var(--sea-hi)}
-.cart-sum.total{font-size:17px;font-weight:700;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.cart-sum.total{font-size:20px;font-weight:700;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.cart-sum.total b{color:var(--sea-hi)}
+.cart-box s{color:var(--muted);text-decoration-color:var(--muted)}
 .cart-note{color:var(--muted);font-size:13px;line-height:1.9;margin-top:12px}
+.cart-trust{list-style:none;margin:12px 0 0;padding:10px 12px;border:1px dashed rgba(120,180,220,.25);border-radius:10px}
+.cart-trust li{color:var(--muted);font-size:13.5px;line-height:1.9;padding:2px 0}
+.cart-trust li::before{content:"✓ ";color:var(--sea-hi);font-weight:700}
 .cart-box .bk-actions{margin-top:16px}
 @media(max-width:960px){.bk-grid{grid-template-columns:1fr}.bk-gift-grid{grid-template-columns:1fr}.bk-bundle-grid{grid-template-columns:1fr}.bk-bundle-feat{grid-column:auto}}
 @media(max-width:560px){.bk-card-cover{width:84px}.bk-card{padding:13px;gap:12px}.cart-bar{left:14px;right:14px;transform:none;bottom:14px}.cart-bar-btn{width:100%;white-space:normal}}
@@ -1336,15 +1341,15 @@ document.body.classList.add('ready');
       state.bundles=s.bundles.filter(function(k){return CAT.bundles[k];});}}catch(e){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
   function compute(){
-    var picks=state.picks.map(function(n){var b=CAT.books[String(n)];return {n:n,t:b.t,pr:priceOf(b)};});
+    var picks=state.picks.map(function(n){var b=CAT.books[String(n)];return {n:n,t:b.t,pr:priceOf(b),rg:b.p};});
     var sorted=picks.slice().sort(function(a,b){return a.pr-b.pr||a.n-b.n;});
     var g=giftCount(picks.length);
     var giftNs={}; sorted.slice(0,g).forEach(function(p){giftNs[p.n]=1;});
-    var sub=0,gsave=0;
-    picks.forEach(function(p){sub+=p.pr; if(giftNs[p.n])gsave+=p.pr;});
-    var blines=state.bundles.map(function(k){var b=CAT.bundles[k];return {k:k,t:b.t,pr:priceOf(b)};});
-    blines.forEach(function(b){sub+=b.pr;});
-    return {picks:picks,giftNs:giftNs,g:g,blines:blines,sub:sub,gsave:gsave,total:sub-gsave};
+    var sub=0,gsave=0,reg=0;
+    picks.forEach(function(p){sub+=p.pr; reg+=p.rg; if(giftNs[p.n])gsave+=p.pr;});
+    var blines=state.bundles.map(function(k){var b=CAT.bundles[k];return {k:k,t:b.t,pr:priceOf(b),rg:b.p};});
+    blines.forEach(function(b){sub+=b.pr; reg+=b.rg;});
+    return {picks:picks,giftNs:giftNs,g:g,blines:blines,sub:sub,gsave:gsave,total:sub-gsave,reg:reg,regSave:reg-sub};
   }
   var panel=document.getElementById('cartPanel'),
       linesEl=document.getElementById('cartLines'),
@@ -1383,13 +1388,16 @@ document.body.classList.add('ready');
         h+='<div class="cart-line is-bundle"><span class="cl-t">مجموعہ: '+esc(b.t)+'</span><span class="cl-p">'+fmt(b.pr)+' روپے</span><button class="cl-x" type="button" data-rm-bundle="'+esc(b.k)+'" aria-label="ہٹائیں">✕</button></div>';
       });
       linesEl.innerHTML=h;
-      sumsEl.innerHTML='<div class="cart-sum"><span>مجموعہ</span><b>'+fmt(c.sub)+' روپے</b></div>'
+      sumsEl.innerHTML=(c.regSave>0?'<div class="cart-sum"><span>معمول کی قیمت</span><b><s>'+fmt(c.reg)+' روپے</s></b></div>'
+        +'<div class="cart-sum save"><span>افتتاحی بچت</span><b>− '+fmt(c.regSave)+' روپے</b></div>'
+        :'<div class="cart-sum"><span>مجموعہ</span><b>'+fmt(c.sub)+' روپے</b></div>')
         +(c.gsave>0?'<div class="cart-sum save"><span>تحفے کی بچت ('+c.g+(c.g>1?' تحفے':' تحفہ')+')</span><b>− '+fmt(c.gsave)+' روپے</b></div>':'')
         +'<div class="cart-sum total"><span>کل قابلِ ادائیگی</span><b>'+fmt(c.total)+' روپے</b></div>';
       var msg=['السلام علیکم! مجھے AIDE کی یہ کتابیں حاصل کرنی ہیں:'];
       c.picks.forEach(function(p,i){msg.push((i+1)+'. '+p.t+' — '+fmt(p.pr)+' روپے'+(c.giftNs[p.n]?' (تحفہ — مفت)':''));});
       c.blines.forEach(function(b){msg.push('مجموعہ: '+b.t+' — '+fmt(b.pr)+' روپے');});
       if(c.gsave>0){msg.push('تحفے کی بچت ('+c.g+(c.g>1?' تحفے':' تحفہ')+'): − '+fmt(c.gsave)+' روپے');}
+      if(c.regSave>0){msg.push('افتتاحی بچت: − '+fmt(c.regSave)+' روپے');}
       msg.push('کل: '+fmt(c.total)+' روپے');
       msg.push('براہ کرم ادائیگی کی تفصیل بھیج دیں۔');
       waEl.setAttribute('href','https://wa.me/923309222029?text='+encodeURIComponent(msg.join('\n')));
