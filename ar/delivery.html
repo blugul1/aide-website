@@ -210,7 +210,7 @@ section{padding:88px 0;position:relative;z-index:2}
 .write-card:hover .ph img{transform:scale(1.09)}
 .write-card .bd{padding:24px 26px 26px}
 .write-card .k{color:var(--bronze);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.write-card h3{font-size:21px;line-height:1.45;margin:9px 0 8px;font-weight:700}
+.write-card h2,.write-card h3{font-size:21px;line-height:1.45;margin:9px 0 8px;font-weight:700}
 .write-card p{color:var(--muted);font-size:14.5px}
 .write-card .go{color:var(--sea-hi);font-size:14px;font-weight:600;margin-top:13px;display:inline-block;transition:transform .3s ease}
 .write-card:hover .go{transform:translateX(6px)}
@@ -281,7 +281,7 @@ footer a:hover{color:var(--ink)}
 .mini-card img{width:100%;height:220px;object-fit:cover;object-position:top;border-radius:12px;margin-bottom:14px;display:block}
 .prog{border:1px solid var(--line);border-radius:20px;padding:30px;background:linear-gradient(180deg,rgba(21,42,82,.45),rgba(10,26,59,.3));margin-bottom:18px}
 .prog .fmt{color:var(--gold);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.prog h3{font-size:26px;margin:8px 0 2px}
+.prog h2,.prog h3{font-size:26px;margin:8px 0 2px}
 .prog .uname{font-family:'Noto Nastaliq Urdu',serif;color:var(--sea2);font-size:19px}
 .prog p{color:var(--muted);line-height:1.75;margin-top:10px;max-width:64ch}
 .prog ul{margin:12px 0 4px 18px;color:var(--muted);line-height:1.95;font-size:15px}
@@ -322,7 +322,7 @@ footer a:hover{color:var(--ink)}
 .out-list li{color:var(--muted);line-height:1.9;font-size:15.5px;margin-inline-start:18px}
 .detail-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start}
 .fact-box{border:1px solid var(--line);border-radius:18px;padding:24px;background:linear-gradient(180deg,rgba(21,42,82,.5),rgba(10,26,59,.3))}
-.fact-box h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.fact-box h3,.fact-box h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .fact-box p{color:var(--muted);line-height:1.8;font-size:15px;margin-bottom:14px}
 @media(max-width:900px){.mod-grid,.detail-grid{grid-template-columns:1fr}}
 /* ===== RTL locales ===== */
@@ -340,12 +340,12 @@ footer a:hover{color:var(--ink)}
 body.loc-ur{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif;font-size:22px;font-weight:500;line-height:2.2}
 body.loc-ur p,body.loc-ur li{line-height:2.2}
 body.loc-ur h1,body.loc-ur h2,body.loc-ur h3,body.loc-ur h4{font-family:'Noto Nastaliq Urdu','Traditional Arabic',serif;line-height:2.0;letter-spacing:0}
-body.loc-ur .eyebrow,body.loc-ur .fmt,body.loc-ur .k,body.loc-ur .chip,body.loc-ur .mm-group,body.loc-ur .fact-box h4{letter-spacing:0}
+body.loc-ur .eyebrow,body.loc-ur .fmt,body.loc-ur .k,body.loc-ur .chip,body.loc-ur .mm-group,body.loc-ur .fact-box h3,body.loc-ur .fact-box h4{letter-spacing:0}
 body.loc-ur .btn,body.loc-ur .nav-links a,body.loc-ur .drop a{line-height:1.9}
 body.loc-ur .drag-hint{letter-spacing:0}
 body.loc-ar{font-family:'Noto Naskh Arabic','Traditional Arabic',sans-serif;font-size:19px;font-weight:500;line-height:1.8}
 body.loc-ar h1,body.loc-ar h2,body.loc-ar h3,body.loc-ar h4{font-family:'Noto Sans Arabic','Noto Naskh Arabic',sans-serif;font-weight:700;line-height:1.5;letter-spacing:0}
-body.loc-ar .eyebrow,body.loc-ar .fmt,body.loc-ar .k,body.loc-ar .chip,body.loc-ar .mm-group,body.loc-ar .fact-box h4,body.loc-ar .drag-hint{letter-spacing:0;text-transform:none}
+body.loc-ar .eyebrow,body.loc-ar .fmt,body.loc-ar .k,body.loc-ar .chip,body.loc-ar .mm-group,body.loc-ar .fact-box h3,body.loc-ar .fact-box h4,body.loc-ar .drag-hint{letter-spacing:0;text-transform:none}
 /* nav fit with dropdowns + language switcher */
 @media(min-width:901px){.nav-links{gap:15px}.nav-links .btn{white-space:nowrap;flex:none;padding:10px 16px;font-size:14px}.brand small{letter-spacing:.18em}}
 
@@ -562,7 +562,7 @@ body.rd-lock{overflow:hidden}
 .ac-app .tab:hover, .ac-app .langbtn:hover{border-color:var(--sea)}
 .ac-app .hero{padding:8px 2px 6px}
 .ac-app .hero h1{font-size:clamp(26px,5.4vw,40px);font-weight:700;line-height:2.1}
-.ac-app .hero h1 em{font-style:normal;color:var(--sea-hi)}
+.ac-app .hero h1 em,.ac-app .hero h2 em{font-style:normal;color:var(--sea-hi)}
 .ac-app .hero p{color:var(--ink-dim);font-size:16px;max-width:640px}
 .ac-app .privacy{display:inline-flex;gap:8px;align-items:center;margin-top:12px;background:rgba(61,171,148,.12);border:1px solid rgba(61,171,148,.35);color:#CFF2E8;border-radius:999px;padding:4px 16px;font-size:13.5px}
 .ac-app .chips{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 18px}
