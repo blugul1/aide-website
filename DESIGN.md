@@ -59,6 +59,28 @@ so any AI agent or tool can read the system without opening the CSS.
 - **Gradients** — hero and primary buttons only. Nowhere else.
 - Gold/bronze are sparing ceremonial accents (rules, seals), never body text.
 
+## Contrast law (2026-11-18 — owner decision, brand route A "Refined Navy")
+
+- One button language: sea `#3DAB94` fill with dark text `#04160F` (6.61:1).
+  White text on bright sea/teal/gold is forbidden — it fails WCAG AA (2.82:1).
+  Hover may lighten the fill to `#4FBFA7` (dark text still, 8.29:1).
+- White text is allowed only on deep grounds: navy, `#1F7A66` or darker green
+  (5.21:1), `#14594A` (8.21:1). The PLDP early-fee card uses a `#1F7A66` →
+  `#14594A` gradient for this reason.
+- `--sea2` (`#4FBFA7`) is the text-on-dark green: fee lines, back links,
+  programme Urdu names, mono numbers. Never on light grounds.
+- Gold `#C9A227` / `#E9C767` and clay are decoration only (rules, eyebrows,
+  badges) — never body text on light grounds (2.20:1). Gold text on navy
+  passes (7.09:1) and is reserved for eyebrows/kickers.
+- No three-colour gradients. No per-audience colour splits: one AIDE identity
+  for all six audiences; programmes differ by content, photo and layout.
+- Family thread: gold `#C9A227` is shared across AIDE, Islah, ADK and BBB;
+  each brand keeps its own primary (AIDE navy, Islah navy/cream, ADK maroon,
+  BBB deep green).
+- Every new colour pair must be computed against WCAG 2.2 AA (4.5:1 body,
+  3:1 large text) before it ships — never eyeballed, never trusted from an
+  AI's claimed ratio.
+
 ## Glass
 
 Liquid glass is the settled house look (owner's order, 2026-10-20): frosted,
