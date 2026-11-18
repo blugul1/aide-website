@@ -433,6 +433,9 @@
   .blend .row.alt{color:#E3C878}
   .btn.btn-solid{border:1.5px solid rgba(201,162,39,.9);box-shadow:0 0 0 1px rgba(201,162,39,.18),0 10px 28px rgba(61,171,148,.30)}
   .proof b em{color:#C9A227}
+  /* GLOW (owner 2026-11-19): emerald radial over the hero shade + gold ring on the nav CTA */
+  .hero .shade{background:radial-gradient(55% 46% at 26% 72%, rgba(61,171,148,.40) 0%, rgba(61,171,148,.16) 45%, rgba(61,171,148,0) 70%),linear-gradient(180deg, rgba(10,26,59,.42) 0%, rgba(10,26,59,.08) 34%, rgba(10,26,59,.55) 78%, rgba(10,26,59,.88) 100%)}
+  .nav-links a.nav-cta{border:1.5px solid rgba(201,162,39,.9);box-shadow:0 0 0 1px rgba(201,162,39,.18),0 10px 28px rgba(61,171,148,.35)}
   @keyframes heroRowIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
   .blend{animation:heroFloat 7s ease-in-out 1.4s infinite alternate}
   @keyframes heroFloat{from{transform:translateY(0)}to{transform:translateY(-7px)}}
@@ -807,6 +810,11 @@ html[data-theme="day"] .nav-links .lang-btn{color:#0A1A3B;border-color:rgba(10,2
 nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:rgba(255,255,255,.6)}
 .nav-links .drop.lang-drop{min-width:150px}
 .nav-links .drop.lang-drop a[aria-current="page"]{font-weight:700;color:#1F7A66}
+/* --- mega centring fix (owner 2026-11-19): drops anchor to the full-width nav so they centre on the
+   viewport at every width (EN mega overflowed 47-97px at 821-1024px when centred on its link).
+   margin-top pulls the drop up to touch the link row, so the hover bridge has no dead strip. --- */
+.nav-links .has-drop:has(.drop.mega),.nav-links .has-drop:has(.drop.res-mega){position:static}
+.nav-links .drop.mega,.nav-links .drop.res-mega{inset-inline-start:auto;left:50%;right:auto;transform:translateX(-50%);margin-top:-30px}
 
 </style>
 </head>
