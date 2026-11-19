@@ -815,6 +815,115 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
    margin-top pulls the drop up to touch the link row, so the hover bridge has no dead strip. --- */
 .nav-links .has-drop:has(.drop.mega),.nav-links .has-drop:has(.drop.res-mega){position:static}
 .nav-links .drop.mega,.nav-links .drop.res-mega{inset-inline-start:auto;left:50%;right:auto;transform:translateX(-50%);margin-top:-30px}
+/* --- HERO WORD IDLE (LAB EXPERIMENT 2026-11-19 — owner feel-check in the morning; NOT live) ---
+   CHANGE lifts gently, DIFFERENTLY settles + widens a touch; different periods so they never lockstep.
+   Inner spans: the .w entrance is untouched; idle motion composes on top. */
+.hook .w-bob,.hook .w-sway{display:inline-block}
+.hook .w-bob{animation:bobY 4.5s ease-in-out infinite}
+.hook .w-sway{animation:swayY 5.5s ease-in-out infinite}
+@keyframes bobY{0%,100%{transform:translateY(0)}50%{transform:translateY(-.06em)}}
+@keyframes swayY{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(.04em) scale(1.02)}}
+@media (prefers-reduced-motion:reduce){.hook .w-bob,.hook .w-sway{animation:none}}
+/* LIQUID NAVY (owner 2026-11-19 — LAB): background navy as floating liquid — soft luminous orbs drift behind everything; solid navy surfaces go translucent so the liquid shows through */
+html[data-theme="night"] body::before,html[data-theme="night"] body::after{content:"";position:fixed;inset:-90px;z-index:-1;pointer-events:none}
+html[data-theme="night"] body::before{background:radial-gradient(52% 42% at 16% 20%,rgba(61,171,148,.25) 0%,rgba(61,171,148,0) 70%),radial-gradient(44% 36% at 80% 24%,rgba(201,162,39,.13) 0%,rgba(201,162,39,0) 70%),radial-gradient(58% 46% at 64% 82%,rgba(31,122,102,.23) 0%,rgba(31,122,102,0) 70%);animation:liquidDrift 36s ease-in-out infinite alternate}
+html[data-theme="night"] body::after{background:radial-gradient(40% 32% at 74% 62%,rgba(79,191,167,.17) 0%,rgba(79,191,167,0) 70%),radial-gradient(46% 38% at 24% 70%,rgba(61,171,148,.15) 0%,rgba(61,171,148,0) 70%);animation:liquidDrift2 44s ease-in-out infinite alternate}
+@keyframes liquidDrift{from{transform:translate3d(-26px,-14px,0) scale(1)}to{transform:translate3d(28px,18px,0) scale(1.05)}}
+@keyframes liquidDrift2{from{transform:translate3d(22px,12px,0)}to{transform:translate3d(-24px,-18px,0)}}
+/* solid navy surfaces go see-through (night only) so the liquid shows through */
+html[data-theme="night"] #programmes,html[data-theme="night"] #start{background:rgba(13,33,72,.42)!important;background:color-mix(in srgb,var(--bg-soft) 38%,transparent)!important}
+html[data-theme="night"] .cut{background:rgba(10,26,59,.45)!important;background:color-mix(in srgb,var(--bg) 45%,transparent)!important}
+html[data-theme="night"] .prog-feature{background:rgba(10,26,59,.55);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}
+/* PROG TONES (owner 2026-11-20 — one colour per programme, same system as programmes page) */
+.prog-row.tone-habit{background:color-mix(in srgb,#3DAB94 26%,var(--bg-soft));border-inline-start:4px solid #3DAB94}
+.prog-row.tone-habit .no,.prog-row.tone-habit .fmt,.prog-row.tone-habit .arr{color:#4FBFA7}
+.prog-row.tone-habit:hover{background:color-mix(in srgb,#3DAB94 34%,var(--bg-soft))}
+.prog-row.tone-sales{background:color-mix(in srgb,#C9A227 26%,var(--bg-soft));border-inline-start:4px solid #C9A227}
+.prog-row.tone-sales .no,.prog-row.tone-sales .fmt,.prog-row.tone-sales .arr{color:#E3C878}
+.prog-row.tone-sales:hover{background:color-mix(in srgb,#C9A227 34%,var(--bg-soft))}
+.prog-row.tone-teach{background:color-mix(in srgb,#5B8DC9 26%,var(--bg-soft));border-inline-start:4px solid #5B8DC9}
+.prog-row.tone-teach .no,.prog-row.tone-teach .fmt,.prog-row.tone-teach .arr{color:#8FB4DE}
+.prog-row.tone-teach:hover{background:color-mix(in srgb,#5B8DC9 34%,var(--bg-soft))}
+.prog-row.tone-homes{background:color-mix(in srgb,#1F7A66 28%,var(--bg-soft));border-inline-start:4px solid #1F7A66}
+.prog-row.tone-homes .no,.prog-row.tone-homes .fmt,.prog-row.tone-homes .arr{color:#5EC4A8}
+.prog-row.tone-homes:hover{background:color-mix(in srgb,#1F7A66 36%,var(--bg-soft))}
+.prog-row.tone-rise{background:linear-gradient(180deg,#F4EFE3,#E9DFC6);border:1px solid rgba(201,162,39,.5);border-inline-start:4px solid #C9A227}
+.prog-row.tone-rise h3{color:#0A1A3B}
+.prog-row.tone-rise p{color:#3D4A5C}
+.prog-row.tone-rise .no,.prog-row.tone-rise .fmt,.prog-row.tone-rise .arr{color:#8A6D1B}
+.prog-row.tone-rise:hover{background:linear-gradient(180deg,#EFE8D5,#E2D5B4)}
+html[data-theme="day"] .prog-row.tone-habit .no,html[data-theme="day"] .prog-row.tone-habit .fmt,html[data-theme="day"] .prog-row.tone-habit .arr{color:#1F7A66}
+html[data-theme="day"] .prog-row.tone-sales .no,html[data-theme="day"] .prog-row.tone-sales .fmt,html[data-theme="day"] .prog-row.tone-sales .arr{color:#8A6D1B}
+html[data-theme="day"] .prog-row.tone-teach .no,html[data-theme="day"] .prog-row.tone-teach .fmt,html[data-theme="day"] .prog-row.tone-teach .arr{color:#2F5D8A}
+html[data-theme="day"] .prog-row.tone-homes .no,html[data-theme="day"] .prog-row.tone-homes .fmt,html[data-theme="day"] .prog-row.tone-homes .arr{color:#1F7A66}
+html[data-theme="night"] .uswa div{background:rgba(14,34,73,.45)}
+@media (prefers-reduced-motion:reduce){html[data-theme="night"] body::before,html[data-theme="night"] body::after{animation:none}}
+@media (prefers-reduced-transparency:reduce){html[data-theme="night"] body::before,html[data-theme="night"] body::after{display:none}html[data-theme="night"] #programmes,html[data-theme="night"] #start,html[data-theme="night"] .cut{background:var(--bg-soft)!important}html[data-theme="night"] .prog-feature{background:var(--navy)}html[data-theme="night"] .uswa div{background:var(--navy-2)}}
+  /* TAKEAWAYS (owner 2026-11-19 — LAB): three-site review — announcement bar, three doors, dated cohorts, workbook, five reasons; proof count-up is JS-only on the existing strip */
+  :root{--td-bar-h:44px}
+  html[lang="ur"]{--td-bar-h:56px}
+  .td-bar{display:flex;align-items:center;justify-content:center;height:var(--td-bar-h);padding:0 16px;background:#081230;color:#E3C878;font-size:15px;font-weight:600;text-align:center;border-bottom:1px solid rgba(227,200,120,.22);white-space:nowrap;overflow:hidden}
+  .td-bar a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(227,200,120,.55);overflow:hidden;text-overflow:ellipsis}
+  .td-bar a:hover{color:#fff}
+  .td-bar .arr{font-weight:800}
+  html[lang="ur"] .td-bar{font-size:17px;line-height:1.9}
+  @media (max-width:600px){.td-bar{white-space:normal;height:auto;min-height:var(--td-bar-h);padding:6px 16px;line-height:1.45}.td-bar a{white-space:normal;overflow:visible;text-overflow:clip}html[lang="ur"] .td-bar{line-height:1.7}:root{--td-bar-h:58px}html[lang="ur"]{--td-bar-h:78px}html[lang="ar"]{--td-bar-h:56px}}
+  nav{top:var(--td-bar-h);transition:background-color .35s ease,top .3s ease}
+  nav.scrolled{top:0}
+  .td-doors{background:var(--bg-soft)}
+  html[data-theme="night"] .td-doors{background:rgba(13,33,72,.45)}
+  .td-door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .td-door{position:relative;display:block;text-decoration:none;border-radius:20px;overflow:hidden;aspect-ratio:3/3.9;background:var(--navy-2);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+  .td-door img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .td-door:hover img{transform:scale(1.05)}
+  .td-door .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,30,0) 42%,rgba(4,12,30,.82) 78%,rgba(4,12,30,.94) 100%)}
+  .td-door .td-body{position:absolute;left:0;right:0;bottom:0;padding:24px}
+  .td-door .eyebrow{display:block;margin:0 0 6px}
+  .td-door h3{margin:0 0 6px}
+  .td-door p{margin:0;color:rgba(242,245,247,.85)}
+  html[lang="en"] .td-door p{font-size:15px;line-height:1.5}
+  .td-door .tile{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#04160F;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;transition:transform .3s ease}
+  .td-door:hover .tile{transform:translate(3px,-3px)}
+  .td-cohort-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .td-cohort{background:var(--surface,rgba(255,255,255,.055));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--surface-line,rgba(255,255,255,.12));border-radius:18px;padding:26px;display:flex;flex-direction:column}
+  .td-cohort .prog{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sea-hi);margin:0 0 8px}
+  html[lang="ur"] .td-cohort .prog,html[lang="ar"] .td-cohort .prog{letter-spacing:0;font-size:14px}
+  .td-cohort h3{margin:0 0 18px}
+  .td-cohort .fact{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-top:1px solid var(--line,rgba(255,255,255,.1));font-size:15px}
+  html[lang="ur"] .td-cohort .fact,html[lang="ar"] .td-cohort .fact{font-size:17px}
+  .td-cohort .fact span{color:var(--text-dim);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+  html[lang="ur"] .td-cohort .fact span,html[lang="ar"] .td-cohort .fact span{letter-spacing:0;font-size:14px}
+  .td-cohort .fact b{font-weight:600;text-align:right}
+  html[dir="rtl"] .td-cohort .fact b{text-align:left}
+  .td-cohort .btn{margin-top:20px;justify-content:center}
+  .td-workbook{position:relative;padding:110px 0;text-align:center;overflow:hidden;background:#04101f}
+  .td-workbook img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+  .td-workbook .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,30,.55),rgba(4,12,30,.82))}
+  .td-workbook .inner{position:relative;max-width:760px;margin:0 auto;padding:0 24px}
+  .td-workbook h2{margin:0 0 6px}
+  .td-wb-ur{font-family:"Noto Nastaliq Urdu","Traditional Arabic",serif;font-size:24px;line-height:2;color:#E3C878;margin:6px 0 26px}
+  .td-workbook p{color:rgba(242,245,247,.85)}
+  html[lang="en"] .td-workbook p{font-size:17px}
+  .td-rsn-grid{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start}
+  .td-rsn-btns{display:flex;flex-direction:column;gap:10px}
+  .td-rsn-btn{display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;background:transparent;border:1px solid var(--line,rgba(255,255,255,.14));border-radius:14px;padding:14px 16px;color:var(--text);font-size:16px;font-weight:600}
+  html[lang="ur"] .td-rsn-btn,html[lang="ar"] .td-rsn-btn{font-size:18px}
+  html[dir="rtl"] .td-rsn-btn{text-align:right}
+  .td-rsn-btn .n{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:var(--text-dim);width:30px;height:30px;flex:0 0 30px;border-radius:50%;border:1px solid var(--line,rgba(255,255,255,.25));display:flex;align-items:center;justify-content:center}
+  .td-rsn-btn:hover{border-color:rgba(255,255,255,.4)}
+  .td-rsn-btn.on{border-color:var(--gold);background:rgba(201,162,39,.12)}
+  .td-rsn-btn.on .n{background:var(--gold);color:#04160F;border-color:var(--gold)}
+  .td-rsn-panel{background:var(--surface,rgba(255,255,255,.055));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--surface-line,rgba(255,255,255,.12));border-radius:18px;padding:34px;min-height:220px;transition:opacity .25s ease,transform .25s ease}
+  .td-rsn-panel.swap{opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease}
+  .td-rsn-panel h3{margin:0 0 10px}
+  .td-rsn-panel p{color:var(--text-dim);margin:0}
+  @media (max-width:900px){
+    .td-door-grid,.td-cohort-grid{grid-template-columns:1fr}
+    .td-door{aspect-ratio:16/10}
+    .td-door img.book-cover{object-position:center 78%}
+    .td-rsn-grid{grid-template-columns:1fr}
+    .td-workbook{padding:84px 0}
+  }
 
 
   [dir="rtl"] .pull{border-left:none;border-right:4px solid var(--sea)}
@@ -844,6 +953,8 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
+
+<div class="td-bar"><a href="assessments.html">خطوة أولى مجانية — مرآة الأسوة، فحص ذاتي في دقيقتين <span class="arr">→</span></a></div>
 
 <nav>
   <div class="wrap nav-in">
@@ -899,6 +1010,17 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 
 <div class="wrap"><div class="steps3"><div class="step rv"><b><i>1</i>احجز مكالمة مجانية</b><p>خمس عشرة دقيقة على واتساب. قل باختصار ما تريد العمل عليه.</p></div><div class="step rv"><b><i>2</i>اختر برنامجك</b><p>معًا نطابقك مع البرنامج المناسب أو الممارس المناسب.</p></div><div class="step rv"><b><i>3</i>ابدأ</b><p>اتفاق واضح مكتوب أولًا — ثم يبدأ العمل.</p></div></div></div>
 
+<section class="td-doors" id="doors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">ثلاثة أبواب</span>
+      <h2>أيّ باب هو بابك؟</h2>
+      <p>لا باب خاطئ. كل باب يقود إلى الطريق نفسه — ادخل من حيث أنت.</p>
+    </div>
+    <div class="td-door-grid"><a class="td-door rv" href="books.html"><img loading="lazy" decoding="async" class="book-cover" src="../book-pehla-saal.webp" alt="الكتب"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">لك</span><h3>الكتب</h3><p>ادخل بالقراءة — 55 كتابًا عن العادات والبيت والقيادة والأرض. فصل واحد الليلة يكفي.</p></span></a><a class="td-door rv" href="programmes.html"><img loading="lazy" decoding="async" class="" src="../prog-pldp.webp" alt="الدورات"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">لك، من أي مكان</span><h3>الدورات</h3><p>تعلّم مع مجموعة — جلسات مباشرة وعمل ميداني ودفتر تمارين يعود معك إلى البيت.</p></span></a><a class="td-door rv" href="coaching.html"><img loading="lazy" decoding="async" class="" src="../aide-coaching.webp" alt="التوجيه"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">لك، وجهًا لوجه</span><h3>التوجيه</h3><p>تحدث مع مدرّب يعرف اسمك وأسبوعك — لا تسجيل.</p></span></a></div>
+  </div>
+</section>
+
 <section class="guide" id="guide">
   <div class="wrap">
     <div class="sec-head rv">
@@ -933,7 +1055,7 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <h2>تطوير يصل إلى ما بعد قاعة الدرس.</h2>
       <p>كل شخص وكل مؤسسة يبدأ من مكان مختلف. أحدهم يحتاج أن يقود بشكل أفضل. وآخر يحتاج عادات تصمد، أو بيتًا يتنفس بسهولة أكبر، أو طفلًا يحتاج توجيهًا. هذه البرامج مبنية على مواقف حقيقية وعلى ممارسة تحويل الفهم الجديد إلى عمل.</p>
     </div>
-    <div class="prog-feature rv">
+    <div class="prog-feature tone-pldp rv">
       <div class="txt">
         <span class="eyebrow" style="color:var(--sea-hi)">Flagship · USWA</span>
         <h3>Prophetic Leadership Development Program</h3>
@@ -945,7 +1067,18 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <div class="uswa"><button type="button" class="up on" data-u="0"><i>U</i><b>الفهم</b><span>أن تعرف الناس قبل أن تقودهم</span></button><button type="button" class="up" data-u="1"><i>S</i><b>الإخلاص</b><span>النية قبل التقنية</span></button><button type="button" class="up" data-u="2"><i>W</i><b>الحكمة</b><span>الحكم في المناطق الرمادية</span></button><button type="button" class="up" data-u="3"><i>A</i><b>المساءلة</b><span>مسؤول — أمام الناس وأمام الله</span></button></div>
     </div>
     <div class="uswa-detail rv" id="uswaDetail" aria-live="polite"></div>
-    <div class="prog-rows rv"><a class="prog-row" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>المبيعات ليست فقط أن تعرف ماذا تقول. إنها قراءة الناس وفهم السلوك وكسب الثقة في محادثات حقيقية. يومان مع فريقك، ثم ثلاثون يومًا من المتابعة في الميدان، بقيادة مشتركة مع عرفان أسلم.</p><span class="fmt">يومان في الموقع · 30 يوم متابعة ميدانية · للشركات</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>كل شخص بدأ من جديد في يوم اثنين. الجزء الصعب ليس البدء، بل بناء عادة تصمد في أسبوع عادي. تساعدك هذه المجموعة على بناء عادات تناسب حياتك وتمسكها بهدوء.</p><span class="fmt">أربعة أسابيع · مجموعة عبر الإنترنت · بالأردية</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>البيت لا يصبح هادئًا لأن شخصًا واحدًا يفوز بكل جدال. يقوم هذا البرنامج على فلسفة بسيطة: لا ظالم ولا مظلوم، فقط قلبان يتعلمان الإصغاء من جديد. يتعلّم الأزواج والآباء أن يفهموا بعضهم وأن يبنوا بيتًا أكثر ثباتًا.</p><span class="fmt">أربعة أسابيع · عبر الإنترنت · للأزواج والآباء</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>التعليم ليس إيصال درس فقط. إنه أيضًا فهم الطفل الجالس أمامك. المعلم الثابت يستطيع أن يثبّت فصلًا كاملًا، وهذا ما يدرّبه هذا البرنامج: الذكاء العاطفي للمعلم، بممارسة أربعة أسابيع في فصول حقيقية.</p><span class="fmt">ورشة يوم واحد · دورة صفية أربعة أسابيع · للمدارس</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>بين الطفولة والرشد يواجه الشاب أسئلة قد ترسم اتجاه حياته. يساعده RISE على أن يفكر بوضوح فيمن هو وماذا يريد، وأن يصمّم حياته قبل أن تصمّمها الدنيا له.</p><span class="fmt">ستة أسابيع · أعمار 16 إلى 25 · برنامج AIDE Society الرئيسي</span></span><span class="arr">→</span></a></div>
+    <div class="prog-rows rv"><a class="prog-row tone-sales" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>المبيعات ليست فقط أن تعرف ماذا تقول. إنها قراءة الناس وفهم السلوك وكسب الثقة في محادثات حقيقية. يومان مع فريقك، ثم ثلاثون يومًا من المتابعة في الميدان، بقيادة مشتركة مع عرفان أسلم.</p><span class="fmt">يومان في الموقع · 30 يوم متابعة ميدانية · للشركات</span></span><span class="arr">→</span></a><a class="prog-row tone-habit" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>كل شخص بدأ من جديد في يوم اثنين. الجزء الصعب ليس البدء، بل بناء عادة تصمد في أسبوع عادي. تساعدك هذه المجموعة على بناء عادات تناسب حياتك وتمسكها بهدوء.</p><span class="fmt">أربعة أسابيع · مجموعة عبر الإنترنت · بالأردية</span></span><span class="arr">→</span></a><a class="prog-row tone-homes" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>البيت لا يصبح هادئًا لأن شخصًا واحدًا يفوز بكل جدال. يقوم هذا البرنامج على فلسفة بسيطة: لا ظالم ولا مظلوم، فقط قلبان يتعلمان الإصغاء من جديد. يتعلّم الأزواج والآباء أن يفهموا بعضهم وأن يبنوا بيتًا أكثر ثباتًا.</p><span class="fmt">أربعة أسابيع · عبر الإنترنت · للأزواج والآباء</span></span><span class="arr">→</span></a><a class="prog-row tone-teach" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>التعليم ليس إيصال درس فقط. إنه أيضًا فهم الطفل الجالس أمامك. المعلم الثابت يستطيع أن يثبّت فصلًا كاملًا، وهذا ما يدرّبه هذا البرنامج: الذكاء العاطفي للمعلم، بممارسة أربعة أسابيع في فصول حقيقية.</p><span class="fmt">ورشة يوم واحد · دورة صفية أربعة أسابيع · للمدارس</span></span><span class="arr">→</span></a><a class="prog-row tone-rise" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>بين الطفولة والرشد يواجه الشاب أسئلة قد ترسم اتجاه حياته. يساعده RISE على أن يفكر بوضوح فيمن هو وماذا يريد، وأن يصمّم حياته قبل أن تصمّمها الدنيا له.</p><span class="fmt">ستة أسابيع · أعمار 16 إلى 25 · برنامج AIDE Society الرئيسي</span></span><span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="td-cohorts" id="cohorts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">المجموعات القادمة</span>
+      <h2>اختر طريقك</h2>
+      <p>حين تمتلئ مجموعة، تقول البطاقة ذلك — لا مسرح قوائم الانتظار.</p>
+    </div>
+    <div class="td-cohort-grid"><article class="td-cohort rv"><p class="prog">البرنامج الرئيسي · 8 أسابيع</p><h3>Prophetic Leadership Development Program</h3><div class="fact"><span>البداية</span><b>سيتم الإعلان عن المواعيد قريبًا</b></div><div class="fact"><span>الطريقة</span><b>عبر الإنترنت + عمل ميداني</b></div><div class="fact"><span>المدة</span><b>8 أسابيع · ساعتان أسبوعيًا</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%B9%D8%AF%20%D9%81%D9%8A%20PLDP" target="_blank" rel="noopener">احجز مقعدًا</a></article><article class="td-cohort rv"><p class="prog">مجموعة · 4 أسابيع</p><h3>Habit Architecture</h3><div class="fact"><span>البداية</span><b>سيتم الإعلان عن المواعيد قريبًا</b></div><div class="fact"><span>الطريقة</span><b>عبر الإنترنت</b></div><div class="fact"><span>المدة</span><b>4 أسابيع · جلسات مباشرة</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%B9%D8%AF%20%D9%81%D9%8A%20Habit%20Architecture" target="_blank" rel="noopener">احجز مقعدًا</a></article><article class="td-cohort rv"><p class="prog">الشباب · 6 أسابيع</p><h3>RISE Youth Life Design</h3><div class="fact"><span>البداية</span><b>سيتم الإعلان عن المواعيد قريبًا</b></div><div class="fact"><span>الطريقة</span><b>عبر الإنترنت</b></div><div class="fact"><span>المدة</span><b>6 أسابيع · أعمار 16 إلى 25</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%82%D8%B9%D8%AF%20%D9%81%D9%8A%20RISE" target="_blank" rel="noopener">احجز مقعدًا</a></article></div>
   </div>
 </section>
 
@@ -956,13 +1089,13 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <h2>أكثر من زوج واحد من العيون.</h2>
       <p>عمل التطوير الجيد يحتاج أكثر من زوج واحد من العيون. تجمع AIDE ممارسين من الأعمال والتوجيه وعلم النفس والتعليم وخدمة المجتمع. يعمل كل منهم في مجاله، ويقدّمون معًا دعمًا أوسع وأكمل.</p>
     </div>
-    <div class="team-grid"><article class="member rv"><img loading="lazy" decoding="async" src="../imran-team.webp" alt="عمران أسلم"><div class="bd"><h3>عمران أسلم</h3><span>المؤسس · مدرّب حياة ومدرّب</span><p class="intro">أسّس عمران AIDE ليجمع بين الخبرة العملية وعلم النفس البشري بطريقة تبقى متصلة بالحياة الحقيقية. خلف توجيهه عشرون عامًا من القيادة عبر ثلاث قارات، لكن أسلوبه يبقى بسيطًا وشخصيًا: افهم نفسك بوضوح، ثم غيّر ما يهمّ.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع عمران أسلم</a></p><p class="prof-line"><a class="card-link" href="team-imran-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../irfan-aslam.webp" alt="عرفان أسلم"><div class="bd"><h3>عرفان أسلم</h3><span>مستشار أعمال ومدرّب · مدرّب</span><p class="intro">يحمل عرفان أكثر من ثلاثة عشر عامًا في أدوار قيادية لدى شركات رائدة متعددة الجنسيات. يعرف ثقل الأهداف والفرق والقرارات الصعبة، وفي جلساته لا يكون التركيز أبدًا على الهدف وحده — بل على الشخص الذي يحمله.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع عرفان أسلم</a></p><p class="prof-line"><a class="card-link" href="team-irfan-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../zill-e-huma-aslam.webp" alt="ظل هما أسلم"><div class="bd"><h3>ظل هما أسلم</h3><span>ممارسة متقدمة في NLP · مدرّبة حياة · معالجة بالتنويم · مدرّبة</span><p class="intro">تجمع ظل هما بين البرمجة اللغوية العصبية وتوجيه الحياة والتنويم الإيحائي والتدريب في ممارسة هادئة واحدة. يصل عملها إلى الطبقات الهادئة حيث تتشكل الأنماط، ويساعد الناس على ترك القديمة والتقدم بقلب أخفّ.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع ظل هما أسلم</a></p><p class="prof-line"><a class="card-link" href="team-zill-e-huma-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حليمة سعدية"><div class="bd"><h3>حليمة سعدية</h3><span>مدرّبة حياة · الرئيس التنفيذي، ADK</span><p class="intro">تقود حليمة جمعية بنات كشمير بصفة الرئيس التنفيذي، مواصلةً ثلاثين عامًا من خدمة النساء والأسر. وبصفتها مدرّبة تحمل الجودة نفسها التي عُرفت بها خدمتها: تصغي أولًا، وتتكلم حين تستطيع كلماتها أن تحمل وزنًا.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9." target="_blank" rel="noopener">احجز مع حليمة سعدية</a></p><p class="prof-line"><a class="card-link" href="team-halima-sadia.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سيدة عمارة زيدي"><div class="bd"><h3>سيدة عمارة زيدي</h3><span>مدرّبة تمكين المرأة · مؤسسة والرئيس التنفيذي، شبكة الإصلاح</span><p class="intro">أسّست عمارة شبكة الإصلاح على إيمان بسيط: حين تُعطى المرأة فرصة، تنهض معها أسرة كاملة. يخلق توجيهها مساحة تستطيع النساء فيها أن يتعلمن ويكسبن ويتعافين، وهي تقود بحنان وحزم معًا.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A." target="_blank" rel="noopener">احجز مع سيدة عمارة زيدي</a></p><p class="prof-line"><a class="card-link" href="team-ammara-zaidi.html">الملف الكامل →</a></p></div></article></div>
+    <div class="team-grid"><article class="member rv"><img loading="lazy" decoding="async" src="../imran-team.webp" alt="عمران أسلم"><div class="bd"><h3>عمران أسلم</h3><span>المؤسس · مدرّب حياة ومدرّب</span><p class="intro">أسّس عمران AIDE ليجمع بين الخبرة العملية وعلم النفس البشري بطريقة تبقى متصلة بالحياة الحقيقية. خلف توجيهه عشرون عامًا من القيادة عبر ثلاث قارات، لكن أسلوبه يبقى بسيطًا وشخصيًا: افهم نفسك بوضوح، ثم غيّر ما يهمّ. وإلى جانب AIDE، يعمل المدير التنفيذي الفخري ومدرّبًا ومرشدًا مع ADK، والمؤسس المشارك والمدير التنفيذي الفخري لشبكة إصلاح.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%B4%D8%AE%D8%B5%D9%8A%20%D9%85%D8%B9%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع عمران أسلم</a></p><p class="prof-line"><a class="card-link" href="team-imran-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../irfan-aslam.webp" alt="عرفان أسلم"><div class="bd"><h3>عرفان أسلم</h3><span>مستشار أعمال ومدرّب · مدرّب</span><p class="intro">يحمل عرفان أكثر من ثلاثة عشر عامًا في أدوار قيادية لدى شركات رائدة متعددة الجنسيات. يعرف ثقل الأهداف والفرق والقرارات الصعبة، وفي جلساته لا يكون التركيز أبدًا على الهدف وحده — بل على الشخص الذي يحمله.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D9%85%D8%B9%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع عرفان أسلم</a></p><p class="prof-line"><a class="card-link" href="team-irfan-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../zill-e-huma-aslam.webp" alt="ظل هما أسلم"><div class="bd"><h3>ظل هما أسلم</h3><span>ممارسة متقدمة في NLP · مدرّبة حياة · معالجة بالتنويم · مدرّبة</span><p class="intro">تجمع ظل هما بين البرمجة اللغوية العصبية وتوجيه الحياة والتنويم الإيحائي والتدريب في ممارسة هادئة واحدة. يصل عملها إلى الطبقات الهادئة حيث تتشكل الأنماط، ويساعد الناس على ترك القديمة والتقدم بقلب أخفّ.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D9%85%D8%B9%20%D8%B8%D9%84%20%D9%87%D9%85%D8%A7%20%D8%A3%D8%B3%D9%84%D9%85." target="_blank" rel="noopener">احجز مع ظل هما أسلم</a></p><p class="prof-line"><a class="card-link" href="team-zill-e-huma-aslam.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حليمة سعدية"><div class="bd"><h3>حليمة سعدية</h3><span>مدرّبة حياة · رئيسة ADK</span><p class="intro">تقود حليمة جمعية بنات كشمير بصفة رئيسة، مواصلةً ثلاثين عامًا من خدمة النساء والأسر. وبصفتها مدرّبة تحمل الجودة نفسها التي عُرفت بها خدمتها: تصغي أولًا، وتتكلم حين تستطيع كلماتها أن تحمل وزنًا.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AD%D9%8A%D8%A7%D8%A9%20%D9%85%D8%B9%20%D8%AD%D9%84%D9%8A%D9%85%D8%A9%20%D8%B3%D8%B9%D8%AF%D9%8A%D8%A9." target="_blank" rel="noopener">احجز مع حليمة سعدية</a></p><p class="prof-line"><a class="card-link" href="team-halima-sadia.html">الملف الكامل →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سيدة عمارة زيدي"><div class="bd"><h3>سيدة عمارة زيدي</h3><span>مدرّبة تمكين المرأة · مؤسسة ورئيسة، شبكة الإصلاح</span><p class="intro">أسّست عمارة شبكة الإصلاح على إيمان بسيط: حين تُعطى المرأة فرصة، تنهض معها أسرة كاملة. يخلق توجيهها مساحة تستطيع النساء فيها أن يتعلمن ويكسبن ويتعافين، وهي تقود بحنان وحزم معًا.</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AA%D9%88%D8%AC%D9%8A%D9%87%20%D8%AA%D9%85%D9%83%D9%8A%D9%86%20%D8%A7%D9%84%D9%85%D8%B1%D8%A3%D8%A9%20%D9%85%D8%B9%20%D8%B3%D9%8A%D8%AF%D8%A9%20%D8%B9%D9%85%D8%A7%D8%B1%D8%A9%20%D8%B2%D9%8A%D8%AF%D9%8A." target="_blank" rel="noopener">احجز مع سيدة عمارة زيدي</a></p><p class="prof-line"><a class="card-link" href="team-ammara-zaidi.html">الملف الكامل →</a></p></div></article></div>
     <div class="sec-head init-head rv">
       <span class="eyebrow">مبادرات مستقلة</span>
       <h2>تقف إلى جانب AIDE.</h2>
-      <p>بعض الأعمال أهم من أن تبقى داخل مؤسسة واحدة. إلى جانب AIDE تقف مبادرتان مستقلتان، لكل منهما قيادتها وتاريخها في الحضور من أجل الناس. ويخدم عمران كلتيهما بصفة مستشار.</p>
+      <p>بعض الأعمال أهم من أن تبقى داخل مؤسسة واحدة. إلى جانب AIDE تقف مبادرتان مستقلتان، لكل منهما قيادتها وتاريخها في الحضور من أجل الناس. ويعمل عمران مع كلتيهما — المدير التنفيذي الفخري ومدرّبًا ومرشدًا مع ADK، والمؤسس المشارك والمدير التنفيذي الفخري مع شبكة إصلاح.</p>
     </div>
-    <div class="init-grid"><article class="init rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حليمة سعدية تقود ADK بصفة الرئيس التنفيذي"><div><h3>ADK · جمعية بنات كشمير</h3><span class="who">حليمة سعدية تقود ADK بصفة الرئيس التنفيذي</span><p>بعض المؤسسات تُبنى حول فكرة. هذه بُنيت حول سنوات من الحضور حين احتاج الناس المساعدة أكثر ما يكون. أسّسها عام 1996 المرحوم الحاج مرزا خرم حيدر، وقد خدمت ADK النساء والأسر المحتاجة عبر كشمير وباكستان لأكثر من ثلاثين عامًا. وفي السنوات العشر الأخيرة وحدها أنجزت مشاريع بقيمة تتجاوز 500 مليون روبية وصلت إلى أكثر من 3,000 أسرة، عبر الزواجات والمؤن والملابس وبناء البيوت ودعم الأعمال الصغيرة. حليمة سعدية تقود ADK بصفة الرئيس التنفيذي. وعمران أسلم مستشارها ومرشدها.</p><p style="margin-top:10px"><a href="https://www.facebook.com/adkmirpur" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">زوروا ADK على فيسبوك →</a></p></div></article><article class="init rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سيدة عمارة زيدي أسست الإصلاح وتقوده بصفة الرئيس التنفيذي"><div><h3>شبكة الإصلاح</h3><span class="who">سيدة عمارة زيدي أسست الإصلاح وتقوده بصفة الرئيس التنفيذي</span><p>بدأت الإصلاح عام 2016 بسطر ما يزال يوجّه كل خطوة: استثمروا في الناس، واخلقوا نجاحًا مستدامًا. اليوم تعلّم مدارسها في بهاولغره وكهرور باكا وتكسيلا 350 طالبة. وقد حملت برامجها الدعم الاقتصادي إلى أكثر من 1,000 امرأة والدعم الإرشادي والنفسي إلى أكثر من 1,000 امرأة أخرى، عبر مراكز علاج في بهاولبور وبهمبر وتكسيلا وسيالكوت وعبر الإنترنت، إلى جانب مركز خياطة وتعليم الكبار ومكتب الأطباء. سيدة عمارة زيدي أسست شبكة الإصلاح وتقودها بصفة الرئيس التنفيذي. وعمران أسلم مستشارها الاستراتيجي.</p><p style="margin-top:10px"><a href="https://blugul1.github.io/islah-network/" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">زوروا موقع شبكة الإصلاح →</a></p></div></article></div>
+    <div class="init-grid"><article class="init rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حليمة سعدية تقود ADK بصفة رئيسة"><div><h3>ADK · جمعية بنات كشمير</h3><span class="who">حليمة سعدية تقود ADK بصفة رئيسة</span><p>بعض المؤسسات تُبنى حول فكرة. هذه بُنيت حول سنوات من الحضور حين احتاج الناس المساعدة أكثر ما يكون. أسّسها عام 1996 المرحوم الحاج مرزا خرم حيدر، وقد خدمت ADK النساء والأسر المحتاجة عبر كشمير وباكستان لأكثر من ثلاثين عامًا. وفي السنوات العشر الأخيرة وحدها أنجزت مشاريع بقيمة تتجاوز 500 مليون روبية وصلت إلى أكثر من 3,000 أسرة، عبر الزواجات والمؤن والملابس وبناء البيوت ودعم الأعمال الصغيرة. حليمة سعدية تقود ADK بصفة رئيسة. وعمران أسلم مديرها التنفيذي الفخري ومدرّبها ومرشدها.</p><p style="margin-top:10px"><a href="https://www.facebook.com/adkmirpur" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">زوروا ADK على فيسبوك →</a></p></div></article><article class="init rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سيدة عمارة زيدي أسست الإصلاح وتقوده بصفة رئيسة"><div><h3>شبكة الإصلاح</h3><span class="who">سيدة عمارة زيدي أسست الإصلاح وتقوده بصفة رئيسة</span><p>بدأت الإصلاح عام 2016 بسطر ما يزال يوجّه كل خطوة: استثمروا في الناس، واخلقوا نجاحًا مستدامًا. اليوم تعلّم مدارسها في بهاولغره وكهرور باكا وتكسيلا 350 طالبة. وقد حملت برامجها الدعم الاقتصادي إلى أكثر من 1,000 امرأة والدعم الإرشادي والنفسي إلى أكثر من 1,000 امرأة أخرى، عبر مراكز علاج في بهاولبور وبهمبر وتكسيلا وسيالكوت وعبر الإنترنت، إلى جانب مركز خياطة وتعليم الكبار ومكتب الأطباء. سيدة عمارة زيدي أسست شبكة الإصلاح وتقودها بصفة رئيسة. وعمران أسلم مؤسسها المشارك ومديرها التنفيذي الفخري.</p><p style="margin-top:10px"><a href="https://blugul1.github.io/islah-network/" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">زوروا موقع شبكة الإصلاح →</a></p></div></article></div>
   </div>
 </section>
 
@@ -992,6 +1125,18 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 </section>
 
 <span class="cut" aria-hidden="true" style="background:var(--bg-soft)"></span>
+
+<section class="td-workbook">
+  <img class="bg" loading="lazy" decoding="async" src="../gen-men-workshop.webp" alt="">
+  <span class="scrim" aria-hidden="true"></span>
+  <div class="inner">
+    <p class="eyebrow" style="color:#E3C878">دفتر تمارين مجاني</p>
+    <h2>أيّ جزء من حياتك يطلب الانتباه بهدوء الآن؟</h2>
+    <p class="ur td-wb-ur" lang="ur">آپ کی زندگی کا کون سا حصہ خاموشی سے توجہ مانگ رہا ہے؟</p>
+    <p>سبعة أسئلة صادقة، وصفحة تأمل، وخطوة أولى صغيرة تستطيع اتخاذها هذا الأسبوع. بالأردية أو الإنجليزية أو العربية.</p>
+    <a class="btn btn-solid magnetic" href="assessments.html">أرسلوا لي دفتر التمارين المجاني <span class="arr">→</span></a>
+  </div>
+</section>
 
 <section id="start" style="background:var(--bg-soft);padding-top:64px">
   <div class="wrap">
@@ -1049,11 +1194,28 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
   </div>
 </section>
 
+<section class="td-reasons" id="reasons">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">لماذا تعمل معنا</span>
+      <h2>خمسة أسباب صادقة</h2>
+      <p>انقر رقمًا. كل سبب وعد يجب الوفاء به — لا شعار.</p>
+    </div>
+    <div class="td-rsn-grid">
+      <div class="td-rsn-btns" role="tablist" aria-label="خمسة أسباب صادقة"><button type="button" class="td-rsn-btn on" data-r="0"><span class="n">1</span>ثلاث لغات، طريق واحد</button><button type="button" class="td-rsn-btn" data-r="1"><span class="n">2</span>مؤسَّس على الإيمان، دائمًا</button><button type="button" class="td-rsn-btn" data-r="2"><span class="n">3</span>عملي، لا نظري</button><button type="button" class="td-rsn-btn" data-r="3"><span class="n">4</span>كتاب ودورة وتوجيه — معًا</button><button type="button" class="td-rsn-btn" data-r="4"><span class="n">5</span>خطوة أولى مجانية</button></div>
+      <div class="td-rsn-panel" id="tdRsnPanel" role="tabpanel">
+        <h3 id="tdRsnTitle">ثلاث لغات، طريق واحد</h3>
+        <p id="tdRsnText">الأردية والإنجليزية والعربية — التعليم نفسه والعناية نفسها، باللغة التي تفكر بها. لا حاجة أن تترجم نفسك لتُفهم هنا.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="cta-block">
   <div class="wrap">
     <div>
       <div class="emblem cta-emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
-      <h2>يمكن لفصلك التالي أن يبدأ بمحادثة صادقة واحدة.</h2>
+      <h2>إلى أين تتجه حياتك فعلًا؟</h2>
       <p>سواء أردت أن تقود بشكل أفضل، أو تبني بيتًا أكثر ثباتًا، أو تنمّي فريقك، أو تمنح طفلك اتجاهًا — الخطوة الأولى واحدة. احجز مكالمة الاستكشاف المجانية لخمس عشرة دقيقة على واتساب اليوم.</p>
     </div>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%83%D8%B4%D8%A7%D9%81%20%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%2015%20%D8%AF%D9%82%D9%8A%D9%82%D8%A9%20%D9%85%D8%B9%20AIDE." target="_blank" rel="noopener">ابدأ المحادثة</a>
@@ -1209,10 +1371,16 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType === 3){
         var frag = document.createDocumentFragment();
-        n.textContent.split(/(\\s+)/).forEach(function(part){
+        n.textContent.split(/(\s+)/).forEach(function(part){
           if(!part){ return; }
-          if(/^\\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); }
-          else { var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++); s.textContent = part; frag.appendChild(s); }
+          if(/^\s+$/.test(part)){ if(part.indexOf('\n') !== -1){ var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++); s.textContent = part; frag.appendChild(s); } else { frag.appendChild(document.createTextNode(' ')); } }
+          else { var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++);
+            /* LAB EXPERIMENT 2026-11-19: tag CHANGE + DIFFERENTLY (all locales) for idle motion */
+            var bare = part.replace(/[\.!?\u06D4\u061F,;:]+$/, '').toLowerCase();
+            var idleCls = (bare === 'change' || bare === 'بدلتے' || bare === 'يتغيرون') ? 'w-bob' : (bare === 'differently' || bare === 'مختلف') ? 'w-sway' : null;
+            if(idleCls){ var inner = document.createElement('span'); inner.className = idleCls; inner.textContent = part; s.appendChild(inner); }
+            else { s.textContent = part; }
+            frag.appendChild(s); }
         });
         node.replaceChild(frag, n);
       } else if(n.nodeType === 1){ splitWords(n); }
@@ -1346,6 +1514,7 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 
   /* ---------- USWA EXPLORER ---------- */
   var USWA = [['الفهم','أن تعرف الناس قبل أن تقودهم','في البرنامج: الأسبوعان 1 و3'],['الإخلاص','النية قبل التقنية','في البرنامج: الأسبوع 2'],['الحكمة','الحكم في المناطق الرمادية','في البرنامج: الأسابيع 4 إلى 7'],['المساءلة','مسؤول — أمام الناس وأمام الله','في البرنامج: الأسبوع 8']];
+  var REASONS = [['ثلاث لغات، طريق واحد','الأردية والإنجليزية والعربية — التعليم نفسه والعناية نفسها، باللغة التي تفكر بها. لا حاجة أن تترجم نفسك لتُفهم هنا.'],['مؤسَّس على الإيمان، دائمًا','القرآن والسنة الصحيحة والسيرة الموثوقة أولًا؛ وعلم النفس الحديث موجود ليشرح، لا ليحلّ محلّ شيء. لا شيء نعلّمه يطلب منك أن تترك دينك عند الباب.'],['عملي، لا نظري','كل برنامج ينتهي في الميدان، لا في دفتر. تمارس الشيء في أسبوعك الحقيقي — في البيت والعمل ومع أسرتك — وتعود بالنتيجة.'],['كتاب ودورة وتوجيه — معًا','اقرأ الفكرة، وتعلّمها مع مجموعة، ثم اعمل عليها فرديًا. ثلاثة أبواب وطريق واحد — لن تبقى ممسكًا بكتاب وتتساءل ماذا تفعل به.'],['خطوة أولى مجانية','مرآة الأسوة ومكالمة استكشاف لخمس عشرة دقيقة مجانًا. جرّب العمل قبل أن تدفع مقابله — هذا هو الترتيب الصادق.']];
   var uBtns = document.querySelectorAll('.up'), uDet = document.getElementById('uswaDetail');
   function setUswa(k){
     if(!uDet || typeof USWA === 'undefined' || !USWA[k]) return;
@@ -1356,6 +1525,60 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
     uDet.querySelector('.wk').textContent = USWA[k][2];
   }
   if(uBtns.length){ uBtns.forEach(function(b){ b.addEventListener('click', function(){ setUswa(+b.getAttribute('data-u')); }); }); setUswa(0); }
+
+  /* ---------- TAKEAWAYS (three-site review, lab 2026-11-19) ----------
+     Proof count-up on the existing strip + the five-reasons selector. */
+  (function(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* Count-up: animate the number inside each .proven .proof b (e.g. "300+"). */
+    var proofBars = document.querySelectorAll('.proven .proof b');
+    function countUp(b){
+      var node = b.firstChild;
+      if(!node) return;
+      var m = /(\d+)(\+?)/.exec(node.textContent || '');
+      if(!m) return;
+      var target = parseInt(m[1], 10), plus = m[2] || '';
+      if(reduceMotion){ node.textContent = target + plus + ' '; return; }
+      var start = null, dur = 1200;
+      function tick(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        node.textContent = Math.round(target * eased) + plus + ' ';
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window && proofBars.length){
+      var pio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ countUp(en.target); pio.unobserve(en.target); }
+        });
+      }, {threshold: 0.4});
+      proofBars.forEach(function(b){ pio.observe(b); });
+    } else {
+      proofBars.forEach(countUp);
+    }
+    /* Five reasons selector. */
+    var rBtns = document.querySelectorAll('.td-rsn-btn'),
+        rTitle = document.getElementById('tdRsnTitle'),
+        rText = document.getElementById('tdRsnText'),
+        rPanel = document.getElementById('tdRsnPanel');
+    if(rBtns.length && rTitle && rText && typeof REASONS !== 'undefined'){
+      rBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          rBtns.forEach(function(x){ x.classList.remove('on'); });
+          btn.classList.add('on');
+          var r = REASONS[+btn.getAttribute('data-r')];
+          if(!r) return;
+          function swap(){ rTitle.textContent = r[0]; rText.textContent = r[1]; rPanel.classList.remove('swap'); }
+          if(reduceMotion){ swap(); return; }
+          rPanel.classList.add('swap');
+          setTimeout(swap, 180);
+        });
+      });
+    }
+  })();
 
   /* ---------- NAV: where you are ---------- */
   var navMap = {};

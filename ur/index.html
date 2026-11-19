@@ -815,6 +815,115 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
    margin-top pulls the drop up to touch the link row, so the hover bridge has no dead strip. --- */
 .nav-links .has-drop:has(.drop.mega),.nav-links .has-drop:has(.drop.res-mega){position:static}
 .nav-links .drop.mega,.nav-links .drop.res-mega{inset-inline-start:auto;left:50%;right:auto;transform:translateX(-50%);margin-top:-30px}
+/* --- HERO WORD IDLE (LAB EXPERIMENT 2026-11-19 — owner feel-check in the morning; NOT live) ---
+   CHANGE lifts gently, DIFFERENTLY settles + widens a touch; different periods so they never lockstep.
+   Inner spans: the .w entrance is untouched; idle motion composes on top. */
+.hook .w-bob,.hook .w-sway{display:inline-block}
+.hook .w-bob{animation:bobY 4.5s ease-in-out infinite}
+.hook .w-sway{animation:swayY 5.5s ease-in-out infinite}
+@keyframes bobY{0%,100%{transform:translateY(0)}50%{transform:translateY(-.06em)}}
+@keyframes swayY{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(.04em) scale(1.02)}}
+@media (prefers-reduced-motion:reduce){.hook .w-bob,.hook .w-sway{animation:none}}
+/* LIQUID NAVY (owner 2026-11-19 — LAB): background navy as floating liquid — soft luminous orbs drift behind everything; solid navy surfaces go translucent so the liquid shows through */
+html[data-theme="night"] body::before,html[data-theme="night"] body::after{content:"";position:fixed;inset:-90px;z-index:-1;pointer-events:none}
+html[data-theme="night"] body::before{background:radial-gradient(52% 42% at 16% 20%,rgba(61,171,148,.25) 0%,rgba(61,171,148,0) 70%),radial-gradient(44% 36% at 80% 24%,rgba(201,162,39,.13) 0%,rgba(201,162,39,0) 70%),radial-gradient(58% 46% at 64% 82%,rgba(31,122,102,.23) 0%,rgba(31,122,102,0) 70%);animation:liquidDrift 36s ease-in-out infinite alternate}
+html[data-theme="night"] body::after{background:radial-gradient(40% 32% at 74% 62%,rgba(79,191,167,.17) 0%,rgba(79,191,167,0) 70%),radial-gradient(46% 38% at 24% 70%,rgba(61,171,148,.15) 0%,rgba(61,171,148,0) 70%);animation:liquidDrift2 44s ease-in-out infinite alternate}
+@keyframes liquidDrift{from{transform:translate3d(-26px,-14px,0) scale(1)}to{transform:translate3d(28px,18px,0) scale(1.05)}}
+@keyframes liquidDrift2{from{transform:translate3d(22px,12px,0)}to{transform:translate3d(-24px,-18px,0)}}
+/* solid navy surfaces go see-through (night only) so the liquid shows through */
+html[data-theme="night"] #programmes,html[data-theme="night"] #start{background:rgba(13,33,72,.42)!important;background:color-mix(in srgb,var(--bg-soft) 38%,transparent)!important}
+html[data-theme="night"] .cut{background:rgba(10,26,59,.45)!important;background:color-mix(in srgb,var(--bg) 45%,transparent)!important}
+html[data-theme="night"] .prog-feature{background:rgba(10,26,59,.55);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}
+/* PROG TONES (owner 2026-11-20 — one colour per programme, same system as programmes page) */
+.prog-row.tone-habit{background:color-mix(in srgb,#3DAB94 26%,var(--bg-soft));border-inline-start:4px solid #3DAB94}
+.prog-row.tone-habit .no,.prog-row.tone-habit .fmt,.prog-row.tone-habit .arr{color:#4FBFA7}
+.prog-row.tone-habit:hover{background:color-mix(in srgb,#3DAB94 34%,var(--bg-soft))}
+.prog-row.tone-sales{background:color-mix(in srgb,#C9A227 26%,var(--bg-soft));border-inline-start:4px solid #C9A227}
+.prog-row.tone-sales .no,.prog-row.tone-sales .fmt,.prog-row.tone-sales .arr{color:#E3C878}
+.prog-row.tone-sales:hover{background:color-mix(in srgb,#C9A227 34%,var(--bg-soft))}
+.prog-row.tone-teach{background:color-mix(in srgb,#5B8DC9 26%,var(--bg-soft));border-inline-start:4px solid #5B8DC9}
+.prog-row.tone-teach .no,.prog-row.tone-teach .fmt,.prog-row.tone-teach .arr{color:#8FB4DE}
+.prog-row.tone-teach:hover{background:color-mix(in srgb,#5B8DC9 34%,var(--bg-soft))}
+.prog-row.tone-homes{background:color-mix(in srgb,#1F7A66 28%,var(--bg-soft));border-inline-start:4px solid #1F7A66}
+.prog-row.tone-homes .no,.prog-row.tone-homes .fmt,.prog-row.tone-homes .arr{color:#5EC4A8}
+.prog-row.tone-homes:hover{background:color-mix(in srgb,#1F7A66 36%,var(--bg-soft))}
+.prog-row.tone-rise{background:linear-gradient(180deg,#F4EFE3,#E9DFC6);border:1px solid rgba(201,162,39,.5);border-inline-start:4px solid #C9A227}
+.prog-row.tone-rise h3{color:#0A1A3B}
+.prog-row.tone-rise p{color:#3D4A5C}
+.prog-row.tone-rise .no,.prog-row.tone-rise .fmt,.prog-row.tone-rise .arr{color:#8A6D1B}
+.prog-row.tone-rise:hover{background:linear-gradient(180deg,#EFE8D5,#E2D5B4)}
+html[data-theme="day"] .prog-row.tone-habit .no,html[data-theme="day"] .prog-row.tone-habit .fmt,html[data-theme="day"] .prog-row.tone-habit .arr{color:#1F7A66}
+html[data-theme="day"] .prog-row.tone-sales .no,html[data-theme="day"] .prog-row.tone-sales .fmt,html[data-theme="day"] .prog-row.tone-sales .arr{color:#8A6D1B}
+html[data-theme="day"] .prog-row.tone-teach .no,html[data-theme="day"] .prog-row.tone-teach .fmt,html[data-theme="day"] .prog-row.tone-teach .arr{color:#2F5D8A}
+html[data-theme="day"] .prog-row.tone-homes .no,html[data-theme="day"] .prog-row.tone-homes .fmt,html[data-theme="day"] .prog-row.tone-homes .arr{color:#1F7A66}
+html[data-theme="night"] .uswa div{background:rgba(14,34,73,.45)}
+@media (prefers-reduced-motion:reduce){html[data-theme="night"] body::before,html[data-theme="night"] body::after{animation:none}}
+@media (prefers-reduced-transparency:reduce){html[data-theme="night"] body::before,html[data-theme="night"] body::after{display:none}html[data-theme="night"] #programmes,html[data-theme="night"] #start,html[data-theme="night"] .cut{background:var(--bg-soft)!important}html[data-theme="night"] .prog-feature{background:var(--navy)}html[data-theme="night"] .uswa div{background:var(--navy-2)}}
+  /* TAKEAWAYS (owner 2026-11-19 — LAB): three-site review — announcement bar, three doors, dated cohorts, workbook, five reasons; proof count-up is JS-only on the existing strip */
+  :root{--td-bar-h:44px}
+  html[lang="ur"]{--td-bar-h:56px}
+  .td-bar{display:flex;align-items:center;justify-content:center;height:var(--td-bar-h);padding:0 16px;background:#081230;color:#E3C878;font-size:15px;font-weight:600;text-align:center;border-bottom:1px solid rgba(227,200,120,.22);white-space:nowrap;overflow:hidden}
+  .td-bar a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(227,200,120,.55);overflow:hidden;text-overflow:ellipsis}
+  .td-bar a:hover{color:#fff}
+  .td-bar .arr{font-weight:800}
+  html[lang="ur"] .td-bar{font-size:17px;line-height:1.9}
+  @media (max-width:600px){.td-bar{white-space:normal;height:auto;min-height:var(--td-bar-h);padding:6px 16px;line-height:1.45}.td-bar a{white-space:normal;overflow:visible;text-overflow:clip}html[lang="ur"] .td-bar{line-height:1.7}:root{--td-bar-h:58px}html[lang="ur"]{--td-bar-h:78px}html[lang="ar"]{--td-bar-h:56px}}
+  nav{top:var(--td-bar-h);transition:background-color .35s ease,top .3s ease}
+  nav.scrolled{top:0}
+  .td-doors{background:var(--bg-soft)}
+  html[data-theme="night"] .td-doors{background:rgba(13,33,72,.45)}
+  .td-door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .td-door{position:relative;display:block;text-decoration:none;border-radius:20px;overflow:hidden;aspect-ratio:3/3.9;background:var(--navy-2);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+  .td-door img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .td-door:hover img{transform:scale(1.05)}
+  .td-door .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,30,0) 42%,rgba(4,12,30,.82) 78%,rgba(4,12,30,.94) 100%)}
+  .td-door .td-body{position:absolute;left:0;right:0;bottom:0;padding:24px}
+  .td-door .eyebrow{display:block;margin:0 0 6px}
+  .td-door h3{margin:0 0 6px}
+  .td-door p{margin:0;color:rgba(242,245,247,.85)}
+  html[lang="en"] .td-door p{font-size:15px;line-height:1.5}
+  .td-door .tile{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#04160F;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;transition:transform .3s ease}
+  .td-door:hover .tile{transform:translate(3px,-3px)}
+  .td-cohort-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .td-cohort{background:var(--surface,rgba(255,255,255,.055));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--surface-line,rgba(255,255,255,.12));border-radius:18px;padding:26px;display:flex;flex-direction:column}
+  .td-cohort .prog{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sea-hi);margin:0 0 8px}
+  html[lang="ur"] .td-cohort .prog,html[lang="ar"] .td-cohort .prog{letter-spacing:0;font-size:14px}
+  .td-cohort h3{margin:0 0 18px}
+  .td-cohort .fact{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-top:1px solid var(--line,rgba(255,255,255,.1));font-size:15px}
+  html[lang="ur"] .td-cohort .fact,html[lang="ar"] .td-cohort .fact{font-size:17px}
+  .td-cohort .fact span{color:var(--text-dim);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+  html[lang="ur"] .td-cohort .fact span,html[lang="ar"] .td-cohort .fact span{letter-spacing:0;font-size:14px}
+  .td-cohort .fact b{font-weight:600;text-align:right}
+  html[dir="rtl"] .td-cohort .fact b{text-align:left}
+  .td-cohort .btn{margin-top:20px;justify-content:center}
+  .td-workbook{position:relative;padding:110px 0;text-align:center;overflow:hidden;background:#04101f}
+  .td-workbook img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+  .td-workbook .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,30,.55),rgba(4,12,30,.82))}
+  .td-workbook .inner{position:relative;max-width:760px;margin:0 auto;padding:0 24px}
+  .td-workbook h2{margin:0 0 6px}
+  .td-wb-ur{font-family:"Noto Nastaliq Urdu","Traditional Arabic",serif;font-size:24px;line-height:2;color:#E3C878;margin:6px 0 26px}
+  .td-workbook p{color:rgba(242,245,247,.85)}
+  html[lang="en"] .td-workbook p{font-size:17px}
+  .td-rsn-grid{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start}
+  .td-rsn-btns{display:flex;flex-direction:column;gap:10px}
+  .td-rsn-btn{display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;background:transparent;border:1px solid var(--line,rgba(255,255,255,.14));border-radius:14px;padding:14px 16px;color:var(--text);font-size:16px;font-weight:600}
+  html[lang="ur"] .td-rsn-btn,html[lang="ar"] .td-rsn-btn{font-size:18px}
+  html[dir="rtl"] .td-rsn-btn{text-align:right}
+  .td-rsn-btn .n{font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:var(--text-dim);width:30px;height:30px;flex:0 0 30px;border-radius:50%;border:1px solid var(--line,rgba(255,255,255,.25));display:flex;align-items:center;justify-content:center}
+  .td-rsn-btn:hover{border-color:rgba(255,255,255,.4)}
+  .td-rsn-btn.on{border-color:var(--gold);background:rgba(201,162,39,.12)}
+  .td-rsn-btn.on .n{background:var(--gold);color:#04160F;border-color:var(--gold)}
+  .td-rsn-panel{background:var(--surface,rgba(255,255,255,.055));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--surface-line,rgba(255,255,255,.12));border-radius:18px;padding:34px;min-height:220px;transition:opacity .25s ease,transform .25s ease}
+  .td-rsn-panel.swap{opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease}
+  .td-rsn-panel h3{margin:0 0 10px}
+  .td-rsn-panel p{color:var(--text-dim);margin:0}
+  @media (max-width:900px){
+    .td-door-grid,.td-cohort-grid{grid-template-columns:1fr}
+    .td-door{aspect-ratio:16/10}
+    .td-door img.book-cover{object-position:center 78%}
+    .td-rsn-grid{grid-template-columns:1fr}
+    .td-workbook{padding:84px 0}
+  }
 
 
   [dir="rtl"] .pull{border-left:none;border-right:4px solid var(--sea)}
@@ -848,6 +957,8 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 </head>
 <body>
 <noscript><style>body{opacity:1}</style></noscript>
+
+<div class="td-bar"><a href="assessments.html">مفت پہلا قدم — اسوہ آئینہ، دو منٹ کا خود جائزہ <span class="arr">→</span></a></div>
 
 <nav>
   <div class="wrap nav-in">
@@ -903,6 +1014,17 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 
 <div class="wrap"><div class="steps3"><div class="step rv"><b><i>1</i>مفت کال بک کریں</b><p>وٹس ایپ پر پندرہ منٹ۔ مختصر بتائیں کہ آپ کس پر کام کرنا چاہتے ہیں۔</p></div><div class="step rv"><b><i>2</i>اپنا پروگرام چنیں</b><p>ہم مل کر آپ کے لیے درست پروگرام یا درست پریکٹیشنر منتخب کریں گے۔</p></div><div class="step rv"><b><i>3</i>آغاز کریں</b><p>پہلے تحریری طور پر واضح معاہدہ — پھر کام شروع ہوگا۔</p></div></div></div>
 
+<section class="td-doors" id="doors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">تین دروازے</span>
+      <h2>آپ کا دروازہ کون سا ہے؟</h2>
+      <p>کوئی دروازہ غلط نہیں۔ ہر دروازہ ایک ہی راستے پر لے جاتا ہے — آپ جہاں ہیں، وہیں سے داخل ہوں۔</p>
+    </div>
+    <div class="td-door-grid"><a class="td-door rv" href="books.html"><img loading="lazy" decoding="async" class="book-cover" src="../book-pehla-saal.webp" alt="کتابیں"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">آپ کے لیے</span><h3>کتابیں</h3><p>پڑھ کر داخل ہوں — عادات، گھر، قیادت اور زمین پر 55 کتابیں۔ آج رات ایک باب ہی کافی ہے۔</p></span></a><a class="td-door rv" href="programmes.html"><img loading="lazy" decoding="async" class="" src="../prog-pldp.webp" alt="کورسز"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">آپ کے لیے، کہیں سے بھی</span><h3>کورسز</h3><p>گروہ کے ساتھ سیکھیں — براہِ راست سیشنز، فیلڈ ورک، اور ایک مشق نامہ جو آپ کے ساتھ گھر جائے۔</p></span></a><a class="td-door rv" href="coaching.html"><img loading="lazy" decoding="async" class="" src="../aide-coaching.webp" alt="کوچنگ"><span class="shade" aria-hidden="true"></span><span class="tile" aria-hidden="true">↗</span><span class="td-body"><span class="eyebrow">آپ کے لیے، آمنے سامنے</span><h3>کوچنگ</h3><p>ایسے کوچ سے بات کریں جو آپ کا نام اور آپ کا ہفتہ جانتا ہو — کوئی ریکارڈنگ نہیں۔</p></span></a></div>
+  </div>
+</section>
+
 <section class="guide" id="guide">
   <div class="wrap">
     <div class="sec-head rv">
@@ -937,7 +1059,7 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <h2>ایسی ترقی جو کلاس روم سے آگے پہنچے۔</h2>
       <p>ہر شخص اور ہر ادارہ الگ جگہ سے شروع کرتا ہے۔ کسی کو بہتر قیادت چاہیے۔ کسی کو ایسی عادات چاہئیں جو ٹھہریں، ایسا گھر چاہیے جو آسانی سے سانس لے، یا ایسا بچہ چاہیے جسے سمت چاہیے۔ یہ پروگرامز اصل صورتحالوں کے گرد بنے ہیں، اور نئی سمجھ کو عمل میں لانے کی مشق پر۔</p>
     </div>
-    <div class="prog-feature rv">
+    <div class="prog-feature tone-pldp rv">
       <div class="txt">
         <span class="eyebrow" style="color:var(--sea-hi)">Flagship · USWA</span>
         <h3>Prophetic Leadership Development Program</h3>
@@ -949,7 +1071,18 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <div class="uswa"><button type="button" class="up on" data-u="0"><i>U</i><b>فہم</b><span>لوگوں کو قیادت سے پہلے جاننا</span></button><button type="button" class="up" data-u="1"><i>S</i><b>اخلاص</b><span>تکنیک سے پہلے نیت</span></button><button type="button" class="up" data-u="2"><i>W</i><b>حکمت</b><span>گرے علاقوں میں فیصلہ</span></button><button type="button" class="up" data-u="3"><i>A</i><b>احتساب</b><span>جوابدہی — لوگوں کو بھی، اللہ کو بھی</span></button></div>
     </div>
     <div class="uswa-detail rv" id="uswaDetail" aria-live="polite"></div>
-    <div class="prog-rows rv"><a class="prog-row" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>فروخت صرف یہ جاننا نہیں کہ کیا کہنا ہے۔ یہ لوگوں کو پڑھنا، رویے کو سمجھنا اور اصل گفتگو میں اعتماد جیتنا ہے۔ دو دن آپ کی ٹیم کے ساتھ، پھر تیس دن فیلڈ میں فالو اپ — عرفان اسلم کے ساتھ مشترکہ قیادت میں۔</p><span class="fmt">دو دن آن سائٹ · 30 دن فیلڈ فالو اپ · کارپوریٹ</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>ہر کسی نے پیر کے دن نئی شروعات کی ہے۔ مشکل شروع کرنا نہیں، ایسی عادت بنانا ہے جو ایک عام ہفتے میں بھی ٹھہرے۔ یہ گروہ آپ کو ایسی عادات بنانے میں مدد دیتا ہے جو آپ کی زندگی سے میل کھاتی ہوں اور اسے خاموشی سے سنبھالے رکھیں۔</p><span class="fmt">چار ہفتے · آن لائن گروہ · اردو</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>گھر اس لیے پُرسکون نہیں بنتا کہ ایک شخص ہر بحث جیت لے۔ یہ پروگرام ایک سادہ فلسفے پر کھڑا ہے: نہ کوئی ظالم، نہ کوئی مظلوم — بس دو دل جو دوبارہ سننا سیکھ رہے ہوں۔ میاں بیوی اور والدین ایک دوسرے کو سمجھنا اور مضبوط گھر بنانا سیکھتے ہیں۔</p><span class="fmt">چار ہفتے · آن لائن · میاں بیوی اور والدین</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>تدریس صرف سبق پہنچانا نہیں۔ یہ اس بچے کو سمجھنا بھی ہے جو آپ کے سامنے بیٹھا ہے۔ جو استاد خود مضبوط ہو وہ پوری کلاس کو مضبوط کر سکتا ہے، اور یہی اس پروگرام کی تربیت ہے: استاد کی جذباتی ذہانت، اصل کلاسوں میں چار ہفتوں کی مشق کے ساتھ۔</p><span class="fmt">ایک دن ورکشاپ · چار ہفتے کلاس سائیکل · اسکولوں کے لیے</span></span><span class="arr">→</span></a><a class="prog-row" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>بچپن اور بڑھاپے کے درمیان ایک نوجوان ایسے سوالات سے گزرتا ہے جو زندگی کی سمت طے کر سکتے ہیں۔ RISE انہیں واضح سوچنے میں مدد دیتا ہے کہ وہ کون ہیں اور کیا چاہتے ہیں — اور اپنی زندگی کا نقشہ خود بنانے میں، اس سے پہلے کہ دنیا ان کے لیے بنا دے۔</p><span class="fmt">چھ ہفتے · عمر 16 تا 25 · AIDE سوسائٹی فلیگ شپ</span></span><span class="arr">→</span></a></div>
+    <div class="prog-rows rv"><a class="prog-row tone-sales" href="programme-sales.html"><span class="no">02</span><span><h3>Behavioural Sales Excellence</h3><p>فروخت صرف یہ جاننا نہیں کہ کیا کہنا ہے۔ یہ لوگوں کو پڑھنا، رویے کو سمجھنا اور اصل گفتگو میں اعتماد جیتنا ہے۔ دو دن آپ کی ٹیم کے ساتھ، پھر تیس دن فیلڈ میں فالو اپ — عرفان اسلم کے ساتھ مشترکہ قیادت میں۔</p><span class="fmt">دو دن آن سائٹ · 30 دن فیلڈ فالو اپ · کارپوریٹ</span></span><span class="arr">→</span></a><a class="prog-row tone-habit" href="programme-habits.html"><span class="no">03</span><span><h3>Habit Architecture</h3><p>ہر کسی نے پیر کے دن نئی شروعات کی ہے۔ مشکل شروع کرنا نہیں، ایسی عادت بنانا ہے جو ایک عام ہفتے میں بھی ٹھہرے۔ یہ گروہ آپ کو ایسی عادات بنانے میں مدد دیتا ہے جو آپ کی زندگی سے میل کھاتی ہوں اور اسے خاموشی سے سنبھالے رکھیں۔</p><span class="fmt">چار ہفتے · آن لائن گروہ · اردو</span></span><span class="arr">→</span></a><a class="prog-row tone-homes" href="programme-homes.html"><span class="no">04</span><span><h3>Strong Homes, Steady Hearts</h3><p>گھر اس لیے پُرسکون نہیں بنتا کہ ایک شخص ہر بحث جیت لے۔ یہ پروگرام ایک سادہ فلسفے پر کھڑا ہے: نہ کوئی ظالم، نہ کوئی مظلوم — بس دو دل جو دوبارہ سننا سیکھ رہے ہوں۔ میاں بیوی اور والدین ایک دوسرے کو سمجھنا اور مضبوط گھر بنانا سیکھتے ہیں۔</p><span class="fmt">چار ہفتے · آن لائن · میاں بیوی اور والدین</span></span><span class="arr">→</span></a><a class="prog-row tone-teach" href="programme-teach.html"><span class="no">05</span><span><h3>Teach With Heart</h3><p>تدریس صرف سبق پہنچانا نہیں۔ یہ اس بچے کو سمجھنا بھی ہے جو آپ کے سامنے بیٹھا ہے۔ جو استاد خود مضبوط ہو وہ پوری کلاس کو مضبوط کر سکتا ہے، اور یہی اس پروگرام کی تربیت ہے: استاد کی جذباتی ذہانت، اصل کلاسوں میں چار ہفتوں کی مشق کے ساتھ۔</p><span class="fmt">ایک دن ورکشاپ · چار ہفتے کلاس سائیکل · اسکولوں کے لیے</span></span><span class="arr">→</span></a><a class="prog-row tone-rise" href="programme-rise.html"><span class="no">06</span><span><h3>RISE: Youth Life Design</h3><p>بچپن اور بڑھاپے کے درمیان ایک نوجوان ایسے سوالات سے گزرتا ہے جو زندگی کی سمت طے کر سکتے ہیں۔ RISE انہیں واضح سوچنے میں مدد دیتا ہے کہ وہ کون ہیں اور کیا چاہتے ہیں — اور اپنی زندگی کا نقشہ خود بنانے میں، اس سے پہلے کہ دنیا ان کے لیے بنا دے۔</p><span class="fmt">چھ ہفتے · عمر 16 تا 25 · AIDE سوسائٹی فلیگ شپ</span></span><span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="td-cohorts" id="cohorts">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">آنے والے گروہ</span>
+      <h2>اپنا راستہ چنیں</h2>
+      <p>جب کوئی گروہ بھر جائے تو کارڈ بتا دے گا — انتظار کی فہرست کا ڈرامہ نہیں۔</p>
+    </div>
+    <div class="td-cohort-grid"><article class="td-cohort rv"><p class="prog">فلیگ شپ · 8 ہفتے</p><h3>Prophetic Leadership Development Program</h3><div class="fact"><span>آغاز</span><b>تاریخیں جلد اعلان ہوں گی</b></div><div class="fact"><span>طریقہ</span><b>آن لائن + فیلڈ ورک</b></div><div class="fact"><span>مدت</span><b>8 ہفتے · ہفتے میں 2 گھنٹے</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D9%85%D8%AC%DA%BE%DB%92%20PLDP%20%D9%85%DB%8C%DA%BA%20%D9%86%D8%B4%D8%B3%D8%AA%20%D9%85%D8%AD%D9%81%D9%88%D8%B8%20%DA%A9%D8%B1%D9%86%DB%8C%20%DB%81%DB%92" target="_blank" rel="noopener">نشست محفوظ کریں</a></article><article class="td-cohort rv"><p class="prog">گروہ · 4 ہفتے</p><h3>Habit Architecture</h3><div class="fact"><span>آغاز</span><b>تاریخیں جلد اعلان ہوں گی</b></div><div class="fact"><span>طریقہ</span><b>آن لائن</b></div><div class="fact"><span>مدت</span><b>4 ہفتے · براہِ راست سیشنز</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D9%85%D8%AC%DA%BE%DB%92%20Habit%20Architecture%20%D9%85%DB%8C%DA%BA%20%D9%86%D8%B4%D8%B3%D8%AA%20%D9%85%D8%AD%D9%81%D9%88%D8%B8%20%DA%A9%D8%B1%D9%86%DB%8C%20%DB%81%DB%92" target="_blank" rel="noopener">نشست محفوظ کریں</a></article><article class="td-cohort rv"><p class="prog">نوجوان · 6 ہفتے</p><h3>RISE Youth Life Design</h3><div class="fact"><span>آغاز</span><b>تاریخیں جلد اعلان ہوں گی</b></div><div class="fact"><span>طریقہ</span><b>آن لائن</b></div><div class="fact"><span>مدت</span><b>6 ہفتے · عمر 16 تا 25</b></div><a class="btn btn-solid" href="https://wa.me/923309222029?text=%D9%85%D8%AC%DA%BE%DB%92%20RISE%20%D9%85%DB%8C%DA%BA%20%D9%86%D8%B4%D8%B3%D8%AA%20%D9%85%D8%AD%D9%81%D9%88%D8%B8%20%DA%A9%D8%B1%D9%86%DB%8C%20%DB%81%DB%92" target="_blank" rel="noopener">نشست محفوظ کریں</a></article></div>
   </div>
 </section>
 
@@ -960,13 +1093,13 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
       <h2>ایک سے زیادہ آنکھوں کی نظر۔</h2>
       <p>اچھے ترقیاتی کام کو ایک سے زیادہ جوڑی آنکھیں چاہئیں۔ AIDE کاروبار، کوچنگ، نفسیات، تعلیم اور سماجی خدمت کے پریکٹیشنرز کو اکٹھا کرتا ہے۔ ہر ایک اپنے شعبے میں کام کرتا ہے، اور مل کر وہ وسیع اور مکمل نوعیت کی معاونت پیش کرتے ہیں۔</p>
     </div>
-    <div class="team-grid"><article class="member rv"><img loading="lazy" decoding="async" src="../imran-team.webp" alt="عمران اسلم"><div class="bd"><h3>عمران اسلم</h3><span>بانی · لائف کوچ و ٹرینر</span><p class="intro">عمران نے AIDE اس لیے قائم کیا کہ عملی تجربہ اور انسانی نفسیات اس طرح اکٹھے ہوں کہ اصل زندگی سے جُڑے رہیں۔ ان کی کوچنگ کے پیچھے تین براعظموں میں بیس سال کی قیادت ہے، مگر ان کا انداز سادہ اور ذاتی رہتا ہے: خود کو واضح سمجھو، پھر جو اہم ہے اسے بدلو۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B0%D8%A7%D8%AA%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عمران اسلم</a></p><p class="prof-line"><a class="card-link" href="team-imran-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../irfan-aslam.webp" alt="عرفان اسلم"><div class="bd"><h3>عرفان اسلم</h3><span>بزنس کنسلٹنٹ و کوچ · ٹرینر</span><p class="intro">عرفان تیرہ سال سے زیادہ عرصے سے معروف ملٹی نیشنل کمپنیوں میں قائدانہ کردار ادا کر چکے ہیں۔ وہ اہداف، ٹیموں اور مشکل فیصلوں کا وزن جانتے ہیں، اور ان کے سیشنز میں توجہ کبھی صرف ہدف پر نہیں ہوتی — اس شخص پر ہوتی ہے جو اسے اٹھائے ہوئے ہے۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%A8%D8%B2%D9%86%D8%B3%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عرفان اسلم</a></p><p class="prof-line"><a class="card-link" href="team-irfan-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../zill-e-huma-aslam.webp" alt="ظل ہما اسلم"><div class="bd"><h3>ظل ہما اسلم</h3><span>NLP ماسٹر پریکٹیشنر · لائف کوچ · ہپنوتھراپسٹ · ٹرینر</span><p class="intro">ظل ہما NLP، لائف کوچنگ، ہپنوتھراپی اور تربیت کو ایک پُرسکون مشق میں اکٹھا کرتی ہیں۔ ان کا کام ان خاموش تہوں تک پہنچتا ہے جہاں رویے بنتے ہیں، اور لوگوں کو پرانے رویے رکھ دینے اور ہلکے دل کے ساتھ آگے بڑھنے میں مدد دیتا ہے۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B8%D9%84%20%DB%81%D9%85%D8%A7%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B3%DB%8C%D8%B4%D9%86%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: ظل ہما اسلم</a></p><p class="prof-line"><a class="card-link" href="team-zill-e-huma-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حلیمہ سعدیہ"><div class="bd"><h3>حلیمہ سعدیہ</h3><span>لائف کوچ · CEO، ADK</span><p class="intro">حلیمہ انجمن دخترانِ کشمیر کی چیف ایگزیکٹو کے طور پر قیادت کرتی ہیں، اور خواتین و خاندانوں کی تیس سال کی خدمت کو آگے بڑھا رہی ہیں۔ بطور کوچ وہی خوبی لاتی ہیں جس کے لیے ان کی سماجی خدمت جانی جاتی ہے: پہلے سنتی ہیں، اور تب بولتی ہیں جب ان کے الفاظ وزن رکھ سکیں۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%AD%D9%84%DB%8C%D9%85%DB%81%20%D8%B3%D8%B9%D8%AF%DB%8C%DB%81%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%84%D8%A7%D8%A6%D9%81%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: حلیمہ سعدیہ</a></p><p class="prof-line"><a class="card-link" href="team-halima-sadia.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی"><div class="bd"><h3>سیدہ عمارہ زیدی</h3><span>خواتین کو بااختیار بنانے کی کوچ · بانی و CEO، اصلاح نیٹ ورک</span><p class="intro">عمارہ نے اصلاح نیٹ ورک ایک سادہ یقین پر قائم کیا: جب ایک عورت کو موقع ملتا ہے تو پورا خاندان اس کے ساتھ اٹھتا ہے۔ ان کی کوچنگ ایسی جگہ بناتی ہے جہاں خواتین سیکھ سکیں، کما سکیں اور سنبھل سکیں — اور وہ نرمی اور عزم دونوں کے ساتھ قیادت کرتی ہیں۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B3%DB%8C%D8%AF%DB%81%20%D8%B9%D9%85%D8%A7%D8%B1%DB%81%20%D8%B2%DB%8C%D8%AF%DB%8C%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%AE%D9%88%D8%A7%D8%AA%DB%8C%D9%86%20%DA%A9%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: سیدہ عمارہ زیدی</a></p><p class="prof-line"><a class="card-link" href="team-ammara-zaidi.html">مکمل تعارف →</a></p></div></article></div>
+    <div class="team-grid"><article class="member rv"><img loading="lazy" decoding="async" src="../imran-team.webp" alt="عمران اسلم"><div class="bd"><h3>عمران اسلم</h3><span>بانی · لائف کوچ و ٹرینر</span><p class="intro">عمران نے AIDE اس لیے قائم کیا کہ عملی تجربہ اور انسانی نفسیات اس طرح اکٹھے ہوں کہ اصل زندگی سے جُڑے رہیں۔ ان کی کوچنگ کے پیچھے تین براعظموں میں بیس سال کی قیادت ہے، مگر ان کا انداز سادہ اور ذاتی رہتا ہے: خود کو واضح سمجھو، پھر جو اہم ہے اسے بدلو۔ AIDE سے آگے، وہ ADK کے ساتھ اعزازی ایگزیکٹو ڈائریکٹر، کوچ اور کونسلر ہیں، اور اصلاح نیٹ ورک کے ساتھ کو فاؤنڈر اور اعزازی ایگزیکٹو ڈائریکٹر۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B0%D8%A7%D8%AA%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عمران اسلم</a></p><p class="prof-line"><a class="card-link" href="team-imran-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../irfan-aslam.webp" alt="عرفان اسلم"><div class="bd"><h3>عرفان اسلم</h3><span>بزنس کنسلٹنٹ و کوچ · ٹرینر</span><p class="intro">عرفان تیرہ سال سے زیادہ عرصے سے معروف ملٹی نیشنل کمپنیوں میں قائدانہ کردار ادا کر چکے ہیں۔ وہ اہداف، ٹیموں اور مشکل فیصلوں کا وزن جانتے ہیں، اور ان کے سیشنز میں توجہ کبھی صرف ہدف پر نہیں ہوتی — اس شخص پر ہوتی ہے جو اسے اٹھائے ہوئے ہے۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B9%D8%B1%D9%81%D8%A7%D9%86%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%A8%D8%B2%D9%86%D8%B3%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: عرفان اسلم</a></p><p class="prof-line"><a class="card-link" href="team-irfan-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../zill-e-huma-aslam.webp" alt="ظل ہما اسلم"><div class="bd"><h3>ظل ہما اسلم</h3><span>NLP ماسٹر پریکٹیشنر · لائف کوچ · ہپنوتھراپسٹ · ٹرینر</span><p class="intro">ظل ہما NLP، لائف کوچنگ، ہپنوتھراپی اور تربیت کو ایک پُرسکون مشق میں اکٹھا کرتی ہیں۔ ان کا کام ان خاموش تہوں تک پہنچتا ہے جہاں رویے بنتے ہیں، اور لوگوں کو پرانے رویے رکھ دینے اور ہلکے دل کے ساتھ آگے بڑھنے میں مدد دیتا ہے۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B8%D9%84%20%DB%81%D9%85%D8%A7%20%D8%A7%D8%B3%D9%84%D9%85%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%B3%DB%8C%D8%B4%D9%86%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: ظل ہما اسلم</a></p><p class="prof-line"><a class="card-link" href="team-zill-e-huma-aslam.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حلیمہ سعدیہ"><div class="bd"><h3>حلیمہ سعدیہ</h3><span>لائف کوچ · صدر، ADK</span><p class="intro">حلیمہ انجمن دخترانِ کشمیر کی صدر کے طور پر قیادت کرتی ہیں، اور خواتین و خاندانوں کی تیس سال کی خدمت کو آگے بڑھا رہی ہیں۔ بطور کوچ وہی خوبی لاتی ہیں جس کے لیے ان کی سماجی خدمت جانی جاتی ہے: پہلے سنتی ہیں، اور تب بولتی ہیں جب ان کے الفاظ وزن رکھ سکیں۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%AD%D9%84%DB%8C%D9%85%DB%81%20%D8%B3%D8%B9%D8%AF%DB%8C%DB%81%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%84%D8%A7%D8%A6%D9%81%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: حلیمہ سعدیہ</a></p><p class="prof-line"><a class="card-link" href="team-halima-sadia.html">مکمل تعارف →</a></p></div></article><article class="member rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی"><div class="bd"><h3>سیدہ عمارہ زیدی</h3><span>خواتین کو بااختیار بنانے کی کوچ · بانی و صدر، اصلاح نیٹ ورک</span><p class="intro">عمارہ نے اصلاح نیٹ ورک ایک سادہ یقین پر قائم کیا: جب ایک عورت کو موقع ملتا ہے تو پورا خاندان اس کے ساتھ اٹھتا ہے۔ ان کی کوچنگ ایسی جگہ بناتی ہے جہاں خواتین سیکھ سکیں، کما سکیں اور سنبھل سکیں — اور وہ نرمی اور عزم دونوں کے ساتھ قیادت کرتی ہیں۔</p><p class="book-line"><a href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20%D8%B3%DB%8C%D8%AF%DB%81%20%D8%B9%D9%85%D8%A7%D8%B1%DB%81%20%D8%B2%DB%8C%D8%AF%DB%8C%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D8%AE%D9%88%D8%A7%D8%AA%DB%8C%D9%86%20%DA%A9%DB%8C%20%DA%A9%D9%88%DA%86%D9%86%DA%AF%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">بک کریں: سیدہ عمارہ زیدی</a></p><p class="prof-line"><a class="card-link" href="team-ammara-zaidi.html">مکمل تعارف →</a></p></div></article></div>
     <div class="sec-head init-head rv">
       <span class="eyebrow">آزاد اقدامات</span>
       <h2>AIDE کے ساتھ کھڑے اقدامات۔</h2>
-      <p>کچھ کام اتنا اہم ہوتا ہے کہ ایک ادارے کے اندر نہ سمائے۔ AIDE کے ساتھ دو آزاد اقدامات کھڑے ہیں، ہر ایک کی اپنی قیادت اور لوگوں کے لیے حاضر ہونے کی اپنی تاریخ۔ عمران دونوں کے مشیر ہیں۔</p>
+      <p>کچھ کام اتنا اہم ہوتا ہے کہ ایک ادارے کے اندر نہ سمائے۔ AIDE کے ساتھ دو آزاد اقدامات کھڑے ہیں، ہر ایک کی اپنی قیادت اور لوگوں کے لیے حاضر ہونے کی اپنی تاریخ۔ عمران دونوں کے ساتھ کام کرتے ہیں — ADK کے ساتھ اعزازی ایگزیکٹو ڈائریکٹر، کوچ اور کونسلر کے طور پر، اور اصلاح نیٹ ورک کے ساتھ کو فاؤنڈر اور اعزازی ایگزیکٹو ڈائریکٹر کے طور پر۔</p>
     </div>
-    <div class="init-grid"><article class="init rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں"><div><h3>ADK · انجمن دخترانِ کشمیر</h3><span class="who">حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں</span><p>کچھ ادارے ایک خیال کے گرد بنتے ہیں۔ یہ اس کے گرد بنا کہ برسوں تک تب حاضر ہوا جب لوگوں کو سب سے زیادہ مدد چاہیے تھی۔ مرحوم حاجی مرزا خرم حیدر نے 1996 میں قائم کیا؛ ADK تیس سال سے زیادہ عرصے سے کشمیر اور پاکستان میں ضرورت مند خواتین و خاندانوں کی خدمت کر رہا ہے۔ صرف پچھلے دس سال میں اس نے شادیوں، راشن، کپڑوں، گھر کی تعمیر اور چھوٹے کاروبار کی معاونت کے ذریعے 3,000 سے زیادہ خاندانوں تک 500 ملین روپے سے زیادہ مالیت کے فلاحی کام پہنچائے ہیں۔ حلیمہ سعدیہ CEO کے طور پر ADK کی قیادت کرتی ہیں۔ عمران اسلم اس کے مشیر اور کونسلر ہیں۔</p><p style="margin-top:10px"><a href="https://www.facebook.com/adkmirpur" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">ADK کا فیس بک پیج دیکھیں →</a></p></div></article><article class="init rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور CEO کے طور پر قیادت کرتی ہیں"><div><h3>اصلاح نیٹ ورک</h3><span class="who">سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور CEO کے طور پر قیادت کرتی ہیں</span><p>اصلاح کا آغاز 2016 میں ایک سطر سے ہوا جو آج بھی ہر قدم کی رہنمائی کرتی ہے: لوگوں میں سرمایہ کاری کرو، پائیدار کامیابی پیدا کرو۔ آج بہاول گڑھ، کہروڑ پکا اور ٹیکسلا میں اس کے اسکول 350 طالبات کو پڑھاتے ہیں۔ اس کے پروگرامز 1,000 سے زیادہ خواتین تک معاشی معاونت اور 1,000 سے زیادہ خواتین تک کونسلنگ و ذہنی صحت کی معاونت پہنچا چکے ہیں — بہاولپور، بھمبر، ٹیکسلا اور سیالکوٹ کے تھراپی مراکز اور آن لائن، سلائی مرکز، بالغ تعلیم اور ڈاکٹرز ڈیسک کے ساتھ۔ سیدہ عمارہ زیدی نے اصلاح نیٹ ورک کی بنیاد رکھی اور CEO کے طور پر اس کی قیادت کرتی ہیں۔ عمران اسلم اس کے اسٹریٹجک مشیر ہیں۔</p><p style="margin-top:10px"><a href="https://blugul1.github.io/islah-network/" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">اصلاح نیٹ ورک کی ویب سائٹ دیکھیں →</a></p></div></article></div>
+    <div class="init-grid"><article class="init rv"><img loading="lazy" decoding="async" src="../halima-sadia.webp" alt="حلیمہ سعدیہ صدر کے طور پر ADK کی قیادت کرتی ہیں"><div><h3>ADK · انجمن دخترانِ کشمیر</h3><span class="who">حلیمہ سعدیہ صدر کے طور پر ADK کی قیادت کرتی ہیں</span><p>کچھ ادارے ایک خیال کے گرد بنتے ہیں۔ یہ اس کے گرد بنا کہ برسوں تک تب حاضر ہوا جب لوگوں کو سب سے زیادہ مدد چاہیے تھی۔ مرحوم حاجی مرزا خرم حیدر نے 1996 میں قائم کیا؛ ADK تیس سال سے زیادہ عرصے سے کشمیر اور پاکستان میں ضرورت مند خواتین و خاندانوں کی خدمت کر رہا ہے۔ صرف پچھلے دس سال میں اس نے شادیوں، راشن، کپڑوں، گھر کی تعمیر اور چھوٹے کاروبار کی معاونت کے ذریعے 3,000 سے زیادہ خاندانوں تک 500 ملین روپے سے زیادہ مالیت کے فلاحی کام پہنچائے ہیں۔ حلیمہ سعدیہ صدر کے طور پر ADK کی قیادت کرتی ہیں۔ عمران اسلم اس کے اعزازی ایگزیکٹو ڈائریکٹر، کوچ اور کونسلر ہیں۔</p><p style="margin-top:10px"><a href="https://www.facebook.com/adkmirpur" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">ADK کا فیس بک پیج دیکھیں →</a></p></div></article><article class="init rv"><img loading="lazy" decoding="async" src="../ammara-zaidi.webp" alt="سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور صدر کے طور پر قیادت کرتی ہیں"><div><h3>اصلاح نیٹ ورک</h3><span class="who">سیدہ عمارہ زیدی نے اصلاح کی بنیاد رکھی اور صدر کے طور پر قیادت کرتی ہیں</span><p>اصلاح کا آغاز 2016 میں ایک سطر سے ہوا جو آج بھی ہر قدم کی رہنمائی کرتی ہے: لوگوں میں سرمایہ کاری کرو، پائیدار کامیابی پیدا کرو۔ آج بہاول گڑھ، کہروڑ پکا اور ٹیکسلا میں اس کے اسکول 350 طالبات کو پڑھاتے ہیں۔ اس کے پروگرامز 1,000 سے زیادہ خواتین تک معاشی معاونت اور 1,000 سے زیادہ خواتین تک کونسلنگ و ذہنی صحت کی معاونت پہنچا چکے ہیں — بہاولپور، بھمبر، ٹیکسلا اور سیالکوٹ کے تھراپی مراکز اور آن لائن، سلائی مرکز، بالغ تعلیم اور ڈاکٹرز ڈیسک کے ساتھ۔ سیدہ عمارہ زیدی نے اصلاح نیٹ ورک کی بنیاد رکھی اور صدر کے طور پر اس کی قیادت کرتی ہیں۔ عمران اسلم اس کے کو فاؤنڈر اور اعزازی ایگزیکٹو ڈائریکٹر ہیں۔</p><p style="margin-top:10px"><a href="https://blugul1.github.io/islah-network/" target="_blank" rel="noopener" style="color:var(--sea);font-weight:700;text-decoration:none">اصلاح نیٹ ورک کی ویب سائٹ دیکھیں →</a></p></div></article></div>
   </div>
 </section>
 
@@ -996,6 +1129,18 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 </section>
 
 <span class="cut" aria-hidden="true" style="background:var(--bg-soft)"></span>
+
+<section class="td-workbook">
+  <img class="bg" loading="lazy" decoding="async" src="../gen-men-workshop.webp" alt="">
+  <span class="scrim" aria-hidden="true"></span>
+  <div class="inner">
+    <p class="eyebrow" style="color:#E3C878">مفت مشق نامہ</p>
+    <h2>آپ کی زندگی کا کون سا حصہ خاموشی سے توجہ مانگ رہا ہے؟</h2>
+    <p class="ur td-wb-ur" lang="ur">آپ کی زندگی کا کون سا حصہ خاموشی سے توجہ مانگ رہا ہے؟</p>
+    <p>سات ایماندارانہ سوالات، غور و فکر کا ایک صفحہ، اور ایک چھوٹا پہلا قدم جو آپ اسی ہفتے اٹھا سکتے ہیں۔ اردو، انگریزی یا عربی میں۔</p>
+    <a class="btn btn-solid magnetic" href="assessments.html">مفت مشق نامہ بھیجیں <span class="arr">→</span></a>
+  </div>
+</section>
 
 <section id="start" style="background:var(--bg-soft);padding-top:64px">
   <div class="wrap">
@@ -1053,11 +1198,28 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
   </div>
 </section>
 
+<section class="td-reasons" id="reasons">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">ہمارے ساتھ کیوں کام کریں</span>
+      <h2>پانچ ایماندارانہ وجوہات</h2>
+      <p>نمبر دبائیں۔ ہر وجہ ایک وعدہ ہے جسے نبھانا ہے — نعرہ نہیں۔</p>
+    </div>
+    <div class="td-rsn-grid">
+      <div class="td-rsn-btns" role="tablist" aria-label="پانچ ایماندارانہ وجوہات"><button type="button" class="td-rsn-btn on" data-r="0"><span class="n">1</span>تین زبانیں، ایک راستہ</button><button type="button" class="td-rsn-btn" data-r="1"><span class="n">2</span>ایمان پر مبنی، ہمیشہ</button><button type="button" class="td-rsn-btn" data-r="2"><span class="n">3</span>عملی، نظریاتی نہیں</button><button type="button" class="td-rsn-btn" data-r="3"><span class="n">4</span>کتاب، کورس اور کوچنگ — ساتھ</button><button type="button" class="td-rsn-btn" data-r="4"><span class="n">5</span>مفت پہلا قدم</button></div>
+      <div class="td-rsn-panel" id="tdRsnPanel" role="tabpanel">
+        <h3 id="tdRsnTitle">تین زبانیں، ایک راستہ</h3>
+        <p id="tdRsnText">اردو، انگریزی اور عربی — وہی تعلیم، وہی توجہ، اس زبان میں جس میں آپ سوچتے ہیں۔ یہاں سمجھے جانے کے لیے آپ کو خود کو ترجمہ نہیں کرنا پڑتا۔</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="cta-block">
   <div class="wrap">
     <div>
       <div class="emblem cta-emblem" aria-hidden="true"><img src="../aide-logo-dome.png" alt=""></div>
-      <h2>آپ کا اگلا باب ایک ایماندارانہ گفتگو سے شروع ہو سکتا ہے۔</h2>
+      <h2>آپ کی زندگی اصل میں کہاں جا رہی ہے؟</h2>
       <p>آپ بہتر قیادت چاہتے ہوں، مضبوط گھر بنانا چاہتے ہوں، اپنی ٹیم کو بڑھانا چاہتے ہوں یا اپنے بچے کو سمت دینا چاہتے ہوں — پہلا قدم ایک ہی ہے۔ آج ہی وٹس ایپ پر اپنی مفت پندرہ منٹ کی ڈسکوری کال بک کریں۔</p>
     </div>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%21%20%D9%85%D8%AC%DA%BE%DB%92%20AIDE%20%DA%A9%DB%92%20%D8%B3%D8%A7%D8%AA%DA%BE%20%D9%85%D9%81%D8%AA%2015%20%D9%85%D9%86%D9%B9%20%DA%A9%DB%8C%20%DA%88%D8%B3%DA%A9%D9%88%D8%B1%DB%8C%20%DA%A9%D8%A7%D9%84%20%D8%A8%DA%A9%20%DA%A9%D8%B1%D9%86%D8%A7%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener">گفتگو شروع کریں</a>
@@ -1213,10 +1375,16 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
     Array.prototype.slice.call(node.childNodes).forEach(function(n){
       if(n.nodeType === 3){
         var frag = document.createDocumentFragment();
-        n.textContent.split(/(\\s+)/).forEach(function(part){
+        n.textContent.split(/(\s+)/).forEach(function(part){
           if(!part){ return; }
-          if(/^\\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); }
-          else { var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++); s.textContent = part; frag.appendChild(s); }
+          if(/^\s+$/.test(part)){ if(part.indexOf('\n') !== -1){ var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++); s.textContent = part; frag.appendChild(s); } else { frag.appendChild(document.createTextNode(' ')); } }
+          else { var s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', wi++);
+            /* LAB EXPERIMENT 2026-11-19: tag CHANGE + DIFFERENTLY (all locales) for idle motion */
+            var bare = part.replace(/[\.!?\u06D4\u061F,;:]+$/, '').toLowerCase();
+            var idleCls = (bare === 'change' || bare === 'بدلتے' || bare === 'يتغيرون') ? 'w-bob' : (bare === 'differently' || bare === 'مختلف') ? 'w-sway' : null;
+            if(idleCls){ var inner = document.createElement('span'); inner.className = idleCls; inner.textContent = part; s.appendChild(inner); }
+            else { s.textContent = part; }
+            frag.appendChild(s); }
         });
         node.replaceChild(frag, n);
       } else if(n.nodeType === 1){ splitWords(n); }
@@ -1350,6 +1518,7 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
 
   /* ---------- USWA EXPLORER ---------- */
   var USWA = [['فہم','لوگوں کو قیادت سے پہلے جاننا','پروگرام میں: ہفتہ 1 اور 3'],['اخلاص','تکنیک سے پہلے نیت','پروگرام میں: ہفتہ 2'],['حکمت','گرے علاقوں میں فیصلہ','پروگرام میں: ہفتہ 4 تا 7'],['احتساب','جوابدہی — لوگوں کو بھی، اللہ کو بھی','پروگرام میں: ہفتہ 8']];
+  var REASONS = [['تین زبانیں، ایک راستہ','اردو، انگریزی اور عربی — وہی تعلیم، وہی توجہ، اس زبان میں جس میں آپ سوچتے ہیں۔ یہاں سمجھے جانے کے لیے آپ کو خود کو ترجمہ نہیں کرنا پڑتا۔'],['ایمان پر مبنی، ہمیشہ','قرآن، مستند سنت اور معتبر سیرت سب سے پہلے؛ جدید نفسیات سمجھانے کے لیے ہے، متبادل بننے کے لیے نہیں۔ ہماری کوئی تعلیم آپ سے یہ نہیں مانگتی کہ اپنا دین دروازے پر چھوڑ آئیں۔'],['عملی، نظریاتی نہیں','ہر پروگرام میدان میں ختم ہوتا ہے، نوٹ بک میں نہیں۔ آپ وہ چیز اپنے اصل ہفتے میں آزماتے ہیں — گھر پر، کام پر، خاندان کے ساتھ — اور نتیجہ واپس لاتے ہیں۔'],['کتاب، کورس اور کوچنگ — ساتھ','خیال پڑھیں، گروہ کے ساتھ سیکھیں، پھر انفرادی طور پر اس پر کام کریں۔ تین دروازے، ایک راستہ — آپ کتاب تھامے یہ سوچتے نہیں رہتے کہ اس کا کیا کریں۔'],['مفت پہلا قدم','اسوہ آئینہ اور پندرہ منٹ کی ڈسکوری کال مفت ہیں۔ پہلے کام آزمائیں، پھر ادائیگی کریں — یہی ایماندارانہ ترتیب ہے۔']];
   var uBtns = document.querySelectorAll('.up'), uDet = document.getElementById('uswaDetail');
   function setUswa(k){
     if(!uDet || typeof USWA === 'undefined' || !USWA[k]) return;
@@ -1360,6 +1529,60 @@ nav.scrolled .lang-btn{color:#0A1A3B;border-color:rgba(10,26,59,.25);background:
     uDet.querySelector('.wk').textContent = USWA[k][2];
   }
   if(uBtns.length){ uBtns.forEach(function(b){ b.addEventListener('click', function(){ setUswa(+b.getAttribute('data-u')); }); }); setUswa(0); }
+
+  /* ---------- TAKEAWAYS (three-site review, lab 2026-11-19) ----------
+     Proof count-up on the existing strip + the five-reasons selector. */
+  (function(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* Count-up: animate the number inside each .proven .proof b (e.g. "300+"). */
+    var proofBars = document.querySelectorAll('.proven .proof b');
+    function countUp(b){
+      var node = b.firstChild;
+      if(!node) return;
+      var m = /(\d+)(\+?)/.exec(node.textContent || '');
+      if(!m) return;
+      var target = parseInt(m[1], 10), plus = m[2] || '';
+      if(reduceMotion){ node.textContent = target + plus + ' '; return; }
+      var start = null, dur = 1200;
+      function tick(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        node.textContent = Math.round(target * eased) + plus + ' ';
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window && proofBars.length){
+      var pio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ countUp(en.target); pio.unobserve(en.target); }
+        });
+      }, {threshold: 0.4});
+      proofBars.forEach(function(b){ pio.observe(b); });
+    } else {
+      proofBars.forEach(countUp);
+    }
+    /* Five reasons selector. */
+    var rBtns = document.querySelectorAll('.td-rsn-btn'),
+        rTitle = document.getElementById('tdRsnTitle'),
+        rText = document.getElementById('tdRsnText'),
+        rPanel = document.getElementById('tdRsnPanel');
+    if(rBtns.length && rTitle && rText && typeof REASONS !== 'undefined'){
+      rBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          rBtns.forEach(function(x){ x.classList.remove('on'); });
+          btn.classList.add('on');
+          var r = REASONS[+btn.getAttribute('data-r')];
+          if(!r) return;
+          function swap(){ rTitle.textContent = r[0]; rText.textContent = r[1]; rPanel.classList.remove('swap'); }
+          if(reduceMotion){ swap(); return; }
+          rPanel.classList.add('swap');
+          setTimeout(swap, 180);
+        });
+      });
+    }
+  })();
 
   /* ---------- NAV: where you are ---------- */
   var navMap = {};

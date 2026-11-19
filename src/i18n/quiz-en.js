@@ -1,0 +1,6 @@
+const QS=[
+ {q:'When a plan breaks down, what usually happens next?',o:[['I rebuild it the same day — smaller, but moving',0],['I wait for motivation to return',1],['The plan quietly disappears',2]]},
+ {q:'How do you decide what matters most this week?',o:[['It is written down, in order',0],['It lives in my head, mostly',1],['Whoever shouts loudest decides',2]]},
+ {q:'After a hard conversation goes badly, you…',o:[['Revisit it and repair what I can',0],['Replay it for days without acting',1],['Avoid the person entirely',2]]}
+];
+const BANDS=[[2,'A starting point','Honest answers are the raw material. Your systems — not your sincerity — are what need work first. A short call can map where to begin.'],[4,'Building — support speeds this up','The intent is there and some structure exists. This is the stage where a short, honest conversation does the most good — bring one real problem to the free call and leave with a clear first step.'],[6,'A strong system','You already run on structure. The next gains are refinement: leadership depth, team habits, the harder rooms.']];

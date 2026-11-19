@@ -1,0 +1,87 @@
+<main>
+<section class="page-hero light"><div class="wrap">
+  <span class="eyebrow rv">مركز التقييم</span>
+  <h1 class="rv">دقائق قليلة من الصدق — صورة واضحة لنفسك</h1>
+  <p class="lead rv">ثمانية وعشرون تقييمًا ذاتيًا قصيرًا — منها مرايا AIDE الثماني المميزة التي لا توجد في أي مكان آخر. بلا وُسوم، بلا تشخيص؛ نتائجك تبقى عندك وحدك ولا تغادر هذا المتصفح.</p>
+  <p class="lead rv">المركز يعمل حاليًا بالأردية والإنجليزية — النسخة العربية قادمة.</p>
+</div></section>
+
+<section style="padding-top:26px"><div class="wrap">
+<div class="ac-app" id="acApp" lang="ur" dir="rtl">
+<div class="ac-wrap">
+  <header class="top">
+    <div class="logo">
+      <div class="disc"><span>AIDE</span></div>
+      <div><b id="brandName">اسیسمنٹ سینٹر</b><small id="brandSub">عمران اسلم — AIDE</small></div>
+    </div>
+    <nav class="tabs">
+      <button class="tab on" id="tabHub" onclick="showView('hub')">ٹیسٹ</button>
+      <button class="tab" id="tabDash" onclick="showView('dash')">میرا ڈیش بورڈ</button>
+      <button class="langbtn" id="langBtn" onclick="toggleLang()">EN</button>
+    </nav>
+  </header>
+
+  <!-- HUB -->
+  <section id="view-hub" class="view">
+    <div class="hero">
+      <h2 id="heroH" style="font-size:clamp(26px,5.4vw,40px);font-weight:700;line-height:2.1;margin:20px 0 6px">اپنے آپ کو <em>سچائی</em> سے دیکھیں</h2>
+      <p id="heroP">مختصر، دیانت دار خود جائزے — شخصیت، خوشحالی، رشتے اور قیادت کے لیے۔ یہ جائزے تشخیص نہیں؛ یہ غور و فکر کا آئینہ ہیں، اور اگلے قدم کی نشاندہی کرتے ہیں۔</p>
+      <div class="privacy" id="hubCount"></div>
+      <div class="privacy" id="privacyLine">🔒 نتائج صرف اسی براؤزر میں محفوظ ہیں — سرور پر کچھ نہیں جاتا</div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="hubGrid"></div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="view-intro" class="hidden view">
+    <div class="panel" id="introPanel"></div>
+  </section>
+
+  <!-- RUNNER -->
+  <section id="view-run" class="hidden view">
+    <div class="panel" id="runPanel"></div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="view-result" class="hidden view">
+    <div class="panel" id="resultPanel" style="max-width:820px"></div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="view-dash" class="hidden view">
+    <div class="hero">
+      <h2 id="dashH" style="font-size:clamp(24px,4.6vw,34px);font-weight:700;line-height:2.1;margin:20px 0 6px">میرا ڈیش بورڈ</h2>
+      <p id="dashP">آپ کے دیے گئے جائزے، ان کے بینڈ اور وقت کے ساتھ تبدیلی — سب کچھ صرف اسی آلے پر محفوظ۔</p>
+      <div class="privacy">🔒 <span id="dashPriv">نتائج صرف اسی براؤزر میں محفوظ ہیں — سرور پر کچھ نہیں جاتا</span></div>
+    </div>
+    <div id="resumeBox"></div>
+    <div class="grid" id="dashGrid" style="margin-top:18px"></div>
+    <div class="btnrow" style="margin-top:24px">
+      <button class="btn ghost" id="clearAllBtn" onclick="clearAll()">تمام ڈیٹا صاف کریں</button>
+    </div>
+  </section>
+
+  <footer id="footNote">AIDE — From Awareness to Excellence · الفحص الطبي ليس جزءًا من هذا المركز.</footer>
+</div>
+
+<!-- AIDE ASSISTANT -->
+<button id="asstBtn" onclick="asstToggle()">💬 AIDE اسسٹنٹ</button>
+<div id="asstPanel" class="hidden">
+  <div class="asst-head"><div><b>مساعد AIDE</b></div><button class="asst-x" onclick="asstToggle(false)">✕</button></div>
+  <div id="asstMsgs"></div>
+  <div class="asst-chips">
+    <button onclick="asstSend('پروگراموں کی فیس کیا ہے؟')">فیس جانیں</button>
+    <button onclick="asstSend('بچے کا غصہ')">بچے کا غصہ</button>
+    <button onclick="asstSend('کون سا ٹیسٹ کروں؟')">کون سا ٹیسٹ؟</button>
+    <button onclick="asstSend('بکنگ کیسے ہوگی؟')">بکنگ</button>
+    <button onclick="asstSend('کتابیں کب آئیں گی؟')">کتابیں</button>
+  </div>
+  <div class="asst-row"><input id="asstInput" type="text" placeholder="اپنا سوال لکھیں… / Ask anything" onkeydown="if(event.key==='Enter')asstSend()"><button class="btn sm" onclick="asstSend()">بھیجیں</button></div>
+  <div class="asst-foot">الإجابات من معلومات AIDE نفسها، وتُقدَّم محليًا في متصفحك — لا يغادر أي شيء جهازك.</div>
+</div>
+
+<canvas id="shareCanvas" width="1200" height="630"></canvas>
+</div>
+</div></section>
+</main>
