@@ -340,6 +340,12 @@ footer a:hover{color:var(--ink)}
 .big-cta p{color:var(--muted);line-height:1.75;max-width:52ch;margin:0 auto 20px}
 .foot-legal{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:2}
 @media(max-width:900px){.split,.cards3,.steps{grid-template-columns:1fr}.page-hero{padding-top:120px}}
+/* QR pay grid (owner 2026-11-23) — Raast scan codes on the delivery page. */
+.qr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 8px}
+.qr-grid figure{margin:0;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 10px}
+.qr-grid img{width:120px;height:120px;object-fit:contain;background:#fff;border-radius:8px;padding:6px}
+.qr-grid figcaption{margin-top:10px;font-size:13px;line-height:1.5;color:var(--muted)}
+@media(max-width:760px){.qr-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== dropdown nav + language switcher ===== */
 .has-drop{position:relative;display:inline-flex;align-items:center;flex:none}
@@ -1123,6 +1129,31 @@ body.loc-ur [lang="en"] h1,body.loc-ur [lang="en"] h2,body.loc-ur [lang="en"] h3
   .alogo .alogo-shimmer, .alogo .alogo-glint { opacity: 0; }
 }
 
+/* INTEREST (owner 2026-11-23) — "I'm interested" programme waitlist modal. Prefix int- (zero collisions, verified 2026-11-23). */
+.int-overlay{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,10,24,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.int-overlay.int-open{display:flex}
+.int-card{position:relative;width:100%;max-width:480px;max-height:calc(100vh - 36px);overflow:auto;background:#0D2148;border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:26px 26px 22px;color:#F2F5F7;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.int-card h3{margin:0 0 4px;font-size:22px;line-height:1.4}
+.int-card .int-sub{margin:0 0 18px;color:rgba(242,245,247,.75);font-size:15px;line-height:1.6}
+.int-field{margin:0 0 14px}
+.int-field label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(242,245,247,.65);margin:0 0 6px}
+html[lang="ur"] .int-field label,html[lang="ar"] .int-field label{letter-spacing:0;font-size:14px}
+.int-field input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#F2F5F7;font:inherit;font-size:16px}
+.int-field input:focus{outline:2px solid #3DAB94;outline-offset:1px;border-color:#3DAB94}
+.int-note{margin:4px 0 16px;font-size:13px;line-height:1.6;color:rgba(242,245,247,.6)}
+.int-err{display:none;margin:0 0 14px;padding:10px 12px;border-radius:10px;background:rgba(214,69,65,.16);border:1px solid rgba(214,69,65,.5);color:#FFB4B0;font-size:14px;line-height:1.5}
+.int-err.int-show{display:block}
+.int-ok{display:none;text-align:center;padding:8px 0 4px}
+.int-ok.int-show{display:block}
+.int-ok .int-tick{font-size:40px;line-height:1;color:#3DAB94}
+.int-ok p{margin:12px 0 0;font-size:16px;line-height:1.7}
+.int-actions{display:flex;gap:10px;align-items:center}
+.int-submit{flex:1;padding:13px 18px;border:0;border-radius:999px;background:#3DAB94;color:#04160F;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.int-submit:disabled{opacity:.6;cursor:wait}
+.int-close-btn{padding:13px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#F2F5F7;font:inherit;font-size:15px;cursor:pointer}
+.int-x{position:absolute;top:14px;inset-inline-end:14px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#F2F5F7;font-size:18px;line-height:1;cursor:pointer}
+@media (max-width:560px){.int-card{padding:22px 18px 18px}.int-actions{flex-direction:column}.int-submit,.int-close-btn{width:100%}}
+
 </style>
 </head>
 <body class="loc-ar">
@@ -1196,6 +1227,7 @@ body.loc-ur [lang="en"] h1,body.loc-ur [lang="en"] h2,body.loc-ur [lang="en"] h3
     <h4>لمن هذا البرنامج</h4><p>فرق مبيعات الشركات، وأصحاب المنشآت الصغيرة والمتوسطة، وعمليات التوزيع والتجزئة</p>
     <h4>الرسوم والتواريخ</h4><p>يُقدَّم على دفعات. تُوضَّح الرسوم وتواريخ الدفعة القادمة كتابةً في مكالمة الاستكشاف المجانية — قبل أي دفع، ودون أي التزام بالتسجيل.</p>
     <a class="btn magnetic" href="https://wa.me/923309222029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%21%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D9%85%D9%8A%D9%91%D8%B2%20%D8%A7%D9%84%D8%B3%D9%84%D9%88%D9%83%D9%8A%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D9%84%D9%81%D8%B1%D9%8A%D9%82%D9%86%D8%A7." target="_blank" rel="noopener">اسأل عن هذا البرنامج</a>
+    <button class="btn ghost magnetic" type="button" data-interest-open data-programme="sales" style="margin-top:10px">أنا مهتم</button>
   </aside>
 </div></section>
 </main>
@@ -1644,5 +1676,180 @@ b.addEventListener('pointerleave',function(){inner.style.setProperty('--ry','0de
 </script>
 
 
+<script>
+/* INTEREST (owner 2026-11-23) — programme waitlist: name + email + mobile -> booking API /api/interest. */
+(function () {
+  'use strict';
+  var API = window.AIDE_BOOKING_API || 'https://blugul1.pythonanywhere.com/booking';
+  var LANG = (document.documentElement.lang || 'en').slice(0, 2);
+  var STR = {
+    en: { title: 'I am interested in', name: 'Your name', email: 'Email', mobile: 'Mobile / WhatsApp', namePh: 'Your full name', emailPh: 'you@example.com', mobilePh: '03xx xxxxxxx', submit: 'Tell me when it opens', sending: 'Sending...', note: 'We will email and WhatsApp you as soon as dates are announced. No spam, no sharing.', okTitle: 'You are on the list.', ok: 'We will email and WhatsApp you as soon as dates are announced.', alreadyTitle: 'Already on the list.', already: 'You are already on the list for this programme. We will be in touch when dates are announced.', err: 'Something went wrong. Please try again, or message us on WhatsApp.', close: 'Close', badName: 'Please enter your name.', badEmail: 'Please enter a valid email.', badMobile: 'Please enter a valid mobile number (10 to 15 digits).' },
+    ur: { title: 'مجھے دلچسپی ہے', name: 'آپ کا نام', email: 'ای میل', mobile: 'موبائل / واٹس ایپ', namePh: 'آپ کا پورا نام', emailPh: 'you@example.com', mobilePh: '03xx xxxxxxx', submit: 'کھلتے ہی مجھے بتائیں', sending: 'بھیجا جا رہا ہے...', note: 'تاریخیں اعلان ہوتے ہی ہم آپ کو ای میل اور واٹس ایپ پر بتائیں گے۔ کوئی سپیم نہیں، کوئی شیئرنگ نہیں۔', okTitle: 'آپ فہرست میں شامل ہو گئے۔', ok: 'تاریخیں اعلان ہوتے ہی ہم آپ کو ای میل اور واٹس ایپ پر بتائیں گے۔', alreadyTitle: 'آپ پہلے سے فہرست میں ہیں۔', already: 'آپ اس پروگرام کی فہرست میں پہلے سے شامل ہیں۔ تاریخیں اعلان ہوتے ہی ہم رابطہ کریں گے۔', err: 'کچھ غلط ہو گیا۔ دوبارہ کوشش کریں، یا واٹس ایپ پر پیغام بھیجیں۔', close: 'بند کریں', badName: 'براہِ کرم اپنا نام لکھیں۔', badEmail: 'براہِ کرم درست ای میل لکھیں۔', badMobile: 'براہِ کرم درست موبائل نمبر لکھیں (10 تا 15 ہندسے)۔' },
+    ar: { title: 'أنا مهتم ببرنامج', name: 'اسمك', email: 'البريد الإلكتروني', mobile: 'الجوال / واتساب', namePh: 'اسمك الكامل', emailPh: 'you@example.com', mobilePh: '03xx xxxxxxx', submit: 'أخبرني عند فتحها', sending: 'جارٍ الإرسال...', note: 'سنرسل لك بريدًا إلكترونيًا ورسالة واتساب فور الإعلان عن المواعيد. لا رسائل مزعجة، ولا مشاركة لبياناتك.', okTitle: 'تمت إضافتك إلى القائمة.', ok: 'سنرسل لك بريدًا إلكترونيًا ورسالة واتساب فور الإعلان عن المواعيد.', alreadyTitle: 'أنت مسجل بالفعل.', already: 'أنت مسجل بالفعل في قائمة هذا البرنامج. سنتواصل معك عند الإعلان عن المواعيد.', err: 'حدث خطأ ما. حاول مرة أخرى، أو راسلنا على واتساب.', close: 'إغلاق', badName: 'يرجى إدخال اسمك.', badEmail: 'يرجى إدخال بريد إلكتروني صحيح.', badMobile: 'يرجى إدخال رقم جوال صحيح (10 إلى 15 رقمًا).' }
+  };
+  var NAMES = {
+    en: { pldp: 'Prophetic Leadership (PLDP)', habits: 'Habit Architecture', sales: 'Behavioural Sales', teach: 'Teach With Heart', homes: 'Strong Homes', rise: 'RISE Youth Life Design' },
+    ur: { pldp: 'قیادت (PLDP)', habits: 'عادت سازی', sales: 'رویہ جاتی فروخت', teach: 'تدریس', homes: 'مضبوط گھر', rise: 'RISE نوجوان' },
+    ar: { pldp: 'القيادة (PLDP)', habits: 'بناء العادات', sales: 'المبيعات السلوكية', teach: 'التدريس', homes: 'بيوت قوية', rise: 'RISE للشباب' }
+  };
+  var T = STR[LANG] || STR.en;
+  var NM = NAMES[LANG] || NAMES.en;
+  var overlay = null, formBox = null, okBox = null, okTitle = null, okText = null, errBox = null, submitBtn = null;
+  var nameIn = null, emailIn = null, mobileIn = null, titleEl = null, prog = 'pldp';
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function build() {
+    overlay = el('div', 'int-overlay');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    var card = el('div', 'int-card');
+    var x = el('button', 'int-x', '×');
+    x.setAttribute('type', 'button');
+    x.setAttribute('aria-label', T.close);
+    x.addEventListener('click', close);
+    card.appendChild(x);
+    titleEl = el('h3', null, '');
+    card.appendChild(titleEl);
+    formBox = el('div', null, null);
+    var sub = el('p', 'int-sub', T.note);
+    formBox.appendChild(sub);
+    errBox = el('p', 'int-err', '');
+    formBox.appendChild(errBox);
+    var f1 = el('div', 'int-field');
+    f1.appendChild(el('label', null, T.name));
+    nameIn = el('input', null, null);
+    nameIn.setAttribute('type', 'text');
+    nameIn.setAttribute('name', 'name');
+    nameIn.setAttribute('placeholder', T.namePh);
+    nameIn.setAttribute('autocomplete', 'name');
+    nameIn.setAttribute('maxlength', '80');
+    f1.appendChild(nameIn);
+    formBox.appendChild(f1);
+    var f2 = el('div', 'int-field');
+    f2.appendChild(el('label', null, T.email));
+    emailIn = el('input', null, null);
+    emailIn.setAttribute('type', 'email');
+    emailIn.setAttribute('name', 'email');
+    emailIn.setAttribute('placeholder', T.emailPh);
+    emailIn.setAttribute('autocomplete', 'email');
+    emailIn.setAttribute('maxlength', '120');
+    f2.appendChild(emailIn);
+    formBox.appendChild(f2);
+    var f3 = el('div', 'int-field');
+    f3.appendChild(el('label', null, T.mobile));
+    mobileIn = el('input', null, null);
+    mobileIn.setAttribute('type', 'tel');
+    mobileIn.setAttribute('name', 'mobile');
+    mobileIn.setAttribute('placeholder', T.mobilePh);
+    mobileIn.setAttribute('autocomplete', 'tel');
+    mobileIn.setAttribute('dir', 'ltr');
+    mobileIn.setAttribute('maxlength', '20');
+    f3.appendChild(mobileIn);
+    formBox.appendChild(f3);
+    var actions = el('div', 'int-actions');
+    submitBtn = el('button', 'int-submit', T.submit);
+    submitBtn.setAttribute('type', 'button');
+    submitBtn.addEventListener('click', submit);
+    actions.appendChild(submitBtn);
+    var cb = el('button', 'int-close-btn', T.close);
+    cb.setAttribute('type', 'button');
+    cb.addEventListener('click', close);
+    actions.appendChild(cb);
+    formBox.appendChild(actions);
+    card.appendChild(formBox);
+    okBox = el('div', 'int-ok');
+    okBox.appendChild(el('div', 'int-tick', '✓'));
+    okTitle = el('h3', null, '');
+    okBox.appendChild(okTitle);
+    okText = el('p', null, '');
+    okBox.appendChild(okText);
+    var okClose = el('button', 'int-close-btn', T.close);
+    okClose.setAttribute('type', 'button');
+    okClose.style.marginTop = '18px';
+    okClose.addEventListener('click', close);
+    okBox.appendChild(okClose);
+    card.appendChild(okBox);
+    overlay.appendChild(card);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.body.appendChild(overlay);
+  }
+
+  function showErr(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('int-show');
+  }
+  function hideErr() { errBox.classList.remove('int-show'); }
+
+  function open(p) {
+    if (!overlay) build();
+    prog = (NAMES[LANG] || NAMES.en)[p] ? p : 'pldp';
+    titleEl.textContent = T.title + ' — ' + (NM[prog] || prog);
+    formBox.style.display = '';
+    okBox.classList.remove('int-show');
+    hideErr();
+    submitBtn.disabled = false;
+    submitBtn.textContent = T.submit;
+    overlay.classList.add('int-open');
+    if (nameIn) nameIn.focus();
+  }
+
+  function close() {
+    if (overlay) overlay.classList.remove('int-open');
+  }
+
+  function submit() {
+    hideErr();
+    var name = (nameIn.value || '').trim();
+    var email = (emailIn.value || '').trim();
+    var mobile = (mobileIn.value || '').replace(/[\s\-]/g, '');
+    if (!name) { showErr(T.badName); nameIn.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr(T.badEmail); emailIn.focus(); return; }
+    if (!/^\+?\d{10,15}$/.test(mobile)) { showErr(T.badMobile); mobileIn.focus(); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = T.sending;
+    fetch(API + '/api/interest', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ programme: prog, name: name, email: email, mobile: mobile, lang: LANG })
+    }).then(function (r) { return r.json().then(function (j) { return { status: r.status, body: j }; }); }).then(function (res) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = T.submit;
+      if (!res.body || !res.body.ok) {
+        showErr((res.body && res.body.message) ? res.body.message : T.err);
+        return;
+      }
+      formBox.style.display = 'none';
+      if (res.body.already) {
+        okTitle.textContent = T.alreadyTitle;
+        okText.textContent = T.already;
+      } else {
+        okTitle.textContent = T.okTitle;
+        okText.textContent = T.ok;
+      }
+      okBox.classList.add('int-show');
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = T.submit;
+      showErr(T.err);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-interest-open]') : null;
+    if (!btn) return;
+    e.preventDefault();
+    open(btn.getAttribute('data-programme') || 'pldp');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('int-open')) close();
+  });
+})();
+</script>
 </body>
 </html>

@@ -340,6 +340,12 @@ footer a:hover{color:var(--ink)}
 .big-cta p{color:var(--muted);line-height:1.75;max-width:52ch;margin:0 auto 20px}
 .foot-legal{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:2}
 @media(max-width:900px){.split,.cards3,.steps{grid-template-columns:1fr}.page-hero{padding-top:120px}}
+/* QR pay grid (owner 2026-11-23) — Raast scan codes on the delivery page. */
+.qr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0 8px}
+.qr-grid figure{margin:0;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 10px}
+.qr-grid img{width:120px;height:120px;object-fit:contain;background:#fff;border-radius:8px;padding:6px}
+.qr-grid figcaption{margin-top:10px;font-size:13px;line-height:1.5;color:var(--muted)}
+@media(max-width:760px){.qr-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== dropdown nav + language switcher ===== */
 .has-drop{position:relative;display:inline-flex;align-items:center;flex:none}
@@ -1184,6 +1190,15 @@ body.loc-ur [lang="en"] h1,body.loc-ur [lang="en"] h2,body.loc-ur [lang="en"] h3
   <div class="prose rv"><p>Each book arrives as a print PDF, a mobile PDF made for reading on a phone, an EPUB for reader apps, and a DOCX — plus its free workbook. Your copy carries a small watermark with your name, your order number and the purchase date — the <a href="terms.html" style="color:var(--sea2)">purchase terms</a> explain why.</p></div>
   <div class="sec-head rv" style="margin:30px 0 8px"><h2 style="font-size:25px">How it reaches you</h2></div>
   <div class="prose rv"><p>Once your payment is verified, your book is sent to you on WhatsApp and by email — the two addresses you gave when you ordered. Keep the email safe; it is your permanent copy.</p></div>
+  <div class="sec-head rv" style="margin:30px 0 8px"><h2 style="font-size:25px">How to pay — scan and send</h2></div>
+  <div class="prose rv"><p>Pay from your bank app by scanning a code, or send to the numbers below. Raast transfers arrive instantly. After paying, send the receipt on WhatsApp (<b>+92 330 9222029</b>) with the book name — your payment is checked against the actual account before anything is sent.</p></div>
+  <div class="qr-grid rv">
+    <figure><img src="jazzcash-raast-qr-styled.png" alt="JazzCash Raast QR code" loading="lazy"><figcaption>JazzCash · 0317 9222029</figcaption></figure>
+    <figure><img src="easypaisa-raast-qr-styled.png" alt="Easypaisa Raast QR code" loading="lazy"><figcaption>Easypaisa · 0317 9222029</figcaption></figure>
+    <figure><img src="hbl-raast-qr-styled.png" alt="HBL Raast QR code" loading="lazy"><figcaption>HBL · Imran Aslam</figcaption></figure>
+    <figure><img src="meezan-raast-qr-styled.png" alt="Meezan Bank Raast QR code" loading="lazy"><figcaption>Meezan · Imran Aslam</figcaption></figure>
+  </div>
+  <div class="prose rv"><p>Bank transfer: HBL Main Branch Bhimber — Imran Aslam · 11597980217403 · IBAN PK77HABB0011597980217403. Meezan Bank Bhimber — Imran Aslam · 12930105618158 · IBAN PK33MEZN0012930105618158.</p></div>
   <div class="sec-head rv" style="margin:30px 0 8px"><h2 style="font-size:25px">How long verification takes</h2></div>
   <div class="prose rv"><p>Every payment is checked against the actual account before anything is approved. That care protects you as much as it protects us — a screenshot alone can be wrong, or worse. Payment verification usually takes a few hours; on a busy day it can run to the next working day. Meanwhile the free sample chapter of your book is open to you right here on the site, so your reading does not have to wait.</p></div>
   <div class="sec-head rv" style="margin:30px 0 8px"><h2 style="font-size:25px">New phone? Lost the file?</h2></div>
@@ -1643,6 +1658,7 @@ b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();var
 b.addEventListener('pointerleave',function(){inner.style.setProperty('--ry','0deg');inner.style.setProperty('--rx','0deg')});})();
 
 </script>
+
 
 
 </body>
