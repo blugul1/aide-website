@@ -1,4 +1,4 @@
-/* AIDE free-sample flip reader. Navy #0A1A3B, sea #3DAB94, gold #C9A227. */
+/* AIDE opening-pages flip reader. Navy #0A1A3B, sea #3DAB94, gold #C9A227. */
 :root{
   --navy:#0A1A3B; --sea:#3DAB94; --gold:#C9A227; --gold-soft:#E3C878;
   --paper:#FDFBF3; --ink:#1c2733; --muted:#5a6a7f; --line:#cfd9d4;
@@ -20,6 +20,8 @@ body.ltr{font-family:Georgia,'Times New Roman',serif}
 body.ltr .rd-top h1{line-height:1.3}
 .rd-sub{color:var(--gold-soft);margin:2px 0;font-size:17px}
 .rd-digital{color:rgba(242,245,247,.65);font-size:14px;margin:2px 0}
+.rd-allrow{text-align:start;margin-bottom:4px}
+.rd-all{display:inline-block;color:var(--gold-soft);text-decoration:none;font-size:14px;border:1px solid rgba(227,200,120,.45);border-radius:999px;padding:4px 14px}
 
 /* ---------- stage + book ---------- */
 .rd-stage{max-width:1000px;margin:0 auto;padding:0 10px}
@@ -68,6 +70,7 @@ body.ltr .flip-page h4{line-height:1.35}
 .flip-page td{border:1px solid #9fb4ac;padding:5px 6px}
 .flip-page .rule{border-top:1px solid var(--line);margin:14px 0}
 .flip-page .storybox{border:1.5px solid var(--sea);border-radius:8px;padding:10px 14px;margin:12px 0;background:#f7faf9}
+.flip-page .storybox.cont{border-top:0;border-top-left-radius:0;border-top-right-radius:0}
 .flip-page .storytitle{font-weight:700;color:var(--sea);margin-bottom:4px}
 .flip-page .box{display:inline-block;width:11px;height:11px;border:1.5px solid var(--navy);border-radius:2px;margin-inline-start:4px}
 .flip-page .fill{display:inline-block;min-width:110px;border-bottom:1px dotted #7d8ea0;height:1em}
@@ -84,6 +87,9 @@ body.ltr .flip-page.cover h2{line-height:1.3}
 .cover-contents{text-align:start;margin:14px 0 0;padding-inline-start:18px;font-size:15px;line-height:2}
 .cover-contents li{margin:2px 0}
 .cover-digital{color:rgba(242,245,247,.7);font-size:13px;margin-top:18px}
+.cover-img{height:140px;width:auto;max-width:82%;object-fit:contain;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.45);margin-bottom:12px}
+.flip-page.endpage .rd-back{margin-top:14px}
+.flip-page.endpage .rd-back a{color:var(--sea);text-decoration:none;font-weight:700}
 .flip-page.endpage{text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
 .flip-page.endpage h3{border-bottom:0}
 .flip-page.endpage .rd-get{margin-top:10px}
@@ -117,6 +123,7 @@ body.ltr .flip-page.cover h2{line-height:1.3}
   .flip-page{padding:20px 20px;font-size:16px}
   .flip-page h3{font-size:18px}
   .rd-top h1{font-size:23px}
+  .cover-img{height:96px}
   .rd-dots{max-width:60vw}
   .rd-count{min-width:90px}
 }

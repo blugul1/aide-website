@@ -1,4 +1,4 @@
-/* AIDE free-sample flip reader.
+/* AIDE opening-pages flip reader.
    Client-side pagination: measures the real rendered text and splits it into
    flip pages at runtime, so pages fit at any screen size. Re-paginates on
    resize (debounced) and restores the reader's position by source node index.
@@ -22,20 +22,22 @@
 
   var T = RTL ? {
     page: 'صفحہ', pages: 'صفحات', of: 'از', to: 'تا',
-    sampleEnd: 'نمونہ ختم',
-    endNote: 'آپ نے اس کتاب کا مفت نمونہ پڑھ لیا: تمہید اور پہلے تین ابواب۔',
+    sampleEnd: 'ابتدائی صفحات ختم',
+    endNote: 'آپ نے اس کتاب کے ابتدائی صفحات پڑھ لیے: تمہید اور پہلے تین ابواب۔',
     fullHas: 'مکمل کتاب میں {n} ابواب ہیں۔',
     get: 'کتاب حاصل کریں',
-    freeSample: 'مفت نمونہ',
-    chaptersWord: 'ابواب'
+    freeSample: 'ابتدائی صفحات',
+    chaptersWord: 'ابواب',
+    allBooks: 'تمام کتابیں'
   } : {
     page: 'Page', pages: 'Pages', of: 'of', to: 'to',
-    sampleEnd: 'End of sample',
-    endNote: 'You have read the free sample: the introduction and the first three chapters.',
+    sampleEnd: 'End of opening pages',
+    endNote: 'You have read the opening pages of this book: the introduction and the first three chapters.',
     fullHas: 'The full book has {n} chapters.',
     get: 'Get this book',
-    freeSample: 'Free sample',
-    chaptersWord: 'chapters'
+    freeSample: 'Opening pages',
+    chaptersWord: 'chapters',
+    allBooks: 'All books'
   };
 
   /* ---------- source nodes ---------- */
@@ -62,9 +64,10 @@
   function coverHtml() {
     var items = DATA.chapters.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('');
     var digital = RTL
-      ? 'صرف ڈیجیٹل۔ کاغذی کتاب نہیں بھیجی جاتی۔'
-      : 'Digital only. No physical book is shipped.';
+      ? 'ڈیجیٹل بکس دستیاب ہیں۔ فی الوقت پرنٹنگ ایڈیشن دستیاب نہیں ہے۔'
+      : 'Digital books available. The print edition is not available at the moment.';
     return '<div class="flip-page cover">'
+      + '<img class="cover-img" src="' + DATA.cover + '" alt="">'
       + '<div class="cover-kicker">AIDE</div>'
       + '<h2>' + esc(DATA.title) + '</h2>'
       + '<div class="cover-author">' + esc(DATA.author) + '</div>'
@@ -80,6 +83,7 @@
       + '<p>' + T.fullHas.replace('{n}', DATA.totalChapters) + '</p>'
       + '<p><a class="rd-get" href="' + DATA.wa + '" target="_blank" rel="noopener">' + T.get + '</a></p>'
       + '<p class="rd-price">' + DATA.priceLine + '</p>'
+      + '<p class="rd-back"><a href="' + DATA.booksUrl + '">' + T.allBooks + '</a></p>'
       + '</div>';
   }
 
@@ -156,6 +160,47 @@
     return [buildHtml(0, best), buildHtml(best, wCount)];
   }
 
+  function splitStorybox(nd) {
+    /* A story box taller than one page used to sit whole on a page and get
+       cut off by overflow:hidden. Split it across pages by its inner
+       paragraphs, keeping the box (title on the first chunk only). A single
+       over-long paragraph inside is split by words, like any <p>. */
+    var titleEl = nd.el.querySelector('.storytitle');
+    var titleHtml = titleEl ? titleEl.outerHTML : '';
+    var paras = Array.prototype.slice.call(nd.el.querySelectorAll('p'));
+    var first = true;
+    var chunk = [];
+    function wrap(list, isFirst) {
+      return '<div class="storybox' + (isFirst ? '' : ' cont') + '">'
+        + (isFirst ? titleHtml : '') + list.join('') + '</div>';
+    }
+    function flushChunk() {
+      if (!chunk.length) return;
+      curHtml.push(wrap(chunk, first)); curNodes.push(nd);
+      first = false; chunk = [];
+    }
+    paras.forEach(function (pEl) {
+      var rest = pEl;
+      while (rest) {
+        if (fits(wrap(chunk.concat([rest.outerHTML]), first))) {
+          chunk.push(rest.outerHTML); rest = null; break;
+        }
+        if (chunk.length > 0) { flushChunk(); pushPage(); continue; }
+        // chunk empty: the paragraph fits an empty page but not this one
+        // (the page already has content) - move to a fresh page first
+        if (curHtml.length > 0) { pushPage(); continue; }
+        var parts = splitParagraph(rest);
+        if (!parts) { chunk.push(rest.outerHTML); rest = null; break; }
+        chunk.push(parts[0]);
+        flushChunk(); pushPage();
+        var tmp = document.createElement('div');
+        tmp.innerHTML = parts[1];
+        rest = tmp.firstChild;
+      }
+    });
+    flushChunk();
+  }
+
   function pushPage() {
     // orphan-heading rule: a heading alone at the bottom moves to next page
     var carry = [];
@@ -172,7 +217,8 @@
 
   function paginate() {
     measureBook();
-    probe.style.width = pageW + 'px';
+    // the flip face carries a 1px border, so a desktop page is 1px narrower than pageW; single mode has no border
+    probe.style.width = (isSingle() ? pageW : pageW - 1) + 'px';
     probe.style.height = pageH + 'px';
     pages = [];
     curHtml = [];
@@ -201,6 +247,7 @@
         return;
       }
       // atomic element (heading, list, table, storybox, rule)
+      if (nd.el.classList && nd.el.classList.contains('storybox')) { splitStorybox(nd); return; }
       if (fits(nd.html)) { curHtml.push(nd.html); curNodes.push(nd); }
       else {
         if (curHtml.length > 0) { pushPage(); }
