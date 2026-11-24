@@ -61,13 +61,16 @@
   function fmtNum(n) {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
+  function coverArtHtml() {
+    // the book's full cover, as the first page - the way a printed book opens
+    return '<div class="flip-page coverart"><img src="' + DATA.cover + '" alt=""></div>';
+  }
   function coverHtml() {
     var items = DATA.chapters.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('');
     var digital = RTL
       ? 'ڈیجیٹل بکس دستیاب ہیں۔ فی الوقت پرنٹنگ ایڈیشن دستیاب نہیں ہے۔'
       : 'Digital books available. The print edition is not available at the moment.';
     return '<div class="flip-page cover">'
-      + '<img class="cover-img" src="' + DATA.cover + '" alt="">'
       + '<div class="cover-kicker">AIDE</div>'
       + '<h2>' + esc(DATA.title) + '</h2>'
       + '<div class="cover-author">' + esc(DATA.author) + '</div>'
@@ -256,7 +259,7 @@
     });
     if (curHtml.length > 0) { pushPage(); }
     // assemble: cover, content pages, end page
-    var all = [{ html: coverHtml(), start: 0 }];
+    var all = [{ html: coverArtHtml(), start: 0 }, { html: coverHtml(), start: 0 }];
     pages.forEach(function (p) { all.push({ html: p.html, start: p.start }); });
     all.push({ html: endHtml(), start: nodes.length });
     pages = all;
