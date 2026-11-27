@@ -3,80 +3,188 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>آزمائشی اسیسمنٹ — پائلٹ</title>
+<title>آزمائشی اسیسمنٹ | پائلٹ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --deep: #0B3D2E;
+    --sea: #146B52;
+    --sea2: #2E9E7A;
+    --gold: #C9B458;
+    --gold-soft: #E7D48A;
+    --ivory: #F7F4EE;
+    --ink: #1D2B26;
+    --muted: #5A6B63;
+    --glass: rgba(255, 255, 255, 0.62);
+    --glass-strong: rgba(255, 255, 255, 0.8);
+    --line: rgba(255, 255, 255, 0.75);
+  }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0; padding: 0;
     font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", "Alvi Nastaliq", serif;
     line-height: 2.1;
-    background: #f7f4ee; color: #1d2b26;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 520px at 85% -5%, rgba(46, 158, 122, 0.20), transparent 60%),
+      radial-gradient(700px 520px at -10% 30%, rgba(201, 180, 88, 0.22), transparent 60%),
+      linear-gradient(160deg, #F7F4EE 0%, #EAF3EC 48%, #FDF8E3 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
-  h1 { font-size: 1.6em; line-height: 2; margin: 0.2em 0; color: #0b3d2e; }
-  h2 { font-size: 1.25em; color: #0b3d2e; }
+  .orbs { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(56px); opacity: 0.5; }
+  .o1 { width: 340px; height: 340px; background: #9FD8BE; top: -70px; right: -60px; animation: drift 14s ease-in-out infinite alternate; }
+  .o2 { width: 280px; height: 280px; background: #EFDFA0; bottom: 6%; left: -70px; animation: drift 18s ease-in-out infinite alternate-reverse; }
+  .o3 { width: 200px; height: 200px; background: #BFE3D2; top: 42%; right: 12%; animation: drift 20s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(18px, -26px) scale(1.06); } }
+  @keyframes floaty { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 26px 16px 70px; }
+  h1 { font-size: 1.7em; line-height: 2; margin: 0.2em 0; color: var(--deep); }
+  h2 { font-size: 1.3em; color: var(--deep); }
+  h3 { font-size: 1.1em; color: var(--deep); margin: 0.2em 0; }
+  h1::after, h2::after {
+    content: ""; display: block; width: 64px; height: 3px; border-radius: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--sea2)); margin-top: 2px;
+  }
   p { margin: 0.4em 0; }
-  .muted { color: #5a6b63; font-size: 0.92em; }
-  .card {
-    background: #fff; border: 1px solid #ddd6c4; border-radius: 12px;
-    padding: 18px; margin: 14px 0;
+  .muted { color: var(--muted); font-size: 0.92em; }
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(14px) saturate(1.25);
+    -webkit-backdrop-filter: blur(14px) saturate(1.25);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(11, 61, 46, 0.12);
   }
+  .hero { padding: 22px 22px 16px; margin: 10px 0 18px; animation: floaty 6s ease-in-out infinite alternate; }
+  .card { padding: 20px; margin: 14px 0; }
   .assess-card {
-    display: block; width: 100%; text-align: right; cursor: pointer;
-    background: #fff; border: 1px solid #c9b458; border-radius: 12px;
-    padding: 16px 18px; margin: 12px 0; font: inherit; color: inherit;
+    display: block; width: 100%; text-align: right; cursor: pointer; font: inherit; color: inherit;
+    background: var(--glass);
+    backdrop-filter: blur(14px) saturate(1.25);
+    -webkit-backdrop-filter: blur(14px) saturate(1.25);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(11, 61, 46, 0.1);
+    padding: 18px 20px; margin: 12px 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  .assess-card:hover { background: #fdf8e3; }
-  .assess-name { display: block; font-size: 1.2em; color: #0b3d2e; }
-  .assess-meta { display: block; color: #5a6b63; font-size: 0.9em; }
+  .assess-card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 16px 34px rgba(11, 61, 46, 0.16); }
+  .assess-name { display: block; font-size: 1.25em; font-weight: 700; color: var(--deep); }
+  .assess-meta { display: block; color: var(--muted); font-size: 0.9em; }
   .assess-note {
     display: inline-block; margin-top: 6px; font-size: 0.8em;
-    background: #e6f2e7; color: #0b3d2e; border-radius: 20px; padding: 0 12px;
+    background: rgba(230, 242, 231, 0.85); color: var(--deep); border-radius: 999px; padding: 0 12px;
+    border: 1px solid rgba(201, 180, 88, 0.5);
   }
-  label { display: block; margin: 10px 0 2px; }
+  label { display: block; margin: 10px 0 2px; color: var(--deep); }
   input, select {
-    font: inherit; line-height: 1.6; width: 100%; padding: 8px 10px;
-    border: 1px solid #b9c4bd; border-radius: 8px; background: #fff;
+    font: inherit; line-height: 1.6; width: 100%; padding: 8px 12px;
+    border: 1px solid rgba(11, 61, 46, 0.3); border-radius: 12px;
+    background: rgba(255, 255, 255, 0.75); color: var(--ink);
   }
+  input:focus, select:focus { outline: 2px solid var(--gold); border-color: var(--sea); }
   .btn {
-    font: inherit; cursor: pointer; border: none; border-radius: 10px;
-    padding: 10px 26px; margin: 8px 0 8px 8px;
-    background: #0b3d2e; color: #fff;
+    font: inherit; cursor: pointer; border-radius: 999px; padding: 8px 26px; margin: 8px 0 8px 8px;
+    background: linear-gradient(135deg, #0B3D2E, #146B52); color: #fff;
+    border: 1px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(11, 61, 46, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .btn.secondary { background: #fff; color: #0b3d2e; border: 1px solid #0b3d2e; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11, 61, 46, 0.3); }
+  .btn.secondary {
+    background: rgba(255, 255, 255, 0.7); color: var(--deep);
+    border: 1px solid rgba(11, 61, 46, 0.35); box-shadow: 0 6px 16px rgba(11, 61, 46, 0.1);
+  }
   .btn:disabled { opacity: 0.5; cursor: default; }
-  .progress { height: 10px; background: #e3ddd0; border-radius: 6px; overflow: hidden; margin: 8px 0; }
-  .progress > div { height: 100%; background: #c9b458; width: 0%; }
-  .q-scale { color: #8a6d1b; font-size: 0.95em; }
-  .q-text { font-size: 1.25em; margin: 10px 0 18px; }
+  .progress { height: 12px; background: rgba(11, 61, 46, 0.12); border-radius: 999px; overflow: hidden; margin: 8px 0; border: 1px solid rgba(255, 255, 255, 0.6); }
+  .progress > div { height: 100%; background: linear-gradient(90deg, var(--gold), var(--sea2)); width: 0%; transition: width 0.4s ease; }
+  .q-scale { color: #8A6D1B; font-size: 0.95em; }
+  .q-text { font-size: 1.4em; line-height: 2.1; margin: 10px 0 18px; color: var(--deep); }
   .opt {
     display: block; width: 100%; text-align: right; cursor: pointer;
-    font: inherit; background: #fff; border: 1px solid #b9c4bd;
-    border-radius: 10px; padding: 10px 16px; margin: 8px 0;
+    font: inherit; line-height: 2; color: var(--ink);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(11, 61, 46, 0.25); border-radius: 14px;
+    padding: 10px 16px; margin: 8px 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
-  .opt:hover { border-color: #0b3d2e; }
-  .opt.selected { background: #0b3d2e; color: #fff; border-color: #0b3d2e; }
-  .hint { color: #a33; min-height: 1.5em; }
+  .opt:hover { transform: translateY(-2px); border-color: var(--sea); }
+  .opt.selected {
+    background: linear-gradient(135deg, #0B3D2E, #146B52); color: #fff; border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(201, 180, 88, 0.55), 0 8px 18px rgba(11, 61, 46, 0.25);
+  }
+  .hint { color: #A33; min-height: 1.5em; }
   table.results { width: 100%; border-collapse: collapse; margin: 12px 0; line-height: 1.9; }
-  table.results th, table.results td { border: 1px solid #ddd6c4; padding: 6px 10px; text-align: right; }
-  table.results th { background: #eef3ee; }
-  tr.total-row td { font-weight: bold; background: #fdf8e3; }
+  table.results th, table.results td { border: 1px solid rgba(11, 61, 46, 0.14); padding: 6px 10px; text-align: right; }
+  table.results th { background: rgba(238, 243, 238, 0.8); }
+  tr.total-row td { font-weight: bold; background: rgba(253, 248, 227, 0.85); }
   .pilot-note {
-    background: #fdf8e3; border: 1px solid #c9b458; border-radius: 8px;
+    background: rgba(253, 248, 227, 0.8); border: 1px solid rgba(201, 180, 88, 0.6); border-radius: 14px;
     padding: 10px 14px; font-size: 0.92em;
   }
-  code { direction: ltr; unicode-bidi: embed; font-size: 0.85em; background: #eee; padding: 0 4px; }
-  footer { margin-top: 30px; border-top: 1px solid #ddd6c4; padding-top: 10px; }
+  code { direction: ltr; unicode-bidi: embed; font-size: 0.85em; background: rgba(11, 61, 46, 0.08); padding: 0 4px; border-radius: 4px; }
+  footer { margin-top: 30px; border-top: 1px solid rgba(11, 61, 46, 0.14); padding-top: 10px; }
+  /* ڈیش بورڈ */
+  .dash-hero { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .ring-wrap { position: relative; width: 140px; height: 140px; flex: 0 0 auto; }
+  .ring { width: 140px; height: 140px; transform: rotate(-90deg); }
+  .ring-track { fill: none; stroke: rgba(11, 61, 46, 0.12); stroke-width: 11; }
+  .ring-fill { fill: none; stroke: url(#ringGrad); stroke-width: 11; stroke-linecap: round; }
+  .ring-num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.7; }
+  .ring-num b { font-size: 1.9em; color: var(--deep); }
+  .ring-num span { font-size: 0.85em; color: var(--muted); }
+  .bar-row { margin: 14px 0; }
+  .bar-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .bar-name { font-weight: 700; color: var(--deep); }
+  .bar-val { color: var(--muted); font-size: 0.9em; }
+  .bar-track { height: 12px; border-radius: 999px; background: rgba(11, 61, 46, 0.12); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.6); }
+  .bar-fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--sea2), var(--sea)); transition: width 0.9s ease; }
+  .bar-row.strong .bar-fill { background: linear-gradient(90deg, var(--gold-soft), var(--gold)); }
+  .bar-row.weak .bar-fill { background: linear-gradient(90deg, #D8C98A, #B9A86A); opacity: 0.8; }
+  .badge { display: inline-block; font-size: 0.78em; border-radius: 999px; padding: 0 10px; margin-right: 6px; }
+  .badge-gold { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #3D3205; }
+  .badge-soft { background: rgba(11, 61, 46, 0.1); color: var(--muted); }
+  .compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+  .cmp { padding: 12px; text-align: center; }
+  .cmp b { display: block; font-size: 1.4em; color: var(--deep); }
+  .hist-row {
+    display: flex; justify-content: space-between; gap: 10px; width: 100%; text-align: right;
+    font: inherit; cursor: pointer; color: var(--ink);
+    background: rgba(255, 255, 255, 0.55); border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 14px; padding: 10px 14px; margin: 8px 0;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .hist-row:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .dash-actions { margin-top: 16px; }
+  @media (max-width: 560px) {
+    .compare { grid-template-columns: 1fr; }
+    .q-text { font-size: 1.3em; }
+    .wrap { padding: 18px 12px 60px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
+<div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
 <div class="wrap">
 
   <!-- Home -->
   <div id="screen-home" style="display:none">
-    <h1>آزمائشی اسیسمنٹ</h1>
-    <p>تین اصل اردو اسیسمنٹ، آزمائش سے پہلے کا آخری نسخہ۔ ایک اسیسمنٹ منتخب کریں۔</p>
-    <p class="muted">آپ کے جوابات کہیں نہیں بھیجے جاتے۔ وہ صرف آپ کے اپنے آلے پر محفوظ ہوتے ہیں، اور آپ نتیجے کے صفحے سے انہیں فائل کی صورت میں اتار سکتے ہیں۔</p>
+    <div class="glass hero">
+      <h1>آزمائشی اسیسمنٹ</h1>
+      <p>تین اصل اردو اسیسمنٹ، آزمائش سے پہلے کا آخری نسخہ۔ ایک اسیسمنٹ منتخب کریں۔</p>
+      <p class="muted">آپ کے جوابات کہیں نہیں بھیجے جاتے۔ وہ صرف آپ کے اپنے آلے پر محفوظ ہوتے ہیں، اور آپ نتیجے کے صفحے سے انہیں فائل کی صورت میں اتار سکتے ہیں۔</p>
+      <button class="btn secondary" id="btn-dash-home">میرا ڈیش بورڈ</button>
+    </div>
     <div id="assessment-list"></div>
     <footer><p class="muted">یہ آزمائش ہے، حتمی اسیسمنٹ نہیں۔ نمبر صرف آزمائش کے اعداد ہیں؛ ابھی کوئی درجہ بندی یا نتیجہ طے نہیں ہوا۔</p></footer>
   </div>
@@ -84,7 +192,7 @@
   <!-- Respondent info -->
   <div id="screen-info" style="display:none">
     <h2 id="info-title"></h2>
-    <div class="card">
+    <div class="glass card">
       <p>آپ کا خفیہ کوڈ: <strong id="info-code"></strong></p>
       <p class="muted">یہ کوڈ آپ کے جوابات سے منسلک ہوگا۔ نام نہیں مانگا جاتا۔ نیچے کی معلومات اختیاری ہیں، صرف آزمائش کے تجزیے کے لیے۔</p>
       <label for="f-age">عمر</label>
@@ -105,7 +213,7 @@
   <div id="screen-quiz" style="display:none">
     <p class="muted" id="q-progress-text"></p>
     <div class="progress"><div id="q-progress-bar"></div></div>
-    <div class="card">
+    <div class="glass card">
       <div class="q-scale" id="q-scale"></div>
       <div class="q-text" id="q-text"></div>
       <div id="q-options"></div>
@@ -127,16 +235,32 @@
     <button class="btn secondary" id="btn-dl-all-json">اس آلے کے تمام جوابات JSON میں اتاریں</button>
     <button class="btn secondary" id="btn-dl-all-csv">اس آلے کے تمام جوابات CSV میں اتاریں</button>
     <br>
+    <button class="btn" id="btn-dash-results">ڈیش بورڈ دیکھیں</button>
     <button class="btn secondary" id="btn-again">نئی جانچ شروع کریں</button>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="screen-dash" style="display:none">
+    <h2 id="dash-title">میرا ڈیش بورڈ</h2>
+    <p class="muted">یہ سب کچھ صرف اسی آلے پر محفوظ ہے۔ کوئی جواب کہیں نہیں بھیجا جاتا۔</p>
+    <div id="dash-body"></div>
+    <div class="dash-actions">
+      <button class="btn secondary" id="btn-dash-dl-json">تمام جوابات JSON میں اتاریں</button>
+      <button class="btn secondary" id="btn-dash-dl-csv">تمام جوابات CSV میں اتاریں</button>
+      <button class="btn secondary" id="btn-dash-clear">سب صاف کریں</button>
+      <button class="btn" id="btn-dash-back">واپس ہوم پر</button>
+    </div>
   </div>
 
   <!-- Load error -->
   <div id="screen-error" style="display:none">
     <h2>سوالات نہیں کھل سکے</h2>
-    <p id="error-detail"></p>
-    <p>اس صفحے کو براہ راست کھولنے کے بجائے اس فولڈر میں یہ حکم چلا کر کھولیں:</p>
-    <p><code>python3 -m http.server 8000</code></p>
-    <p>پھر براؤزر میں <code>http://localhost:8000/</code> کھولیں۔</p>
+    <div class="glass card">
+      <p id="error-detail"></p>
+      <p>اس صفحے کو براہ راست کھولنے کے بجائے اس فولڈر میں یہ حکم چلا کر کھولیں:</p>
+      <p><code>python3 -m http.server 8000</code></p>
+      <p>پھر براؤزر میں <code>http://localhost:8000/</code> کھولیں۔</p>
+    </div>
   </div>
 
 </div>

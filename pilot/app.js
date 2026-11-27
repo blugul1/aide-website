@@ -119,7 +119,7 @@ if (typeof document !== 'undefined') {
 
   function $(id) { return document.getElementById(id); }
   function show(id) {
-    ['screen-home', 'screen-info', 'screen-quiz', 'screen-results', 'screen-error']
+    ['screen-home', 'screen-info', 'screen-quiz', 'screen-results', 'screen-dash', 'screen-error']
       .forEach(function (s) { $(s).style.display = (s === id) ? '' : 'none'; });
     window.scrollTo(0, 0);
   }
@@ -249,7 +249,7 @@ if (typeof document !== 'undefined') {
     html += '<tr class="total-row"><td>کل</td><td>' + scores.total + '</td><td>' + scores.maxTotal + '</td></tr></table>';
     html += '<p class="pilot-note">یہ آزمائش سے پہلے کا آخری نسخہ ہے۔ ابھی کوئی درجہ بندی، نتیجہ یا فیصلہ طے نہیں ہوا؛ نمبر صرف آزمائش کے اعداد ہیں۔</p>';
     $('results-body').innerHTML = html;
-    $('results-title').textContent = state.assessment.name + ' — نتیجہ';
+    $('results-title').textContent = state.assessment.name + ' کا نتیجہ';
     show('screen-results');
   }
 
@@ -277,6 +277,109 @@ if (typeof document !== 'undefined') {
     }
   }
 
+  /* ---------- Dashboard (local only, reads localStorage) ---------- */
+  function getSaved() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch (e) { return []; }
+  }
+
+  function fmtDate(ts) {
+    try {
+      var d = new Date(ts);
+      var s = d.toLocaleDateString('ur-PK', { day: 'numeric', month: 'long', year: 'numeric' });
+      if (s && s !== 'Invalid Date') return s + '، ' + d.toTimeString().slice(0, 5);
+    } catch (e) {}
+    return String(ts).slice(0, 10);
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function latestByAssessment(saved) {
+    var map = {};
+    saved.forEach(function (r) { map[r.assessment_id] = r; });
+    return map;
+  }
+
+  function renderDash(record) {
+    var saved = getSaved();
+    var body = $('dash-body');
+    if (!saved.length) {
+      body.innerHTML = '<div class="glass card"><p>ابھی تک کوئی کوشش محفوظ نہیں۔ پہلا جائزہ دے کر آغاز کریں۔</p></div>';
+      return;
+    }
+    var rec = record || saved[saved.length - 1];
+    var scores = computeScores(rec.items, rec.responses);
+    var pcts = scores.scaleOrder.map(function (name) {
+      var s = scores.scales[name];
+      return { name: name, score: s.score, max: s.max, pct: s.max ? (s.score / s.max * 100) : 0 };
+    });
+    var maxPct = Math.max.apply(null, pcts.map(function (p) { return p.pct; }));
+    var minPct = Math.min.apply(null, pcts.map(function (p) { return p.pct; }));
+    var tied = (maxPct === minPct);
+    var totalPct = scores.maxTotal ? (scores.total / scores.maxTotal * 100) : 0;
+    var C = 2 * Math.PI * 58;
+    var off = (C * (1 - totalPct / 100)).toFixed(1);
+
+    var html = '';
+    html += '<div class="glass card dash-hero">';
+    html += '<div class="ring-wrap"><svg class="ring" viewBox="0 0 140 140"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E9E7A"/><stop offset="1" stop-color="#C9B458"/></linearGradient></defs><circle class="ring-track" cx="70" cy="70" r="58"/><circle class="ring-fill" cx="70" cy="70" r="58" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off + '"/></svg><div class="ring-num"><b>' + scores.total + '</b><span>' + scores.maxTotal + ' میں سے</span></div></div>';
+    html += '<div><h3>' + escHtml(rec.assessment_name) + '</h3><p class="muted">' + fmtDate(rec.timestamp) + ' ۔  کوڈ: ' + escHtml(rec.respondent_code) + '</p><p>کل نمبر ' + scores.total + ' از ' + scores.maxTotal + ' (' + totalPct.toFixed(0) + '٪)۔ یہ آزمائش سے پہلے کا آخری نسخہ ہے، ابھی کوئی درجہ بندی طے نہیں ہوئی۔</p></div>';
+    html += '</div>';
+
+    html += '<div class="glass card"><h3>ہر پیمانے کی تصویر</h3>';
+    if (tied) html += '<p class="muted">تمام پیمانے برابر ہیں۔</p>';
+    pcts.forEach(function (p) {
+      var cls = 'bar-row' + (!tied && p.pct === maxPct ? ' strong' : '') + (!tied && p.pct === minPct ? ' weak' : '');
+      var badge = '';
+      if (!tied && p.pct === maxPct) badge = '<span class="badge badge-gold">مضبوط ترین</span>';
+      if (!tied && p.pct === minPct) badge = '<span class="badge badge-soft">توجہ کا پہلو</span>';
+      html += '<div class="' + cls + '"><div class="bar-top"><span class="bar-name">' + escHtml(p.name) + ' ' + badge + '</span><span class="bar-val">' + p.score + ' از ' + p.max + ' (' + p.pct.toFixed(0) + '٪)</span></div><div class="bar-track"><div class="bar-fill" data-w="' + p.pct.toFixed(1) + '" style="width:0%"></div></div></div>';
+    });
+    html += '</div>';
+
+    var byId = latestByAssessment(saved);
+    var have = DATA ? DATA.assessments.filter(function (a) { return byId[a.id]; }) : [];
+    html += '<div class="glass card"><h3>تینوں کا موازنہ</h3>';
+    if (have.length < 2) {
+      html += '<p class="muted">موازنہ تب دکھے گا جب تین میں سے کم از کم دو اسیسمنٹ مکمل ہوں۔ ابھی ' + have.length + ' مکمل ہے۔</p>';
+    } else {
+      html += '<div class="compare">';
+      (DATA ? DATA.assessments : []).forEach(function (a) {
+        var r = byId[a.id];
+        if (r) {
+          var sc = computeScores(r.items, r.responses);
+          var pc = sc.maxTotal ? (sc.total / sc.maxTotal * 100) : 0;
+          html += '<div class="glass cmp"><span>' + escHtml(a.name) + '</span><b>' + sc.total + ' از ' + sc.maxTotal + '</b><span class="muted">' + pc.toFixed(0) + '٪</span></div>';
+        } else {
+          html += '<div class="glass cmp"><span>' + escHtml(a.name) + '</span><b>۔</b><span class="muted">ابھی نہیں دیا گیا</span></div>';
+        }
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+
+    html += '<div class="glass card"><h3>پرانی کوششیں</h3>';
+    for (var i = saved.length - 1; i >= 0; i--) {
+      var r = saved[i];
+      var sc2 = computeScores(r.items, r.responses);
+      html += '<button class="hist-row" data-rec="' + i + '"><span>' + escHtml(r.assessment_name) + '</span><span>' + fmtDate(r.timestamp) + '</span><span><b>' + sc2.total + ' از ' + sc2.maxTotal + '</b></span></button>';
+    }
+    html += '<p><button class="btn" data-retake="' + rec.assessment_id + '">دوبارہ دیں</button></p>';
+    html += '</div>';
+
+    body.innerHTML = html;
+    setTimeout(function () {
+      var fills = body.querySelectorAll('.bar-fill');
+      for (var j = 0; j < fills.length; j++) fills[j].style.width = fills[j].getAttribute('data-w') + '%';
+    }, 40);
+  }
+
+  function showDash(record) {
+    renderDash(record);
+    show('screen-dash');
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     $('btn-start-info').addEventListener('click', beginQuiz);
     $('btn-prev').addEventListener('click', prevQuestion);
@@ -286,6 +389,41 @@ if (typeof document !== 'undefined') {
     $('btn-dl-all-json').addEventListener('click', function () { downloadAll('json'); });
     $('btn-dl-all-csv').addEventListener('click', function () { downloadAll('csv'); });
     $('btn-again').addEventListener('click', function () { state.code = makeCode(); renderHome(); show('screen-home'); });
+    $('btn-dash-home').addEventListener('click', function () { showDash(null); });
+    $('btn-dash-results').addEventListener('click', function () { showDash(window._lastRecord || null); });
+    $('btn-dash-back').addEventListener('click', function () { renderHome(); show('screen-home'); });
+    $('btn-dash-dl-json').addEventListener('click', function () { downloadAll('json'); });
+    $('btn-dash-dl-csv').addEventListener('click', function () { downloadAll('csv'); });
+    var clearArmed = false;
+    $('btn-dash-clear').addEventListener('click', function () {
+      if (!clearArmed) {
+        clearArmed = true;
+        this.textContent = 'پکا کریں: سب صاف کر دوں؟';
+        var self = this;
+        setTimeout(function () { clearArmed = false; self.textContent = 'سب صاف کریں'; }, 5000);
+        return;
+      }
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      clearArmed = false;
+      this.textContent = 'سب صاف کریں';
+      renderDash(null);
+    });
+    $('dash-body').addEventListener('click', function (ev) {
+      var t = ev.target;
+      var row = t.closest ? t.closest('[data-rec]') : null;
+      if (row) {
+        var rec = getSaved()[parseInt(row.getAttribute('data-rec'), 10)];
+        if (rec) renderDash(rec);
+        return;
+      }
+      var rb = t.closest ? t.closest('[data-retake]') : null;
+      if (rb) {
+        var aid = rb.getAttribute('data-retake');
+        var a = null;
+        DATA.assessments.forEach(function (x) { if (x.id === aid) a = x; });
+        if (a) startAssessment(a);
+      }
+    });
     loadData();
   });
 }
