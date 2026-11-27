@@ -1,13 +1,24 @@
 /* Pilot app logic for the three Urdu assessments.
  * Pure functions (scoring, CSV/JSON building) are testable in Node.
  * DOM wiring only runs in a browser.
- * No data leaves the device. Completed responses live in localStorage only.
+ * Completed responses are saved in localStorage AND sent anonymously
+ * (secret code only, no name) to the pilot Google Sheet via SHEET_URL.
+ * If the send fails, the local copy and the file download remain the backup.
  */
 'use strict';
 
 var RESPONSE_LABELS = ['کبھی نہیں', 'کبھی کبھار', 'اکثر', 'تقریباً ہمیشہ'];
 var MAX_VALUE = 3;
 var STORAGE_KEY = 'pilot_responses_v1';
+/* Pilot data intake: Google Apps Script web app ("Pilot intake", maniimranm9).
+ * Receives one anonymous record per completed response. */
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtI3G9zccK9FsIPs2QRUtU8KuEmKrCkNuSOk-l1TL_4JqwsPqZoi6gstRWiRP5qTYH/exec';
+
+function sendToSheet(payload) {
+  try {
+    fetch(SHEET_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) }).catch(function () { /* local copy remains the backup */ });
+  } catch (e) { /* sending must never block the result screen */ }
+}
 
 /* Score one item: raw 0..3; reverse items flip (3 becomes 0). */
 function scoreItem(item, raw) {
@@ -234,11 +245,20 @@ if (typeof document !== 'undefined') {
       items: state.items,
       responses: state.responses
     };
-    // Save locally only; nothing is sent anywhere.
+    // Save locally, and send one anonymous copy to the pilot Sheet.
     var saved = [];
     try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch (e) { saved = []; }
     saved.push(record);
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) { /* storage full */ }
+    var sheetScales = {};
+    scores.scaleOrder.forEach(function (name) { sheetScales[name] = scores.scales[name].score; });
+    sendToSheet({
+      code: state.code,
+      assessment: state.assessment.id,
+      age: state.age || '', gender: state.gender || '', city: state.city || '',
+      total: scores.total, max: scores.maxTotal,
+      scales: sheetScales, answers: state.responses
+    });
     window._lastRecord = record;
 
     var html = '<table class="results"><tr><th>پیمانہ</th><th>نمبر</th><th>زیادہ سے زیادہ</th></tr>';
